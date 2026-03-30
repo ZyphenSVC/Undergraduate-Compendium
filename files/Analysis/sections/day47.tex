@@ -7,30 +7,23 @@
     If $f:X\to Y$ is continuous and $X$ is compact, then $f$ is uniformly continuous.
 }
     Let $\eps > 0$.
-
     For each $c\in X$, by continuity of $f$ at $c$, there exists $\delta_c > 0$ such that
     \[
         d_X(x,c) < \delta_c \implies d_Y(f(x),f(c)) < \frac{\eps}{2}.
     \]
-
     Then $\{B(c,\delta_c)\}_{c\in X}$ is an open cover of $X$.
-
     By the Lebesgue Big Number Lemma, there exists $\delta > 0$ such that for all $x\in X$, there exists $c\in X$ with
     \[
         B(x,\delta)\subseteq B(c,\delta_c).
     \]
-
     Now suppose $d_X(x,y) < \delta$.
-
     Then $y\in B(x,\delta)\subseteq B(c,\delta_c)$, and also $x\in B(c,\delta_c)$.
-
     So
     \[
         d_Y(f(x),f(c)) < \frac{\eps}{2}
         \qquad\text{and}\qquad
         d_Y(f(y),f(c)) < \frac{\eps}{2}.
     \]
-
     Hence
     \begin{align*}
         d_Y(f(x),f(y))
@@ -38,7 +31,6 @@
         &< \frac{\eps}{2} + \frac{\eps}{2}\\
         &= \eps.
     \end{align*}
-
     So $f$ is uniformly continuous.
 \end{proposition}
 
@@ -58,21 +50,17 @@
 
 \begin{theorem}[Banach Fixed Point Theorem]{
     Let $(X,d)$ be a complete metric space.
-
     If $f:X\to X$ is a contraction, then there exists a unique fixed point.
 }
     Pick $x_0\in X$.
-
     Define a sequence by
     \[
         x_{n+1} \coloneqq f(x_n).
     \]
-
     Then
     \[
         d(x_{n+1},x_n) \leq K^n d(x_1,x_0).
     \]
-
     For $m>n$, we have
     \begin{align*}
         d(x_m,x_n)
@@ -81,11 +69,8 @@
         &= d(x_1,x_0)\sum_{i=n}^{m-1} K^i\\
         &\leq \frac{K^n}{1-K} d(x_1,x_0).
     \end{align*}
-
     So $(x_n)$ is Cauchy.
-
     Since $X$ is complete, there exists $x\in X$ such that $x_n\to x$.
-
     Since $f$ is continuous, we have
     \[
         x = \lim_{n\to\infty} x_{n+1}
@@ -93,18 +78,14 @@
         = f\left(\lim_{n\to\infty} x_n\right)
         = f(x).
     \]
-
     So $x$ is a fixed point.
-
     To prove uniqueness, suppose $y\in X$ is another fixed point.
-
     Then
     \begin{align*}
         d(x,y)
         &= d(f(x),f(y))\\
         &\leq K\,d(x,y).
     \end{align*}
-
     Since $0\leq K<1$, this implies
     \[
         (1-K)d(x,y)\leq 0,
@@ -113,6 +94,5 @@
     \[
         d(x,y)=0.
     \]
-
     Hence $x=y$.
 \end{theorem}

@@ -11,36 +11,30 @@
     \]
 }
     Let $\eps > 0$ be given.
-
     Choose a partition $P=\{x_i\}$ of $[a,b]$ such that
     \[
         \U(f,P) - \L(f,P) < \eps.
     \]
-
     For each subinterval $[x_{i-1},x_i]$, let
     \[
         M_i \coloneqq \sup_{x\in[x_{i-1},x_i]} f(x),
         \qquad
         m_i \coloneqq \inf_{x\in[x_{i-1},x_i]} f(x).
     \]
-
     Also let
     \[
         \overline{M_i} \coloneqq \sup_{x\in[x_{i-1},x_i]} \abs{f(x)},
         \qquad
         \overline{m_i} \coloneqq \inf_{x\in[x_{i-1},x_i]} \abs{f(x)}.
     \]
-
     For any $z,w$ in the same subinterval,
     \[
         \abs{\abs{f(z)}-\abs{f(w)}} \leq \abs{f(z)-f(w)} \leq M_i-m_i.
     \]
-
     Hence
     \[
         \overline{M_i}-\overline{m_i}\leq M_i-m_i.
     \]
-
     Therefore
     \begin{align*}
         \U(\abs{f},P)-\L(\abs{f},P)
@@ -49,19 +43,15 @@
         &= \U(f,P)-\L(f,P)\\
         &< \eps.
     \end{align*}
-
     So $\abs{f}$ is Riemann integrable.
-
     Also, for all $x\in[a,b]$,
     \[
         -\abs{f(x)} \leq f(x) \leq \abs{f(x)}.
     \]
-
     By monotonicity of the integral,
     \[
         -\int_a^b \abs{f(x)}\,dx \leq \int_a^b f(x)\,dx \leq \int_a^b \abs{f(x)}\,dx.
     \]
-
     Hence
     \[
         \abs{\int_a^b f(x)\,dx}\leq\int_a^b\abs{f(x)}\,dx.
@@ -88,13 +78,11 @@
 }
     \textbf{(1).}
     Let $c\in[a,b]$.
-
     Since $f$ is Riemann integrable on $[a,b]$, it is bounded.
     So choose $C>0$ such that
     \[
         \abs{f(t)}\leq C \quad \text{for all } t\in[a,b].
     \]
-
     If $x\in[a,b]$, then
     \begin{align*}
         \abs{F(x)-F(c)}
@@ -103,19 +91,14 @@
         &\leq \int_c^x \abs{f(t)}\,dt\\
         &\leq C\abs{x-c}.
     \end{align*}
-
     Hence $F$ is continuous at $c$.
-
     \textbf{(2).}
     Suppose $f$ is continuous at $c$.
-
     Let $\eps>0$ be given.
-
     Choose $\delta>0$ such that
     \[
         \abs{t-c}<\delta \implies \abs{f(t)-f(c)}<\eps.
     \]
-
     If $0<\abs{x-c}<\delta$, then
     \begin{align*}
         \abs{\frac{F(x)-F(c)}{x-c}-f(c)}
@@ -125,41 +108,32 @@
         &< \frac{1}{\abs{x-c}} \int_c^x \eps\,dt\\
         &= \eps.
     \end{align*}
-
     So $F\uptick(c)=f(c)$.
-
     \textbf{(3).}
     Let $P=\{x_i\}$ be any partition of $[a,b]$.
-
     By the Mean Value Theorem, for each $i$ there exists $y_i\in(x_{i-1},x_i)$ such that
     \[
         G(x_i)-G(x_{i-1}) = G\uptick(y_i)(x_i-x_{i-1}) = f(y_i)(x_i-x_{i-1}).
     \]
-
     Summing,
     \begin{align*}
         G(b)-G(a)
         &= \sum_{i=1}^n \bigl(G(x_i)-G(x_{i-1})\bigr)\\
         &= \sum_{i=1}^n f(y_i)(x_i-x_{i-1}).
     \end{align*}
-
     So $G(b)-G(a)$ is a Riemann sum for $f$ with respect to $P$.
-
     Given $\eps>0$, choose a partition $P$ such that
     \[
         \U(f,P)-\L(f,P)<\eps.
     \]
-
     Then every Riemann sum $S$ with respect to $P$ satisfies
     \[
         \L(f,P)\leq S\leq \U(f,P).
     \]
-
     In particular,
     \[
         \L(f,P)\leq G(b)-G(a)\leq \U(f,P).
     \]
-
     Since
     \[
         \L(f,P)\leq \int_a^b f(x)\,dx \leq \U(f,P),
@@ -168,7 +142,6 @@
     \[
         \abs{G(b)-G(a)-\int_a^b f(x)\,dx}\leq \U(f,P)-\L(f,P)<\eps.
     \]
-
     Hence
     \[
         G(b)-G(a)=\int_a^b f(x)\,dx.

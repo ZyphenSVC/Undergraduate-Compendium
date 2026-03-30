@@ -14,7 +14,6 @@
 \begin{example}
     Let $f(x) = \dfrac{1}{x}$ on $(0,1]$.
     It is continuous at every point of $(0,1]$.
-
     Let
     \[
         x_n \coloneqq \dfrac{1}{n}
@@ -28,14 +27,12 @@
         &= \dfrac{1}{n(n+1)}\\
         &< \dfrac{1}{n}.
     \end{align*}
-
     Also,
     \begin{align*}
         \abs{f(x_n)-f(x_{n+1})}
         &= \abs{n-(n+1)}\\
         &= 1.
     \end{align*}
-
     So $f(x) = \dfrac{1}{x}$ is continuous but not uniformly continuous on $(0,1]$.
 \end{example}
 
@@ -45,7 +42,6 @@
     Then $f$ is uniformly continuous on $C$.
 }
 	Assume for the sake of contradiction that the uniform continuity condition fails at some $\eps > 0$.
-
     Then for every $n\in\n$, there exist $x_n,y_n\in C$ such that
     \[
         \abs{x_n - y_n}< \dfrac{1}{n}
@@ -54,15 +50,12 @@
     \[
         \abs{f(x_n) - f(y_n)}\geq\eps.
     \]
-
     We can extract a convergent subsequence $(x_{n_k})$ from $(x_n)$, say $x_{n_k}\to x\in C$.
-
     Notice
     \[
         y_{n_k} = x_{n_k} + (y_{n_k} - x_{n_k})\to x,
     \]
     so $y_{n_k}\to x$.
-
     Since $f$ is continuous, we have
     \[
         f(x_{n_k})\to f(x)
@@ -71,12 +64,10 @@
     \[
         f(y_{n_k})\to f(x).
     \]
-
     So
     \[
         f(x_{n_k}) - f(y_{n_k})\to f(x) - f(x) = 0.
     \]
-
     Hence
     \[
         \abs{f(x_{n_k}) - f(y_{n_k})}\to 0,
@@ -85,6 +76,5 @@
     \[
         \abs{f(x_{n_k}) - f(y_{n_k})}\geq\eps.
     \]
-
     Therefore $f$ is uniformly continuous on $C$.
 \end{theorem}

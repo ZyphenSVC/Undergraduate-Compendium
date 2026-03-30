@@ -40,19 +40,16 @@
     \]
 }
     It suffices to prove this when $Q = P\cup\{x\}$, where $x\in(x_{i-1},x_i)$ for some $i$.
-
     Let
     \[
         M_i \coloneqq \sup_{t\in[x_{i-1},x_i]} f(t), \quad
         M_i' \coloneqq \sup_{t\in[x_{i-1},x]} f(t), \quad
         M_i'' \coloneqq \sup_{t\in[x,x_i]} f(t).
     \]
-
     Then
     \[
         M_i'\leq M_i, \quad M_i''\leq M_i.
     \]
-
     So
     \begin{align*}
         \U(f,Q) - \U(f,P)
@@ -60,17 +57,14 @@
         &\leq M_i(x-x_{i-1}) + M_i(x_i-x) - M_i(x_i-x_{i-1})\\
         &= 0.
     \end{align*}
-
     Hence
     \[
         \U(f,Q)\leq \U(f,P).
     \]
-
     Similarly,
     \[
         \L(f,Q)\geq \L(f,P).
     \]
-
     Since always
     \[
         \U(f,Q)\geq \L(f,Q),
@@ -106,34 +100,27 @@
     If $f$ is continuous on $[a,b]$, then $f$ is Riemann integrable on $[a,b]$.
 }
 	Let $\eps > 0$ be given.
-
     We want to find a partition $P$ such that
     \[
         \U(f,P) - \L(f,P) < \eps.
     \]
-
     Since $f$ is continuous on $[a,b]$, it is uniformly continuous.
-
     So there exists $\delta > 0$ such that
     \[
         \abs{x-x^\prime} < \delta \implies \abs{f(x) - f(x^\prime)} < \frac{\eps}{b-a}.
     \]
-
     Choose a partition $P$ such that every subinterval satisfies
     \[
         x_i - x_{i-1} < \delta.
     \]
-
     For each $i$, let
     \[
         M_i \coloneqq \sup_{x\in[x_{i-1},x_i]} f(x), \quad m_i \coloneqq \inf_{x\in[x_{i-1},x_i]} f(x).
     \]
-
     By the Extreme Value Theorem, there exist $z_i,w_i\in[x_{i-1},x_i]$ such that
     \[
         M_i = f(z_i), \quad m_i = f(w_i).
     \]
-
     Then
     \[
         \abs{z_i-w_i} \leq x_i-x_{i-1} < \delta,
@@ -142,7 +129,6 @@
     \[
         M_i - m_i = f(z_i)-f(w_i) < \frac{\eps}{b-a}.
     \]
-
     Hence
     \begin{align*}
         \U(f,P) - \L(f,P)
@@ -165,11 +151,8 @@
     \]
 }
 	\textbf{($\impliedby$).}
-
     Suppose $f$ is Riemann integrable on both $[a,c]$ and $[c,b]$.
-
     Let $\eps > 0$ be given.
-
     Choose partitions $P_1$ of $[a,c]$ and $P_2$ of $[c,b]$ such that
     \[
         \U(f,P_1)-\L(f,P_1)<\frac{\eps}{2}
@@ -178,12 +161,10 @@
     \[
         \U(f,P_2)-\L(f,P_2)<\frac{\eps}{2}.
     \]
-
     Put
     \[
         P\coloneqq P_1\cup P_2.
     \]
-
     Then $P$ is a partition of $[a,b]$, and
     \[
         \U(f,P)=\U(f,P_1)+\U(f,P_2),
@@ -192,7 +173,6 @@
     \[
         \L(f,P)=\L(f,P_1)+\L(f,P_2).
     \]
-
     So
     \begin{align*}
         \U(f,P)-\L(f,P)
@@ -200,22 +180,16 @@
         &< \frac{\eps}{2}+\frac{\eps}{2}\\
         &= \eps.
     \end{align*}
-
     Hence $f$ is Riemann integrable on $[a,b]$.
 
     \textbf{($\implies$).}
-
     Suppose $f$ is Riemann integrable on $[a,b]$.
-
     Let $\eps > 0$.
-
     Choose a partition $P$ of $[a,b]$ with $c\in P$ such that
     \[
         \U(f,P)-\L(f,P)<\eps.
     \]
-
     Let $P_1$ and $P_2$ be the induced partitions of $[a,c]$ and $[c,b]$.
-
     Then
     \[
         \U(f,P)-\L(f,P)
@@ -224,10 +198,7 @@
         +
         (\U(f,P_2)-\L(f,P_2)).
     \]
-
     So each term is at most $\eps$.
-
     Hence $f$ is Riemann integrable on both $[a,c]$ and $[c,b]$.
-
     The integral identity follows from the same decomposition of upper and lower sums.
 \end{theorem}

@@ -9,7 +9,6 @@
         \prod_{n=1}^\infty(1+a_n)
         \qquad\text{where } a_n\geq0.
     \]
-
     \begin{enumerate}[label={(\alph*)}]
 \item Find an explicit formula for the partial products when $a_n=1/n$ and decide whether they converge.
 Also examine the case $a_n=1/n^2$.
@@ -22,28 +21,23 @@ Also examine the case $a_n=1/n^2$.
         p_m=\prod_{n=1}^m\left(1+\frac1n\right)
         =\prod_{n=1}^m \frac{n+1}{n}.
     \]
-
     This telescopes:
     \[
         p_m=\frac21\cdot\frac32\cdots\frac{m+1}{m}=m+1.
     \]
-
     Hence
     \[
         p_m\to\infty,
     \]
     so the product diverges.
-
     If $a_n=\frac1{n^2}$, then
     \[
         p_m=\prod_{n=1}^m\left(1+\frac1{n^2}\right).
     \]
-
     The first few terms are
     \[
         2,\quad 2\cdot\frac54,\quad 2\cdot\frac54\cdot\frac{10}{9},\quad \ldots
     \]
-
     This suggests convergence.
 
     \textbf{(b).}
@@ -52,47 +46,34 @@ Also examine the case $a_n=1/n^2$.
         \sum_{n=1}^\infty a_n
     \]
     converges.
-
     Let
     \[
         s_m=\sum_{n=1}^m a_n.
     \]
-
     Since $a_n\geq0$, the sequence $(s_m)$ is bounded.
-
     Also
     \[
         1+a_n\leq 3^{a_n}
     \]
     for $a_n\geq0$.
-
     Thus
     \[
         p_m=\prod_{n=1}^m(1+a_n)\leq \prod_{n=1}^m 3^{a_n}=3^{s_m}.
     \]
-
     So $(p_m)$ is bounded above.
-
     Because each factor $1+a_n\geq1$, $(p_m)$ is increasing.
-
     Hence $(p_m)$ converges.
-
     Conversely, assume $(p_m)$ converges.
-
     Then $(p_m)$ is bounded.
-
     We claim
     \[
         p_m\geq 1+\sum_{n=1}^m a_n.
     \]
-
     This is true by induction.
-
     For $m=1$,
     \[
         p_1=1+a_1.
     \]
-
     If it holds for $m$, then
     \begin{align*}
         p_{m+1}
@@ -100,16 +81,12 @@ Also examine the case $a_n=1/n^2$.
         &\geq \left(1+\sum_{n=1}^m a_n\right)(1+a_{m+1})\\
         &\geq 1+\sum_{n=1}^{m+1}a_n.
     \end{align*}
-
     Thus
     \[
         1+\sum_{n=1}^m a_n\leq p_m.
     \]
-
     Since $(p_m)$ is bounded, the partial sums of $\sum a_n$ are bounded.
-
     Because $a_n\geq0$, the partial sums are increasing.
-
     Hence
     \[
         \sum_{n=1}^\infty a_n
@@ -141,7 +118,6 @@ at least converges.
     \[
         \prod_{n=1}^\infty\left(1+\frac{1}{2^n}\right).
     \]
-
     Using the identity
     \[
         \prod_{n=1}^m\left(1+\frac{1}{2^n}\right)=\frac{2-2^{-m}}{1},
@@ -150,12 +126,10 @@ at least converges.
     \[
         p_m=2-\frac{1}{2^m}.
     \]
-
     Hence
     \[
         p_m\to2.
     \]
-
     So the product converges.
 
     \textbf{(b).}
@@ -165,26 +139,20 @@ at least converges.
         =
         \prod_{k=1}^\infty\left(1-\frac{1}{2k}\right).
     \]
-
     Each factor lies in $(0,1)$, so the partial products are decreasing and bounded below by $0$.
-
     Hence they converge.
-
     To determine the limit, note that
     \[
         \frac{1}{\prod_{k=1}^n \frac{2k-1}{2k}}
         =
         \prod_{k=1}^n \left(1+\frac{1}{2k-1}\right).
     \]
-
     But
     \[
         \sum_{k=1}^\infty \frac{1}{2k-1}
     \]
     diverges, so by the previous problem the reciprocal product diverges to $\infty$.
-
     Hence the original product converges to $0$.
-
     \textbf{(c).}
     The Wallis product can be written as
     \[
@@ -192,7 +160,6 @@ at least converges.
         =
         \prod_{n=1}^\infty \left(1+\frac{1}{4n^2-1}\right).
     \]
-
     Since
     \[
         0<\frac{1}{4n^2-1}\leq \frac{1}{n^2},
@@ -206,7 +173,6 @@ at least converges.
         \sum_{n=1}^\infty \frac{1}{4n^2-1}
     \]
     converges.
-
     Therefore the infinite product converges.
 \end{problem}
 
@@ -226,25 +192,21 @@ at least converges.
         \sum_{j=1}^\infty \abs{a_{ij}}
     \]
     converges.
-
     Hence
     \[
         \sum_{j=1}^\infty a_{ij}
     \]
     converges absolutely, and therefore converges.
-
     Let
     \[
         b_i\coloneqq \sum_{j=1}^\infty \abs{a_{ij}}
         \qquad\text{and}\qquad
         c_i\coloneqq \sum_{j=1}^\infty a_{ij}.
     \]
-
     Then
     \[
         \abs{c_i}\leq b_i.
     \]
-
     Since
     \[
         \sum_{i=1}^\infty b_i
@@ -254,7 +216,6 @@ at least converges.
         \sum_{i=1}^\infty c_i
     \]
     converges.
-
     Thus
     \[
         \sum_{i=1}^{\infty}\sum_{j=1}^{\infty} a_{ij}

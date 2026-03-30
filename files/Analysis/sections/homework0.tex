@@ -13,29 +13,24 @@
         \qquad\text{and}\qquad
         (\alpha,\beta)\sim(c,d).
     \]
-
     By definition,
     \[
         a\beta=\alpha b
         \qquad\text{and}\qquad
         \alpha d=\beta c.
     \]
-
     Multiply the two equations:
     \[
         (a\beta)(\alpha d)=(\alpha b)(\beta c).
     \]
-
     Cancel the common factors:
     \[
         (a\cancel{\beta})(\cancel{\alpha}d)=(\cancel{\alpha}b)(\cancel{\beta}c).
     \]
-
     Hence
     \[
         ad=bc.
     \]
-
     Therefore
     \[
         (a,b)\sim(c,d).
@@ -51,7 +46,6 @@
         \qquad\text{and}\qquad
         \alpha d=\beta c.
     \]
-
     Then
     \begin{align*}
         (a\beta)(\alpha d)
@@ -60,7 +54,6 @@
 &=(\cancel{\alpha}b)(\cancel{\beta}c)\\
 ad&=bc.
     \end{align*}
-
     Hence $(a,b)\sim(c,d)$.
 \end{problem}
 
@@ -69,7 +62,6 @@ ad&=bc.
     \[
         (a\beta+\alpha b,\,b\beta)\sim(c\delta+\gamma d,\,d\delta).
     \]
-
     This is how addition is defined:
     \[
         (a,b)+(\alpha,\beta)\coloneqq (a\beta+\alpha b,\,b\beta).
@@ -81,21 +73,18 @@ ad&=bc.
         \qquad\text{and}\qquad
         \alpha\delta=\beta\gamma.
     \]
-
     We compute
     \begin{align*}
         (a\beta+\alpha b)(d\delta)
 &=a\beta d\delta+\alpha bd\delta\\
 &=(ad)(\beta\delta)+(\alpha\delta)(bd).
     \end{align*}
-
     Using $ad=bc$ and $\alpha\delta=\beta\gamma$, this becomes
     \begin{align*}
         (ad)(\beta\delta)+(\alpha\delta)(bd)
     &=(bc)(\beta\delta)+(\beta\gamma)(bd)\\
         &=b\beta(c\delta+\gamma d).
     \end{align*}
-
     Therefore
     \[
         (a\beta+\alpha b)(d\delta)=(c\delta+\gamma d)(b\beta),
@@ -104,7 +93,6 @@ ad&=bc.
     \[
         (a\beta+\alpha b,\,b\beta)\sim(c\delta+\gamma d,\,d\delta).
     \]
-
     Hence addition is well-defined.
 \end{problem}
 
@@ -117,12 +105,10 @@ ad&=bc.
     is not an equivalence relation on $\z\times\z$.
 }
     Suppose this relation is defined on $\z\times\z$.
-
     Take
     \[
         (a,b)=(1,0),\qquad (c,d)=(1,0),\qquad (e,f)=(1,1).
     \]
-
     Then
     \[
         (1,0)\sim(1,0)
@@ -131,7 +117,6 @@ ad&=bc.
     \[
         1\cdot 0=0\cdot 1.
     \]
-
     Also
     \[
         (1,0)\sim(1,1)
@@ -141,12 +126,10 @@ ad&=bc.
         1\cdot 1=0\cdot 1
     \]
     is false, so this choice does not work.
-
     Instead take
     \[
         (a,b)=(1,0),\qquad (c,d)=(0,0),\qquad (e,f)=(0,1).
     \]
-
     Then
     \[
         (1,0)\sim(0,0)
@@ -155,7 +138,6 @@ ad&=bc.
     \[
         1\cdot 0=0\cdot 0.
     \]
-
     Also
     \[
         (0,0)\sim(0,1)
@@ -164,7 +146,6 @@ ad&=bc.
     \[
         0\cdot 1=0\cdot 0.
     \]
-
     But
     \[
         (1,0)\not\sim(0,1)
@@ -173,10 +154,7 @@ ad&=bc.
     \[
         1\cdot 1\neq 0\cdot 0.
     \]
-
     So transitivity fails.
-
     Hence this is not an equivalence relation on $\z\times\z$.
-
     This is why the second component must be nonzero.
 \end{problem}

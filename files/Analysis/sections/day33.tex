@@ -36,22 +36,18 @@
         \dfrac{f(x) - f(c)}{x-c}\to f\uptick(c)
     \]
     as $x\to c$.
-
     Also
     \[
         x-c\to 0.
     \]
-
     Hence
     \[
         f(x) - f(c) = \dfrac{f(x)-f(c)}{x-c}(x-c)\to f\uptick(c)\cdot 0 = 0.
     \]
-
     So
     \[
         f(x)\to f(c).
     \]
-
     Therefore $f$ is continuous at $c$.
 \end{proposition}
 
@@ -78,12 +74,10 @@
     \[
         \e(x) = f(x) - f(c) - L(x-c).
     \]
-
     Hence
     \[
         \dfrac{\e(x)}{x-c} = \dfrac{f(x) - f(c)}{x-c} - L.
     \]
-
     So
     \[
         \lim_{x\to c} \dfrac{\e(x)}{x-c} = 0
@@ -92,7 +86,6 @@
     \[
         \lim_{x\to c}\dfrac{f(x)-f(c)}{x-c} = L.
     \]
-
     Thus $f\uptick(c) = L$.
 \end{theorem}
 
@@ -116,7 +109,6 @@
     \]
 }
     We will use the corollary.
-
     Write
     \[
         g(x) = g(c) + d(x)(x-c),
@@ -126,7 +118,6 @@
         d(x)\to g\uptick(c)
     \]
     as $x\to c$.
-
     Also write
     \[
         f(y) = f(g(c)) + \delta(y)(y-g(c)),
@@ -136,31 +127,25 @@
         \delta(y)\to f\uptick(g(c))
     \]
     as $y\to g(c)$.
-
     Substituting $y=g(x)$ gives
     \begin{align*}
         f(g(x))
         &= f(g(c)) + \delta(g(x))(g(x)-g(c))\\
         &= f(g(c)) + \delta(g(x))d(x)(x-c).
     \end{align*}
-
     Since $g$ is continuous at $c$, we have $g(x)\to g(c)$.
-
     Hence
     \[
         \delta(g(x))\to f\uptick(g(c)).
     \]
-
     Also
     \[
         d(x)\to g\uptick(c).
     \]
-
     Therefore
     \[
         \delta(g(x))d(x)\to f\uptick(g(c))g\uptick(c).
     \]
-
     So by the corollary,
     \[
         (f\circ g)\uptick(c) = f\uptick(g(c))g\uptick(c).
@@ -190,15 +175,10 @@
     Then there exists $c\in (a,b)$ such that $f\uptick(c) = 0$.
 }
     We claim there exists $c\in (a,b)$ where $f$ attains either its maximum or its minimum.
-
     Since $f$ is continuous and $[a,b]$ is compact, the maximum and minimum are attained.
-
     If both are attained only at the endpoints, then since $f(a)=f(b)$, the function is constant.
-
     Otherwise, $f$ attains either a maximum or a minimum at some interior point $c\in(a,b)$.
-
     Say $f$ achieves its maximum at $c$.
-
     Then
     \[
         \lim_{x\to c^+}\dfrac{f(x) - f(c)}{x-c}\leq 0
@@ -207,9 +187,7 @@
     \[
         \lim_{x\to c^-}\dfrac{f(x) - f(c)}{x-c}\geq 0.
     \]
-
     Since $f$ is differentiable at $c$, these one-sided limits are equal.
-
     Hence
     \[
         f\uptick(c)=0.

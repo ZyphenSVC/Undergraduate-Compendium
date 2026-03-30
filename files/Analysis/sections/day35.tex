@@ -15,48 +15,39 @@
     \]
 }
 	Let $0 < \eps < 1$ be given.
-
     Choose $\delta > 0$ such that
     \[
         0 < x-a < \delta \implies \abs{\dfrac{f\uptick(x)}{g\uptick(x)} - L} < \eps.
     \]
-
     Fix $y\in(a,a+\delta)$.
-
     Then
     \[
         \abs{\dfrac{f\uptick(y)}{g\uptick(y)} - L} < \eps.
     \]
-
     For $a < x < y$, the Cauchy Mean Value Theorem applied on $[x,y]$ implies there exists $c = c_{xy}$ such that $x < c < y$ and
     \[
         f\uptick(c)(g(y) - g(x)) = g\uptick(c)(f(y) - f(x)).
     \]
-
     Hence
     \[
         \dfrac{f\uptick(c)}{g\uptick(c)} = \dfrac{f(y) - f(x)}{g(y) - g(x)} = \dfrac{f(x) - f(y)}{g(x) - g(y)}.
     \]
-
     Since $x<c<y<a+\delta$, we have
     \[
         \abs{\dfrac{f(x) - f(y)}{g(x) - g(y)} - L} < \eps.
     \]
-
     Define
     \[
         \alpha(x) \coloneqq \dfrac{f(x)}{g(x)},
         \qquad
         \beta(x) \coloneqq \dfrac{f(x)-f(y)}{g(x)-g(y)}.
     \]
-
     Since $g(x)\to\infty$ as $x\to a^+$, there exists $\delta\uptick > 0$ such that $0 < x-a < \delta\uptick$ implies
     \[
         \abs{\dfrac{f(y)}{g(x)-g(y)}} < \eps
         \qquad\text{and}\qquad
         \abs{\dfrac{g(y)}{g(x)-g(y)}} < \eps.
     \]
-
     For such $x$, we have
     \begin{align*}
         \abs{\alpha(x) - \beta(x)}
@@ -65,7 +56,6 @@
         &\leq \abs{\dfrac{f(y)}{g(x)-g(y)}} + \abs{\dfrac{f(x)}{g(x)}}\abs{\dfrac{g(y)}{g(x)-g(y)}}\\
         &\leq \eps + \eps\abs{\alpha(x)}.
     \end{align*}
-
     Thus
     \begin{align*}
         \abs{\alpha(x)-L}
@@ -73,29 +63,24 @@
         &\leq \eps + \eps + \eps\abs{\alpha(x)}\\
         &= 2\eps + \eps\abs{\alpha(x)}.
     \end{align*}
-
     Also
     \[
         \abs{\alpha(x)} \leq \abs{\alpha(x)-L} + \abs{L}.
     \]
-
     So
     \begin{align*}
         \abs{\alpha(x)-L}
         &\leq 2\eps + \eps(\abs{\alpha(x)-L} + \abs{L})\\
         &= (2+\abs{L})\eps + \eps\abs{\alpha(x)-L}.
     \end{align*}
-
     Hence
     \[
         (1-\eps)\abs{\alpha(x)-L} \leq (2+\abs{L})\eps.
     \]
-
     Therefore
     \[
         \abs{\alpha(x)-L} \leq \dfrac{(2+\abs{L})\eps}{1-\eps}.
     \]
-
     Since the right-hand side tends to $0$ as $\eps\to 0$, it follows that
     \[
         \lim_{x\to a^+}\dfrac{f(x)}{g(x)} = L.

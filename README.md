@@ -16,23 +16,23 @@ I modified the preamble slightly for my use cases and specifics.
 
 This repository will include material from topics such as:
 
-- Calculus (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Linear Algebra (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Elementary Differential Equations (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Introduction to Proofs (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Real Analysis (<b><i>#<span style="color:lime">DONE</span></i></b>)
-- Algebra <b><i>#<span style="color:aqua">WIP</span></i></b>
-- Algebraic Geometry (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Combinatorics (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Point Set Topology (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Algebraic Topology (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Elliptic Curves (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Hartshorne (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Complex Geometry (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Undergraduate Research (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Hodge Theory (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Graduate Algebra (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
-- Commutative Algebra (<b><i>#<span style="color:darkorange">TODO</span></i></b>)
+- Calculus (<b><i>#TODO</i></b>)
+- Linear Algebra (<b><i>#TODO</i></b>)
+- Elementary Differential Equations (<b><i>#TODO</i></b>)
+- Introduction to Proofs (<b><i>#TODO</i></b>)
+- Real Analysis 
+- Algebra (<b><i>#WIP</i></b>)
+- Algebraic Geometry (<b><i>#TODO</i></b>)
+- Combinatorics (<b><i>#TODO</i></b>)
+- Point Set Topology (<b><i>#TODO</i></b>)
+- Algebraic Topology (<b><i>#TODO</i></b>)
+- Elliptic Curves (<b><i>#TODO</i></b>)
+- Hartshorne (<b><i>#TODO</i></b>)
+- Complex Geometry (<b><i>#TODO</i></b>)
+- Undergraduate Research (<b><i>#TODO</i></b>)
+- Hodge Theory (<b><i>#TODO</i></b>)
+- Graduate Algebra (<b><i>#TODO</i></b>)
+- Commutative Algebra (<b><i>#TODO</i></b>)
 
 ## Structure
 

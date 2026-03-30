@@ -29,7 +29,6 @@ Restatement of Heine-Borel.
     If $C$ is unbounded, then for each $n\in\n$, there exists $x_n\in C$ such that $\abs{x_n} > n$.
     Then no subsequence of $(x_n)$ can converge, a contradiction.
     Hence $C$ is bounded.
-
     If $z$ is a limit point of $C$, then there exists a sequence $(x_n)$ in $C$ such that $x_n\to z$.
     By (2), there exists a subsequence $(x_{n_k})$ converging to some point of $C$.
     Since every subsequence of a convergent sequence converges to the same limit, we have $x_{n_k}\to z$.
@@ -59,13 +58,11 @@ Restatement of Heine-Borel.
 
     Let $\mathcal{Q} \coloneqq \{(p,q) : p,q\in\q, p < q\}$.
     Then $\mathcal{Q}$ is countable.
-
     Let
     \[
         \mathcal{Q}\uptick \coloneqq \{(p,q)\in\mathcal{Q} : \exists \alpha\in A,\ (p,q)\subset U_\alpha\}.
     \]
     Then $\mathcal{Q}\uptick$ is countable.
-
     Given $(p,q)\in\mathcal{Q}\uptick$, select $\phi(p,q)\in A$ such that $(p,q)\subset U_{\phi(p,q)}$.
     Thus $\{U_{\phi(p,q)}\}_{(p,q)\in\mathcal{Q}\uptick}$ is countable.
 
@@ -77,24 +74,20 @@ Restatement of Heine-Borel.
 
     If $x\in\bigcup_{\alpha\in A} U_\alpha$, then $x\in U_{\alpha_0}$ for some $\alpha_0\in A$.
     Since $U_{\alpha_0}$ is open, there exists $\eps > 0$ such that $\vee_{\eps} (x)\subset U_{\alpha_0}$.
-
     Choose $p\in\q\cap (x-\eps, x)$ and $q\in\q\cap (x, x + \eps)$.
     Then
     \[
         x\in (p,q)\subset \vee_{\eps} (x)\subset U_{\alpha_0}.
     \]
     Thus $(p,q)\in\mathcal{Q}\uptick$ and $x\in U_{\phi(p,q)}$.
-
     Hence,
     \[
         x\in\bigcup_{(p,q)\in\mathcal{Q}\uptick} U_{\phi(p,q)}.
     \]
-
     Therefore
     \[
         \bigcup_{\alpha\in A} U_\alpha \subset \bigcup_{(p,q)\in\mathcal{Q}\uptick} U_{\phi(p,q)}.
     \]
-
     The reverse inclusion is immediate.
     So
     \[

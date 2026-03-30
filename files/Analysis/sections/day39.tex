@@ -7,24 +7,19 @@
     If $f_n \to f_0$ uniformly on $A$, and each $f_n$ is continuous, then $f_0$ is continuous.
 }
     Let $c \in A$.
-
     We want to show
     \[
         \lim_{x \to c} f_0(x) = f_0(c).
     \]
-
     Let $\eps > 0$ be given.
-
     Choose $N \in \n$ such that
     \[
         \abs{f_N(x) - f_0(x)} < \frac{\eps}{3} \quad \forall x \in A.
     \]
-
     Since $f_N$ is continuous at $c$, there exists $\delta > 0$ such that
     \[
         \abs{x - c} < \delta \implies \abs{f_N(x) - f_N(c)} < \frac{\eps}{3}.
     \]
-
     Then for $\abs{x - c} < \delta$,
     \begin{align*}
         \abs{f_0(x) - f_0(c)}
@@ -65,17 +60,14 @@
     \[
         g(x) \coloneqq \lim_{n\to\infty} f_n(x).
     \]
-
     Given $\eps > 0$, choose $N$ such that for all $m,n \geq N$,
     \[
         \abs{f_n(x) - f_m(x)} < \eps \quad \forall x.
     \]
-
     Fix $n \geq N$ and let $m \to \infty$, then
     \[
         \abs{f_n(x) - g(x)} \leq \eps.
     \]
-
     So convergence is uniform.
 \end{proposition}
 
@@ -84,7 +76,6 @@
     \[
         R \coloneqq \frac{1}{\limsup_{n\to\infty} \sqrt[n]{\abs{a_n}}} \in [0,\infty].
     \]
-
     Then:
     \begin{itemize}
         \item If $\abs{x-c} < R$, the series $\sum a_n(x-c)^n$ converges absolutely.
@@ -93,31 +84,25 @@
     \end{itemize}
 }
     Fix $x$.
-
     By the Root Test,
     \[
         \limsup_{n\to\infty} \sqrt[n]{\abs{a_n(x-c)^n}}
         = \abs{x-c}\cdot \limsup_{n\to\infty} \sqrt[n]{\abs{a_n}}.
     \]
-
     So convergence occurs when $\abs{x-c} < R$.
-
     Now let $p < R$.
     Then
     \[
         p \cdot \limsup_{n\to\infty} \sqrt[n]{\abs{a_n}} < 1.
     \]
-
     So there exists $\gamma \in (0,1)$ and $N$ such that for $n \geq N$,
     \[
         \sqrt[n]{\abs{a_n} p^n} \leq \gamma.
     \]
-
     Hence
     \[
         \abs{a_n} p^n \leq \gamma^n.
     \]
-
     For $\abs{x-c} \leq p$,
     \begin{align*}
         \abs{\sum_{k=n}^m a_k (x-c)^k}
@@ -125,8 +110,6 @@
         &\leq \sum_{k=n}^m \gamma^k \\
         &= \frac{\gamma^n - \gamma^m}{1-\gamma}.
     \end{align*}
-
     This goes to $0$ uniformly, so the partial sums are uniformly Cauchy.
-
     Hence the series converges uniformly on $[c-p,c+p]$.
 \end{theorem}

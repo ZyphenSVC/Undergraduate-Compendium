@@ -7,7 +7,6 @@
 	\[
 		\Int(A) \coloneqq (\overline{A^c})^c.
 	\]
-
 	A point $x\in\Int(A)$ if and only if there exists $\eps > 0$ such that $\vee_\eps(x)\subset A$.
 \end{definition}
 
@@ -47,21 +46,16 @@
 	Given $S$ is a compact subset of $X$ and $f:X\to\r$ is continuous, then $f$ has a maximum point in $S$.
 }
 	Since $S$ is compact and $f$ is continuous, $f(S)$ is compact.
-
 	Hence $f(S)$ is closed and bounded.
-
 	Let
 	\[
 		\alpha \coloneqq \sup(f(S)).
 	\]
-
 	Then $\alpha\in f(S)$ since $f(S)$ is closed.
-
 	So there exists $x_0\in S$ such that
 	\[
 		f(x_0) = \alpha.
 	\]
-
 	Therefore $f$ attains a maximum on $S$.
 \end{theorem}
 
@@ -69,66 +63,53 @@
 	If $f:X\to Y$ is continuous and $A$ is a compact subset of $X$, then $f$ is uniformly continuous on $A$.
 }
 	Let $\eps > 0$.
-
 	For each $p\in A$, there exists $\delta_p > 0$ such that
 	\[
 		d_X(p,x) < \delta_p \implies d_Y(f(p),f(x)) < \frac{\eps}{2}.
 	\]
-
 	Consider the open cover
 	\[
 		\{\vee_{\delta_p/2}(p) : p\in A\}.
 	\]
-
 	By compactness, there is a finite subcover
 	\[
 		\{\vee_{\delta_{p_i}/2}(p_i) : 1 \leq i\leq N\}.
 	\]
-
 	Choose
 	\[
 		\delta \coloneqq \min_{1\leq i\leq N}\frac{\delta_{p_i}}{2}.
 	\]
-
 	We show that
 	\[
 		d_X(x,y) < \delta \implies d_Y(f(x),f(y)) < \eps
 	\]
 	for all $x,y\in A$.
-
 	Given $x\in A$, choose $p_i$ such that
 	\[
 		x\in \vee_{\delta_{p_i}/2}(p_i).
 	\]
-
 	So
 	\[
 		d_X(x,p_i) < \frac{\delta_{p_i}}{2}.
 	\]
-
 	If also $d_X(x,y) < \delta$, then
 	\[
 		d_X(x,y) < \frac{\delta_{p_i}}{2}.
 	\]
-
 	By the triangle inequality,
 	\[
 		d_X(y,p_i) \leq d_X(y,x) + d_X(x,p_i) < \frac{\delta_{p_i}}{2} + \frac{\delta_{p_i}}{2} = \delta_{p_i}.
 	\]
-
 	Hence both $x$ and $y$ lie in $\vee_{\delta_{p_i}}(p_i)$.
-
 	Therefore
 	\[
 		d_Y(f(x),f(p_i)) < \frac{\eps}{2}
 		\qquad\text{and}\qquad
 		d_Y(f(y),f(p_i)) < \frac{\eps}{2}.
 	\]
-
 	So
 	\[
 		d_Y(f(x),f(y)) \leq d_Y(f(x),f(p_i)) + d_Y(f(p_i),f(y)) < \eps.
 	\]
-
 	Thus $f$ is uniformly continuous on $A$.
 \end{theorem}

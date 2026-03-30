@@ -17,27 +17,21 @@ Is $C\cap[\alpha,1]$ uncountable?
     \[
         A_n\coloneqq C\cap\left[\frac{1}{n+1},1\right].
     \]
-
     Then
     \[
         \bigcup_{n=1}^\infty A_n=C\setminus\bigl(C\cap\{0\}\bigr).
     \]
-
     The set $C\cap\{0\}$ has at most one element, so if every $A_n$ were countable, then the countable union
     \[
         \bigcup_{n=1}^\infty A_n
     \]
     would be countable, and adjoining at most one point would still give a countable set.
-
     That would imply $C$ is countable, a contradiction.
-
     Hence some $A_n$ is uncountable.
-
     Set
     \[
         a\coloneqq\frac{1}{n+1}\in(0,1).
     \]
-
     Then
     \[
         C\cap[a,1]
@@ -46,12 +40,10 @@ Is $C\cap[\alpha,1]$ uncountable?
 
     \textbf{(b).}
     Not necessarily.
-
     Take
     \[
         C=[0,1).
     \]
-
     Then for every $a\in(0,1)$,
     \[
         C\cap[a,1]=[a,1)
@@ -64,29 +56,24 @@ Is $C\cap[\alpha,1]$ uncountable?
     \[
         \alpha=\sup(A)=1.
     \]
-
     But then
     \[
         C\cap[\alpha,1]=C\cap[1,1]=\varnothing,
     \]
     which is not uncountable.
-
     So the answer is no.
 
     \textbf{(c).}
     No.
-
     Take
     \[
         C=\left\{\frac{1}{n}:n\in\n\right\}\subset[0,1].
     \]
-
     Then $C$ is infinite, but for every $a\in(0,1)$,
     \[
         C\cap[a,1]
     \]
     is finite.
-
     So the statement fails if “uncountable” is replaced by “infinite.”
 \end{problem}
 
@@ -111,51 +98,41 @@ Show that
         \qquad\text{and}\qquad
         \beta\coloneqq\sup(B).
     \]
-
     For all $a\in A$ and $b\in B$,
     \[
         a\leq\alpha
         \qquad\text{and}\qquad
         b\leq\beta.
     \]
-
     Hence
     \[
         a+b\leq\alpha+\beta.
     \]
-
     So $\alpha+\beta$ is an upper bound for $C$, and therefore
     \[
         \sup(C)\leq\alpha+\beta.
     \]
-
     Now let $\eps>0$.
-
     Since $\alpha=\sup(A)$, there exists $\gamma\in A$ such that
     \[
         \gamma>\alpha-\frac{\eps}{2}.
     \]
-
     Since $\beta=\sup(B)$, there exists $\delta\in B$ such that
     \[
         \delta>\beta-\frac{\eps}{2}.
     \]
-
     Then
     \[
         \gamma+\delta>\alpha+\beta-\eps.
     \]
-
     Because $\gamma+\delta\in C$, we have
     \[
         \sup(C)\geq\gamma+\delta>\alpha+\beta-\eps.
     \]
-
     Since this holds for all $\eps>0$,
     \[
         \sup(C)\geq\alpha+\beta.
     \]
-
     Thus
     \[
         \sup(C)=\alpha+\beta.
@@ -166,51 +143,41 @@ Show that
     \[
         \alpha\coloneqq\sup(A).
     \]
-
     For each $n\in\n$, since $\alpha-\frac1n$ is not an upper bound of $A$, there exists $a_n\in A$ such that
     \[
         \alpha-\frac1n<a_n\leq\alpha.
     \]
-
     Now define
     \[
         x_1\coloneqq a_1,
         \qquad
         x_n\coloneqq\max\{x_{n-1},a_n\}\quad\text{for }n\geq2.
     \]
-
     Then each $x_n\in A$, and $(x_n)$ is monotonically increasing.
-
     Also
     \[
         x_n\leq\alpha
         \qquad\text{for all }n.
     \]
-
     Let $\eps>0$.
-
     Choose $N\in\n$ such that
     \[
         \frac1N<\eps.
     \]
-
     Then
     \[
         a_N>\alpha-\eps.
     \]
-
     Since $x_n\geq a_N$ for all $n\geq N$,
     \[
         \alpha-\eps<x_n\leq\alpha
         \qquad\text{for all }n\geq N.
     \]
-
     Thus
     \[
         \abs{x_n-\alpha}<\eps
         \qquad\text{for all }n\geq N.
     \]
-
     Hence
     \[
         x_n\to\alpha=\sup(A).
@@ -226,28 +193,23 @@ Show that
 }
     \textbf{(a).}
     Let $\eps>0$.
-
     Because $x_n\to0$, there exists $N\in\n$ such that for all $n\geq N$,
     \[
         \abs{x_n}<\eps^2.
     \]
-
     Since $x_n\geq0$,
     \[
         0\leq x_n<\eps^2.
     \]
-
     Taking square roots gives
     \[
         0\leq \sqrt{x_n}<\eps.
     \]
-
     Hence
     \[
         \abs{\sqrt{x_n}-0}<\eps
     \]
     for all $n\geq N$.
-
     So
     \[
         \sqrt{x_n}\to0.
@@ -255,23 +217,18 @@ Show that
 
     \textbf{(b).}
     Since $x_n\geq0$ for all $n$ and $x_n\to x$, we must have $x\geq0$.
-
     Now
     \[
         \abs{\sqrt{x_n}-\sqrt{x}}
         =
         \frac{\abs{x_n-x}}{\sqrt{x_n}+\sqrt{x}}.
     \]
-
     If $x=0$, then this is part \textbf{(a)}.
-
     So assume $x>0$.
-
     Choose $N_1$ such that for $n\geq N_1$,
     \[
         \abs{x_n-x}<\frac{x}{2}.
     \]
-
     Then for $n\geq N_1$,
     \[
         x_n>\frac{x}{2},
@@ -280,25 +237,20 @@ Show that
     \[
         \sqrt{x_n}+\sqrt{x}\geq \sqrt{x}.
     \]
-
     Hence
     \[
         \abs{\sqrt{x_n}-\sqrt{x}}
         \leq \frac{\abs{x_n-x}}{\sqrt{x}}.
     \]
-
     Now let $\eps>0$.
-
     Choose $N_2$ such that for $n\geq N_2$,
     \[
         \abs{x_n-x}<\eps\sqrt{x}.
     \]
-
     Then for $n\geq \max\{N_1,N_2\}$,
     \[
         \abs{\sqrt{x_n}-\sqrt{x}}<\eps.
     \]
-
     Therefore
     \[
         \sqrt{x_n}\to\sqrt{x}.
@@ -314,12 +266,10 @@ Show that
 }
     \textbf{(a).}
     Let $\eps>0$.
-
     Since $x_n\to2$, there exists $N\in\n$ such that for all $n\geq N$,
     \[
         \abs{x_n-2}<\frac{3\eps}{2}.
     \]
-
     Then
     \begin{align*}
         \abs{\frac{2x_n-1}{3}-1}
@@ -328,7 +278,6 @@ Show that
         &<\frac23\cdot\frac{3\eps}{2}\\
         &=\eps.
     \end{align*}
-
     Hence
     \[
         \frac{2x_n-1}{3}\to1.
@@ -336,12 +285,10 @@ Show that
 
     \textbf{(b).}
     Let $\eps>0$.
-
     Since $x_n\to2$, there exists $N_1$ such that for all $n\geq N_1$,
     \[
         \abs{x_n-2}<1.
     \]
-
     Then for $n\geq N_1$,
     \[
         1<x_n<3,
@@ -350,12 +297,10 @@ Show that
     \[
         x_n\geq1.
     \]
-
     Also choose $N_2$ such that for all $n\geq N_2$,
     \[
         \abs{x_n-2}<2\eps.
     \]
-
     Now for $n\geq\max\{N_1,N_2\}$,
     \begin{align*}
         \abs{\frac1{x_n}-\frac12}
@@ -365,7 +310,6 @@ Show that
         &<\frac{2\eps}{2}\\
         &=\eps.
     \end{align*}
-
     Hence
     \[
         \frac1{x_n}\to\frac12.
@@ -384,24 +328,19 @@ also converge to $L$.
 }
     \textbf{(a).}
     Assume $x_n\to L$.
-
     Let
     \[
         y_n=\frac{x_1+\cdots+x_n}{n}.
     \]
-
     Then
     \[
         y_n-L=\frac{(x_1-L)+\cdots+(x_n-L)}{n}.
     \]
-
     Let $\eps>0$.
-
     Choose $N$ such that for all $n\geq N$,
     \[
         \abs{x_n-L}<\eps.
     \]
-
     Then
     \begin{align*}
         \abs{y_n-L}
@@ -414,12 +353,10 @@ also converge to $L$.
     \[
         C\coloneqq \sum_{k=1}^{N-1}\abs{x_k-L}.
     \]
-
     Since $\frac{C}{n}\to0$ and $\frac{n-N+1}{n}\leq1$, it follows that
     \[
         \abs{y_n-L}\to0.
     \]
-
     Hence
     \[
         y_n\to L.
@@ -430,16 +367,13 @@ also converge to $L$.
     \[
         x_n=(-1)^n.
     \]
-
     Then $(x_n)$ does not converge.
-
     But the averages satisfy
     \[
         y_{2k}=0
         \qquad\text{and}\qquad
         y_{2k+1}=-\frac{1}{2k+1}.
     \]
-
     So
     \[
         y_n\to0.

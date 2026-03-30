@@ -12,14 +12,12 @@
 	Then $f$ is differentiable and $f' = g$.
 }
 	Fix $c \in [a,b]$ and let $\eps > 0$.
-
 	We estimate:
 	\[
 		\abs{
 			\frac{f(x)-f(c)}{x-c} - g(c)
 		}
 	\]
-
 	Add and subtract $f_n$:
 	\begin{align*}
 		\abs{
@@ -48,22 +46,17 @@
 			}
 		}_{\text{III}}.
 	\end{align*}
-
 	\textbf{Step 1 (Control III).}
-
 	Since $f_n' \to g$ uniformly, choose $N$ such that for $n \geq N$,
 	\[
 		\abs{f_n'(x) - g(x)} < \frac{\eps}{3}
 		\quad \forall x \in [a,b].
 	\]
-
 	In particular,
 	\[
 		\abs{f_n'(c) - g(c)} < \frac{\eps}{3}.
 	\]
-
 	\textbf{Step 2 (Control II).}
-
 	Since $f_n$ is differentiable at $c$, there exists $\delta > 0$ such that
 	\[
 		0 < \abs{x-c} < \delta
@@ -73,9 +66,7 @@
 		}
 		< \frac{\eps}{3}.
 	\]
-
 	\textbf{Step 3 (Control I).}
-
 	Note
 	\[
 		\frac{f(x)-f(c)}{x-c}
@@ -83,7 +74,6 @@
 		\lim_{m\to\infty}
 		\frac{f_m(x)-f_m(c)}{x-c}.
 	\]
-
 	So
 	\begin{align*}
 		\text{I}
@@ -102,7 +92,6 @@
 			}{x-c}
 		}.
 	\end{align*}
-
 	By the Mean Value Theorem, there exists $z$ between $x$ and $c$ such that
 	\[
 		\frac{
@@ -111,25 +100,20 @@
 		=
 		(f_m' - f_n')(z).
 	\]
-
 	Since $(f_n')$ is uniformly Cauchy, for $m,n \geq N$,
 	\[
 		\abs{f_m'(z) - f_n'(z)} < \frac{\eps}{3}
 		\quad \forall z \in [a,b].
 	\]
-
 	Taking $m \to \infty$,
 	\[
 		\abs{g(z) - f_n'(z)} \leq \frac{\eps}{3}.
 	\]
-
 	Hence
 	\[
 		\text{I} \leq \frac{\eps}{3}.
 	\]
-
 	\textbf{Conclusion.}
-
 	For $n \geq N$ and $0 < \abs{x-c} < \delta$,
 	\[
 		\abs{
@@ -138,13 +122,11 @@
 		< \frac{\eps}{3} + \frac{\eps}{3} + \frac{\eps}{3}
 		= \eps.
 	\]
-
 	So
 	\[
 		\lim_{x\to c}
 		\frac{f(x)-f(c)}{x-c}
 		= g(c),
 	\]
-
 	and hence $f'(c) = g(c)$.
 \end{theorem}

@@ -15,34 +15,27 @@
     \[
         \bigcap_{i=1}^\infty C_i = \varnothing.
     \]
-
     Then
     \[
         C_1\cap\left(\bigcap_{i=2}^\infty C_i\right)=\varnothing.
     \]
-
     Thus
     \[
         C_1\subset\left(\bigcap_{i=2}^\infty C_i\right)^c=\bigcup_{i=2}^\infty C_i^c.
     \]
-
     Hence $\{C_i^c\}_{i=2}^\infty$ is an open cover of $C_1$.
-
     Since $C_1$ is compact, there is $N\in\n$ such that
     \[
         C_1\subset\bigcup_{i=2}^N C_i^c.
     \]
-
     Therefore
     \[
         C_1\cap\bigcap_{i=2}^N C_i=\varnothing.
     \]
-
     But since $C_1\supset C_2\supset\cdots\supset C_N$, we have
     \[
         \bigcap_{i=2}^N C_i = C_N.
     \]
-
     So
     \[
         C_N=\varnothing,
@@ -57,16 +50,12 @@
         C_2 \coloneqq \left[0, \dfrac{1}{3}\right]\cup \left[\dfrac{2}{3}, 1\right],\\
         C_3 \coloneqq \left[0,\dfrac{1}{9}\right]\cup\left[\dfrac{2}{9},\dfrac{1}{3}\right]\cup\left[\dfrac{2}{3},\dfrac{7}{9}\right]\cup\left[\dfrac{8}{9},1\right].\\
     \end{gather*}
-
     Hence,
     \[
         C_{n+1} \coloneqq \dfrac{1}{3}C_n\cup\left(\dfrac{2}{3} + \dfrac{1}{3}C_n\right).
     \]
-
     All $C_i$ are compact since they are closed and bounded.
-
     Also $C_i\neq\varnothing$.
-
     Then
     \[
         \C \coloneqq \bigcap_{i=1}^\infty C_i\neq\varnothing.
