@@ -20,7 +20,8 @@ This repository will include material from topics such as:
 - Linear Algebra (<b><i>#TODO</i></b>)
 - Elementary Differential Equations (<b><i>#TODO</i></b>)
 - Introduction to Proofs (<b><i>#TODO</i></b>)
-- Real Analysis 
+- [Real Analysis](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/RealAnalysis.pdf)
+- [Abstract Algebra](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/AbstractAlgebra.pdf)
 - Algebra (<b><i>#WIP</i></b>)
 - Algebraic Geometry (<b><i>#TODO</i></b>)
 - Combinatorics (<b><i>#TODO</i></b>)

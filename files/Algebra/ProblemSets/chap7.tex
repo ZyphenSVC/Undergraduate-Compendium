@@ -1,0 +1,401 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Chapter 7}
+
+\begin{problem}{
+    Let $R$ be a ring with identity and let $I$ be an ideal in $R$.
+
+    \textbf{(a).}
+    If $1_R \in I$, prove that $I = R$.
+
+    \textbf{(b).}
+    If $I$ contains a unit, prove that $I = R$.
+}
+    \textbf{(a).}
+    Suppose $1_R \in I$.
+    Let $r\in R$ be arbitrary.
+    Since $I$ is an ideal and $1_R\in I$, we have
+    \[
+        r1_R = r \in I.
+    \]
+    Thus every element of $R$ lies in $I$.
+    Hence $I = R$.
+
+    \textbf{(b).}
+    Suppose $I$ contains a unit $u\in R$.
+    Then there exists $u^{-1}\in R$ such that
+    \[
+        u^{-1}u = 1_R.
+    \]
+    Since $u\in I$ and $I$ is an ideal, we have
+    \[
+        u^{-1}u = 1_R \in I.
+    \]
+    By part \textbf{(a)}, it follows that $I = R$.
+\end{problem}
+\begin{problem}{
+    If $I$ is an ideal in a field $\mathbb{F}$, prove that
+    \[
+        I = (0)_{\mathbb{F}}
+        \quad\text{or}\quad
+        I = \mathbb{F}.
+    \]
+}
+    If $I = (0)_{\mathbb{F}}$, then we are done.
+    Suppose instead that $I\neq (0)_{\mathbb{F}}$.
+    Then there exists some $a\in I$ with $a\neq 0$.
+    Since $\mathbb{F}$ is a field, $a$ is a unit.
+    Therefore, by the previous problem, $I = \mathbb{F}$.
+    Hence every ideal in a field is either $(0)_{\mathbb{F}}$ or $\mathbb{F}$.
+\end{problem}
+\begin{problem}{
+    Let $J$ be an ideal in $R$.
+    Prove that $I$ is an ideal, where
+    \[
+        I \coloneqq \{r\in R : rt = 0_R \text{ for all } t\in J\}.
+    \]
+}
+    First, note that $0_R\in I$, since for every $t\in J$,
+    \[
+        0_R t = 0_R.
+    \]
+    Now let $a,b\in I$.
+    Then for every $t\in J$,
+    \[
+        (a-b)t = at - bt = 0_R - 0_R = 0_R.
+    \]
+    Thus $a-b\in I$.
+    Now let $r\in R$ and $a\in I$.
+    Then for every $t\in J$,
+    \[
+        (ra)t = r(at) = r0_R = 0_R.
+    \]
+    So $ra\in I$.
+    Also, since $J$ is an ideal, we have $rt\in J$ for every $t\in J$.
+    Therefore
+    \[
+        (ar)t = a(rt) = 0_R
+    \]
+    for every $t\in J$.
+    So $ar\in I$.
+    Hence $I$ is an ideal of $R$.
+\end{problem}
+\begin{problem}{
+    Let $I$ and $J$ be ideals in $R$.
+    Let $IJ$ denote the set of all possible finite sums of elements of the form $ab$, with $a\in I$ and $b\in J$, that is,
+    \[
+        IJ \coloneqq \{a_{1}b_1 + \hdots + a_{n}b_n : n\geq 1,\ a_k\in I,\ b_k\in J\}.
+    \]
+    Prove that $IJ$ is an ideal.
+}
+    Let
+    \[
+        x = \sum_{i=1}^m a_i b_i \in IJ
+        \quad\text{and}\quad
+        y = \sum_{j=1}^n c_j d_j \in IJ.
+    \]
+    Then
+    \[
+        x-y
+        =
+        \sum_{i=1}^m a_i b_i - \sum_{j=1}^n c_j d_j
+        =
+        \sum_{i=1}^m a_i b_i + \sum_{j=1}^n (-c_j)d_j.
+    \]
+    Since $I$ is an ideal, $-c_j\in I$ for each $j$.
+    Thus $x-y$ is again a finite sum of terms of the form $ab$ with $a\in I$ and $b\in J$.
+    So $x-y\in IJ$.
+    Now let $r\in R$.
+    Then
+    \[
+        rx = r\left(\sum_{i=1}^m a_i b_i\right) = \sum_{i=1}^m (ra_i)b_i.
+    \]
+    Since $I$ is an ideal, $ra_i\in I$.
+    Thus $rx\in IJ$.
+    Similarly,
+    \[
+        xr = \left(\sum_{i=1}^m a_i b_i\right)r = \sum_{i=1}^m a_i(b_i r).
+    \]
+    Since $J$ is an ideal, $b_i r\in J$.
+    Thus $xr\in IJ$.
+    Also $0\in IJ$, since if $a\in I$ and $b\in J$, then
+    \[
+        ab-ab = 0
+    \]
+    is in $IJ$.
+    Therefore $IJ$ is an ideal of $R$.
+\end{problem}
+\begin{problem}{
+    Prove that every ideal in $\mathbb{Z}$ is principal.
+}
+    Let $I$ be an ideal of $\mathbb{Z}$.
+    If $I=\{0\}$, then
+    \[
+        I = (0),
+    \]
+    so $I$ is principal.
+    Suppose $I\neq \{0\}$.
+    Since $I$ contains a nonzero integer, it contains a positive integer.
+    Let $c\in I$ be the smallest positive integer in $I$.
+    We claim that
+    \[
+        I = (c).
+    \]
+    First, since $c\in I$ and $I$ is an ideal, every multiple of $c$ lies in $I$.
+    Thus
+    \[
+        (c)\subseteq I.
+    \]
+    Now let $a\in I$.
+    By the division algorithm, there exist integers $q$ and $r$ such that
+    \[
+        a = qc + r
+        \quad\text{with}\quad
+        0\leq r < c.
+    \]
+    Since $c\in I$, we have $qc\in I$.
+    Also $a\in I$.
+    Thus
+    \[
+        r = a-qc \in I.
+    \]
+    But $c$ was chosen to be the smallest positive integer in $I$.
+    Since $0\leq r<c$, it follows that $r=0$.
+    Hence
+    \[
+        a = qc \in (c).
+    \]
+    So $I\subseteq (c)$.
+    Therefore
+    \[
+        I = (c),
+    \]
+    and every ideal in $\mathbb{Z}$ is principal.
+\end{problem}
+\begin{problem}{
+    Let $\mathbb{F}$ be a field.
+    Prove that every ideal in $\mathbb{F}[x]$ is principal.
+}
+    Let $I$ be an ideal in $\mathbb{F}[x]$.
+    If $I=\{0\}$, then
+    \[
+        I = (0),
+    \]
+    so $I$ is principal.
+    Suppose $I\neq \{0\}$.
+    Choose a nonzero polynomial $b(x)\in I$ of smallest degree.
+    We claim that
+    \[
+        I = (b(x)).
+    \]
+    First, since $b(x)\in I$ and $I$ is an ideal, every multiple of $b(x)$ lies in $I$.
+    Thus
+    \[
+        (b(x))\subseteq I.
+    \]
+    Now let $a(x)\in I$.
+    By the division algorithm in $\mathbb{F}[x]$, there exist polynomials $q(x),r(x)\in\mathbb{F}[x]$ such that
+    \[
+        a(x) = q(x)b(x) + r(x),
+    \]
+    where either $r(x)=0$ or
+    \[
+        \deg r(x) < \deg b(x).
+    \]
+    Since $b(x)\in I$, we have $q(x)b(x)\in I$.
+    Also $a(x)\in I$.
+    Therefore
+    \[
+        r(x) = a(x)-q(x)b(x)\in I.
+    \]
+    By the minimality of the degree of $b(x)$, we must have $r(x)=0$.
+    Hence
+    \[
+        a(x) = q(x)b(x)\in (b(x)).
+    \]
+    So $I\subseteq (b(x))$.
+    Therefore
+    \[
+        I = (b(x)),
+    \]
+    and every ideal in $\mathbb{F}[x]$ is principal.
+\end{problem}
+\begin{problem}{
+    Show that every homomorphic image of a field $\mathbb{F}$ is isomorphic either to $\mathbb{F}$ itself or to the zero ring.
+}
+    Let $f:\mathbb{F}\to S$ be a ring homomorphism.
+    Let
+    \[
+        K = \ker f.
+    \]
+    Since $\mathbb{F}$ is a field, its only ideals are $(0)$ and $\mathbb{F}$.
+    Therefore
+    \[
+        K = (0)
+        \quad\text{or}\quad
+        K = \mathbb{F}.
+    \]
+    If $K=(0)$, then by the First Isomorphism Theorem,
+    \[
+        \mathbb{F}/(0)\cong \ima(f),
+    \]
+    so
+    \[
+        \ima(f)\cong \mathbb{F}.
+    \]
+    If $K=\mathbb{F}$, then $f$ is the zero homomorphism, so its image is the zero ring.
+    Hence every homomorphic image of a field is isomorphic either to the field itself or to the zero ring.
+\end{problem}
+\begin{problem}{
+    Use the First Isomorphism Theorem to show that
+    \[
+        \mathbb{Z}_{20}/(5) \cong \mathbb{Z}_5.
+    \]
+}
+    Define
+    \[
+        f:\mathbb{Z}_{20}\to \mathbb{Z}_5
+    \]
+    by
+    \[
+        f([a]_{20}) = [a]_5.
+    \]
+    First we check that $f$ is well-defined.
+    Suppose
+    \[
+        [a]_{20} = [b]_{20}.
+    \]
+    Then
+    \[
+        a\equiv b\mod 20,
+    \]
+    so
+    \[
+        20\mid (a-b).
+    \]
+    Hence
+    \[
+        5\mid (a-b),
+    \]
+    which means
+    \[
+        [a]_5 = [b]_5.
+    \]
+    Therefore $f$ is well-defined.
+    Now we check that $f$ is a ring homomorphism.
+    For addition,
+    \begin{align*}
+        f([a]_{20} + [b]_{20})
+        &=
+        f([a+b]_{20})\\
+        &=
+        [a+b]_5\\
+        &=
+        [a]_5 + [b]_5\\
+        &=
+        f([a]_{20}) + f([b]_{20}).
+    \end{align*}
+    For multiplication,
+    \begin{align*}
+        f([a]_{20}[b]_{20})
+        &=
+        f([ab]_{20})\\
+        &=
+        [ab]_5\\
+        &=
+        [a]_5[b]_5\\
+        &=
+        f([a]_{20})f([b]_{20}).
+    \end{align*}
+    The map is surjective, since every class $[a]_5\in \mathbb{Z}_5$ is the image of $[a]_{20}$.
+    Now compute the kernel.
+    We have
+    \[
+        f([a]_{20}) = [0]_5
+    \]
+    if and only if
+    \[
+        [a]_5 = [0]_5,
+    \]
+    which holds if and only if $5\mid a$.
+    Thus
+    \[
+        \ker f = (5).
+    \]
+    By the First Isomorphism Theorem,
+    \[
+        \mathbb{Z}_{20}/(5)\cong \ima(f)=\mathbb{Z}_5.
+    \]
+\end{problem}
+\begin{problem}{
+    Let $I$ and $J$ be ideals in a ring $R$.
+    Then $I\cap J$ is an ideal in $I$, and $J$ is an ideal in $I+J$.
+    Prove that
+    \[
+        \frac{I}{I\cap J} \cong \frac{I+J}{J}.
+    \]
+}
+    Define
+    \[
+        f:I\to \frac{I+J}{J}
+    \]
+    by
+    \[
+        f(a) = a+J.
+    \]
+    First we check that $f$ is a ring homomorphism.
+    If $a,b\in I$, then
+    \begin{align*}
+        f(a+b)
+        &=
+        (a+b)+J\\
+        &=
+        (a+J)+(b+J)\\
+        &=
+        f(a)+f(b).
+    \end{align*}
+    Also,
+    \begin{align*}
+        f(ab)
+        &=
+        ab+J\\
+        &=
+        (a+J)(b+J)\\
+        &=
+        f(a)f(b).
+    \end{align*}
+    Now we show $f$ is surjective.
+    An arbitrary element of $(I+J)/J$ has the form
+    \[
+        (a+j)+J
+    \]
+    with $a\in I$ and $j\in J$.
+    But
+    \[
+        (a+j)+J = a+J = f(a).
+    \]
+    So $f$ is surjective.
+    Now compute the kernel.
+    We have
+    \[
+        f(a)=J
+    \]
+    if and only if
+    \[
+        a+J = J,
+    \]
+    which happens if and only if $a\in J$.
+    Since also $a\in I$, this means
+    \[
+        a\in I\cap J.
+    \]
+    Thus
+    \[
+        \ker f = I\cap J.
+    \]
+    By the First Isomorphism Theorem,
+    \[
+        \frac{I}{I\cap J} \cong \frac{I+J}{J}.
+    \]
+\end{problem}

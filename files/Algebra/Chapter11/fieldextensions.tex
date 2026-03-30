@@ -1,0 +1,234 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Field Extensions}
+
+Refer to Chapter 7.2 for all the theory on field extensions.
+We will be continuing this on behalf of learning Galois Theory.
+
+\begin{definition}
+    Given $u\in\mathbb{E}\supseteq \mathbb{F}$, $\mathbb{F}(u)$ is the intersection of all subfields of $\mathbb{E}$ containing $\mathbb{F}$ and $u$.
+    That is,
+    \[
+        \mathbb{F}(u)
+        \coloneqq
+        \bigcap_{\substack{\mathbb{E}_i\subseteq \mathbb{E}\\ \mathbb{F}\subseteq \mathbb{E}_i,\ u\in \mathbb{E}_i}} \mathbb{E}_i.
+    \]
+    It is the smallest field extension of $\mathbb{F}$ containing $u$.
+    That is, if $\mathbb{K}$ is a field with
+    \[
+        \mathbb{F}\subseteq \mathbb{K}
+        \quad\text{and}\quad
+        u\in \mathbb{K},
+    \]
+    then
+    \[
+        \mathbb{F}(u)\subseteq \mathbb{K}.
+    \]
+\end{definition}
+
+Thus if $u$ is algebraic over $\mathbb{F}$, then $\mathbb{F}[u]$ is a field extension of $\mathbb{F}$ with $u\in \mathbb{F}[u]$.
+Hence
+\[
+    \mathbb{F}(u)\subseteq \mathbb{F}[u].
+\]
+Let $f(u)\in \mathbb{F}[u]$, where $f(x)\in \mathbb{F}[x]$.
+Then it is always true that $f(u)\in \mathbb{F}(u)$, since $\mathbb{F}(u)$ must contain every polynomial in $u$.
+Thus
+\[
+    \mathbb{F}[u]\subseteq \mathbb{F}(u).
+\]
+Therefore, when $u$ is algebraic over $\mathbb{F}$,
+\[
+    \mathbb{F}(u)=\mathbb{F}[u].
+\]
+Let $f(x)\in \mathbb{F}[x]$.
+If $p(x)$ is an irreducible factor of $f(x)$, then
+\[
+    \frac{\mathbb{F}[x]}{(p(x))}
+\]
+is a field containing $\mathbb{F}$, really a copy consisting of classes of constant polynomials.
+It also has a root of $p(x)$, namely the class of $x$.
+For example, if
+\[
+    f(x)=x^2-2
+\]
+in $\mathbb{Q}[x]$, then
+\[
+    \mathbb{Q}\left[\sqrt{2}\right] \cong \frac{\mathbb{Q}[x]}{(x^2-2)}.
+\]
+Thus $\sqrt{2}$ corresponds to the class of $x$.
+The map
+\[
+    \mathbb{Q}[x]\to \mathbb{Q}\left[\sqrt{2}\right]
+\]
+is defined by
+\[
+    f(x)\mapsto f\left(\sqrt{2}\right),
+\]
+so
+\[
+    x\mapsto \sqrt{2}.
+\]
+Then $p(\alpha)$ is equal to the class of $p(x)$.
+But since we mod out by $(p(x))$, that is equal to
+\[
+    0\in \frac{\mathbb{F}[x]}{(p(x))}.
+\]
+
+\begin{theorem}{
+    Let $p(x)\in \mathbb{F}_1[x]$ be irreducible.
+    Let
+    \[
+        \mathbb{K}_1\coloneqq \frac{\mathbb{F}_1[x]}{(p(x))}.
+    \]
+    Then $\mathbb{K}_1$ is a field extension of $\mathbb{F}_1$ in which $p(x)$ has a root $\alpha\in \mathbb{K}_1$, where $\alpha$ is the class of $x$.
+    Suppose
+    \[
+        \sigma:\mathbb{F}_1\to \mathbb{F}_2
+    \]
+    is a field isomorphism.
+    If
+    \[
+        f(x)=a_0+a_{1}x+\cdots+a_{n}x^n\in \mathbb{F}_1[x],
+    \]
+    define
+    \[
+        \sigma f(x)\coloneqq \sigma(a_0)+\sigma(a_1)x+\cdots+\sigma(a_n)x^n\in \mathbb{F}_2[x].
+    \]
+    Then irreducibility is preserved.
+    That is, if $p(x)$ is irreducible in $\mathbb{F}_1[x]$, then $\sigma p(x)$ is irreducible in $\mathbb{F}_2[x]$.
+    Let $u\in \mathbb{E}_1$ be a root of $p(x)$.
+    Suppose $v$ is a root of $\sigma p(x)\in \mathbb{F}_2[x]$.
+    Then there exists an isomorphism
+    \[
+        \overline{\sigma}:\mathbb{F}_1(u)\to \mathbb{F}_2(v)
+    \]
+    extending $\sigma$, such that
+    \[
+        \overline{\sigma}|_{\mathbb{F}_1}=\sigma
+        \quad\text{and}\quad
+        \overline{\sigma}(u)=v.
+    \]
+}
+\[
+    \mathbb{F}_1(u)\cong \frac{\mathbb{F}_1[x]}{(p(x))}
+    \cong \frac{\mathbb{F}_2[x]}{(\sigma p(x))}
+    \cong \mathbb{F}_2(v).
+\]
+The first and third isomorphisms come from evaluation at $u$ and $v$, respectively.
+The middle isomorphism is induced by $\sigma$ on coefficients.
+Under these identifications, the class of $x$ in
+\[
+    \frac{\mathbb{F}_1[x]}{(p(x))}
+\]
+corresponds to the class of $x$ in
+\[
+    \frac{\mathbb{F}_2[x]}{(\sigma p(x))}
+\]
+and hence to $v$.
+Thus we obtain an isomorphism
+\[
+    \overline{\sigma}:\mathbb{F}_1(u)\to \mathbb{F}_2(v)
+\]
+such that
+\[
+    \overline{\sigma}(u)=v.
+\]
+Also,
+\[
+    \overline{\sigma}(1_{\mathbb{F}_1})=1_{\mathbb{F}_2}.
+\]
+So $\overline{\sigma}$ is an extension of $\sigma$.
+\end{theorem}
+
+\begin{corollary}{
+    The number of such extensions is at most the number of distinct roots of $\sigma p(x)$ in a chosen overfield containing $\mathbb{F}_2(v)$.
+}
+\end{corollary}
+
+\begin{definition}[Splitting Field]
+    A splitting field for $f(x)\in \mathbb{F}[x]$ is an extension field $\mathbb{E}$ of $\mathbb{F}$ such that in $\mathbb{E}[x]$ we have
+    \[
+        f(x)=c(x-a_1)\cdots(x-a_n),
+        \qquad a_i\in \mathbb{E},
+    \]
+    and
+    \[
+        \mathbb{E}=\mathbb{F}(a_1,\ldots,a_n).
+    \]
+\end{definition}
+
+\begin{theorem}{
+    There exists a splitting field for every polynomial $f(x)\in \mathbb{F}[x]$.
+}
+We prove this by induction on $\deg(f)$.
+If $\deg(f)=1$, then $f$ is already linear, so $\mathbb{F}$ itself is a splitting field.
+Now assume $\deg(f)>1$.
+Choose an irreducible factor $p(x)$ of $f(x)$.
+Then
+\[
+    \mathbb{E}_1\coloneqq \frac{\mathbb{F}[x]}{(p(x))}
+\]
+is a field extension of $\mathbb{F}$ in which $p(x)$ has a root $u$.
+Hence in $\mathbb{E}_1[x]$,
+\[
+    f(x)=(x-u)g(x)
+\]
+for some $g(x)$ with
+\[
+    \deg(g)<\deg(f).
+\]
+By the induction hypothesis, there exists a splitting field $\mathbb{E}$ for $g(x)$ over $\mathbb{E}_1$.
+Then $\mathbb{E}$ is a splitting field for $f(x)$ over $\mathbb{F}$.
+\end{theorem}
+
+\begin{theorem}{
+    Any two splitting fields for $f(x)$ over $\mathbb{F}$ are isomorphic over $\mathbb{F}$.
+}
+Suppose
+\[
+    \sigma:\mathbb{F}_1\isomto \mathbb{F}_2
+\]
+is a field isomorphism.
+Let $f(x)\in \mathbb{F}_1[x]$.
+Suppose $\mathbb{E}_1$ is a splitting field for $f(x)$ over $\mathbb{F}_1$, and $\mathbb{E}_2$ is a splitting field for $\sigma f(x)$ over $\mathbb{F}_2$.
+We prove by induction on
+\[
+    [\mathbb{E}_1:\mathbb{F}_1]
+\]
+that $\sigma$ extends to an isomorphism
+\[
+    \overline{\sigma}:\mathbb{E}_1\to \mathbb{E}_2.
+\]
+If
+\[
+    [\mathbb{E}_1:\mathbb{F}_1]=1,
+\]
+then $\mathbb{E}_1=\mathbb{F}_1$, and the result is immediate.
+Assume now
+\[
+    [\mathbb{E}_1:\mathbb{F}_1]>1.
+\]
+Let $p(x)$ be an irreducible factor of $f(x)$, and let $r\in \mathbb{E}_1$ be a root of $p(x)$.
+If $v$ is any root of $\sigma p(x)$ in $\mathbb{E}_2$, then by the previous theorem there exists an extension
+\[
+    \sigma_1:\mathbb{F}_1(r)\isomto \mathbb{F}_2(v).
+\]
+Now $\mathbb{E}_1$ is a splitting field of $f(x)$ over $\mathbb{F}_1(r)$, and $\mathbb{E}_2$ is a splitting field of $\sigma_1 f(x)$ over $\mathbb{F}_2(v)$.
+Since
+\[
+    [\mathbb{E}_1:\mathbb{F}_1(r)]<[\mathbb{E}_1:\mathbb{F}_1],
+\]
+the induction hypothesis applies.
+Thus $\sigma_1$ extends to an isomorphism
+\[
+    \overline{\sigma}:\mathbb{E}_1\to \mathbb{E}_2.
+\]
+In particular, if
+\[
+    \mathbb{F}_1=\mathbb{F}_2=\mathbb{F}
+\]
+and $\sigma=\id_{\mathbb{F}}$, then any two splitting fields of $f(x)$ over $\mathbb{F}$ are isomorphic over $\mathbb{F}$.
+Thus splitting fields are unique up to isomorphism.
+\end{theorem}

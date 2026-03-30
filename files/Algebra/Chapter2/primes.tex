@@ -1,0 +1,191 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Primes}
+
+I am excited about this topic because it practically is my field of interest.
+
+\begin{definition}[Prime Integer]
+    Let $p\in\mathbb{Z}$.
+    We say that $p$ is prime if the only divisors of $p$ are $-1,1,-p,p$, and
+    \[
+        p\neq -1,0,1.
+    \]
+\end{definition}
+
+This definition has two criteria.
+First, the divisors of $p$ are restricted.
+Second, $p$ is not equal to certain restricted values.
+We use the term restricted to denote more so a finite set of values, though that sounds like a stronger claim.
+By the only divisors of $p$, we mean that if you divide $p$ by any other integer, using the division algorithm, we will get a remainder.
+Using the previous content learned, we will see that the gcd of $p$ and any integer relatively prime to it is $1$.
+When we have $p$ not equal to a select few values, then this ensures that the prime number does not contradict the first criterion.
+This definition helps identify and distinguish prime numbers from other integers.
+
+\begin{theorem}[Euclid's Lemma]{
+    Suppose $p$ is prime, and let $b,c\in\mathbb{Z}$.
+    If
+    \[
+        p\mid bc,
+    \]
+    then
+    \[
+        p\mid b \quad \text{or} \quad p\mid c.
+    \]
+}
+    Suppose $p\nmid b$.
+    We claim that
+    \[
+        \gcd(p,b)=1.
+    \]
+    Let $d = \gcd(p,b)$.
+    Then $d>0$, $d\mid p$, and $d\mid b$.
+    Since $p$ is prime, the only positive divisors of $p$ are $1$ and $|p|$.
+    Thus $d=1$ or $d=|p|$.
+    But $d\neq |p|$, because if $|p|\mid b$, then in particular $p\mid b$, contradicting our assumption.
+    Therefore
+    \[
+        \gcd(p,b)=1.
+    \]
+    By the previous theorem on relatively prime integers, since $\gcd(p,b)=1$ and $p\mid bc$, it follows that
+    \[
+        p\mid c.
+    \]
+    Hence if $p\mid bc$, then either $p\mid b$ or $p\mid c$.
+\end{theorem}
+
+This ``lemma'' is something Euclid used to prove something bigger.
+The name stuck as ``Euclid's Lemma'', however, it is the foundation for fields such as Number Theory.
+Its more appropriate name is the Fundamental Property of Prime Numbers.
+It sounds like a really basic lemma, but it undermines its true essence.
+It shows that prime numbers are the building blocks of all integers and that a number divisible by a prime must be divisible by that prime individually or by another prime factor.
+
+\begin{theorem}[Fundamental Theorem of Arithmetic (FTA)]{
+    If $n\in\mathbb{Z}$ and
+    \[
+        n\neq -1,0,1,
+    \]
+    then $n$ can be written uniquely as a product of primes, up to order and sign.
+}
+    We will prove this after one useful lemma.
+\end{theorem}
+
+\begin{lemma}{
+    Suppose $p$ is prime, and let $a_1,a_2,\dots,a_n\in\mathbb{Z}$ such that
+    \[
+        p\mid a_{1}a_2\cdots a_n.
+    \]
+    Then
+    \[
+        p\mid a_i
+    \]
+    for some $i\in\{1,\dots,n\}$.
+}
+    We prove this by induction on $n$.
+    If $n=1$, then the statement is immediate.
+    If $n=2$, then this is exactly Euclid's Lemma.
+    Now suppose the statement is true for $n=k$.
+    Assume
+    \[
+        p\mid a_{1}a_2\cdots a_k a_{k+1}.
+    \]
+    Then
+    \[
+        p\mid (a_{1}a_2\cdots a_k)a_{k+1}.
+    \]
+    By Euclid's Lemma,
+    \[
+        p\mid a_{1}a_2\cdots a_k
+    \]
+    or
+    \[
+        p\mid a_{k+1}.
+    \]
+    If $p\mid a_{k+1}$, then we are done.
+    If $p\mid a_{1}a_2\cdots a_k$, then by the induction hypothesis,
+    \[
+        p\mid a_i
+    \]
+    for some $i$ with $1\leq i\leq k$.
+    Therefore
+    \[
+        p\mid a_i
+    \]
+    for some $i\in\{1,\dots,k+1\}$.
+\end{lemma}
+
+
+\begin{theorem}[Proof of the Fundamental Theorem of Arithmetic]{
+    If $n\in\mathbb{Z}$ and
+    \[
+        n\neq -1,0,1,
+    \]
+    then $n$ can be written uniquely as a product of primes, up to order and sign.
+}
+    \textbf{Claim 1. Existence of factorization.}
+    Suppose $n\in\mathbb{Z}$ and $n\neq -1,0,1$.
+    We first show that $n$ can be written as a product of primes.
+    If $n<0$, then $n=-m$ for some positive integer $m$.
+    So once we prove the result for positive integers greater than $1$, the negative case follows by attaching a minus sign.
+    Now use strong induction on $n\in\mathbb{N}$ with $n\geq 2$.
+    If $n$ is prime, then we are done.
+    If $n$ is not prime, then there exist integers $a,b$ such that
+    \[
+        n=ab
+    \]
+    with
+    \[
+        1<a<n \quad \text{and} \quad 1<b<n.
+    \]
+    By the induction hypothesis, both $a$ and $b$ can be written as products of primes.
+    Hence $n$ can also be written as a product of primes.
+    So existence is proved.
+
+    \textbf{Claim 2. Uniqueness of factorization.}
+    Suppose
+    \[
+        n = p_{1}p_2\cdots p_r = q_{1}q_2\cdots q_s,
+    \]
+    where all $p_i$ and $q_j$ are prime.
+    We prove uniqueness by induction on $\min\{r,s\}$.
+    If $\min\{r,s\}=1$, then we may assume $r=1$.
+    So
+    \[
+        p_1 = q_{1}q_2\cdots q_s.
+    \]
+    Since $p_1$ is prime and divides the product on the right, by the previous lemma,
+    \[
+        p_1\mid q_j
+    \]
+    for some $j$.
+    Because $q_j$ is prime, this implies
+    \[
+        q_j = \pm p_1.
+    \]
+    Since both sides factor $n$, this forces $s=1$, and the factorizations agree up to sign.
+    Now assume uniqueness holds whenever the minimum number of prime factors is $k$.
+    Suppose
+    \[
+        p_{1}p_2\cdots p_{k+1} = q_{1}q_2\cdots q_s
+    \]
+    with $\min\{k+1,s\}=k+1$.
+    Since $p_1$ divides the right-hand side, by the lemma,
+    \[
+        p_1\mid q_j
+    \]
+    for some $j$.
+    Because $q_j$ is prime, we have
+    \[
+        q_j = \pm p_1.
+    \]
+    After rearranging, we may assume
+    \[
+        q_1 = \pm p_1.
+    \]
+    Canceling this common prime factor up to sign leaves
+    \[
+        p_2\cdots p_{k+1} = \pm q_2\cdots q_s.
+    \]
+    Now the minimum number of prime factors has dropped to $k$, so by the induction hypothesis, the remaining primes agree up to order and sign.
+    Therefore the original factorization is unique up to order and sign.
+\end{theorem}

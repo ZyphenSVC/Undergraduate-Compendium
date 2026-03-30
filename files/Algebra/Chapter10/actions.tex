@@ -1,0 +1,297 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Group Actions}
+
+Let $G$ be a finite group and let $A$ be a set.
+We say $G$ acts on $A$ if there is a homomorphism
+\[
+    G\to \sym(A).
+\]
+\begin{definition}[Left Translation Group Action]
+    A left group action of $G$ on $A$ is a rule assigning to each $g\in G$ and $a\in A$ an element
+    \[
+        g\cdot a\in A
+    \]
+    such that
+    \[
+        1\cdot a=a
+    \]
+    and
+    \[
+        (gh)\cdot a=g\cdot (h\cdot a).
+    \]
+    The most general example is the action of $G$ on itself by left translation, also called the Cayley action, where
+    \[
+        g\mapsto \phi_g,
+        \qquad
+        \phi_g(x)=gx.
+    \]
+\end{definition}
+
+\begin{definition}[Right Conjugation Action]
+    A right action of $G$ on $A$ is a rule assigning to each $g\in G$ and $a\in A$ an element
+    \[
+        a^g\in A
+    \]
+    such that
+    \[
+        a^1=a
+    \]
+    and
+    \[
+        a^{gh}=(a^g)^h.
+    \]
+\end{definition}
+
+\begin{definition}[Left Conjugation Action]
+    A left action of $G$ on $A$ may also be written as
+    \[
+            {}^{g}a
+    \]
+    for $g\in G$ and $a\in A$, such that
+    \[
+            {}^{1}a=a
+    \]
+    and
+    \[
+            {}^{gh}a = {}^g({}^{h}a).
+    \]
+\end{definition}
+
+\begin{definition}[Orbit]
+    Suppose $G$ acts on $A$ by left translation.
+    Let $a\in A$.
+    Then the orbit of $a$ under the action is
+    \[
+        \{g\cdot a:g\in G\}\eqqcolon \mathcal{O}(a).
+    \]
+\end{definition}
+
+\begin{lemma}{
+    For the Cayley action of $G$ on itself, the orbit of any element is all of $G$.
+}
+    Let $a\in G$.
+    Then
+    \[
+        \mathcal{O}(a)=\{ga:g\in G\}.
+    \]
+    Given any $x\in G$, choose
+    \[
+        g=xa^{-1}.
+    \]
+    Then
+    \[
+        g\cdot a=(xa^{-1})a=x.
+    \]
+    So every element of $G$ lies in the orbit of $a$.
+    Hence
+    \[
+        \mathcal{O}(a)=G.
+    \]
+\end{lemma}
+
+If the action is written on the right, then
+\[
+    \mathcal{O}(a)=\{a^g:g\in G\}.
+\]
+If $G$ acts on itself by conjugation, then
+\[
+    \mathcal{O}(x)=\{gxg^{-1}:g\in G\},
+\]
+which is the conjugacy class of $x$.
+We denote this by $\mathcal{C}_x$.
+If $G$ is abelian, then
+\[
+    \mathcal{C}_x=\{x\}
+\]
+for every $x\in G$.
+
+\begin{example}
+    If
+    \[
+        G=S_3,
+    \]
+    then
+    \[
+        \mathcal{C}_{(12)}=\{(12),(13),(23)\}.
+    \]
+    Also,
+    \[
+        G=\mathcal{C}_1\sqcup \mathcal{C}_{(12)}\sqcup \mathcal{C}_{(123)}.
+    \]
+\end{example}
+
+If $G$ acts on $A$, then we can define a relation on $A$ by declaring
+\[
+    a\sim b
+\]
+if $a$ and $b$ are in the same orbit.
+This is an equivalence relation.
+
+\begin{definition}[Stabilizer]
+    Suppose $G$ acts on $A$.
+    Let $a\in A$.
+    Then the stabilizer of $a$ under the action is
+    \[
+        \stab_G(a)\coloneqq \{g\in G:g\cdot a=a\}
+    \]
+    for a left action, and
+    \[
+        \stab_G(a)\coloneqq \{g\in G:a^g=a\}
+    \]
+    for a right action.
+\end{definition}
+
+If $G$ acts on itself by conjugation, then the stabilizer of $x$ is exactly the centralizer
+\[
+    C_G(x).
+\]
+
+\begin{theorem}[Orbit-Stabilizer Theorem]{
+    Suppose $G$ acts on a set $A$ and let $a\in A$.
+    Then:
+    \begin{enumerate}
+        \item $\stab_G(a)\leq G$;
+        \item
+        \[
+            [G:\stab_G(a)] = \ord(\mathcal{O}(a)).
+        \]
+    \end{enumerate}
+}
+    \textbf{(1)}
+    Let $H=\stab_G(a)$.
+    Since
+    \[
+        1\cdot a=a,
+    \]
+    we have
+    \[
+        1\in H.
+    \]
+    If $g,h\in H$, then
+    \[
+        h\cdot a=a.
+    \]
+    So
+    \[
+        (gh)\cdot a=g\cdot(h\cdot a)=g\cdot a=a.
+    \]
+    Hence
+    \[
+        gh\in H.
+    \]
+    Now if $g\in H$, then
+    \[
+        g\cdot a=a.
+    \]
+    Apply $g^{-1}$ to both sides:
+    \[
+        g^{-1}\cdot(g\cdot a)=g^{-1}\cdot a.
+    \]
+    Thus
+    \[
+        a=g^{-1}\cdot a,
+    \]
+    so
+    \[
+        g^{-1}\in H.
+    \]
+    Therefore
+    \[
+        H\leq G.
+    \]
+
+    \textbf{(2)}
+    We find a bijection between the set of left cosets of $H$ in $G$ and the orbit of $a$.
+    Define
+    \[
+        gH \longmapsto g\cdot a.
+    \]
+    We need to check that this is well-defined.
+    Now
+    \[
+        g_{1}H=g_{2}H
+        \iff g_2^{-1}g_1\in H
+        \iff (g_2^{-1}g_1)\cdot a=a.
+    \]
+    This is equivalent to
+    \[
+        g_1\cdot a=g_2\cdot a.
+    \]
+    So the map is well-defined and injective.
+    It is surjective by definition of the orbit.
+    Hence
+    \[
+        [G:H]=\ord(\mathcal{O}(a)).
+    \]
+    That is,
+    \[
+        [G:\stab_G(a)] = \ord(\mathcal{O}(a)).
+    \]
+\end{theorem}
+
+\begin{definition}[Class Equation]
+    Let $G$ act on itself by conjugation.
+    Then $G$ is the union of its disjoint conjugacy classes.
+    Suppose these have representatives
+    \[
+        z_1=1,z_2,\ldots,z_k,x_1,x_2,\ldots,x_r,
+    \]
+    where the $z_i$ are the elements of the center $Z(G)$, so their conjugacy classes have size $1$.
+    Then the class equation for $G$ is
+    \[
+        \ord(G)=\ord(Z(G))+\ord(\mathcal{C}_{x_1})+\cdots+\ord(\mathcal{C}_{x_r}).
+    \]
+    Using orbit-stabilizer, this may also be written as
+    \[
+        \ord(G)=\ord(Z(G))+\sum_{i=1}^r [G:C_G(x_i)].
+    \]
+\end{definition}
+
+\begin{example}
+    Suppose $P$ is a group with
+    \[
+        \ord(P)=p^n,
+    \]
+    where $p$ is prime.
+    Then
+    \[
+        Z(P)\neq \{1\}.
+    \]
+\end{example}
+
+\begin{proof}
+    From the class equation,
+    \[
+        \ord(P)=\ord(Z(P))+\sum_{i=1}^r [P:C_P(x_i)].
+    \]
+    Now for each $x_i\notin Z(P)$,
+    \[
+        [P:C_P(x_i)] = \frac{p^n}{\ord(C_P(x_i))}.
+    \]
+    Since $C_P(x_i)$ is a proper subgroup of $P$, its order is $p^m$ for some $m<n$.
+    Thus
+    \[
+        [P:C_P(x_i)]=p^{n-m},
+    \]
+    which is divisible by $p$.
+    Therefore every term in the sum
+    \[
+        \sum_{i=1}^r [P:C_P(x_i)]
+    \]
+    is divisible by $p$.
+    Since $\ord(P)=p^n$ is also divisible by $p$, it follows that
+    \[
+        \ord(Z(P))
+    \]
+    is divisible by $p$.
+    Hence
+    \[
+        \ord(Z(P))\neq 1.
+    \]
+    So
+    \[
+        Z(P)\neq \{1\}.
+    \]
+\end{proof}

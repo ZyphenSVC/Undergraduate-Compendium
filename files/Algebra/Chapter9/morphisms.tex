@@ -1,0 +1,677 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Homomorphisms and Isomorphisms}
+
+\begin{definition}[Center]
+    \[
+        Z(G)\coloneqq \{x\in G: xa=ax\ \forall a\in G\}
+        =
+        \{x\in G: xax^{-1}=a\ \forall a\in G\}
+        =
+        \bigcap\limits_{a\in G} C_G(a).
+    \]
+\end{definition}
+
+Note that the centralizer is only for one element $a$:
+\[
+    C_G(a)\coloneqq \{x\in G: xa=ax\}.
+\]
+Also,
+\[
+    Z(G)\trianglelefteq G.
+\]
+\begin{theorem}{
+    Suppose $G/Z(G)$ is cyclic.
+    Then $G$ is abelian.
+    Hence $Z(G)=G$.
+}
+Denote $Z(G)=Z$.
+Let $cZ$ be a generator for $G/Z$.
+Then every coset in $G/Z$ has the form
+\[
+    aZ=c^{i}Z,
+    \qquad
+    bZ=c^{j}Z
+\]
+for some $i,j\in \z$.
+Let $a\in c^{i}Z$ and $b\in c^{j}Z$.
+Then there exist $d,e\in Z$ such that
+\[
+    a=c^{i}d,
+    \qquad
+    b=c^{j}e.
+\]
+Thus
+\begin{align*}
+    ab &= c^{i}dc^{j}e\\
+    &= c^{i}c^{j}de\\
+    &= c^{i}c^{j}ed\\
+    &= c^{i+j}ed\\
+    &= c^{j+i}de\\
+    &= c^{j}c^{i}de\\
+    &= c^{j}ec^{i}d\\
+    &= ba.
+\end{align*}
+So $ab=ba$ for all $a,b\in G$.
+Therefore $G$ is abelian.
+Hence $Z(G)=G$.
+\end{theorem}
+
+\begin{definition}[Kernel of Group Functions]
+    Suppose $\phi:G\to H$ is a group homomorphism.
+    Define the kernel of $\phi$ by
+    \[
+        \ker\phi \coloneqq \{g\in G:\phi(g)=1_H\}.
+    \]
+\end{definition}
+
+\begin{proposition}{
+    \[
+        \ker\phi\trianglelefteq G.
+    \]
+    Also, $\phi$ is injective if and only if
+    \[
+        \ker\phi=\{1_G\}.
+    \]
+}
+    First, $1_G\in \ker\phi$ since
+    \[
+        \phi(1_G)=1_H.
+    \]
+    If $a,b\in \ker\phi$, then
+    \[
+        \phi(ab^{-1})=\phi(a)\phi(b)^{-1}=1_{H}1_H^{-1}=1_H.
+    \]
+    So $ab^{-1}\in \ker\phi$.
+    Hence $\ker\phi\leq G$.
+    Now let $g\in G$ and $x\in \ker\phi$.
+    Then
+    \[
+        \phi(gxg^{-1})=\phi(g)\phi(x)\phi(g)^{-1}=\phi(g)1_H\phi(g)^{-1}=1_H.
+    \]
+    Thus
+    \[
+        gxg^{-1}\in \ker\phi.
+    \]
+    So
+    \[
+        \ker\phi\trianglelefteq G.
+    \]
+    Now suppose $\phi$ is injective.
+    If $r\in \ker\phi$, then
+    \[
+        \phi(r)=1_H=\phi(1_G).
+    \]
+    Since $\phi$ is injective, $r=1_G$.
+    Thus
+    \[
+        \ker\phi=\{1_G\}.
+    \]
+    Conversely, suppose
+    \[
+        \ker\phi=\{1_G\}.
+    \]
+    If $\phi(r)=\phi(s)$, then
+    \[
+        \phi(rs^{-1})=\phi(r)\phi(s)^{-1}=1_H.
+    \]
+    So
+    \[
+        rs^{-1}\in \ker\phi.
+    \]
+    Hence
+    \[
+        rs^{-1}=1_G,
+    \]
+    so $r=s$.
+    Therefore $\phi$ is injective.
+\end{proposition}
+
+\begin{theorem}[First Isomorphism Theorem]{
+    Suppose $\phi:G\to H$ is a group homomorphism.
+    Let $K=\ker\phi$.
+    Then
+    \[
+        G/K\cong \mathrm{Im}(\phi).
+    \]
+    Define
+    \[
+        \overline{\phi}:G/K\to \mathrm{Im}(\phi)
+    \]
+    by
+    \[
+        \overline{\phi}(gK)=\phi(g).
+    \]
+    Then $\overline{\phi}$ is a well-defined injective homomorphism whose image is $\mathrm{Im}(\phi)$.
+}
+To show $\overline{\phi}$ is well-defined, suppose
+\[
+    gK=hK.
+\]
+Then
+\[
+    h^{-1}g\in K=\ker\phi.
+\]
+So
+\[
+    \phi(h^{-1}g)=1_H.
+\]
+Hence
+\[
+    \phi(h)^{-1}\phi(g)=1_H,
+\]
+which implies
+\[
+    \phi(g)=\phi(h).
+\]
+Thus $\overline{\phi}(gK)=\overline{\phi}(hK)$.
+Now for $gK,hK\in G/K$,
+\[
+    \overline{\phi}((gK)(hK))
+    =
+    \overline{\phi}(ghK)
+    =
+    \phi(gh)
+    =
+    \phi(g)\phi(h)
+    =
+    \overline{\phi}(gK)\overline{\phi}(hK).
+\]
+So $\overline{\phi}$ is a homomorphism.
+It is injective because if
+\[
+    \overline{\phi}(gK)=1_H,
+\]
+then
+\[
+    \phi(g)=1_H,
+\]
+so $g\in K$.
+Hence $gK=K$.
+Thus
+\[
+    \ker(\overline{\phi})=\{K\},
+\]
+so $\overline{\phi}$ is injective.
+Its image is exactly $\mathrm{Im}(\phi)$ by definition.
+Therefore
+\[
+    G/K\cong \mathrm{Im}(\phi).
+\]
+\end{theorem}
+
+Let
+\[
+    f:G/K\to \mathrm{Im}(\phi)
+\]
+be given by
+\[
+    f(gK)=\phi(g).
+\]
+This is the isomorphism from the theorem.
+
+\begin{theorem}{
+    The map
+    \[
+        g\mapsto \phi_g
+    \]
+    is a homomorphism from $G$ to $\Aut(G)$, where
+    \[
+        \phi_g(x)=gxg^{-1}.
+    \]
+}
+Let $a,b\in G$.
+We need to check that
+\[
+    \phi_{ab}=\phi_a\circ \phi_b.
+\]
+Let $x\in G$.
+Then
+\begin{align*}
+    \phi_{ab}(x)
+    &=abx(ab)^{-1}\\
+    &=abxb^{-1}a^{-1}\\
+    &=a\phi_b(x)a^{-1}\\
+    &=\phi_a(\phi_b(x)).
+\end{align*}
+So
+\[
+    \phi_{ab}=\phi_a\circ \phi_b.
+\]
+Hence
+\[
+    g\mapsto \phi_g
+\]
+is a homomorphism.
+Now compute its kernel.
+We have
+\[
+    \ker\phi
+    =
+    \{y\in G:\phi_y(x)=x\ \forall x\in G\}.
+\]
+This means
+\[
+    yxy^{-1}=x\quad \forall x\in G.
+\]
+Equivalently,
+\[
+    yx=xy\quad \forall x\in G.
+\]
+So
+\[
+    \ker\phi=Z(G).
+\]
+\end{theorem}
+
+\begin{corollary}{
+    \[
+        G/Z(G)\cong \Inn(G).
+    \]
+}
+    This follows from the first isomorphism theorem applied to the homomorphism
+    \[
+        G\to \Aut(G),
+        \qquad
+        g\mapsto \phi_g.
+    \]
+    Its kernel is $Z(G)$, and its image is $\Inn(G)$.
+    Hence
+    \[
+        G/Z(G)\cong \Inn(G).
+    \]
+\end{corollary}
+
+If $G$ is abelian, then
+\[
+    Z(G)=G
+\]
+and
+\[
+    \Inn(G)=\{\id\}.
+\]
+If $G=S_n$ with $n\geq 3$, then
+\[
+    Z(G)=\{1\},
+\]
+so
+\[
+    G\cong \Inn(G)\leq \Aut(G).
+\]
+Thus
+\[
+    \Inn(G)\trianglelefteq \Aut(G).
+\]
+\begin{theorem}{
+    Suppose
+    \[
+        K\trianglelefteq N\trianglelefteq G
+    \]
+    with also
+    \[
+        K\trianglelefteq G.
+    \]
+    Then
+    \[
+        N/K\trianglelefteq G/K
+    \]
+    and
+    \[
+        (G/K)/(N/K)\cong G/N.
+    \]
+}
+Define
+\[
+    \phi:G/K\to G/N
+\]
+by
+\[
+    \phi(gK)=gN.
+\]
+First check that $\phi$ is well-defined.
+Suppose
+\[
+    aK=bK.
+\]
+Then
+\[
+    b^{-1}a\in K.
+\]
+Since
+\[
+    K\leq N,
+\]
+we have
+\[
+    b^{-1}a\in N.
+\]
+Thus
+\[
+    aN=bN.
+\]
+Now compute the kernel.
+Suppose
+\[
+    gK\in \ker\phi.
+\]
+Then
+\[
+    \phi(gK)=N.
+\]
+So
+\[
+    gN=N,
+\]
+which means
+\[
+    g\in N.
+\]
+Hence
+\[
+    gK\in N/K.
+\]
+Thus
+\[
+    \ker\phi=N/K.
+\]
+Also, $\phi$ is surjective, since for any $gN\in G/N$,
+\[
+    \phi(gK)=gN.
+\]
+Therefore, by the first isomorphism theorem,
+\[
+    (G/K)/(N/K)\cong G/N.
+\]
+Since $N/K=\ker\phi$, it is normal in $G/K$.
+Thus
+\[
+    N/K\trianglelefteq G/K.
+\]
+\end{theorem}
+
+Normality is not transitive.
+It is possible that
+\[
+    K\trianglelefteq N
+    \quad\text{and}\quad
+    N\trianglelefteq G
+\]
+but
+\[
+    K\ntrianglelefteq G.
+\]
+For example, if
+\[
+    G=\z,\qquad N=6\z,\qquad K=12\z,
+\]
+then
+\[
+    K\trianglelefteq N\trianglelefteq G
+    \quad\text{and}\quad
+    K\trianglelefteq G.
+\]
+Also,
+\begin{gather*}
+    G/N=\z/6\z\cong \z_6,\\
+    N/K=6\z/12\z\cong \z_2,\\
+    G/K=\z/12\z\cong \z_{12},\\
+\end{gather*}
+and
+\[
+    (G/K)/(N/K)\cong \z_6\cong G/N.
+\]
+
+\begin{theorem}[4th Isomorphism Theorem]{
+    Suppose
+    \[
+        N\trianglelefteq G.
+    \]
+    Then there is a bijection between subgroups of $G/N$ and subgroups of $G$ containing $N$.
+}
+Suppose $H\leq G$ with $N\leq H$.
+Define
+\[
+    T=\{hN:h\in H\}.
+\]
+We check that $T\leq G/N$.
+Since $1\in H$, we have
+\[
+    N=1N\in T.
+\]
+If $h_1,h_2\in H$, then
+\[
+    (h_{1}N)(h_{2}N)=(h_{1}h_2)N\in T.
+\]
+If $h\in H$, then
+\[
+    (hN)^{-1}=h^{-1}N\in T.
+\]
+So $T\leq G/N$.
+Conversely, suppose $T\leq G/N$.
+Define
+\[
+    H=\{h\in G:hN\in T\}.
+\]
+We check that $H\leq G$.
+Since $N\in T$, we have $1\in H$.
+If $h_1,h_2\in H$, then
+\[
+    h_{1}N,h_{2}N\in T.
+\]
+Since $T$ is a group,
+\[
+    (h_{1}N)(h_{2}N)=(h_{1}h_2)N\in T.
+\]
+So $h_{1}h_2\in H$.
+If $h\in H$, then
+\[
+    hN\in T,
+\]
+so
+\[
+    (hN)^{-1}=h^{-1}N\in T.
+\]
+Thus $h^{-1}\in H$.
+Hence $H\leq G$.
+These maps are inverse to each other, so the correspondence is a bijection.
+\end{theorem}
+
+These maps are also inverses of one another.
+If we start with $H\leq G$ containing $N$, then
+\[
+    T=\{hN:h\in H\}.
+\]
+If we start with $T\leq G/N$, then
+\[
+    H=\{h\in G:hN\in T\}.
+\]
+
+\begin{proposition}{
+    Under these maps,
+    \[
+        H\trianglelefteq G
+        \iff
+        T\trianglelefteq G/N.
+    \]
+}
+($\implies$).
+    Let $xN\in T$ and $gN\in G/N$.
+Then
+    \[
+        (gN)(xN)(g^{-1}N)=gxg^{-1}N.
+    \]
+    Since $H\trianglelefteq G$ and $x\in H$, we have
+    \[
+        gxg^{-1}\in H.
+    \]
+    Thus
+    \[
+        gxg^{-1}N\in T.
+    \]
+    So
+    \[
+        T\trianglelefteq G/N.
+    \]
+
+    ($\impliedby$).
+    Suppose $T\trianglelefteq G/N$.
+    Let $x\in H$ and $g\in G$.
+    Since $xN\in T$, we have
+    \[
+        (gN)(xN)(g^{-1}N)\in T.
+    \]
+    That is,
+    \[
+        gxg^{-1}N\in T.
+    \]
+    Hence
+    \[
+        gxg^{-1}\in H.
+    \]
+    So
+    \[
+        H\trianglelefteq G.
+    \]
+\end{proposition}
+
+\begin{definition}[Simple Group]
+    Suppose $G$ is a group and
+    \[
+        \{1\}\neq G.
+    \]
+    We say $G$ is simple if and only if
+    \[
+        N\trianglelefteq G
+    \]
+    implies
+    \[
+        N=G
+        \quad\text{or}\quad
+        N=\{1\}.
+    \]
+\end{definition}
+
+\begin{theorem}{
+    If $G$ is abelian and simple, then
+    \[
+        G\cong C_p
+    \]
+    for some prime $p$.
+}
+Since $G$ is abelian, every subgroup is normal.
+Because $G$ is simple, it has no proper nontrivial subgroups.
+Take
+\[
+    1\neq a\in G.
+\]
+Then
+\[
+    \gen{a}\leq G.
+\]
+Since $\gen{a}\neq \{1\}$ and $G$ is simple, we must have
+\[
+    \gen{a}=G.
+\]
+Thus $G$ is cyclic.
+
+So
+\[
+    G\cong C_n
+\]
+for some $n$.
+If $n$ were composite, then there would exist a proper nontrivial subgroup of $C_n$, namely
+\[
+    \gen{a^k}
+\]
+for a suitable divisor $k$ of $n$.
+But that would contradict simplicity.
+Therefore $n$ must be prime.
+Hence
+\[
+    G\cong C_p
+\]
+for some prime $p$.
+\end{theorem}
+
+What does it mean when a group is not simple.
+It means it has a proper normal subgroup.
+Suppose $G$ is not simple.
+Then
+\[
+    1\neq N\triangleleft G.
+\]
+Thus one studies the quotient $G/N$ and can lift proper normal subgroups of $G/N$ back to $G$.
+Now the correct thing to ask is what lift means.
+
+\begin{definition}[Lift]
+    By the 4th Isomorphism Theorem, there is a bijection between subgroups
+    \[
+        T\leq G/N
+    \]
+    and subgroups
+    \[
+        H\leq G
+    \]
+    containing $N$.
+    We lift $T$ by assigning to it its corresponding subgroup $H$ in $G$.
+\end{definition}
+
+\begin{definition}[Jordan--Holder Series / Composition Series]
+    If $G$ is not simple, we may find a proper normal subgroup $N\triangleleft G$.
+    Then we may continue by finding a proper normal subgroup of $G/N$, and so on.
+    Eventually we run out of proper normal subgroups.
+    This process creates a sequence
+    \[
+        \{1\}\leq G_1\leq G_2\leq \dots \leq G_n\leq G
+    \]
+    with
+    \[
+        G_i\trianglelefteq G_{i+1}
+    \]
+    and each quotient
+    \[
+        G_{i+1}/G_i
+    \]
+    simple.
+    This sequence is called a Jordan--Holder series, or composition series.
+\end{definition}
+
+\begin{example}
+    Let
+    \[
+        G=C_6\cong C_3\times C_2.
+    \]
+    Then
+    \[
+        N_1=C_3\times \{1\}\trianglelefteq G
+    \]
+    and
+    \[
+        N_2=\{1\}\times C_2\trianglelefteq G.
+    \]
+    Thus
+    \[
+        G/N_1\cong C_2
+    \]
+    and
+    \[
+        G/N_2\cong C_3.
+    \]
+    So we have two composition series:
+    \[
+        \{1\}\trianglelefteq N_1\trianglelefteq G
+    \]
+    and
+    \[
+        \{1\}\trianglelefteq N_2\trianglelefteq G.
+    \]
+    Their composition factors are the same up to order:
+    \[
+        N_1/\{1\}\cong C_3,\qquad G/N_1\cong C_2,
+    \]
+    and
+    \[
+        N_2/\{1\}\cong C_2,\qquad G/N_2\cong C_3.
+    \]
+\end{example}

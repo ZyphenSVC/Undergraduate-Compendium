@@ -1,0 +1,198 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+Around this chapter is where most textbooks will start.
+Some of the concepts that we introduced in the previous chapters are more seen as prior knowledge, or seen in an introduction chapter similar to what we have with Chapter~\ref{ch:chap1}.
+So from here on out, consider everything you learned so far as a foundation for the rest of the content.
+
+\section{Rings}
+
+\begin{definition}[Ring]
+    A ring $R$ is a set with two operations, $+$ and $\times$.
+    Addition is commutative and associative.
+    There exists an additive identity, usually denoted by $0_R$.
+    There exists an additive inverse in $R$, say $b$, such that $a+b=0_R$, and this inverse is unique.
+    Multiplication is associative.
+    Together, the two operations satisfy the distributive laws.
+    There may also be a multiplicative identity, denoted by $1_R$.
+\end{definition}
+
+\begin{definition}[Subrings]
+    A subset $S$ is a subring of $R$ if for all $a,b\in S$, it has closure under addition and multiplication.
+    It must also have the additive identity and additive inverses for each element.
+\end{definition}
+
+For example, in an introduction to proofs class we may have seen that
+\[
+    \mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}.
+\]
+We learned them as sets, but looking at properties of rings and subrings, consider them all rings and subrings in that order.
+However, if we wanted to look outside of these number systems, let us look at matrices:
+\[
+    \left\{
+        \begin{bmatrix}
+            a&b\\
+            -b&a
+        \end{bmatrix}
+        :a,b\in\mathbb{Q}
+    \right\}.
+\]
+Note that this is a subring of $\mat{2}(\mathbb{R})$.
+
+\begin{definition}[Field]
+    A field $\f$ is a commutative ring with $1\neq 0$ such that if $a\in\f$ and $a\neq 0$, then $a$ is a unit.
+\end{definition}
+
+\begin{definition}[Subfield]
+    If $S$ is a subring of a field $\f$, and is also closed under multiplicative inverses of nonzero elements, then it is also a subfield.
+\end{definition}
+
+We have previously learned that
+\[
+    \left\{
+        \begin{bmatrix}
+            a&b\\
+            -b&a
+        \end{bmatrix}
+        :a,b\in\mathbb{Q}
+    \right\}
+\]
+is a subring of $\mat{2}(\mathbb{R})$.
+But I also claim it is a field itself.
+
+\begin{proposition}{
+    The set
+    \[
+        \left\{
+            \begin{bmatrix}
+                a&b\\
+                -b&a
+            \end{bmatrix}
+            :a,b\in\mathbb{Q}
+        \right\}
+    \]
+    is a field.
+}
+    Suppose
+    \[
+        M=
+        \begin{bmatrix}
+            a&b\\
+            -b&a
+        \end{bmatrix}
+        \neq
+        \begin{bmatrix}
+            0&0\\
+            0&0
+        \end{bmatrix},
+    \]
+    which means $a$ and $b$ are not both $0$.
+    Then
+    \[
+        \det(M)=a^2+b^2.
+    \]
+    Since $a$ and $b$ are not both $0$, we have $a^2+b^2\neq 0$.
+    Thus
+    \[
+        M^{-1}=\frac{1}{a^2+b^2}
+        \begin{bmatrix}
+            a&-b\\
+            b&a
+        \end{bmatrix}.
+    \]
+    Since $a,b\in\mathbb{Q}$, this inverse is again of the same form with rational entries.
+    Thus we have shown that the subring is also closed under multiplicative inverses of nonzero elements.
+    This is a field.
+\end{proposition}
+
+\begin{lemma}{
+    For $n$ composite, $\zn$ is not a field if it has zero-divisors.
+}
+    If $\zn$ has a zero-divisor $[a]\neq [0]$, then there exists $[b]\neq [0]$ such that
+    \[
+        [a][b]=[0].
+    \]
+    If $\zn$ were a field, then $[a]$ would be a unit.
+    Multiplying by $[a]^{-1}$ would give
+    \[
+        [b]=[0],
+    \]
+    a contradiction.
+    Thus $\zn$ is not a field.
+\end{lemma}
+
+    {\Huge{From now on $\ri,\si$ is a ring and $\f$ is a field.}}\\
+
+\begin{definition}[Integral Domain]
+    Suppose $\ri$ is a commutative ring with $1\neq 0$.
+    We say $\ri$ is an integral domain if $a\neq 0$ and $a\in\ri$ imply that $a$ is not a zero-divisor.
+\end{definition}
+
+We can think of these integral domain rings as being almost a field, but the only thing discerning them from being a field is the fact that not every nonzero element must have an inverse.
+The only zero-divisor is $0_\ri$.
+Remember that if there is a nonzero zero-divisor in $\ri$, then there is no way it can be a field, since all nonzero elements of a field must have an inverse, a.k.a.\ be a unit.
+
+\begin{corollary}{
+    $\f$ is an integral domain.
+}
+    Suppose $a,b\in\f$ with $ab=0$.
+    Suppose $a\neq 0$.
+    Then $a$ is a unit with inverse $a^{-1}$.
+    Then
+    \begin{align*}
+        a^{-1}(ab) &= a^{-1}\cdot 0\\
+        (a^{-1}a)b &= 0\\
+        1b &= 0\\
+        b &= 0.
+    \end{align*}
+    Thus if $ab=0$, then $a=0$ or $b=0$.
+    So $\f$ is an integral domain.
+\end{corollary}
+
+Let us look into something called extensions.
+
+\begin{definition}[Field Adjoins]
+    We call something an adjoin given that suppose we have $\f=\mathbb{Q}$.
+    Note this field is a subfield of $\mathbb{R}$.
+    Then an extension of $\mathbb{Q}$ is taking an element of $\mathbb{R}\setminus\mathbb{Q}$ and adding it to $\mathbb{Q}$.
+    An example of this is
+    \[
+        \mathbb{Q}\left[\sqrt{7}\right] \coloneqq \{a+b\sqrt{7}:a,b\in\mathbb{Q}\}.
+    \]
+\end{definition}
+
+In fact, an exercise to do is to show that $\mathbb{Q}\left[\sqrt{7}\right]$ is a subfield.
+Based on everything we have observed, we can say that $\zp$ is a field and $\zn$ is not even an integral domain when $n$ is composite.
+
+\begin{axiom}[Pigeonhole Principle]
+    If you have $n+1$ objects in $n$ slots, one slot will have more than $1$ element.
+\end{axiom}
+
+\begin{theorem}{
+    A finite integral domain is a field.
+}
+    Let $F$ be a finite integral domain.
+    We need to show that if $0\neq u\in F$, then $u$ has a multiplicative inverse.
+    Consider the set
+    \[
+        \{u,u^2,u^3,\hdots\}.
+    \]
+    Suppose $F$ has $n$ elements.
+    Then there must be repetition, so $u^k=u^m$ for some $m>k$.
+    Thus
+    \begin{align*}
+        u^m-u^k &= 0\\
+        u^k(u^{m-k}-1) &= 0.
+    \end{align*}
+    Since $F$ is an integral domain, then $u^k=0$ or $u^{m-k}-1=0$.
+    Since $u\neq 0$, we must have $u^k\neq 0$.
+    Then
+    \begin{align*}
+        u^{m-k}-1 &= 0\\
+        u^{m-k} &= 1\\
+        u(u^{m-k-1}) &= 1.
+    \end{align*}
+    Thus $u^{-1}=u^{m-k-1}$.
+    So every nonzero element of $F$ has a multiplicative inverse.
+    Therefore $F$ is a field.
+\end{theorem}

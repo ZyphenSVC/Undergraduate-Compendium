@@ -1,0 +1,237 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Division}
+
+\begin{theorem}[Division Algorithm in Polynomial Fields]{
+    Suppose $\f$ is a field and $a(x),b(x)\in\f[x]$ with $b(x)\neq 0$.
+    Then there exist unique $q(x),r(x)\in\f[x]$ such that
+    \[
+        a(x)=q(x)b(x)+r(x)
+    \]
+    with $\deg(r(x))<\deg(b(x))$ or $r(x)=0$.
+}
+    \textbf{Case 1:}
+    If $a(x)=0$ or $\deg(a(x))<\deg(b(x))$, then let
+    \[
+        q(x)=0,\qquad r(x)=a(x).
+    \]
+    Then
+    \[
+        a(x)=b(x)\cdot 0+a(x),
+    \]
+    so the conclusion holds.
+    \textbf{Case 2:}
+    Suppose $a(x)\neq 0$ and $\deg(a(x))\geq \deg(b(x))$.
+    Write
+    \[
+        a(x)=a_{n}x^n+\hdots,
+        \qquad
+        b(x)=b_{m}x^m+\hdots
+    \]
+    with $a_n,b_m\neq 0$ and $n\geq m$.
+    Since $\f$ is a field, $b_m^{-1}$ exists.
+    Let
+    \[
+        h(x)\coloneqq a(x)-a_{n}b_m^{-1}x^{n-m}b(x).
+    \]
+    Then the leading terms cancel, so
+    \[
+        \deg(h(x))<\deg(a(x)).
+    \]
+    By strong induction on $\deg(a(x))$, there exist $q_1(x),r(x)\in\f[x]$ such that
+    \[
+        h(x)=q_1(x)b(x)+r(x)
+    \]
+    with $\deg(r(x))<\deg(b(x))$ or $r(x)=0$.
+    Therefore
+    \begin{align*}
+        a(x)
+        &=a_{n}b_m^{-1}x^{n-m}b(x)+h(x)\\
+        &=a_{n}b_m^{-1}x^{n-m}b(x)+q_1(x)b(x)+r(x)\\
+        &=\bigl(a_{n}b_m^{-1}x^{n-m}+q_1(x)\bigr)b(x)+r(x).
+    \end{align*}
+    So if we let
+    \[
+        q(x)\coloneqq a_{n}b_m^{-1}x^{n-m}+q_1(x),
+    \]
+    then
+    \[
+        a(x)=q(x)b(x)+r(x)
+    \]
+    with $\deg(r(x))<\deg(b(x))$ or $r(x)=0$.
+
+    \textbf{Proof of Uniqueness:}
+    Suppose
+    \begin{align*}
+        a(x)&=q_1(x)b(x)+r_1(x)\\
+        &=q_2(x)b(x)+r_2(x),
+    \end{align*}
+    where $\deg(r_1(x)),\deg(r_2(x))<\deg(b(x))$ or $r_1(x)=r_2(x)=0$.
+    Then
+    \begin{align*}
+        [q_1(x)-q_2(x)]b(x)+[r_1(x)-r_2(x)]&=0,\\
+    [q_1(x)-q_2(x)]b(x)&=r_2(x)-r_1(x).
+    \end{align*}
+
+    Now either $r_2(x)-r_1(x)=0$, or
+    \[
+        \deg(r_2(x)-r_1(x))<\deg(b(x)).
+    \]
+    If $(q_1(x)-q_2(x))b(x)\neq 0$, then since $\f[x]$ is an integral domain,
+    \[
+        \deg\bigl((q_1(x)-q_2(x))b(x)\bigr)=\deg(q_1(x)-q_2(x))+\deg(b(x))\geq \deg(b(x)).
+    \]
+    This is impossible, since the right-hand side has degree strictly less than $\deg(b(x))$ or is $0$.
+    Therefore
+    \[
+        (q_1(x)-q_2(x))b(x)=0.
+    \]
+    Hence $q_1(x)=q_2(x)$.
+    Then
+    \[
+        r_2(x)-r_1(x)=0,
+    \]
+    so $r_1(x)=r_2(x)$.
+\end{theorem}
+
+The Division Algorithm for polynomial fields is a fundamental concept that allows you to divide one polynomial by another, similar to the division algorithm with integers.
+This algorithm helps you express one polynomial as a quotient of another polynomial plus a remainder.
+
+\begin{definition}[Logical Divide of Polynomial Fields]
+    Let $a(x),b(x)\in\f[x]$ and $b(x)\neq 0$.
+    We say $b(x)\mid a(x)$ if there exists a $q(x)\in\f[x]$ such that
+    \[
+        a(x)=q(x)b(x).
+    \]
+\end{definition}
+
+\begin{definition}[GCD of Polynomial Fields]
+    Suppose $a(x),b(x)\in\f[x]$ are not both $0$.
+    We say $d(x)=\gcd(a(x),b(x))$ if $d(x)\mid a(x)$, $d(x)\mid b(x)$, and whenever $c(x)\in\f[x]$ satisfies $c(x)\mid a(x)$ and $c(x)\mid b(x)$, then $c(x)\mid d(x)$.
+\end{definition}
+
+Suppose we are in $\Q[x]$.
+Let
+\[
+    a(x)=(x-1)^2
+\]
+and
+\[
+    b(x)=(x-1)(x-2).
+\]
+Then $\gcd(a(x),b(x))=x-1$.
+But wait, does not $2x-2\mid a(x)$ and $b(x)$ as well.
+We have a problem on our hands.
+We have to figure out how to circumvent this solution, and before we can do that, let us go ahead and introduce a new term.
+
+\begin{definition}[Monic]
+    If $d(x)\in\f[x]$ has leading coefficient $1$, then $d(x)$ is monic.
+\end{definition}
+
+In algebra, monic polynomials are commonly used in the context of irreducible polynomials.
+Monic irreducible polynomials have leading coefficient $1$, and this condition simplifies discussions of unique factorization.
+
+\begin{definition}[Polynomial Associates]
+    If $c(x),d(x)\in\f[x]$ and
+    \[
+        c(x)=\beta d(x)
+    \]
+    for some $\beta\in\f$ with $\beta\neq 0$, we say $c(x)$ and $d(x)$ are associates.
+\end{definition}
+
+We can think of associates as polynomial constant multiples.
+
+\begin{theorem}[GCD Theorem]{
+    Suppose $a(x),b(x)\in\f[x]$ are not both $0$.
+    Let
+    \[
+        S\coloneqq \{u(x)a(x)+v(x)b(x)\neq 0 : u(x),v(x)\in\f[x]\}.
+    \]
+    Then there exist $u(x),v(x)\in\f[x]$ such that
+    \[
+        d(x)=u(x)a(x)+v(x)b(x)
+    \]
+    and $d(x)=\gcd(a(x),b(x))$.
+    Moreover, $S$ has a unique monic polynomial of smallest degree, and this polynomial is $\gcd(a(x),b(x))$.
+}
+    This theorem also answers the question to our gcd question, which shows that we want to have a monic polynomial of smallest degree as our $\gcd(a(x),b(x))$.
+    The set of degrees is a subset of $\z^{\geq 0}$, so let $d(x)$ be a monic polynomial of minimal degree in $S$.
+    We need to show that $d(x)\mid a(x)$.
+    Using the division algorithm, write
+    \[
+        a(x)=q(x)d(x)+r(x),
+    \]
+    where $r(x)=0$ or $\deg(r(x))<\deg(d(x))$.
+    Now since $d(x)\in S$, there exist $u(x),v(x)\in\f[x]$ such that
+    \[
+        d(x)=u(x)a(x)+v(x)b(x).
+    \]
+    So
+    \begin{align*}
+        r(x)
+        &=a(x)-q(x)d(x)\\
+        &=a(x)-q(x)\bigl(u(x)a(x)+v(x)b(x)\bigr)\\
+        &=\bigl(1-q(x)u(x)\bigr)a(x)-q(x)v(x)b(x).
+    \end{align*}
+    Thus if $r(x)\neq 0$, then $r(x)\in S$.
+    But then
+    \[
+        \deg(r(x))<\deg(d(x)),
+    \]
+    contradicting the fact that $d(x)$ has the least degree among nonzero elements of $S$.
+    So $r(x)=0$, and hence $d(x)\mid a(x)$.
+    Similarly, $d(x)\mid b(x)$.
+    Now suppose $c(x)\mid a(x)$ and $c(x)\mid b(x)$.
+    Then $c(x)$ divides every linear combination of $a(x)$ and $b(x)$.
+    In particular,
+    \[
+        c(x)\mid u(x)a(x)+v(x)b(x)=d(x).
+    \]
+    Therefore $d(x)=\gcd(a(x),b(x))$.
+    Finally, gcds are unique up to associates, and among all associates there is exactly one monic polynomial.
+    Hence the monic gcd is unique.
+\end{theorem}
+
+This theorem also answers the question to our gcd question, which shows that we want to have a monic polynomial of smallest degree as our $\gcd(a(x),b(x))$.
+The GCD Theorem for polynomial fields is a fundamental result in abstract algebra that addresses the existence and uniqueness of the greatest common divisor of two polynomials in a polynomial ring over a field.
+The theorem establishes a clear and precise method for finding the gcd of polynomials and its properties.
+
+\begin{definition}[Relatively Prime]
+    Suppose $a(x),b(x)\in\f[x]$ are not both $0$.
+    We say $a(x)$ and $b(x)$ are relatively prime if
+    \[
+        \gcd(a(x),b(x))=1.
+    \]
+\end{definition}
+
+\begin{corollary}[Consequence of GCD Theorem]{
+    Suppose $a(x),b(x)\in\f[x]$ are relatively prime and $c(x)\in\f[x]$.
+    If $a(x)\mid b(x)c(x)$, then $a(x)\mid c(x)$.
+}
+    By the gcd theorem, we have
+    \[
+        1=u(x)a(x)+v(x)b(x)
+    \]
+    for some $u(x),v(x)\in\f[x]$.
+    Thus
+    \[
+        c(x)=c(x)u(x)a(x)+c(x)v(x)b(x).
+    \]
+    Since $a(x)\mid c(x)u(x)a(x)$ and $a(x)\mid c(x)v(x)b(x)$, it follows that
+    \[
+        a(x)\mid c(x).
+    \]
+\end{corollary}
+
+If we let $\ri=\f[x]$, we notice that it has very similar properties to $\z$, such that it has the division and gcd algorithm.
+In fact, it also will have relatively prime and an equivalence to primes, but for polynomials.
+Let us look at this equivalence.
+
+\begin{definition}[Irreducible]
+    A polynomial $p(x)\in\f[x]$ is irreducible if whenever
+    \[
+        p(x)=a(x)b(x)
+    \]
+    for $a(x),b(x)\in\f[x]$, then $a(x)$ is an associate of $p(x)$ or $a(x)$ is a unit.
+\end{definition}

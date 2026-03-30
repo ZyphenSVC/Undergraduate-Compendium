@@ -1,0 +1,299 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Field Extensions}
+
+\begin{definition}[Vector Space]
+    A vector space over $\f$ is an additive abelian group $V$ equipped with scalar multiplication such that for $a,a_1,a_2\in\f$ and $v,v_1,v_2\in V$, the following hold:
+    \begin{enumerate}
+        \item $a(v_1+v_2)=av_1+av_2$.
+        \item $(a_1+a_2)v=a_{1}v+a_{2}v$.
+        \item $a_1(a_{2}v)=(a_{1}a_2)v$.
+        \item $1_\f v=v$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Span]
+    If every element of a vector space $V/\f$ can be written as a linear combination of elements of a set $\{v_1,v_2,\hdots,v_n\}$, then we say that $\{v_1,v_2,\hdots,v_n\}$ spans $V/\f$.
+\end{definition}
+
+\begin{definition}[Linearly Independent]
+    A subset of a vector space $V/\f$ is linearly independent over $\f$ if whenever
+    \[
+        c_{1}v_1+\cdots+c_{n}v_n=0
+    \]
+    with $c_i\in\f$, then $c_i=0_\f$ for all $i$.
+    Otherwise, it is dependent.
+\end{definition}
+
+\begin{definition}[Basis]
+    A subset is called a basis if it is linearly independent and spans $V/\f$.
+\end{definition}
+
+\begin{definition}[Dimension]
+    If $p(x)\in\f[x]$ is irreducible, then $\E$ is an extension field of $\f$.
+    In fact, this is a vector space over $\f$.
+    Its dimension is denoted by $[\E:\f]$.
+\end{definition}
+
+\begin{theorem}{
+    Suppose $K$ is an extension field of $\E$ and $\E$ is an extension field of $\f$.
+    Then
+    \[
+        [K:\f]=[K:\E][\E:\f].
+    \]
+}
+Suppose
+\[
+    [\E:\f]=n.
+\]
+Let $v_1,\hdots,v_n\in\E$ be a basis for $\E/\f$.
+Suppose
+\[
+    [K:\E]=m.
+\]
+Let $w_1,\hdots,w_m\in K$ be a basis for $K/\E$.
+Our claim is that
+\[
+    \{w_{i}v_j:1\leq i\leq m,\ 1\leq j\leq n\}
+\]
+is a basis for $K/\f$.
+First, we show that $\{w_{i}v_j\}$ spans $K$.
+Let $u\in K$.
+Since $\{w_i\}$ spans $K/\E$, we can write
+\[
+    u=\sum_{i=1}^m \alpha_i w_i,
+    \qquad \alpha_i\in\E.
+\]
+Since $\{v_j\}$ spans $\E/\f$, each $\alpha_i$ can be written as
+\[
+    \alpha_i=\sum_{j=1}^n \beta_{ij}v_j,
+    \qquad \beta_{ij}\in\f.
+\]
+Therefore
+\[
+    u=\sum_{i=1}^m\sum_{j=1}^n \beta_{ij}w_{i}v_j.
+\]
+So $\{w_{i}v_j\}$ spans $K/\f$.
+Now suppose
+\[
+    \sum_{i=1}^m\sum_{j=1}^n \beta_{ij}w_{i}v_j=0,
+    \qquad \beta_{ij}\in\f.
+\]
+Rewrite this as
+\[
+    \sum_{i=1}^m \left(\sum_{j=1}^n \beta_{ij}v_j\right) w_i=0.
+\]
+Since the $w_i$ are linearly independent over $\E$, we have
+\[
+    \sum_{j=1}^n \beta_{ij}v_j=0
+\]
+for each $i$.
+Since the $v_j$ are linearly independent over $\f$, it follows that
+\[
+    \beta_{ij}=0
+\]
+for all $i,j$.
+Thus $\{w_{i}v_j\}$ is linearly independent over $\f$.
+Hence it is a basis of $K/\f$.
+Therefore
+\[
+    [K:\f]=mn=[K:\E][\E:\f].
+\]
+\end{theorem}
+
+\begin{definition}[Algebraic and Transcendental Functions]
+    Let $\f=\q$, $\E=\r$, and $u=\pi$.
+    There is no polynomial $p(u)=0$ with $p(x)\in\Q[x]$.
+    If there is no such polynomial, we say $u$ is transcendental over $\f$.
+    If there is such a polynomial, we say $u$ is algebraic over $\f$.
+\end{definition}
+
+To understand two versions of field extensions, let us look at when $\Q[\alpha]=\Q(\alpha)$.
+We can use the first isomorphism theorem.
+
+\begin{lemma}[$\Q[\alpha]=\Q(\alpha)$]{
+    For the evaluation map $\phi:\Q[x]\to\Q[\alpha]$, we have
+    \begin{align*}
+        \text{$\phi$ is injective}
+        &\iff \ker\phi=\{0\}\\
+        &\iff \not\exists f(x)\in\Q[x]\text{ such that }f(\alpha)=0\\
+        &\iff \text{$\alpha$ is transcendental over $\Q$.}
+    \end{align*}
+}
+\end{lemma}
+
+\begin{proof}
+Using the first isomorphism theorem, let $\phi$ be the homomorphism defined by evaluation at $\alpha$.
+Then
+\[
+\Ima\phi=\{f(\alpha):f(x)\in\Q[x]\}=\Q[\alpha].
+\]
+So $\phi$ is surjective.
+Also,
+\[
+\ker\phi=\{f(x)\in\Q[x]:f(\alpha)=0\}.
+\]
+Thus $\phi$ is injective if and only if $\ker\phi=\{0\}$, which happens if and only if there is no nonzero polynomial in $\Q[x]$ with $\alpha$ as a root.
+That is exactly the statement that $\alpha$ is transcendental over $\q$.
+Therefore, if $\alpha$ is transcendental over $\q$, then
+\[
+\Q[\alpha]\cong\Q[x].
+\]
+So $\Q[\alpha]$ is a ring, not a field.
+\end{proof}
+
+\begin{definition}[Minimal Polynomial]
+Suppose $p(x)$ is a monic polynomial of smallest degree such that
+\[
+p(\alpha)=0.
+\]
+This is called the minimal polynomial of $\alpha/\q$.
+\end{definition}
+
+\begin{lemma}{
+The minimal polynomial $p(x)$ is irreducible.
+}
+Suppose $p(x)$ is reducible.
+Then
+\[
+p(x)=q(x)g(x)
+\]
+for some nonconstant $q(x),g(x)\in\Q[x]$.
+Evaluating at $\alpha$ gives
+\[
+0=p(\alpha)=q(\alpha)g(\alpha).
+\]
+So either $q(\alpha)=0$ or $g(\alpha)=0$.
+But then either $q(x)$ or $g(x)$ is a polynomial of smaller degree than $p(x)$ having $\alpha$ as a root.
+This contradicts the minimality of $p(x)$.
+Therefore $p(x)$ is irreducible.
+\end{lemma}
+
+\begin{proof}
+Using the first isomorphism theorem, suppose $\alpha$ is algebraic.
+Let
+\[
+\phi:\Q[x]\to\Q[\alpha]
+\]
+be evaluation at $\alpha$.
+Then
+\[
+\ker\phi=(p(x)),
+\]
+where $p(x)$ is the irreducible minimal polynomial of $\alpha$.
+Therefore
+\[
+\Q[x]/(p(x))\cong\Q[\alpha].
+\]
+Since $p(x)$ is irreducible, $\Q[x]/(p(x))$ is a field.
+So $\Q[\alpha]$ is a field.
+Hence
+\[
+\Q[\alpha]=\Q(\alpha).
+\]
+\end{proof}
+
+We have previously learned that $\Q(r)$ is a vector space.
+
+{\Huge{$\Q(r)=\Q[r]$}}\\
+
+What is the dimension $[\Q[r]:\Q]$.
+We have to find the basis.
+So what is the basis of $\Q[r]/\q$.
+
+\begin{lemma}{
+A basis is
+\[
+1,r,r^2,\hdots,r^{n-1},
+\]
+where $n=\deg f(x)$ and $f(x)$ is the minimal polynomial of $r/\q$.
+}
+\end{lemma}
+
+\begin{proof}
+Since
+\[
+\Q[r]=\{g(r):g(x)\in\Q[x]\},
+\]
+every element of $\Q[r]$ is obtained by evaluating a polynomial at $r$.
+Let $f(x)$ be the minimal polynomial of $r$, with $\deg f(x)=n$ and $f(r)=0$.
+Take any $g(x)\in\Q[x]$.
+By the division algorithm,
+\[
+g(x)=f(x)q(x)+s(x),
+\]
+where $\deg s(x)<\deg f(x)=n$.
+Plug in $r$:
+\[
+g(r)=f(r)q(r)+s(r)=s(r),
+\]
+since $f(r)=0$.
+Thus $g(r)$ is a linear combination of
+\[
+1,r,r^2,\hdots,r^{n-1}.
+\]
+So these elements span $\Q[r]$.
+To see they are linearly independent, suppose
+\[
+c_0+c_1r+\cdots+c_{n-1}r^{n-1}=0
+\]
+with $c_i\in\Q$.
+Then the polynomial
+\[
+c_0+c_1x+\cdots+c_{n-1}x^{n-1}
+\]
+has $r$ as a root, but its degree is less than $n$.
+This contradicts the minimality of $f(x)$ unless all $c_i=0$.
+Therefore
+\[
+1,r,r^2,\hdots,r^{n-1}
+\]
+is a basis.
+\end{proof}
+
+\begin{definition}[Adjoin]
+We say that $\mathbb{F}(u)$ is a field made by adjoining $u$ to $\mathbb{F}$.
+\end{definition}
+
+\begin{theorem}{
+Let $\mathbb{K}/\mathbb{F}$ and let $u\in\mathbb{K}$ be an algebraic element over $\mathbb{F}$ with minimal polynomial $p(x)$ of degree $n$.
+Then
+\begin{enumerate}
+\item $\mathbb{F}(u)\cong \mathbb{F}[x]/(p(x))$;
+\item $\{1_{\mathbb{F}},u,u^2,\ldots,u^{n-1}\}$ is a basis of the vector space $\mathbb{F}(u)$ over $\mathbb{F}$;
+\item $[\mathbb{F}(u):\mathbb{F}]=n$.
+\end{enumerate}
+}
+\end{theorem}
+
+\begin{corollary}{
+If $u$ and $v$ have the same minimal polynomial $p(x)$ in $\mathbb{F}[x]$, then
+\[
+\mathbb{F}(u)\cong\mathbb{F}(v).
+\]
+}
+\end{corollary}
+
+\begin{definition}[Algebraic Extension]
+An extension field $\mathbb{K}$ of a field $\mathbb{F}$ is said to be an algebraic extension if every element of $\mathbb{K}$ is algebraic over $\mathbb{F}$.
+\end{definition}
+
+\begin{theorem}{
+If $\mathbb{K}$ is a finite-dimensional extension field of $\mathbb{F}$, then $\mathbb{K}$ is an algebraic extension of $\mathbb{F}$.
+}
+Let $u\in\mathbb{K}$.
+Since $\mathbb{K}$ is finite-dimensional over $\mathbb{F}$, the set
+\[
+\{1,u,u^2,\hdots,u^n\}
+\]
+must be linearly dependent over $\mathbb{F}$ for $n$ large enough.
+So there exist $a_0,\hdots,a_n\in\mathbb{F}$, not all zero, such that
+\[
+a_0+a_1u+\cdots+a_nu^n=0.
+\]
+Thus $u$ satisfies a nonzero polynomial with coefficients in $\mathbb{F}$.
+So $u$ is algebraic over $\mathbb{F}$.
+Since $u$ was arbitrary, every element of $\mathbb{K}$ is algebraic over $\mathbb{F}$.
+Hence $\mathbb{K}$ is an algebraic extension of $\mathbb{F}$.
+\end{theorem}

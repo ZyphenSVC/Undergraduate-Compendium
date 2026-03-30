@@ -1,0 +1,43 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Functions}
+
+\begin{definition}[Functions and Mappings]
+    Given sets $A$ and $B$, a \textbf{function} maps $f$ from $A$ to $B$, denoted by
+    \[
+        f : A \to B.
+    \]
+    This means that it assigns each element $a \in A$ to exactly one element $b \in B$.
+    The image of $a$ is written as $f(a) = b$.
+    \textbf{Images} refer to the outputs of the function, i.e., the values in $B$ that are hit by elements of $A$.
+    The \textbf{domain} of $f$ is written as $\dom f$, while $B$ is the \textbf{co-domain}, sometimes also referred to as the range.
+    Two functions are equal if they have the same domain, co-domain, and agree on every element of the domain.
+    Suppose $S \subseteq A$.
+    Then the function from $S$ to $B$ defined by
+    \[
+        g : S \to B \iff g(a) \coloneqq f(a) \text{ for } a \in S
+    \]
+    is called the \textbf{restriction} of $f$ to $S$.
+    Let $f : A \to B$ and $g : B \to C$.
+    Then the composite function
+    \[
+        h : A \to C, \quad h(a) \coloneqq g(f(a)).
+    \]
+    Which is called the \textbf{composition} of $f$ and $g$.
+    A function is \textbf{injective}, or one-to-one, if for all $a, b \in A$,
+    \[
+        a \neq b \implies f(a) \neq f(b).
+    \]
+    This means distinct elements in the domain map to distinct elements in the co-domain.
+    A function is \textbf{surjective}, or onto, if for all $b \in B$, there exists $a \in A$ such that
+    \[
+        f(a) = b.
+    \]
+    This means every element in the co-domain is hit by at least one element of the domain.
+    A function is \textbf{bijective}, or a one-to-one correspondence, if it is both injective and surjective.
+    Given $f : A \to B$ and $g : B \to C$, if $f$ and $g$ are injective, then $g \circ f$ is injective.
+    If $g \circ f$ is injective, then $f$ is injective.
+    If $f$ and $g$ are surjective, then $g \circ f$ is surjective.
+    If $g \circ f$ is surjective, then $g$ is surjective.
+\end{definition}

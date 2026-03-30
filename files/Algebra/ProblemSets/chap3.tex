@@ -1,0 +1,459 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\begin{problem}{
+    Prove that:
+
+    (a)
+    \[
+        (n-a)^2\equiv a^2 \mod n.
+    \]
+
+    (b)
+    \[
+        (2n-a)^2\equiv a^2 \mod {4n}.
+    \]
+}
+    \textbf{(a).}
+    By the definition of congruence, we must show that
+    \[
+        n\mid a^2-(n-a)^2.
+    \]
+    Compute:
+    \begin{align*}
+        a^2-(n-a)^2
+        &= a^2-(n^2-2an+a^2)\\
+        &= 2an-n^2\\
+        &= n(2a-n).
+    \end{align*}
+    Since the right-hand side is a multiple of $n$, we conclude that
+    \[
+        (n-a)^2\equiv a^2\mod n.
+    \]
+
+    \textbf{(b).}
+    By the definition of congruence, we must show that
+    \[
+        4n\mid a^2-(2n-a)^2.
+    \]
+    Compute:
+    \begin{align*}
+        a^2-(2n-a)^2
+        &= a^2-(4n^2-4an+a^2)\\
+        &= 4an-4n^2\\
+        &= 4n(a-n).
+    \end{align*}
+    Since the right-hand side is a multiple of $4n$, we conclude that
+    \[
+        (2n-a)^2\equiv a^2\mod {4n}.
+    \]
+\end{problem}
+
+\begin{problem}{
+    If $p\geq 5$ and $p$ is prime, prove that $[p]=[1]$ or $[p]=[5]$ in $\mathbb{Z}_6$.
+}
+    Theorem 2.3 states that
+    \[
+        [a]=[b]
+        \quad\text{if and only if}\quad
+        a\equiv b\mod n.
+    \]
+    Since we are in $\mathbb{Z}_6$, this means
+    \[
+        [p]=[1]
+        \quad\text{if and only if}\quad
+        p\equiv 1\mod 6,
+    \]
+    and
+    \[
+        [p]=[5]
+        \quad\text{if and only if}\quad
+        p\equiv 5\mod 6.
+    \]    Also,
+    \[
+        \mathbb{Z}_6=\{[0],[1],[2],[3],[4],[5]\}.
+    \]
+    We prove that $[p]$ cannot be any of $[0],[2],[3],[4]$.
+    Since $p$ is prime and $p\geq 5$, $p$ is odd.
+    Therefore $p$ cannot be congruent to $2$ or $4$ modulo $6$, because those are even classes.
+    Also, $p$ cannot be congruent to $0$ modulo $6$, since that would mean
+    \[
+        6\mid p,
+    \]
+    which is impossible for a prime $p\geq 5$.
+    If $[p]=[3]$, then
+    \[
+        p\equiv 3\mod 6,
+    \]
+    so
+    \[
+        p=6k+3=3(2k+1)
+    \]
+    for some $k\in\mathbb{Z}$.
+    Thus $3\mid p$.
+    Since $p$ is prime and $p\geq 5$, this is impossible.
+    Therefore $[p]$ cannot be $[0],[2],[3]$, or $[4]$ in $\mathbb{Z}_6$.
+    Hence the only remaining possibilities are
+    \[
+        [p]=[1]
+        \quad\text{or}\quad
+        [p]=[5].
+    \]
+\end{problem}
+
+\begin{problem}{
+    Prove that
+    \[
+        10^n\equiv (-1)^n\mod {11}
+    \]
+    for every positive integer $n$.
+}
+    We prove this using mathematical induction.
+    For the base case, let $n=1$.
+    Then
+    \begin{align*}
+        10^1 &\equiv (-1)^1\mod {11}\\
+        10 &\equiv -1\mod {11},
+    \end{align*}
+    which is true since
+    \[
+        11\mid (-1)-10=-11.
+    \]
+    Now define
+    \[
+        S\coloneqq \{x\in\mathbb{Z}^+ : 10^x\equiv(-1)^x\mod {11}\},
+    \]
+    and we will show that
+    \[
+        S=\mathbb{Z}^+.
+    \]
+    Assume $n\in S$.
+    Then
+    \[
+        10^n\equiv (-1)^n\mod {11}.
+    \]
+    We must show that
+    \[
+        10^{n+1}\equiv (-1)^{n+1}\mod {11}.
+    \]
+    Now
+    \[
+        10^{n+1}=10\cdot 10^n.
+    \]
+    Also,
+    \[
+        (-1)^{n+1}=(-1)\cdot (-1)^n.
+    \]
+    Since
+    \[
+        10\equiv -1\mod {11}
+    \]
+    and
+    \[
+        10^n\equiv (-1)^n\mod {11},
+    \]
+    Theorem 2.2 implies that
+    \[
+        10\cdot 10^n\equiv (-1)\cdot (-1)^n\mod {11}.
+    \]
+    So
+    \[
+        10^{n+1}\equiv (-1)^{n+1}\mod {11}.
+    \]
+    Thus
+    \[
+        n+1\in S.
+    \]
+    Therefore, by the Principle of Mathematical Induction,
+    \[
+        S=\mathbb{Z}^+.
+    \]
+    Hence
+    \[
+        10^n\equiv (-1)^n\mod {11}
+    \]
+    for every positive integer $n$.
+\end{problem}
+
+\begin{problem}{
+    (a) Prove or disprove: If
+    \[
+        a^2\equiv b^2\mod n,
+    \]
+    then
+    \[
+        a\equiv b\mod n
+        \quad\text{or}\quad
+        a\equiv -b\mod n.
+    \]
+
+    (b) Do part (a) when $n$ is prime.
+}
+    \textbf{(a).}
+    This statement is false in general.
+    A disproof by example is given by
+    \[
+        a=6,\qquad b=1,\qquad n=35.
+    \]
+    Then
+    \[
+        6^2=36\equiv 1=1^2\mod {35}.
+    \]
+    So
+    \[
+        a^2\equiv b^2\mod {35}.
+    \]
+    However,
+    \[
+        6\not\equiv 1\mod {35}
+    \]
+    and
+    \[
+        6\not\equiv -1\mod {35}.
+    \]
+    Thus the statement is false.
+
+    \begin{remark}
+        I have found some commonality for part (a).
+        I noticed that the product of twin primes can equal $n$, and $a$ and $b$ are some sum and difference between the two, generally $a$ being one less than the higher twin and $b=1$.
+        From what I have calculated, this seems to be the general idea, but I have not proven it for all twin primes.
+        So it is still a conjecture.
+        \begin{gather*}
+            a=4,\ b=1,\ n=15\\
+            a=12,\ b=1,\ n=143\\
+            a=18,\ b=1,\ n=323\\
+        \end{gather*}
+        And so forth.
+    \end{remark}
+
+    \textbf{(b).}
+    Now assume that $n$ is prime.
+    Since
+    \[
+        a^2\equiv b^2\mod n,
+    \]
+    we have
+    \[
+        n\mid b^2-a^2.
+    \]
+    Factor:
+    \[
+        b^2-a^2=(b-a)(b+a).
+    \]
+    So
+    \[
+        n\mid (b-a)(b+a).
+    \]
+    Since $n$ is prime, Euclid's Lemma implies that
+    \[
+        n\mid (b-a)
+        \quad\text{or}\quad
+        n\mid (b+a).
+    \]
+    If
+    \[
+        n\mid (b-a),
+    \]
+    then
+    \[
+        a\equiv b\mod n.
+    \]
+    If
+    \[
+        n\mid (b+a),
+    \]
+    then
+    \[
+        a\equiv -b\mod n.
+    \]
+    Thus, when $n$ is prime,
+    \[
+        a^2\equiv b^2\mod n
+        \implies
+        a\equiv b\mod n
+        \quad\text{or}\quad
+        a\equiv -b\mod n.
+    \]
+\end{problem}
+
+\begin{problem}{
+    As we have clearly stated in class, and given the defined answer for parts (a) and (b), prove the following.
+
+    (a) If $a$ is a unit in $\zn$, prove that $a$ is not a zero divisor.
+
+    (b) If $a$ is a zero divisor in $\zn$, prove that $a$ is not a unit.
+}
+    \textbf{(a).}
+    Assume, by the definition of a unit, that
+    \[
+        \gcd(a,n)=1.
+    \]
+    Suppose there is a $b\in\mathbb{Z}$ with
+    \[
+        [a][b]=[0].
+    \]
+    To show that $[a]$ is not a zero divisor, we must prove that this implies
+    \[
+        [b]=[0].
+    \]
+    By the previous theorem, $[a]$ is a unit in $\zn$, so there exists $x\in\mathbb{Z}$ such that
+    \[
+        [x][a]=[1].
+    \]
+    Then
+    \begin{align*}
+        [x]([a][b]) &= [x][0]\\
+        &= [x\cdot 0]\\
+        &= [0].
+    \end{align*}
+    By associativity,
+    \begin{align*}
+        ([x][a])[b] &= [0]\\
+    [1][b] &= [0]\\
+    [b] &= [0].
+    \end{align*}
+    Hence $[a]$ is not a zero divisor.
+
+    \textbf{(b).}
+    Conversely, suppose that
+    \[
+        \gcd(a,n)=d>1.
+    \]
+    Then
+    \[
+        d\mid a
+        \qquad\text{and}\qquad
+        d\mid n.
+    \]
+    So
+    \[
+        a=d\left(\frac{a}{d}\right)
+        \qquad\text{and}\qquad
+        n=d\left(\frac{n}{d}\right),
+    \]
+    where
+    \[
+        \frac{a}{d},\frac{n}{d}\in\mathbb{Z}.
+    \]
+    Now
+    \[
+        [a]\left[\frac{n}{d}\right]
+        =
+        \left[a\cdot \frac{n}{d}\right]
+        =
+        \left[d\cdot \frac{a}{d}\cdot \frac{n}{d}\right]
+        =
+        \left[n\cdot \frac{a}{d}\right]
+        =
+        [0].
+    \]
+    Since $d>1$, we have
+    \[
+        \left[\frac{n}{d}\right]\neq [0]
+    \]
+    in $\zn$.
+    Thus $[a]$ is a zero divisor.
+    Therefore, if $a$ is a zero divisor in $\zn$, then $a$ is not a unit.
+\end{problem}
+
+\begin{problem}{
+    Prove that every nonzero element of $\zn$ is either a unit or a zero divisor, but not both.
+}
+    Let $[a]\neq [0]$ in $\zn$.
+    If
+    \[
+        \gcd(a,n)=1,
+    \]
+    then by the previous theorem $[a]$ is a unit.
+    If
+    \[
+        \gcd(a,n)\neq 1,
+    \]
+    then since $[a]\neq [0]$, we have
+    \[
+        \gcd(a,n)=d>1,
+    \]
+    and by the previous problem $[a]$ is a zero divisor.
+    So every nonzero element of $\zn$ is either a unit or a zero divisor.
+    Now we show it cannot be both.
+    Suppose $[a]$ is both a unit and a zero divisor.
+    Then there exist $[b],[c]\in\zn$ with
+    \[
+        [b]\neq [0],
+        \qquad
+        [a][b]=[0],
+        \qquad
+        [a][c]=[1].
+    \]
+    Then
+    \begin{align*}
+        ([a][b])[c] &= [0][c]=[0].
+    \end{align*}
+    By associativity,
+    \begin{align*}
+        ([a][c])[b] &= [1][b]=[b].
+    \end{align*}
+    But the left-hand sides are equal by associativity and commutativity of multiplication in $\zn$, so we get
+    \[
+        [b]=[0],
+    \]
+    a contradiction.
+    Therefore every nonzero element of $\zn$ is either a unit or a zero divisor, but not both.
+\end{problem}
+
+\begin{problem}{
+    Find the multiplicative inverse of $[9]$ in $\mathbb{Z}_{41}$.
+}
+    We want to find $[x]$ such that
+    \[
+        [9][x]=[1].
+    \]
+    This is the same as finding integers $x$ and $q$ such that
+    \[
+        9x=1+41q,
+    \]
+    or equivalently,
+    \[
+        9x-41q=1.
+    \]
+    Since
+    \[
+        \gcd(41,9)=1,
+    \]
+    there exist integers $x$ and $y$ such that
+    \[
+        9x+41y=1.
+    \]
+    We find them using the Euclidean algorithm:
+    \begin{align*}
+        41 &= 4\cdot 9 + 5,\\
+        9 &= 1\cdot 5 + 4,\\
+        5 &= 1\cdot 4 + 1,\\
+        4 &= 4\cdot 1 + 0.
+    \end{align*}
+    Now work backward:
+    \begin{align*}
+        1 &= 5-1\cdot 4\\
+        &= 5-(9-1\cdot 5)\\
+        &= 2\cdot 5-9\\
+        &= 2(41-4\cdot 9)-9\\
+        &= 2\cdot 41-9\cdot 9.
+    \end{align*}
+    So
+    \[
+        (-9)9 + 2\cdot 41 = 1.
+    \]
+    Thus
+    \[
+        [-9][9]=[1]
+    \]
+    in $\mathbb{Z}_{41}$.
+    Since
+    \[
+        -9\equiv 32\mod {41},
+    \]
+    the multiplicative inverse of $[9]$ in $\mathbb{Z}_{41}$ is
+    \[
+        [32].
+    \]
+\end{problem}

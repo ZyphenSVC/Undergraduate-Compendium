@@ -1,0 +1,715 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Chapter 4}
+
+\begin{problem}{
+    Let $d$ be an integer that is not a perfect square.
+    Show that
+    \[
+        \mathbb{Q}\left(\sqrt{d}\right)=\{a+b\sqrt{d}:a,b\in\mathbb{Q}\}
+    \]
+    is a subfield of $\mathbb{C}$.
+}
+    A field is a commutative ring with identity in which every nonzero element has a multiplicative inverse.
+    Thus we must show that this set is closed under addition, additive inverses, multiplication, and multiplicative inverses for nonzero elements.
+    Let
+    \[
+        q=a_1+b_1\sqrt{d}
+        \qquad\text{and}\qquad
+        p=a_2+b_2\sqrt{d}.
+    \]
+    Then
+    \begin{align*}
+        q-p
+        &=
+        (a_1+b_1\sqrt{d})-(a_2+b_2\sqrt{d})\\
+        &=
+        (a_1-a_2)+(b_1-b_2)\sqrt{d}.
+    \end{align*}
+    Since $a_1-a_2\in\mathbb{Q}$ and $b_1-b_2\in\mathbb{Q}$, this shows closure under subtraction, and hence also under addition and additive inverses.
+    Now check multiplication:
+    \begin{align*}
+        qp
+        &=
+        (a_1+b_1\sqrt{d})(a_2+b_2\sqrt{d})\\
+        &=
+        a_{1}a_2+a_{1}b_2\sqrt{d}+a_{2}b_1\sqrt{d}+b_{1}b_{2}d\\
+        &=
+        (a_{1}a_2+b_{1}b_{2}d)+(a_{1}b_2+a_{2}b_1)\sqrt{d}.
+    \end{align*}
+    Since $d\in\mathbb{Z}\subseteq\mathbb{Q}$, the coefficients are rational.
+    Thus $\mathbb{Q}\left(\sqrt{d}\right)$ is closed under multiplication.
+    Also,
+    \[
+        0=0+0\sqrt{d}\in\mathbb{Q}\left(\sqrt{d}\right)
+    \]
+    and
+    \[
+        1=1+0\sqrt{d}\in\mathbb{Q}\left(\sqrt{d}\right).
+    \]
+    Now let
+    \[
+        w=a+b\sqrt{d}\in\mathbb{Q}\left(\sqrt{d}\right),
+        \qquad
+        w\neq 0.
+    \]
+    We must show that $w^{-1}\in\mathbb{Q}\left(\sqrt{d}\right)$.
+    Compute:
+    \begin{align*}
+        \frac{1}{a+b\sqrt{d}}
+        &=
+        \frac{1}{a+b\sqrt{d}}\cdot \frac{a-b\sqrt{d}}{a-b\sqrt{d}}\\
+        &=
+        \frac{a-b\sqrt{d}}{a^2-b^{2}d}\\
+        &=
+        \frac{a}{a^2-b^{2}d}+\frac{-b}{a^2-b^{2}d}\sqrt{d}.
+    \end{align*}
+    So it remains to show that
+    \[
+        a^2-b^{2}d\neq 0.
+    \]
+    If
+    \[
+        a^2-b^{2}d=0,
+    \]
+    then
+    \[
+        a^2=b^{2}d.
+    \]
+    If $b=0$, then $a=0$, which would give $w=0$, a contradiction.
+    So $b\neq 0$.
+    Then
+    \[
+        d=\left(\frac{a}{b}\right)^2.
+    \]
+    This would mean $d$ is a square in $\mathbb{Q}$.
+    Since $d\in\mathbb{Z}$, that would imply $d$ is a perfect square in $\mathbb{Z}$, contradicting the hypothesis.
+    Thus
+    \[
+        a^2-b^{2}d\neq 0,
+    \]
+    and so $w^{-1}\in\mathbb{Q}\left(\sqrt{d}\right)$.
+    Therefore $\mathbb{Q}\left(\sqrt{d}\right)$ is a subfield of $\mathbb{C}$.
+\end{problem}
+
+\begin{problem}{
+    If $u$ is a unit in a commutative ring $R$ with identity, prove that $u$ is not a zero divisor.
+}
+    Suppose $u$ is a unit.
+    Then there exists $u^{-1}\in R$ such that
+    \[
+        uu^{-1}=1.
+    \]
+    Now suppose, for contradiction, that $u$ is also a zero divisor.
+    Then there exists $x\in R$, $x\neq 0$, such that
+    \[
+        ux=0.
+    \]
+    Multiply both sides by $u^{-1}$:
+    \begin{align*}
+        u^{-1}(ux) &= u^{-1}0\\
+        (u^{-1}u)x &= 0\\
+        1x &= 0\\
+        x &= 0.
+    \end{align*}
+    This contradicts the fact that $x\neq 0$.
+    Therefore $u$ is not a zero divisor.
+\end{problem}
+
+\begin{problem}{
+    Which of the following functions are homomorphisms?
+
+    (a)
+    \[
+        f:\mathbb{Z}\mapsto\mathbb{Z},
+        \qquad
+        f(x)=-x.
+    \]
+
+    (e)
+    \[
+        f:\mathbb{Z}_{12}\mapsto\mathbb{Z}_4
+    \]
+    defined by
+    \[
+        f([x]_{12})=[x]_4.
+    \]
+}
+    \textbf{(a).}
+    We check whether this function preserves addition and multiplication.
+    For addition,
+    \[
+        f(a+b)=-(a+b)=-a-b=f(a)+f(b).
+    \]
+    So it preserves addition.
+    For multiplication,
+    \[
+        f(ab)=-(ab),
+    \]
+    but
+    \[
+        f(a)f(b)=(-a)(-b)=ab.
+    \]
+    In general,
+    \[
+        -(ab)\neq ab,
+    \]
+    so $f$ does not preserve multiplication.
+    Therefore this function is not a ring homomorphism.
+
+    \textbf{(e).}
+    We first show that the function is well-defined.
+    Suppose
+    \[
+        [x]_{12}=[y]_{12}.
+    \]
+    Then
+    \[
+        x\equiv y\mod{12},
+    \]
+    so
+    \[
+        12\mid (x-y).
+    \]
+    Hence
+    \[
+        4\mid (x-y),
+    \]
+    which means
+    \[
+        x\equiv y\mod 4.
+    \]
+    Thus
+    \[
+        [x]_4=[y]_4.
+    \]
+    So the map is well-defined.
+    Now check addition:
+    \begin{align*}
+        f([x]_{12}+[y]_{12})
+        &=
+        f([x+y]_{12})\\
+        &=
+        [x+y]_4\\
+        &=
+        [x]_4+[y]_4\\
+        &=
+        f([x]_{12})+f([y]_{12}).
+    \end{align*}
+    Now check multiplication:
+    \begin{align*}
+        f([x]_{12}[y]_{12})
+        &=
+        f([xy]_{12})\\
+        &=
+        [xy]_4\\
+        &=
+        [x]_4[y]_4\\
+        &=
+        f([x]_{12})f([y]_{12}).
+    \end{align*}
+    Therefore this function is a homomorphism.
+\end{problem}
+
+\begin{problem}{
+    Let $R$ and $S$ be rings.
+
+    (a) Prove that
+    \[
+        f:R\times S\mapsto R
+    \]
+    given by
+    \[
+        f((r,s))=r
+    \]
+    is a surjective homomorphism.
+
+    (b) Prove that
+    \[
+        g:R\times S\mapsto S
+    \]
+    given by
+    \[
+        g((r,s))=s
+    \]
+    is a surjective homomorphism.
+
+    (c) If both $R$ and $S$ are nonzero rings, prove that the homomorphisms $f$ and $g$ are not injective.
+}
+    \textbf{(a).}
+    First we show surjectivity.
+    Let $r\in R$.
+    Choose any $s\in S$.
+    Then
+    \[
+        f((r,s))=r.
+    \]
+    So $f$ is surjective.
+    Now check addition:
+    \begin{align*}
+        f((r_1,s_1)+(r_2,s_2))
+        &=
+        f((r_1+r_2,s_1+s_2))\\
+        &=
+        r_1+r_2\\
+        &=
+        f((r_1,s_1))+f((r_2,s_2)).
+    \end{align*}
+    Now check multiplication:
+    \begin{align*}
+        f((r_1,s_1)(r_2,s_2))
+        &=
+        f((r_{1}r_2,s_{1}s_2))\\
+        &=
+        r_{1}r_2\\
+        &=
+        f((r_1,s_1))f((r_2,s_2)).
+    \end{align*}
+    Thus $f$ is a surjective homomorphism.
+
+    \textbf{(b).}
+    First we show surjectivity.
+    Let $s\in S$.
+    Choose any $r\in R$.
+    Then
+    \[
+        g((r,s))=s.
+    \]
+    So $g$ is surjective.
+    Now check addition:
+    \begin{align*}
+        g((r_1,s_1)+(r_2,s_2))
+        &=
+        g((r_1+r_2,s_1+s_2))\\
+        &=
+        s_1+s_2\\
+        &=
+        g((r_1,s_1))+g((r_2,s_2)).
+    \end{align*}
+    Now check multiplication:
+    \begin{align*}
+        g((r_1,s_1)(r_2,s_2))
+        &=
+        g((r_{1}r_2,s_{1}s_2))\\
+        &=
+        s_{1}s_2\\
+        &=
+        g((r_1,s_1))g((r_2,s_2)).
+    \end{align*}
+    Thus $g$ is a surjective homomorphism.
+
+    \textbf{(c).}
+    Since both $R$ and $S$ are nonzero rings, choose
+    \[
+        s_1,s_2\in S
+        \qquad\text{with}\qquad
+        s_1\neq s_2,
+    \]
+    and choose any $r\in R$.
+    Then
+    \[
+        f((r,s_1))=r=f((r,s_2)),
+    \]
+    but
+    \[
+        (r,s_1)\neq (r,s_2).
+    \]
+    So $f$ is not injective.
+    Similarly, choose
+    \[
+        r_1,r_2\in R
+        \qquad\text{with}\qquad
+        r_1\neq r_2,
+    \]
+    and choose any $s\in S$.
+    Then
+    \[
+        g((r_1,s))=s=g((r_2,s)),
+    \]
+    but
+    \[
+        (r_1,s)\neq (r_2,s).
+    \]
+    So $g$ is not injective.
+\end{problem}
+
+\begin{problem}{
+    Show that the first ring is not isomorphic to the second.
+
+    (e)
+    \[
+        \mathbb{Z}\times\mathbb{Z}_2
+        \qquad\text{and}\qquad
+        \mathbb{Z}.
+    \]
+
+    (f)
+    \[
+        \mathbb{Z}_4\times\mathbb{Z}_4
+        \qquad\text{and}\qquad
+        \mathbb{Z}_{16}.
+    \]
+}
+    \textbf{(e).}
+    In
+    \[
+        \mathbb{Z}\times\mathbb{Z}_2,
+    \]
+    the element
+    \[
+        (0,[1])
+    \]
+    is a nontrivial idempotent, since
+    \[
+        (0,[1])^2=(0,[1]).
+    \]
+    But in $\mathbb{Z}$, the only idempotent elements are $0$ and $1$, because if
+    \[
+        x^2=x,
+    \]
+    then
+    \[
+        x(x-1)=0,
+    \]
+    so
+    \[
+        x=0
+        \quad\text{or}\quad
+        x=1.
+    \]
+    A ring isomorphism preserves idempotents.
+    Since $\mathbb{Z}\times\mathbb{Z}_2$ has a nontrivial idempotent different from $(0,[0])$ and $(1,[1])$, while $\mathbb{Z}$ does not, the rings are not isomorphic.
+
+    \textbf{(f).}
+    In
+    \[
+        \mathbb{Z}_4\times\mathbb{Z}_4,
+    \]
+    the element
+    \[
+        ([2],[0])
+    \]
+    has additive order $2$, since
+    \[
+        ([2],[0])+([2],[0])=([0],[0]).
+    \]
+    So this ring has nonzero elements of additive order $2$.
+    In $\mathbb{Z}_{16}$, the additive group is cyclic of order $16$, and it has exactly one element of additive order $2$, namely $[8]$.
+    In contrast, $\mathbb{Z}_4\times\mathbb{Z}_4$ has three nonzero elements of additive order $2$:
+    \[
+        ([2],[0]),\quad ([0],[2]),\quad ([2],[2]).
+    \]
+    An isomorphism of rings induces an isomorphism of additive groups, so it must preserve the number of elements of each order.
+    Therefore
+    \[
+        \mathbb{Z}_4\times\mathbb{Z}_4
+        \not\cong
+        \mathbb{Z}_{16}.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Let $F$ be a field and
+    \[
+        f:F\mapsto R
+    \]
+    a homomorphism of rings.
+
+    (a) If there is a nonzero element $c$ of $F$ such that
+    \[
+        f(c)=0_R,
+    \]
+    prove that $f$ is the zero homomorphism.
+
+    (b) Prove that $f$ is either injective or the zero homomorphism.
+}
+    \textbf{(a).}
+    Assume there is a nonzero element $c\in F$ such that
+    \[
+        f(c)=0_R.
+    \]
+    Since $F$ is a field and $c\neq 0$, $c$ is a unit.
+    So there exists $c^{-1}\in F$ such that
+    \[
+        cc^{-1}=1.
+    \]
+    Now let $x\in F$.
+    Then
+    \begin{align*}
+        f(x)
+        &=
+        f(x\cdot 1)\\
+        &=
+        f(xcc^{-1})\\
+        &=
+        f(x)f(c)f(c^{-1})\\
+        &=
+        f(x)\cdot 0_R\cdot f(c^{-1})\\
+        &=
+        0_R.
+    \end{align*}
+    Since this is true for every $x\in F$, $f$ is the zero homomorphism.
+
+    \textbf{(b).}
+    We prove the contrapositive.
+    Suppose $f$ is not injective.
+    Then there exist $a,b\in F$ with $a\neq b$ such that
+    \[
+        f(a)=f(b).
+    \]
+    Thus
+    \[
+        f(a-b)=0_R.
+    \]
+    Since $a\neq b$, we have
+    \[
+        a-b\neq 0.
+    \]
+    By part (a), it follows that $f$ is the zero homomorphism.
+    Therefore, if $f$ is not the zero homomorphism, then $f$ must be injective.
+    So $f$ is either injective or the zero homomorphism.
+\end{problem}
+
+\begin{problem}{
+    Let $m,n\in\mathbb{Z}$ with $\gcd(m,n)=1$, and let
+    \[
+        f:\mathbb{Z}_{mn}\mapsto\mathbb{Z}_m\times\mathbb{Z}_n
+    \]
+    be the function given by
+    \[
+        f([a]_{mn})=([a]_m,[a]_n).
+    \]
+
+    (a) Show that the map $f$ is well-defined.
+
+    (b) Prove that $f$ is an isomorphism.
+}
+    \textbf{(a).}
+    Suppose
+    \[
+        [a]_{mn}=[b]_{mn}
+    \]
+    in $\mathbb{Z}_{mn}$.
+    Then
+    \[
+        a\equiv b\mod {mn},
+    \]
+    so
+    \[
+        mn\mid (a-b).
+    \]
+    Hence
+    \[
+        m\mid (a-b)
+        \qquad\text{and}\qquad
+        n\mid (a-b).
+    \]
+    Therefore
+    \[
+        [a]_m=[b]_m
+        \qquad\text{and}\qquad
+        [a]_n=[b]_n.
+    \]
+    So
+    \[
+        f([a]_{mn})=([a]_m,[a]_n)=([b]_m,[b]_n)=f([b]_{mn}).
+    \]
+    Thus $f$ is well-defined.
+
+    \textbf{(b).}
+    First we show that $f$ is a homomorphism.
+    For addition,
+    \begin{align*}
+        f([a]_{mn}+[b]_{mn})
+        &=
+        f([a+b]_{mn})\\
+        &=
+        ([a+b]_m,[a+b]_n)\\
+        &=
+        ([a]_m,[a]_n)+([b]_m,[b]_n)\\
+        &=
+        f([a]_{mn})+f([b]_{mn}).
+    \end{align*}
+    For multiplication,
+    \begin{align*}
+        f([a]_{mn}[b]_{mn})
+        &=
+        f([ab]_{mn})\\
+        &=
+        ([ab]_m,[ab]_n)\\
+        &=
+        ([a]_m,[a]_n)([b]_m,[b]_n)\\
+        &=
+        f([a]_{mn})f([b]_{mn}).
+    \end{align*}
+    Now show injectivity.
+    Suppose
+    \[
+        f([a]_{mn})=f([b]_{mn}).
+    \]
+    Then
+    \[
+        ([a]_m,[a]_n)=([b]_m,[b]_n),
+    \]
+    so
+    \[
+        [a]_m=[b]_m
+        \qquad\text{and}\qquad
+        [a]_n=[b]_n.
+    \]
+    Thus
+    \[
+        m\mid (a-b)
+        \qquad\text{and}\qquad
+        n\mid (a-b).
+    \]
+    Since
+    \[
+        \gcd(m,n)=1,
+    \]
+    it follows that
+    \[
+        mn\mid (a-b).
+    \]
+    Therefore
+    \[
+        [a]_{mn}=[b]_{mn}.
+    \]
+    So $f$ is injective.
+    Now show surjectivity.
+    Let
+    \[
+        ([r]_m,[s]_n)\in \mathbb{Z}_m\times\mathbb{Z}_n.
+    \]
+    Since
+    \[
+        \gcd(m,n)=1,
+    \]
+    there exist $u,v\in\mathbb{Z}$ such that
+    \[
+        um+vn=1.
+    \]
+    Set
+    \[
+        c=svn+rum.
+    \]
+    Then modulo $m$, we have
+    \[
+        svn\equiv s(1-um)\equiv s\mod m
+    \]
+    and
+    \[
+        rum\equiv 0\mod m.
+    \]
+    So
+    \[
+        c\equiv s\mod m
+    \]
+    is not quite what we want.
+    Instead use the standard choice
+    \[
+        c=r(vn)+s(um).
+    \]
+    Then modulo $m$,
+    \[
+        vn\equiv 1\mod m
+        \qquad\text{and}\qquad
+        um\equiv 0\mod m,
+    \]
+    so
+    \[
+        c\equiv r\mod m.
+    \]
+    Similarly, modulo $n$,
+    \[
+        um\equiv 1\mod n
+        \qquad\text{and}\qquad
+        vn\equiv 0\mod n,
+    \]
+    so
+    \[
+        c\equiv s\mod n.
+    \]
+    Hence
+    \[
+        f([c]_{mn})=([r]_m,[s]_n).
+    \]
+    So $f$ is surjective.
+    Therefore $f$ is a bijective homomorphism, hence an isomorphism.
+\end{problem}
+
+\begin{problem}{
+    If $\gcd(m,n)\neq 1$, prove that $\mathbb{Z}_{mn}$ is not isomorphic to $\mathbb{Z}_m\times\mathbb{Z}_n$.
+}
+    Let
+    \[
+        d=\gcd(m,n)>1.
+    \]
+    Then we can write
+    \[
+        m=dq
+        \qquad\text{and}\qquad
+        n=ds
+    \]
+    for some integers $q,s$.
+    Consider the element
+    \[
+        [mq]_{mn}=[m]_{mn}\cdot [q]_{mn},
+    \]
+    but an easier choice is
+    \[
+        [dqs]_{mn}.
+    \]
+    Since
+    \[
+        mn=d^{2}qs,
+    \]
+    we have
+    \[
+        dqs\not\equiv 0\mod {mn}
+    \]
+    in general, but under the map
+    \[
+        [a]_{mn}\mapsto ([a]_m,[a]_n),
+    \]
+    we get
+    \[
+        [dqs]_m=[0]_m
+    \]
+    because
+    \[
+        dqs=\frac{mn}{d}
+    \]
+    is a multiple of $m=dq$.
+    Similarly,
+    \[
+        [dqs]_n=[0]_n
+    \]
+    because it is also a multiple of $n=ds$.
+    So the natural map sends a nonzero class in $\mathbb{Z}_{mn}$ to
+    \[
+        ([0]_m,[0]_n).
+    \]
+    Thus the natural map is not injective.
+    Now if
+    \[
+        \mathbb{Z}_{mn}\cong \mathbb{Z}_m\times\mathbb{Z}_n,
+    \]
+    then their additive groups would also be isomorphic.
+    But in $\mathbb{Z}_{mn}$, the additive group is cyclic.
+    On the other hand, when $\gcd(m,n)\neq 1$, the additive group
+    \[
+        \mathbb{Z}_m\times\mathbb{Z}_n
+    \]
+    is not cyclic.
+    Therefore the rings cannot be isomorphic.
+    Hence, if
+    \[
+        \gcd(m,n)\neq 1,
+    \]
+    then
+    \[
+        \mathbb{Z}_{mn}\not\cong \mathbb{Z}_m\times\mathbb{Z}_n.
+    \]
+\end{problem}

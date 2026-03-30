@@ -1,0 +1,137 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Homomorphisms and Isomorphisms}
+
+\begin{definition}[Homomorphism]
+    Let $\ri$ and $\si$ be rings.
+    Suppose a function $f:\ri\to\si$ is given.
+    If for all $a,b\in\ri$,
+    \[
+        f(a+b)=f(a)+f(b)
+    \]
+    and
+    \[
+        f(ab)=f(a)f(b),
+    \]
+    then $f$ is called a homomorphism.
+\end{definition}
+
+\begin{definition}[Isomorphism]
+    Suppose $f:\ri\to\si$ is a bijective homomorphism.
+    Then $f$ is called an isomorphism.
+\end{definition}
+
+If $f$ is an isomorphism, then $\ri$ and $\si$ are isomorphic to each other.
+Suppose $\ri=\mathbb{Z}$ and $\si=2\mathbb{Z}$, and let $f:\ri\to\si$ be defined by $f(m)=2m$.
+Is this an isomorphism?
+
+\begin{example}
+    We compute
+    \[
+        f(m+n)=2(m+n)=2m+2n=f(m)+f(n).
+    \]
+    So $f$ preserves addition.
+    However,
+    \[
+        f(mn)=2mn,
+    \]
+    while
+    \[
+        f(m)f(n)=(2m)(2n)=4mn.
+    \]
+    Thus
+    \[
+        f(mn)\neq f(m)f(n)
+    \]
+    in general.
+    So $f$ is not a ring homomorphism.
+    Hence $\mathbb{Z}$ and $2\mathbb{Z}$ are not isomorphic by this map.
+\end{example}
+
+\begin{definition}[Endomorphism]
+    A homomorphism that maps $\ri$ to itself is called an endomorphism.
+\end{definition}
+
+\begin{definition}[Automorphism]
+    An isomorphic endomorphism is called an automorphism.
+\end{definition}
+
+\begin{proposition}{
+    A function is bijective if and only if it has an inverse.
+}
+    First suppose $f:\ri\to\si$ has an inverse function $g:\si\to\ri$.
+    Then
+    \[
+        g\circ f=\id_{\ri}
+    \]
+    and
+    \[
+        f\circ g=\id_{\si}.
+    \]
+    Hence $f$ is injective and surjective, so $f$ is bijective.
+    Conversely, suppose $f$ is bijective.
+    Since $f$ is surjective, for every $y\in\si$ there exists $x\in\ri$ such that $f(x)=y$.
+    Since $f$ is injective, this $x$ is unique.
+    So we may define a function $g:\si\to\ri$ by letting $g(y)=x$, where $f(x)=y$.
+    Then
+    \[
+        g\circ f=\id_{\ri}
+    \]
+    and
+    \[
+        f\circ g=\id_{\si}.
+    \]
+    Thus $g$ is an inverse of $f$.
+\end{proposition}
+
+\begin{axiom}[Isomorphism Properties]
+    We can check some properties of a homomorphism to rule out whether two rings are isomorphic.
+    In particular, isomorphic rings must have the same:
+    \begin{enumerate}
+        \item number of elements, when finite;
+        \item number of units;
+        \item number of zero-divisors.
+    \end{enumerate}
+    These are useful necessary checks, though by themselves they do not always prove two rings are isomorphic.
+\end{axiom}
+
+For example, we can state that $\z\not\cong\q$.
+The reason is that every nonzero element in $\q$ is a unit, while the only units in $\z$ are $\pm 1$.
+Similarly, $\z_4\not\cong\z_6$, due to the number of elements.
+
+Perhaps in previous courses, such as Calculus III, you have looked at $\r^3$, which means a $3$-tuple ordered triple that represents $(x,y,z)$ in space.
+However, this is a generalized fact.
+What if I wanted to have two points from different sets, but still create an ordered pair or tuple?
+
+\begin{axiom}[Cartesian Product]
+    If $\ri$ and $\si$ are rings, then
+    \[
+        \ri\times\si\coloneqq\{(r,s):r\in\ri,\ s\in\si\}
+    \]
+    is also a ring under addition and multiplication defined by
+    \begin{align*}
+        (r_{1},s_{1})+(r_2,s_2)&=(r_1+r_2,s_1+s_2),\\
+    (r_1,s_1)(r_2,s_2)&=(r_{1}r_2,s_{1}s_2).
+    \end{align*}
+\end{axiom}
+
+It will be a fun exercise to prove the following lemma, or at least work through a couple of examples.
+
+\begin{lemma}{
+    If $\gcd(m,n)=1$, then
+    \[
+        \z_m\times\z_n\cong\z_{mn}.
+    \]
+}
+\end{lemma}
+
+Note that in $\zxz$, the zero-divisors include $(0,1)$ and $(1,0)$.
+Let $\ri=\si=\z$ in $\zxz$.
+Let $\pi:\zxz\to\z$ be the projection map onto the first coordinate.
+Then
+\[
+    \pi((1,0))=1,
+\]
+which is a unit.
+So a homomorphism need not preserve zero-divisors.

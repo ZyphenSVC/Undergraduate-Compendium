@@ -1,0 +1,169 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Congruences}
+
+When we talk about congruence classes mod $n$, we are essentially grouping integers based on the remainder they leave when divided by $n$.
+This creates a classification system, where numbers that share the same remainder form a class.
+
+\begin{definition}[Congruence]
+    Suppose $n\nn$.
+    If $a,b\nz$, we define
+    \[
+        a \equiv b \mod n
+    \]
+    as a congruence.
+    We say ``$a$ is congruent to $b$ modulo $n$'' if and only if
+    \[
+        n \mid (b-a).
+    \]
+\end{definition}
+
+\begin{lemma}{
+    $a\equiv b\mod n$ if and only if $n\mid a-b$, and this holds if and only if there exists $q\nz$ such that
+    \[
+        b = qn + a.
+    \]
+    Prove this exercise on your own.
+}
+\end{lemma}
+
+\begin{definition}[Equivalence Relation]
+    Given $S$ is a set and $\sim$ is a relation on $S$, $\sim$ is an equivalence relation if for all $a,b,c\in S$,
+    \begin{enumerate}
+        \item $a\sim a$ (reflexive);
+        \item if $a\sim b$, then $b\sim a$ (symmetric);
+        \item if $a\sim b$ and $b\sim c$, then $a\sim c$ (transitive).
+    \end{enumerate}
+\end{definition}
+
+We will learn and find uses for the equivalence relation, but to connect it to the topics at hand, $a\equiv b\mod n$ is an equivalence relation that envelopes congruences and what we will learn about congruence classes.
+Essentially, $a\equiv b\mod n$ is the same as $a\sim b$.
+
+\begin{lemma}{
+    Congruence mod $n$ is an equivalence relation.
+}
+    \textbf{Case 1.}
+    Let $a\nz$.
+    Then $a\equiv a\mod n$, because $a-a = 0$ and $n\mid 0$.
+
+    \textbf{Case 2.}
+    Suppose $a\equiv b\mod n$.
+    Then $n\mid a-b$, and due to properties of the logical divide, $n\mid b-a$.
+    Thus $b\equiv a\mod n$.
+
+    \textbf{Case 3.}
+    Suppose $a,b,c\nz$, $a\equiv b\mod n$, and $b\equiv c\mod n$.
+    So $n\mid b-a$ and $n\mid c-b$.
+    Then $n\mid (b-a)+(c-b) = c-a$.
+    Thus $a\equiv c\mod n$.
+\end{lemma}
+
+\begin{definition}[Equivalence Classes]
+    Suppose $\sim$ is an equivalence relation on $S$ and $a\in S$.
+    The equivalence class of $a$ is
+    \[
+        [a] \coloneqq \{b\in S : b\sim a\}.
+    \]
+\end{definition}
+
+Let us consider an equivalence relation $\sim$ on the set of integers $\mathbb{Z}$, where $a\sim b$ if and only if $a\equiv b\mod 5$.
+In this case,
+\[
+    [2]_5=\{\hdots,-8,-3,2,7,12,\hdots\}.
+\]
+This is the equivalence class of $2$, consisting of all integers that are congruent to $2$ modulo $5$.
+Equivalence classes provide a systematic way of grouping elements in a set based on their relationships under an equivalence relation.
+
+\begin{definition}[Congruence Classes]
+    For a congruence mod $n$, if $a\nz$, then
+    \[
+        [a]\coloneqq \{b\nz : b\equiv a\mod n\}.
+    \]
+\end{definition}
+
+Congruence classes provide a systematic way of grouping integers based on their remainders when divided by $n$ under a congruence relation.
+They are essential in modular arithmetic, number theory, and algebraic structures, contributing to a deeper understanding of mathematical relationships and structures.
+
+Two equivalence classes are the same if they include each other.
+For example, if $[a] = [b]$, then $a\in [b]$ and $b\in[a]$.
+The set $S$ is the distinct union of its distinct equivalence classes.
+That is, every element of $S$ is in some equivalence class.
+
+\begin{proposition}{
+    If $a,b\in S$, then either $[a] = [b]$ or $[a]\cap[b] = \varnothing$.
+}
+    We need to prove that if
+    \[
+        [a]\cap[b]\neq \varnothing,
+    \]
+    then
+    \[
+        [a]=[b].
+    \]
+    Let $c\in[a]\cap[b]$.
+    Then $c\equiv a\mod n$ and $c\equiv b\mod n$.
+    So by the next proposition,
+    \[
+        [c] = [a] = [b].
+    \]
+    Thus $[a] = [b]$.
+\end{proposition}
+
+\begin{proposition}{
+    [a] = [b]\iff a\equiv b\mod n.
+}
+    ($\implies$)
+By definition,
+\[
+    [a]\coloneqq\{x : x\equiv a\mod n\}.
+\]
+Since $a\equiv a\mod n$, we have $a\in[a]$.
+If $[a]=[b]$, then $a\in[b]$.
+But
+\[
+    [b]\coloneqq\{x\nz : x\equiv b\mod n\},
+\]
+so $a\equiv b\mod n$.
+
+($\impliedby$)
+
+\textbf{Case 1. $[a]\subseteq[b]$.}
+Let $c\in[a]$.
+Then $c\equiv a\mod n$.
+Since $a\equiv b\mod n$, by transitivity we get $c\equiv b\mod n$.
+So $c\in[b]$.
+Hence $[a]\subseteq[b]$.
+Similarly, we can show $[b]\subseteq[a]$.
+Thus $[a] = [b]$.
+\end{proposition}
+
+This relationship provides a clear connection between the equality of equivalence classes and the congruence of integers modulo $n$.
+
+\begin{proposition}{
+    Fix $n\geq 2$.
+    The distinct congruence classes modulo $n$ are
+    \[
+        [0],[1],\hdots,[n-1].
+    \]
+    In fact, if $a\nz$, then $[a]=[r]$ where $r$ is the remainder when $a$ is divided by $n$.
+}
+    If
+    \[
+        a = qn + r,\quad 0\leq r\leq n-1,
+    \]
+    then $a\equiv r\mod n$, so $[a]=[r]$.
+    By the division algorithm, every integer $a$ has such a remainder $r$, so every class $[a]$ must be one of these classes.
+    To show these classes are distinct, suppose $[i]=[j]$ where $0\leq i,j\leq n-1$.
+    Then by the previous proposition,
+    \[
+        i\equiv j\mod n.
+    \]
+    So $n\mid (j-i)$.
+    But since $-(n-1)\leq j-i\leq n-1$, the only multiple of $n$ in this range is $0$.
+    Thus $j-i=0$, so $i=j$.
+    Therefore the distinct congruence classes modulo $n$ are exactly
+    \[
+        [0],[1],\hdots,[n-1].
+    \]
+\end{proposition}

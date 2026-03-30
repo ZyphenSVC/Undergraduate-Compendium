@@ -1,0 +1,961 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Chapter 2}
+
+\begin{problem}{
+    Suppose $\gcd(a,b)=1$.
+    If $a\mid c$ and $b\mid c$, prove that $ab\mid c$.
+}
+    Since
+    \[
+        \gcd(a,b)=1,
+    \]
+    there exist $x,y\in\z$ such that
+    \[
+        1=ax+by.
+    \]
+    Now multiply both sides by $c$.
+    Then
+    \[
+        c=acx+bcy.
+    \]
+    Since $a\mid c$ and $b\mid c$, there exist $m,n\in\z$ such that
+    \[
+        c=am
+        \qquad\text{and}\qquad
+        c=bn.
+    \]
+    Substitute these into the previous equation:
+    \begin{align*}
+        c &= a(bn)x+b(am)y\\
+        &= ab(nx+my).
+    \end{align*}
+    Let
+    \[
+        t\coloneqq nx+my\in\z.
+    \]
+    Then
+    \[
+        c=abt.
+    \]
+    Hence
+    \[
+        ab\mid c.
+    \]
+\end{problem}
+
+\begin{problem}{
+    If $\gcd(a,c)=1$ and $\gcd(b,c)=1$, prove that $\gcd(ab,c)=1$.
+}
+    Since
+    \[
+        \gcd(a,c)=1,
+    \]
+    there exist $x,y\in\z$ such that
+    \[
+        1=ax+cy.
+    \]
+    Since
+    \[
+        \gcd(b,c)=1,
+    \]
+    there exist $m,n\in\z$ such that
+    \[
+        1=bm+cn.
+    \]
+    Multiply the first equation by $b$:
+    \[
+        b=abx+bcy.
+    \]
+    Now multiply the second equation by $cy$:
+    \[
+        cy=b(cmy)+c^{2}ny.
+    \]
+    Substitute the expression
+    \[
+        b=abx+bcy
+    \]
+    into
+    \[
+        1=bm+cn:
+    \]
+    \begin{align*}
+        1 &= (abx+bcy)m+cn\\
+        &= ab(mx)+c(bym+n).
+    \end{align*}
+    Let
+    \[
+        p\coloneqq mx
+        \qquad\text{and}\qquad
+        q\coloneqq bym+n.
+    \]
+    Then
+    \[
+        1=abp+cq.
+    \]
+    Therefore
+    \[
+        \gcd(ab,c)=1.
+    \]
+\end{problem}
+
+\begin{problem}{
+    (a) If $a,b,u,v\in\z$ are such that $au+bv=1$, prove that $\gcd(a,b)=1$.
+
+    (b) Show by example that if $au+bv=d>1$, then $\gcd(a,b)$ may not be $d$.
+}
+    \textbf{(a).}
+    Assume
+    \[
+        au+bv=1.
+    \]
+    Let $d=\gcd(a,b)$.
+    Then
+    \[
+        d\mid a
+        \qquad\text{and}\qquad
+        d\mid b.
+    \]
+    So $d$ divides every linear combination of $a$ and $b$.
+    In particular,
+    \[
+        d\mid (au+bv)=1.
+    \]
+    Hence
+    \[
+        d=1.
+    \]
+    Therefore
+    \[
+        \gcd(a,b)=1.
+    \]
+
+    \textbf{(b).}
+    Take
+    \[
+        a=6,
+        \qquad
+        b=9,
+        \qquad
+        u=2,
+        \qquad
+        v=-1.
+    \]
+    Then
+    \[
+        au+bv=6(2)+9(-1)=12-9=3.
+    \]
+    So here
+    \[
+        au+bv=d=3>1.
+    \]
+    But
+    \[
+        \gcd(6,9)=3,
+    \]
+    so this still equals $d$.
+    To get an example where the gcd is not $d$, take instead
+    \[
+        a=6,
+        \qquad
+        b=9,
+        \qquad
+        u=1,
+        \qquad
+        v=1.
+    \]
+    Then
+    \[
+        au+bv=6+9=15.
+    \]
+    So
+    \[
+        d=15>1,
+    \]
+    but
+    \[
+        \gcd(6,9)=3\neq 15.
+    \]
+    Thus if
+    \[
+        au+bv=d>1,
+    \]
+    it need not follow that
+    \[
+        \gcd(a,b)=d.
+    \]
+\end{problem}
+
+\begin{problem}{
+    If $a\mid c$ and $b\mid c$ and $\gcd(a,b)=d$, prove that $ab\mid cd$.
+}
+    Let
+    \[
+        \gcd(a,b)=d.
+    \]
+    Then there exist $a_1,b_1\in\z$ such that
+    \[
+        a=da_1
+        \qquad\text{and}\qquad
+        b=db_1,
+    \]
+    with
+    \[
+        \gcd(a_1,b_1)=1.
+    \]
+    Since
+    \[
+        a\mid c
+        \qquad\text{and}\qquad
+        b\mid c,
+    \]
+    we have
+    \[
+        da_1\mid c
+        \qquad\text{and}\qquad
+        db_1\mid c.
+    \]
+    Hence
+    \[
+        a_1\mid \frac{c}{d}
+        \qquad\text{and}\qquad
+        b_1\mid \frac{c}{d}.
+    \]
+    Since
+    \[
+        \gcd(a_1,b_1)=1,
+    \]
+    the previous problem implies
+    \[
+        a_{1}b_1\mid \frac{c}{d}.
+    \]
+    So there exists $t\in\z$ such that
+    \[
+        \frac{c}{d}=a_{1}b_{1}t.
+    \]
+    Multiply both sides by $d^2$:
+    \[
+        cd=d^{2}a_{1}b_{1}t=(da_1)(db_1)t=abt.
+    \]
+    Therefore
+    \[
+        ab\mid cd.
+    \]
+\end{problem}
+
+\begin{problem}{
+    If $a>0$ and $b>0$, prove that
+    \[
+        lcm[a,b]=\frac{ab}{\gcd(a,b)}.
+    \]
+}
+    Let
+    \[
+        d=\gcd(a,b).
+    \]
+    Then there exist $x,y\in\z_{>0}$ such that
+    \[
+        a=dx,
+        \qquad
+        b=dy,
+    \]
+    and
+    \[
+        \gcd(x,y)=1.
+    \]
+    We claim that
+    \[
+        lcm[a,b]=dxy.
+    \]
+    First, $dxy$ is a common multiple of $a$ and $b$ because
+    \[
+        dxy=ay=bx.
+    \]
+    So
+    \[
+        a\mid dxy
+        \qquad\text{and}\qquad
+        b\mid dxy.
+    \]
+    Now let $m$ be any common multiple of $a$ and $b$.
+    Then
+    \[
+        a\mid m
+        \qquad\text{and}\qquad
+        b\mid m.
+    \]
+    So
+    \[
+        dx\mid m
+        \qquad\text{and}\qquad
+        dy\mid m.
+    \]
+    Hence
+    \[
+        x\mid \frac{m}{d}
+        \qquad\text{and}\qquad
+        y\mid \frac{m}{d}.
+    \]
+    Since
+    \[
+        \gcd(x,y)=1,
+    \]
+    it follows that
+    \[
+        xy\mid \frac{m}{d}.
+    \]
+    Thus
+    \[
+        dxy\mid m.
+    \]
+    So $dxy$ divides every common multiple of $a$ and $b$, which means it is the least common multiple.
+    Therefore
+    \[
+        lcm[a,b]=dxy.
+    \]
+    But
+    \[
+        \frac{ab}{\gcd(a,b)}
+        =
+        \frac{(dx)(dy)}{d}
+        =
+        dxy.
+    \]
+    Hence
+    \[
+        lcm[a,b]=\frac{ab}{\gcd(a,b)}.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Prove that:
+
+    (a)
+    \[
+        \gcd(a,b)\mid \gcd(a+b,a-b).
+    \]
+
+    (b)
+    If $a$ is odd and $b$ is even, then
+    \[
+        \gcd(a,b)=\gcd(a+b,a-b).
+    \]
+
+    (c)
+    If $a$ and $b$ are odd, then
+    \[
+        2\,\gcd(a,b)=\gcd(a+b,a-b).
+    \]
+}
+    \textbf{(a).}
+    Let
+    \[
+        d=\gcd(a,b).
+    \]
+    Then
+    \[
+        d\mid a
+        \qquad\text{and}\qquad
+        d\mid b.
+    \]
+    Hence
+    \[
+        d\mid (a+b)
+        \qquad\text{and}\qquad
+        d\mid (a-b).
+    \]
+    Therefore $d$ is a common divisor of $a+b$ and $a-b$, so
+    \[
+        d\mid \gcd(a+b,a-b).
+    \]
+
+    \textbf{(b).}
+    Let
+    \[
+        d=\gcd(a,b).
+    \]
+    By part (a),
+    \[
+        d\mid \gcd(a+b,a-b).
+    \]
+    Now let
+    \[
+        e=\gcd(a+b,a-b).
+    \]
+    Then
+    \[
+        e\mid (a+b)
+        \qquad\text{and}\qquad
+        e\mid (a-b).
+    \]
+    So
+    \[
+        e\mid \big((a+b)+(a-b)\big)=2a
+    \]
+    and
+    \[
+        e\mid \big((a+b)-(a-b)\big)=2b.
+    \]
+    Since $a$ is odd and $b$ is even, any common divisor of $a+b$ and $a-b$ must be odd.
+    Thus
+    \[
+        \gcd(e,2)=1.
+    \]
+    Because
+    \[
+        e\mid 2a
+    \]
+    and
+    \[
+        \gcd(e,2)=1,
+    \]
+    it follows that
+    \[
+        e\mid a.
+    \]
+    Similarly,
+    \[
+        e\mid b.
+    \]
+    Hence
+    \[
+        e\mid \gcd(a,b)=d.
+    \]
+    Together with part (a), this gives
+    \[
+        \gcd(a,b)=\gcd(a+b,a-b).
+    \]
+
+    \textbf{(c).}
+    Let
+    \[
+        d=\gcd(a,b).
+    \]
+    Since $a$ and $b$ are odd, write
+    \[
+        a=da_1
+        \qquad\text{and}\qquad
+        b=db_1,
+    \]
+    where
+    \[
+        \gcd(a_1,b_1)=1.
+    \]
+    Because $a$ and $b$ are odd, both $a_1$ and $b_1$ are odd.
+    Then
+    \[
+        a+b=d(a_1+b_1)
+        \qquad\text{and}\qquad
+        a-b=d(a_1-b_1).
+    \]
+    So
+    \[
+        \gcd(a+b,a-b)=d\cdot \gcd(a_1+b_1,a_1-b_1).
+    \]
+    Now $a_1+b_1$ and $a_1-b_1$ are both even, so
+    \[
+        2\mid \gcd(a_1+b_1,a_1-b_1).
+    \]
+    Also, if an odd integer divides both $a_1+b_1$ and $a_1-b_1$, then it divides their sum and difference:
+    \begin{gather*}
+        (a_1+b_1)+(a_1-b_1)=2a_1,\\
+    (a_1+b_1)-(a_1-b_1)=2b_1.\\
+    \end{gather*}
+    Since the divisor is odd, it must divide both $a_1$ and $b_1$.
+    But
+    \[
+        \gcd(a_1,b_1)=1,
+    \]
+    so no odd divisor greater than $1$ can occur.
+    Hence
+    \[
+        \gcd(a_1+b_1,a_1-b_1)=2.
+    \]
+    Therefore
+    \[
+        \gcd(a+b,a-b)=2d=2\,\gcd(a,b).
+    \]
+\end{problem}
+
+\begin{problem}{
+    Use the GCD algorithm to show that the GCD of $166$ and $39$ is $1$ and to find integers $x$ and $y$ such that
+    \[
+        1=x166+y39.
+    \]
+    Show your work.
+}
+    Apply the Euclidean algorithm:
+    \begin{align*}
+        166 &= 4\cdot 39 + 10,\\
+        39 &= 3\cdot 10 + 9,\\
+        10 &= 1\cdot 9 + 1,\\
+        9 &= 9\cdot 1 + 0.
+    \end{align*}
+    Hence
+    \[
+        \gcd(166,39)=1.
+    \]
+    Now work backward to find the extended gcd:
+    \begin{align*}
+        1 &= 10-9,\\
+        &= 10-(39-3\cdot 10),\\
+        &= 4\cdot 10-39,\\
+        &= 4(166-4\cdot 39)-39,\\
+        &= 4\cdot 166-17\cdot 39.
+    \end{align*}
+    Thus
+    \[
+        1=4\cdot 166+(-17)\cdot 39.
+    \]
+    So
+    \[
+        x=4
+        \qquad\text{and}\qquad
+        y=-17.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Let $p$ be an integer other than $0,\pm 1$.
+    Prove that $p$ is prime if and only if for each $a\in\z$ either $\gcd(a,p)=1$ or $p\mid a$.
+}
+    \textbf{($\implies$).}
+    Assume that $p$ is prime.
+    Let $a\in\z$.
+    If $p\mid a$, then we are done.
+    So suppose $p\nmid a$.
+    We must show that
+    \[
+        \gcd(a,p)=1.
+    \]
+    Let
+    \[
+        d=\gcd(a,p).
+    \]
+    Then
+    \[
+        d\mid p.
+    \]
+    Since $p$ is prime, its only divisors are
+    \[
+        \pm 1,\pm p.
+    \]
+    Because $p\nmid a$, we cannot have $d=\pm p$.
+    Thus
+    \[
+        d=\pm 1.
+    \]
+    Since the gcd is positive, it follows that
+    \[
+        \gcd(a,p)=1.
+    \]
+
+    \textbf{($\impliedby$).}
+    Assume that for each $a\in\z$, either
+    \[
+        \gcd(a,p)=1
+        \quad\text{or}\quad
+        p\mid a.
+    \]
+    We prove that $p$ is prime.
+    Let $d\in\z$ with
+    \[
+        d\mid p.
+    \]
+    Then there exists $m\in\z$ such that
+    \[
+        p=dm.
+    \]
+    Apply the given property to $a=d$.
+    Either
+    \[
+        \gcd(d,p)=1
+        \quad\text{or}\quad
+        p\mid d.
+    \]
+    If
+    \[
+        \gcd(d,p)=1,
+    \]
+    then since $d\mid p$, the only positive possibility is
+    \[
+        d=1.
+    \]
+    If
+    \[
+        p\mid d,
+    \]
+    then there exists $t\in\z$ such that
+    \[
+        d=pt.
+    \]
+    Since also
+    \[
+        d\mid p,
+    \]
+    we must have
+    \[
+        d=\pm p.
+    \]
+    Thus every divisor of $p$ is one of
+    \[
+        \pm 1,\pm p.
+    \]
+    Since $p\neq 0,\pm 1$, it follows that $p$ is prime.
+\end{problem}
+
+\begin{problem}{
+    Let $p$ be an integer other than $0,\pm 1$ with this property:
+    Whenever $b$ and $c$ are integers such that $p\mid bc$, then $p\mid b$ or $p\mid c$.
+    Prove that $p$ is prime.
+}
+    Suppose $d\mid p$.
+    Then there exists $t\in\z$ such that
+    \[
+        p=dt.
+    \]
+    Since
+    \[
+        p\mid dt,
+    \]
+    the given property implies that
+    \[
+        p\mid d
+        \quad\text{or}\quad
+        p\mid t.
+    \]
+    If
+    \[
+        p\mid d,
+    \]
+    then
+    \[
+        d=\pm p.
+    \]
+    If
+    \[
+        p\mid t,
+    \]
+    then
+    \[
+        t=\pm p
+    \]
+    or at least $|t|\geq |p|$, and since
+    \[
+        p=dt,
+    \]
+    this forces
+    \[
+        d=\pm 1.
+    \]
+    So every divisor of $p$ is one of
+    \[
+        \pm 1,\pm p.
+    \]
+    Since $p\neq 0,\pm 1$, it follows that $p$ is prime.
+\end{problem}
+
+\begin{problem}{
+    If
+    \[
+        a=p_1^{r_1}p_2^{r_2}\dots p_k^{r_k}
+    \]
+    and
+    \[
+        b=p_1^{s_1}p_2^{s_2}\dots p_k^{s_k},
+    \]
+    where $p_1,p_2,\dots,p_k$ are distinct positive primes and each $r_i,s_i\geq 0$, then prove that:
+
+    \textbf{(a)}
+    \[
+        \gcd(a,b)=p_1^{n_1}p_2^{n_2}\dots p_k^{n_k},
+    \]
+    where for each $i$,
+    \[
+        n_i=\min\{r_i,s_i\}.
+    \]
+
+    \textbf{(b)}
+    \[
+        lcm[a,b]=p_1^{t_1}p_2^{t_2}\dots p_k^{t_k},
+    \]
+    where for each $i$,
+    \[
+        t_i=\max\{r_i,s_i\}.
+    \]
+}
+    \textbf{(a).}
+    Let
+    \[
+        d\coloneqq p_1^{n_1}p_2^{n_2}\dots p_k^{n_k},
+    \]
+    where
+    \[
+        n_i=\min\{r_i,s_i\}.
+    \]
+    We show that $d=\gcd(a,b)$.
+
+    First, $d\mid a$ and $d\mid b$.
+    Indeed, for each $i$,
+    \[
+        n_i\leq r_i
+        \quad\text{and}\quad
+        n_i\leq s_i,
+    \]
+    so every prime power appearing in $d$ appears in both $a$ and $b$ with exponent at least $n_i$.
+    Now let $q$ be any common divisor of $a$ and $b$.
+    Write
+    \[
+        q=p_1^{v_1}p_2^{v_2}\dots p_k^{v_k},
+    \]
+    where each $v_i\geq 0$.
+    Since $q\mid a$, we must have
+    \[
+        v_i\leq r_i
+    \]
+    for each $i$.
+    Since $q\mid b$, we must also have
+    \[
+        v_i\leq s_i
+    \]
+    for each $i$.
+    Hence
+    \[
+        v_i\leq \min\{r_i,s_i\}=n_i
+    \]
+    for every $i$.
+    Therefore
+    \[
+        q\mid d.
+    \]
+    So $d$ is a common divisor of $a$ and $b$, and every common divisor divides $d$.
+    Hence
+    \[
+        \gcd(a,b)=d=p_1^{n_1}p_2^{n_2}\dots p_k^{n_k}.
+    \]
+
+    \textbf{(b).}
+    Let
+    \[
+        t_i=\max\{r_i,s_i\}
+    \]
+    for each $i$, and define
+    \[
+        m\coloneqq p_1^{t_1}p_2^{t_2}\dots p_k^{t_k}.
+    \]
+    We show that
+    \[
+        lcm[a,b]=m.
+    \]
+    First, $a\mid m$ and $b\mid m$.
+    Indeed, for each $i$,
+    \[
+        r_i\leq t_i
+        \quad\text{and}\quad
+        s_i\leq t_i.
+    \]
+    So $m$ is a common multiple of $a$ and $b$.
+
+    Now let $N$ be any common multiple of $a$ and $b$.
+    Write
+    \[
+        N=p_1^{w_1}p_2^{w_2}\dots p_k^{w_k}\cdot u,
+    \]
+    where $u$ is not divisible by any of the primes $p_i$.
+    Since $a\mid N$, we have
+    \[
+        r_i\leq w_i
+    \]
+    for each $i$.
+    Since $b\mid N$, we also have
+    \[
+        s_i\leq w_i
+    \]
+    for each $i$.
+    Therefore
+    \[
+        t_i=\max\{r_i,s_i\}\leq w_i
+    \]
+    for every $i$.
+    So
+    \[
+        m\mid N.
+    \]
+
+    Thus $m$ is a common multiple of $a$ and $b$, and it divides every common multiple.
+    Hence
+    \[
+        lcm[a,b]=m=p_1^{t_1}p_2^{t_2}\dots p_k^{t_k}.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Prove that
+    \[
+        a\mid b
+        \quad\text{if and only if}\quad
+        a^2\mid b^2.
+    \]
+}
+    \textbf{($\implies$).}
+    Suppose
+    \[
+        a\mid b.
+    \]
+    Then there exists $x\in\z$ such that
+    \[
+        b=ax.
+    \]
+    Squaring both sides gives
+    \[
+        b^2=a^{2}x^2.
+    \]
+    Hence
+    \[
+        a^2\mid b^2.
+    \]
+    \textbf{($\impliedby$).}
+    Suppose
+    \[
+        a^2\mid b^2.
+    \]
+    We want to show that
+    \[
+        a\mid b.
+    \]
+    Write the prime factorizations of $a$ and $b$.
+    If
+    \[
+        a=\pm p_1^{r_1}\cdots p_k^{r_k},
+    \]
+    then
+    \[
+        a^2=p_1^{2r_1}\cdots p_k^{2r_k}.
+    \]
+    If
+    \[
+        a^2\mid b^2,
+    \]
+    then for each prime $p_i$, the exponent of $p_i$ in $b^2$ is at least $2r_i$.
+    So the exponent of $p_i$ in $b$ is at least $r_i$.
+    Therefore every prime power dividing $a$ also divides $b$, and hence
+    \[
+        a\mid b.
+    \]
+    Thus
+    \[
+        a\mid b
+        \quad\text{if and only if}\quad
+        a^2\mid b^2.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Let $p$ be prime and $1<k<p$.
+    Prove that $p$ divides the binomial coefficient
+    \[
+        \binom{p}{k}.
+    \]
+}
+    Recall that
+    \[
+        \binom{p}{k}=\frac{p!}{k!(p-k)!}.
+    \]
+    Write
+    \[
+        p!=p(p-1)!.
+    \]
+    Then
+    \[
+        \binom{p}{k}=p\cdot \frac{(p-1)!}{k!(p-k)!}.
+    \]
+    We now show that
+    \[
+        \frac{(p-1)!}{k!(p-k)!}\in\z.
+    \]
+    But this is automatic, since
+    \[
+        \binom{p}{k}
+    \]
+    is an integer.
+
+    Also, because
+    \[
+        1<k<p,
+    \]
+    both $k!$ and $(p-k)!$ are products of positive integers all strictly less than $p$.
+    Since $p$ is prime, none of those factors is divisible by $p$.
+    So the factor of $p$ in the numerator does not cancel.
+
+    Therefore
+    \[
+        p\mid \binom{p}{k}.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Let $p,q$ be primes with $p\geq 5$ and $q\geq 5$.
+    Prove that
+    \[
+        24\mid (p^2-q^2).
+    \]
+}
+    Since $p,q\geq 5$ are prime, both are odd.
+    Thus
+    \[
+        p^2-q^2=(p-q)(p+q).
+    \]
+    We first show that
+    \[
+        8\mid (p^2-q^2).
+    \]
+    Every odd integer is congruent to either $1$, $3$, $5$, or $7$ modulo $8$, and in each case its square is congruent to $1$ modulo $8$.
+    So
+    \[
+        p^2\equiv 1\pmod{8}
+        \quad\text{and}\quad
+        q^2\equiv 1\pmod{8}.
+    \]
+    Hence
+    \[
+        p^2-q^2\equiv 0\pmod{8}.
+    \]
+    Therefore
+    \[
+        8\mid (p^2-q^2).
+    \]
+
+    Next we show that
+    \[
+        3\mid (p^2-q^2).
+    \]
+    Since $p$ and $q$ are primes at least $5$, neither is divisible by $3$.
+    So each is congruent to either $1$ or $-1$ modulo $3$.
+    Hence
+    \[
+        p^2\equiv 1\pmod{3}
+        \quad\text{and}\quad
+        q^2\equiv 1\pmod{3}.
+    \]
+    Therefore
+    \[
+        p^2-q^2\equiv 0\pmod{3},
+    \]
+    so
+    \[
+        3\mid (p^2-q^2).
+    \]
+    Since
+    \[
+        \gcd(8,3)=1,
+    \]
+    it follows that
+    \[
+        24=8\cdot 3 \mid (p^2-q^2).
+    \]
+    Hence
+    \[
+        24\mid (p^2-q^2).
+    \]
+\end{problem}

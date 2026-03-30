@@ -1,0 +1,57 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Chapter 1}
+
+\begin{problem}[Induction]{
+    Use induction to prove that if $k$ and $n$ are nonnegative integers, then
+    \[
+        \binom{k}{k}+\binom{k+1}{k}+\dots+\binom{k+n}{k}=\binom{k+n+1}{k+1}.
+    \]
+}
+    We define
+    \[
+        S\coloneqq \left\{ n\in\mathbb{Z}^{\geq 0} : \sum_{j=0}^{n}\binom{k+j}{k}=\binom{k+n+1}{k+1}\right\}.
+    \]
+    First, $0\in S$.
+    We can check this by substituting $n=0$ into the statement:
+    \[
+        \sum_{j=0}^{0}\binom{k+j}{k}=\binom{k}{k}=\binom{k+1}{k+1}=\binom{k+1}{k}.
+    \]
+    So the statement is true when $n=0$.
+    Now suppose $n\in S$.
+    Then
+    \[
+        \sum_{j=0}^{n}\binom{k+j}{k}=\binom{k+n+1}{k+1}.
+    \]
+    We must show that $(n+1)\in S$.
+    Consider
+    \begin{align*}
+        \sum_{j=0}^{n+1}\binom{k+j}{k}
+        &=
+        \sum_{j=0}^{n}\binom{k+j}{k}+\binom{k+n+1}{k}\\
+        &=
+        \binom{k+n+1}{k+1}+\binom{k+n+1}{k}.
+    \end{align*}
+    Using Pascal's identity,
+    \[
+        \binom{m}{r+1}+\binom{m}{r}=\binom{m+1}{r+1},
+    \]
+    with $m=k+n+1$ and $r=k$, we get
+    \[
+        \binom{k+n+1}{k+1}+\binom{k+n+1}{k}=\binom{k+n+2}{k+1}.
+    \]
+    Hence
+    \[
+        \sum_{j=0}^{n+1}\binom{k+j}{k}=\binom{k+n+2}{k+1}.
+    \]
+    Thus $(n+1)\in S$.
+    Therefore, by the Principle of Mathematical Induction,
+    \[
+        S=\mathbb{Z}^{\geq 0}.
+    \]
+    So for all nonnegative integers $n$,
+    \[
+        \binom{k}{k}+\binom{k+1}{k}+\dots+\binom{k+n}{k}=\binom{k+n+1}{k+1}.
+    \]
+\end{problem}

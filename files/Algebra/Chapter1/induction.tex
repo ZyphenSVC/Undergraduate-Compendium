@@ -1,0 +1,54 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{A variation on Induction}
+Now with mathematical induction, also just referenced as induction, we can also show another type called strong or complete induction.
+\begin{theorem}{Assume that $n \in \mathbb{Z}^{\geq 0}$ and $P(n)$ is given.
+If
+    \begin{enumerate}
+        \item $P(0)$ is true, and
+        \item for all $t \in \mathbb{Z}^{\geq 0}$, if $P(j)$ is true for all $j$ such that $0 \leq j \leq t$, then $P(t+1)$ is also true,
+    \end{enumerate}
+    then $P(n)$ is true for all $n \in \mathbb{Z}^{\geq 0}$.
+}
+Let us prove this using ordinary induction.
+Let our induction hypothesis be that $P(j)$ is true for all $j$ such that $0 \leq j \leq t$.
+Define the set
+\[
+    S \coloneqq \{n \in \mathbb{Z}^{\geq 0} : P(j) \text{ is true for all } j \text{ such that } 0 \leq j \leq n\}.
+\]
+For the base case, let $n = 0$.
+Then $P(0)$ is true, so $0 \in S$.
+Now suppose $k \in S$.
+Then $P(j)$ is true for all $j$ such that $0 \leq j \leq k$.
+By the hypothesis, this implies $P(k+1)$ is true.
+Hence $k+1 \in S$.
+Therefore, by induction, $S = \mathbb{Z}^{\geq 0}$.
+Thus $P(n)$ is true for all $n \in \mathbb{Z}^{\geq 0}$.
+\end{theorem}
+
+Similar to how we used weak or regular induction to prove complete induction, we can do the same in reverse.
+In fact, we can prove all of these theorems and definitions using one another.
+We can use the well-ordering axiom to prove mathematical induction and use mathematical induction to prove complete induction.
+To complete the loop, we can prove well-ordering through complete induction.
+On a harder note, we can prove regular induction through complete induction, but it is possible.
+
+\begin{theorem}{Well-Ordering implies Induction.}
+Let us define the set
+\[
+    S \coloneqq \{n \in \mathbb{Z}^{\geq 0} : P(n) \text{ is false}\} \subseteq \mathbb{Z}^{\geq 0}.
+\]
+Our goal is to show that $S = \varnothing$.
+Assume $S \neq \varnothing$.
+Then by well-ordering, let $d \in S$ be the smallest element.
+Since $P(0)$ is true, we must have $d \neq 0$.
+Hence $d \geq 1$, so $d - 1 \in \mathbb{Z}^{\geq 0}$.
+Since $d$ is the smallest element of $S$, we must have $d - 1 \notin S$.
+Thus $P(d-1)$ is true.
+By the induction hypothesis, $P(d-1) \implies P(d)$.
+Hence $P(d)$ is true, which contradicts the fact that $d \in S$.
+Therefore $S = \varnothing$.
+Hence $P(n)$ is true for all $n \in \mathbb{Z}^{\geq 0}$.
+\end{theorem}
+
+Now that we have jump-started the proof writing structure in our heads, let us go ahead and start this course with our next topic: Fundamentals of Arithmetic and Divisibility.

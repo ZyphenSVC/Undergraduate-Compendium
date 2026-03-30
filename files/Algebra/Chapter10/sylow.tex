@@ -1,0 +1,391 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Sylow Theorems}
+
+\begin{theorem}[First Sylow Theorem]{
+    Suppose $\ord(G)<\infty$ and $p\mid \ord(G)$.
+    If $p^n$ is the highest power of $p$ dividing $\ord(G)$, then there exists a subgroup
+    \[
+        P\leq G
+    \]
+    such that
+    \[
+        \ord(P)=p^n.
+    \]
+    Such a subgroup is called a Sylow-$p$ subgroup.
+}
+\end{theorem}
+
+\begin{example}
+    Let
+    \[
+        G=S_4.
+    \]
+    Then
+    \[
+        \ord(S_4)=24=2^3\cdot 3.
+    \]
+    By the First Sylow Theorem, there exists a subgroup $P\leq S_4$ with
+    \[
+        \ord(P)=8
+    \]
+    for $p=2$, and there exists a subgroup $Q\leq S_4$ with
+    \[
+        \ord(Q)=3
+    \]
+    for $p=3$.
+\end{example}
+
+\begin{example}
+    Let
+    \[
+        G=S_4.
+    \]
+    Then
+    \[
+        Z(G)=\{e\}.
+    \]
+    The possible cycle structures in $S_4$ are given by the partitions of $4$:
+    \begin{align*}
+        4=4 &\implies (1234),\\
+        4=3+1 &\implies (123)(4),\\
+        4=2+2 &\implies (12)(34),\\
+        4=2+1+1 &\implies (12)(3)(4),\\
+        4=1+1+1+1 &\implies (1)(2)(3)(4).
+    \end{align*}
+    How many distinct conjugacy classes are there.
+    We need to keep in mind that two permutations with the same cycle structure lie in the same conjugacy class.
+\end{example}
+
+\begin{proof}
+    The sizes of the conjugacy classes are:
+    \begin{align*}
+        4 &\implies \frac{4!}{4}=6,\\
+        3+1 &\implies \binom{4}{3}\frac{3!}{3}=4\cdot 2=8,\\
+        2+2 &\implies \frac{\binom{4}{2}}{2}=3,\\
+        2+1+1 &\implies \binom{4}{2}=6,\\
+        1+1+1+1 &\implies 1.
+    \end{align*}
+    These add up to
+    \[
+        6+8+3+6+1=24.
+    \]
+    The last term corresponds to the center, and the others are the noncentral conjugacy classes.
+\end{proof}
+
+\begin{theorem}[Cauchy's Theorem]{
+    If $p\mid \ord(G)$, then $G$ has an element of order $p$.
+    Hence $G$ has a subgroup of order $p$.
+}
+    We prove this by induction on $\ord(G)$.
+    Let $1\neq a\in G$.
+    If
+    \[
+        p\mid \ord(a),
+    \]
+    then
+    \[
+        a^{\ord(a)/p}
+    \]
+    has order $p$, so we are done.
+    Suppose instead that
+    \[
+        p\nmid \ord(a).
+    \]
+    Then
+    \[
+        p\mid \frac{\ord(G)}{\ord(\gen{a})} = \ord(G/\gen{a})
+    \]
+    in the sense that $p$ divides the index $[G:\gen{a}]$.
+    By induction applied to a suitable smaller subgroup arising from this situation, one obtains an element of order $p$.
+    Thus $G$ has an element of order $p$, and therefore a subgroup of order $p$.
+\end{theorem}
+
+\begin{example}
+    If
+    \[
+        G=S_4,
+    \]
+    then the class equation is
+    \[
+        24=1+8+3+6+6.
+    \]
+    This corresponds to the classes represented by
+    \[
+        (1),\ (123),\ (12)(34),\ (12),\ (1234).
+    \]
+\end{example}
+
+\begin{theorem}{
+    If $\ord(G)<\infty$ and $p^n\mid\mid \ord(G)$, then $G$ has a subgroup of order $p^n$.
+}
+    We prove this by induction on $\ord(G)$.
+    \textbf{Case 1.}
+    Suppose
+    \[
+        p\mid \ord(Z(G)).
+    \]
+    Then by Cauchy's Theorem, $Z(G)$ has a subgroup $N$ of order $p$.
+    Since $N\leq Z(G)$, it follows that
+    \[
+        N\trianglelefteq G.
+    \]
+    Consider
+    \[
+        \overline{G}=G/N.
+    \]
+    Then
+    \[
+        \ord(\overline{G})=\frac{\ord(G)}{p},
+    \]
+    so
+    \[
+        p^{n-1}\mid\mid \ord(\overline{G}).
+    \]
+    By the induction hypothesis, $\overline{G}$ contains a subgroup $T$ of order $p^{n-1}$.
+    By the correspondence theorem, $T$ lifts to a subgroup $H\leq G$ containing $N$ such that
+    \[
+        \ord(H)=\ord(N)\ord(T)=p\cdot p^{n-1}=p^n.
+    \]
+
+    \textbf{Case 2.}
+    Suppose
+    \[
+        p\nmid \ord(Z(G)).
+    \]
+    From the class equation,
+    \[
+        \ord(G)=\ord(Z(G))+\sum_{i=1}^r [G:C_G(x_i)].
+    \]
+    Since $p\mid \ord(G)$ but $p\nmid \ord(Z(G))$, there must exist some $i$ such that
+    \[
+        p\nmid [G:C_G(x_i)].
+    \]
+    Now
+    \[
+        \ord(G)=\ord(C_G(x_i))[G:C_G(x_i)].
+    \]
+    Since $p^n\mid\mid \ord(G)$ and $p\nmid [G:C_G(x_i)]$, it follows that
+    \[
+        p^n\mid\mid \ord(C_G(x_i)).
+    \]
+    Also,
+    \[
+        \ord(C_G(x_i))<\ord(G).
+    \]
+    By the induction hypothesis, $C_G(x_i)$ has a subgroup $P$ of order $p^n$.
+    Since
+    \[
+        P\leq C_G(x_i)\leq G,
+    \]
+    this is also a subgroup of $G$ of order $p^n$.
+\end{theorem}
+
+\begin{theorem}[Second Sylow Theorem]{
+    All Sylow-$p$ subgroups are conjugate in $G$.
+    That is, if $P,Q\leq G$ are Sylow-$p$ subgroups, then there exists $g\in G$ such that
+    \[
+        Q=P^g=gPg^{-1}=\{gxg^{-1}:x\in P\}.
+    \]
+}
+\end{theorem}
+
+\begin{theorem}[Third Sylow Theorem]{
+    The number of Sylow-$p$ subgroups of $G$ is congruent to $1\mod p$ and is equal to
+    \[
+        [G:N_G(P)],
+    \]
+    where $P$ is any Sylow-$p$ subgroup and
+    \[
+        N_G(P)\coloneqq \{g\in G:gPg^{-1}=P\}.
+    \]
+    In particular, the number of Sylow-$p$ subgroups divides
+    \[
+        [G:P].
+    \]
+}
+    Let $P$ be a Sylow-$p$ subgroup.
+    Let
+    \[
+        S\coloneqq \{P^g:g\in G\},
+    \]
+    the set of all conjugates of $P$.
+    Then $G$ acts on $S$ by conjugation.
+    The orbit of $P$ under this action is all of $S$.
+    The stabilizer of $P$ is
+    \[
+        \stab_G(P)=\{g\in G:P^g=P\}=N_G(P).
+    \]
+    So by orbit-stabilizer,
+    \[
+        \ord(S)=[G:N_G(P)].
+    \]
+    Thus the number of Sylow-$p$ subgroups is
+    \[
+        [G:N_G(P)].
+    \]
+    Now let $Q$ be any Sylow-$p$ subgroup.
+    Then $Q$ acts on $S$ by conjugation.
+    The size of each orbit under this action is a power of $p$.
+    Since $\ord(S)=[G:N_G(P)]$ is not divisible by $p$, at least one orbit has size $1$.
+    So there exists some $T\in S$ fixed by all elements of $Q$.
+    This means
+    \[
+        Q\leq N_G(T).
+    \]
+    Since $T$ is a Sylow-$p$ subgroup and $Q$ is also a Sylow-$p$ subgroup, it follows that
+    \[
+        Q=T.
+    \]
+    Thus every Sylow-$p$ subgroup is conjugate to $P$.
+    Finally, since the $Q$-orbits on $S$ have sizes powers of $p$, and exactly one of them has size $1$, the total number satisfies
+    \[
+        \ord(S)\equiv 1\mod p.
+    \]
+    So the number of Sylow-$p$ subgroups is congruent to $1\mod p$.
+\end{theorem}
+
+\begin{lemma}{
+    If $Q$ and $T$ are both Sylow-$p$ subgroups, then
+    \[
+        \stab_Q(T)=Q
+        \quad\text{if and only if}\quad
+        Q=T.
+    \]
+}
+    Now
+    \[
+        \stab_Q(T)=Q\cap N_G(T).
+    \]
+    If $\stab_Q(T)=Q$, then
+    \[
+        Q\leq N_G(T).
+    \]
+    Hence
+    \[
+        QT
+    \]
+    is a subgroup of $N_G(T)$, and $T\trianglelefteq QT$.
+    By the second isomorphism theorem,
+    \[
+        QT/T \cong Q/(Q\cap T).
+    \]
+    Since $Q$ and $T$ are Sylow-$p$ subgroups, the quotient on the right is a $p$-group.
+    But the order of $QT/T$ must divide the index of $T$ in its normalizer, which is not divisible by $p$.
+    Therefore
+    \[
+        QT/T
+    \]
+    is trivial, so
+    \[
+        Q\leq T.
+    \]
+    Since both have the same order,
+    \[
+        Q=T.
+    \]
+    Conversely, if
+    \[
+        Q=T,
+    \]
+    then every element of $Q$ stabilizes $T$ under conjugation, so
+    \[
+        \stab_Q(T)=Q.
+    \]
+\end{lemma}
+
+\begin{theorem}{
+    Suppose
+    \[
+        \ord(G)=2q
+    \]
+    where $q$ is an odd prime, and suppose $G$ is not abelian.
+    Then
+    \[
+        G\cong H\leq S_q,
+    \]
+    where $H$ is generated by a $q$-cycle and an element of order $2$.
+}
+    Given
+    \[
+        \ord(G)=2q,
+    \]
+    $G$ has a Sylow-$2$ subgroup, say
+    \[
+        P_i=\gen{x_i}
+    \]
+    with $\ord(x_i)=2$.
+    The number of Sylow-$2$ subgroups divides
+    \[
+        \frac{\ord(G)}{2}=q
+    \]
+    and is congruent to $1\mod 2$.
+    Since $G$ is not abelian, this number is not $1$, so it must be $q$.
+    Thus there are $q$ distinct Sylow-$2$ subgroups
+    \[
+        P_1=\gen{x_1},\ P_2=\gen{x_2},\ \dots,\ P_q=\gen{x_q}.
+    \]
+    Now define
+    \[
+        \phi:G\to \sym(\{x_1,\dots,x_q\})\cong S_q
+    \]
+    by
+    \[
+        \phi(g)(x_i)=gx_ig^{-1}.
+    \]
+    This is a homomorphism coming from the conjugation action.
+    We claim that $\ker\phi=\{1\}$.
+    Indeed, if $y\in \ker\phi$, then
+    \[
+        yx_iy^{-1}=x_i
+    \]
+    for all $i$, so $y$ commutes with every $x_i$.
+    If $y$ had order $2$, then together with some $x_i$ it would generate a subgroup of order $4$, impossible since $4\nmid 2q$.
+    So the kernel cannot contain an element of order $2$.
+    Also, the kernel cannot have order $q$ or $2q$, since then it would force too much normality and make $G$ abelian.
+    Hence
+    \[
+        \ker\phi=\{1\}.
+    \]
+    So $\phi$ is injective, and therefore
+    \[
+        G\cong \phi(G)\leq S_q.
+    \]
+\end{theorem}
+
+\begin{example}
+    Let $g\in G$ with
+    \[
+        \ord(g)=q.
+    \]
+    Let
+    \[
+        x_1=x,\quad x_2=x_1^g,\quad x_3=x_2^g,\quad \dots,\quad x_q=x_{q-1}^g,\quad x_1=x_q^g.
+    \]
+    Then $g$ acts as a $q$-cycle on the set $\{x_1,\dots,x_q\}$.
+    Thus the image of $G$ in $S_q$ is generated by a $q$-cycle and an element of order $2$.
+    So it is isomorphic to the dihedral group of order $2q$.
+\end{example}
+
+\begin{example}[Why is the kernel trivial]
+    Claim:
+    \[
+        K=\ker\phi=\{1\}.
+    \]
+    Suppose $y\in K$ and $\ord(y)=2$.
+    Then $y$ commutes with every $x_i$.
+    So $y$ together with some $x_i$ would generate a subgroup isomorphic to
+    \[
+        \mathbb{Z}_2\times \mathbb{Z}_2,
+    \]
+    which has order $4$.
+    But $4\nmid 2q$ since $q$ is odd.
+    This is impossible.
+    Hence $K$ contains no element of order $2$.
+    A similar order argument rules out the possibilities $\ord(K)=q$ and $\ord(K)=2q$.
+    Therefore
+    \[
+        K=\{1\}.
+    \]
+\end{example}

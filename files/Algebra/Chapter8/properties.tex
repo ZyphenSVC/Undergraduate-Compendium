@@ -1,0 +1,575 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Properties of Groups}
+
+\begin{definition}[Group under Multiplication]
+    Suppose $G$ is a group $(G,*)$, where
+    \[
+        *:G\times G\to G.
+    \]
+    Then:
+    \begin{gather*}
+        1\in G,\\
+        1*a = a*1 \quad \forall a\in G,\\
+        (a*b)*c = a*(b*c) \quad \forall a,b,c\in G,\\
+        \forall a\in G,\ \exists a^{-1}\in G \text{ such that } a^{-1}*a = aa^{-1} = 1.\\
+    \end{gather*}
+    Also,
+    \[
+        a^2 = a*a,
+    \]
+    and inductively,
+    \[
+        a^n = a(a^{n-1}) = a*a*\dots*a.
+    \]
+\end{definition}
+
+$S_X$ is the group of permutations on $X$ under composition, and it is noncommutative for $\#X\geq 3$.
+If $(\mathcal{R},+,*)$ is a ring, then $(\mathcal{R},+)$ is a group under addition, and it is commutative.
+Note that $(\mathcal{R},+,*)$ is ring notation, not group notation.
+This means that $0\in \mathcal{R}$ is allowed even though multiplication is closed, because we are not saying $(\mathcal{R},*)$ is a group.
+
+Also,
+\[
+    U(\mathcal{R}) = \mathcal{R}^* = \{u\in \mathcal{R} : \exists v\in \mathcal{R} \text{ with } uv=vu=1\}
+\]
+is a group.
+
+\begin{example}
+    \[
+        \mathbb{Z}_m^*
+    \]
+    is the group of units in $\mathbb{Z}_m$.
+    For example,
+    \begin{gather*}
+        \mathbb{Z}_6^* = \{1,5\},\\
+        \mathbb{Z}_8^* = \{1,3,5,7\},\\
+        \mathbb{Z}_p^* = \{1,2,\dots,p-1\}.\\
+    \end{gather*}
+\end{example}
+
+If $\mathcal{R}$ is any ring, then
+\[
+    \mat{n}(\mathcal{R})
+\]
+is the ring of $n\times n$ matrices with entries in $\mathcal{R}$.
+Also,
+\[
+    \mat{n}(\mathcal{R})^*
+\]
+is the group of invertible matrices with entries in $\mathcal{R}$.
+If $n\geq 2$, then $\mat{n}(\mathcal{R})^*$ is nonabelian.
+If $\mathbb{F}$ is a field, then matrices represent transformations of vector spaces.
+$\mat{n}(\mathbb{F})$ corresponds to linear transformations of an $n$-dimensional vector space over $\mathbb{F}$.
+
+Suppose $A\in \mat{n}(\mathbb{F})$, and $V$ is an $n$-dimensional vector space.
+We define
+\[
+    T(v)=Av,
+\]
+so $T:V\to V$ is a linear transformation.
+Then
+\[
+    T(\lambda v+\mu w)=\lambda T(v)+\mu T(w).
+\]
+
+\begin{definition}[General Linear Group]
+    The group of invertible $n\times n$ matrices with entries in $\mathbb{F}$ under multiplication is denoted by
+    \[
+        GL_n(\mathbb{F}).
+    \]
+    This is called the General Linear Group.
+\end{definition}
+
+\begin{example}
+    $GL_2(\mathbb{F}_2)$ consists of matrices
+    \[
+        \begin{pmatrix}
+            a&b\\
+            c&d
+        \end{pmatrix}
+    \]
+    with $a,b,c,d\in\{0,1\}$, and such a matrix is invertible if and only if
+    \[
+        ad-bc\neq 0.
+    \]
+    The invertible matrices are
+    \begin{gather*}
+        \begin{pmatrix}
+            1&0\\
+            0&1
+        \end{pmatrix},
+        \quad
+        \begin{pmatrix}
+            1&1\\
+            0&1
+        \end{pmatrix},
+        \quad
+        \begin{pmatrix}
+            1&1\\
+            1&0
+        \end{pmatrix},\\
+        \begin{pmatrix}
+            0&1\\
+            1&0
+        \end{pmatrix},
+        \quad
+        \begin{pmatrix}
+            0&1\\
+            1&1
+        \end{pmatrix},
+        \quad
+        \begin{pmatrix}
+            1&0\\
+            1&1
+        \end{pmatrix}.\\
+    \end{gather*}
+    So
+    \[
+        \#GL_2(\mathbb{F}_2)=6,
+    \]
+    which is isomorphic to $S_3$.
+\end{example}
+
+Coming from geometry, we also get groups.
+If you take a solid or a regular $n$-gon and consider its rigid motions, then these form a group.
+A rigid motion is a motion that picks up the figure and puts it back in place, such as a rotation or reflection.
+\[
+    \definecolor{zzttqq}{rgb}{0.6,0.2,0}
+    \definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+        \clip(-4.810729327044825,-0.9698720753575509) rectangle (3.9701527617352204,3.62171081782759);
+        \fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (-2.66,-0.24) -- (2.3,-0.2) -- (-0.38,3.38) -- cycle;
+        \draw [line width=2pt,color=zzttqq] (-2.66,-0.24)-- (2.3,-0.2);
+        \draw [line width=2pt,color=zzttqq] (2.3,-0.2)-- (-0.38,3.38);
+        \draw [line width=2pt,color=zzttqq] (-0.38,3.38)-- (-2.66,-0.24);
+        \begin{scriptsize}
+            \draw [fill=ududff] (-2.66,-0.24) circle (2.5pt);
+            \draw[color=ududff] (-2.605104916119032,-0.09247745906159882) node {$A$};
+            \draw [fill=ududff] (2.3,-0.2) circle (2.5pt);
+            \draw[color=ududff] (2.354082045553743,-0.050861904138470665) node {$B$};
+            \draw [fill=ududff] (-0.38,3.38) circle (2.5pt);
+            \draw[color=ududff] (-0.32318532116750337,3.5280758192505517) node {$C$};
+        \end{scriptsize}
+    \end{tikzpicture}
+\]
+
+\begin{example}
+    Rigid motions of a regular $3$-gon are:
+    the identity,
+    rotation by $120^\circ=\frac{2\pi}{3}$ counterclockwise, call this $r$,
+    rotation by $240^\circ=\frac{4\pi}{3}$, call this $r^2$,
+    and reflections.
+    \begin{gather*}
+        1: 1\to 1,\ 2\to 2,\ 3\to 3\\
+        r: 1\to 2\to 3\to 1\\
+        r^2: 1\to 3\to 2\to 1\\
+        s: 1\to 1,\ 2\leftrightarrow 3\\
+        sr: 1\leftrightarrow 3,\ 2\to 2\\
+        rs: \text{reflection through vertex }3.\\
+    \end{gather*}
+    This group is denoted $D_3$.
+    It has order $6$ and is called the dihedral group.
+    Some texts use $D_6$.
+    Others use $D_n$ or $D_{2n}$ depending on convention.
+\end{example}
+
+\begin{example}
+    Let $H,K$ be groups.
+    Then $H\times K$ has underlying set $H\times K$ with operation
+    \[
+        (h_1,k_1)*(h_2,k_2)=(h_1*h_2,k_1*k_2).
+    \]
+    This makes $H\times K$ into a group.
+    The identity is $(1,1)$.
+    Associativity holds componentwise.
+    The inverse is
+    \[
+        (h,k)^{-1}=(h^{-1},k^{-1}).
+    \]
+    Closure also holds componentwise.
+\end{example}
+
+$(\mathbb{Z}_2\times\mathbb{Z}_2,+)$ has order $4$.
+$(\mathbb{Z}_4,+)$ also has $4$ elements.
+$\mathbb{Z}_5^*$ and $\mathbb{Z}_8^*$ also have $4$ elements.
+Now, are they isomorphic.
+Let us look at the tables for these groups.
+
+\begin{center}
+    \begin{tabular}{lllll}
+        $(\mathbb{Z}_4,+)$ & 0 & 1 & 2 & 3 \\
+        0 & 0 & 1 & 2 & 3 \\
+        1 & 1 & 2 & 3 & 0 \\
+        2 & 2 & 3 & 0 & 1 \\
+        3 & 3 & 0 & 1 & 2
+    \end{tabular}
+
+    \vspace{1em}
+
+    \begin{tabular}{lllll}
+        $\mathbb{Z}_5^*$ & 1 & 2 & 3 & 4 \\
+        1 & 1 & 2 & 3 & 4 \\
+        2 & 2 & 4 & 1 & 3 \\
+        3 & 3 & 1 & 4 & 2 \\
+        4 & 4 & 3 & 2 & 1
+    \end{tabular}
+\end{center}
+
+A possible isomorphism is
+\begin{align*}
+    0 &\mapsto 1,\\
+    1 &\mapsto 2,\\
+    2 &\mapsto 4,\\
+    3 &\mapsto 3.
+\end{align*}
+
+\begin{theorem}[Fundamental Theorem of Finite Abelian Groups]{
+    Every finite abelian group is a direct product of groups of the form $(\mathbb{Z}_n,+)$ for various $n$.
+}
+\end{theorem}
+
+\begin{definition}[Other Properties of Groups]
+    Let $G$ be a group.
+    Some other properties which follow from the definition are the following.
+    \begin{enumerate}
+        \item Cancellation law.
+        Suppose $a,b,c\in G$.
+        If
+        \[
+            ba=ca,
+        \]
+        then
+        \[
+            b=c.
+        \]
+
+        \item Identity is unique.
+
+        \item Inverses are unique.
+
+        \item
+        \[
+            (ab)^{-1}=b^{-1}a^{-1}.
+        \]
+
+        \item
+        \[
+            (a^{-1})^{-1}=a.
+        \]
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}{
+    The cancellation law holds in any group.
+}
+    Suppose
+    \[
+        ab=ac.
+    \]
+    Then
+    \begin{align*}
+        a^{-1}(ab) &= a^{-1}(ac),\\
+        (a^{-1}a)b &= (a^{-1}a)c,\\
+        1b &= 1c,\\
+        b &= c.
+    \end{align*}
+    A similar argument proves right cancellation.
+\end{proposition}
+
+\begin{proposition}{
+    The identity element in a group is unique.
+}
+    Suppose $e$ and $f$ are both identities.
+    Then
+    \[
+        ef=f
+    \]
+    since $e$ is an identity, and
+    \[
+        ef=e
+    \]
+    since $f$ is an identity.
+    Thus
+    \[
+        e=f.
+    \]
+\end{proposition}
+
+\begin{proposition}{
+    Inverses in a group are unique.
+}
+    Suppose $a\in G$, and $b,c\in G$ both satisfy
+    \[
+        ba=ab=e
+        \quad\text{and}\quad
+        ca=ac=e.
+    \]
+    Then
+    \[
+        b=be=b(ac)=(ba)c=ec=c.
+    \]
+    Thus $b=c$.
+\end{proposition}
+
+\begin{proposition}{
+    For all $a,b\in G$,
+    \[
+        (ab)^{-1}=b^{-1}a^{-1}.
+    \]
+}
+    We compute
+    \[
+        (ab)(b^{-1}a^{-1})=abb^{-1}a^{-1}=aea^{-1}=aa^{-1}=e,
+    \]
+    and similarly
+    \[
+        (b^{-1}a^{-1})(ab)=e.
+    \]
+    By uniqueness of inverse,
+    \[
+        (ab)^{-1}=b^{-1}a^{-1}.
+    \]
+\end{proposition}
+
+\begin{proposition}{
+    For all $a\in G$,
+    \[
+        (a^{-1})^{-1}=a.
+    \]
+}
+    Since
+    \[
+        a^{-1}a=aa^{-1}=e,
+    \]
+    $a$ is an inverse of $a^{-1}$.
+    By uniqueness of inverse,
+    \[
+        (a^{-1})^{-1}=a.
+    \]
+\end{proposition}
+
+\begin{definition}[Order]
+    Let $G$ be a group and let $a\in G$.
+    The order of $a$ is the smallest strictly positive integer $n$ such that
+    \[
+        a^n \coloneqq a*a*\dots*a = 1.
+    \]
+    If there is no such $n$, then $a$ has infinite order.
+\end{definition}
+
+\begin{theorem}{
+    If $\#G$ is finite, then every $a\in G$ has finite order.
+}
+    Since $G$ is finite, the list
+    \[
+        1,a,a^2,a^3,\dots
+    \]
+    cannot consist of distinct elements forever.
+    So there exist integers $i<j$ such that
+    \[
+        a^i=a^j.
+    \]
+    By cancellation,
+    \[
+        1=a^{j-i}.
+    \]
+    Thus $a$ has finite order.
+\end{theorem}
+
+\begin{example}
+    Dihedral groups have finite order for all elements.
+\end{example}
+
+\begin{example}[$G_1=(\mathbb{Z}_4,+)$]
+    \begin{tabular}{ll}
+        Elements & Order \\
+        0 & 1 \\
+        1 & 4 \\
+        2 & 2 \\
+        3 & 4
+    \end{tabular}
+\end{example}
+
+\begin{example}[$G_2=\mathbb{Z}_2\times\mathbb{Z}_2$]
+    \begin{tabular}{ll}
+        Elements & Order \\
+        (0,0) & 1 \\
+        (0,1) & 2 \\
+        (1,0) & 2 \\
+        (1,1) & 2
+    \end{tabular}
+\end{example}
+
+\begin{example}[$G_3=\mathbb{Z}_5^*$]
+    \begin{tabular}{ll}
+        Elements & Order \\
+        1 & 1 \\
+        2 & 4 \\
+        3 & 4 \\
+        4 & 2
+    \end{tabular}
+\end{example}
+
+This is another way of showing that $G_1$ and $G_3$ are isomorphic.
+
+\begin{corollary}[Infinite Order]{
+    Suppose $a^n\neq e$ for all $n>0$.
+    Then $|a|=\infty$.
+}
+\end{corollary}
+
+\begin{theorem}{
+    Suppose $a\in G$ and $|a|=n$.
+    If $k\in\mathbb{Z}$, then
+    \[
+        a^k=1
+        \quad\text{if and only if}\quad
+        n\mid k.
+    \]
+}
+    ($\implies$).
+    Suppose $k\in\mathbb{Z}$ such that $a^k=1$.
+Write
+    \[
+        k=nq+r
+    \]
+    with $0\leq r<n$.
+    Then
+    \begin{align*}
+        a^k &= a^{nq+r}\\
+        &= a^{nq}a^r\\
+        &= (a^n)^q a^r\\
+        &= 1^q a^r\\
+        &= a^r.
+    \end{align*}
+    Since $a^k=1$, we get $a^r=1$.
+    But $n$ is the smallest positive integer with this property, so $r=0$.
+    Thus $n\mid k$.
+
+    ($\impliedby$).
+    If $n\mid k$, then $k=nq$ for some $q$.
+    Thus
+    \begin{align*}
+        a^k &= a^{nq}\\
+        &= (a^n)^q\\
+        &= 1^q\\
+        &= 1.
+    \end{align*}
+    So $a^k=1$.
+\end{theorem}
+
+\begin{corollary}{
+    \[
+        a^i=a^j
+        \quad\text{if and only if}\quad
+        a^{i-j}=1.
+    \]
+    Thus
+    \[
+        n\mid i-j
+    \]
+    or equivalently
+    \[
+        i\equiv j\mod n.
+    \]
+}
+($\implies$).
+    Given $a^i=a^j$, then
+    \begin{align*}
+        a^i a^{-j} &= a^j a^{-j},\\
+        a^{i-j} &= 1.
+    \end{align*}
+
+    ($\impliedby$).
+    Given $a^{i-j}=1$, then
+    \begin{align*}
+        a^i a^{-j} &= 1,\\
+        a^i &= a^j.
+    \end{align*}
+\end{corollary}
+
+\begin{theorem}{
+    Suppose $|a|=n$ and $t\mid n$.
+    Then
+    \[
+        |a^t|=\frac{n}{t}.
+    \]
+}
+    Let $|a^t|=k$.
+    Since $a^n=1$, we have
+    \[
+        (a^t)^{n/t}=a^n=1,
+    \]
+    so
+    \[
+        k\mid \frac{n}{t}.
+    \]
+    Also, since $(a^t)^k=1$, we have
+    \[
+        a^{tk}=1.
+    \]
+    Thus
+    \[
+        n\mid tk.
+    \]
+    Since $t\mid n$, it follows that
+    \[
+        \frac{n}{t}\mid k.
+    \]
+    Therefore
+    \[
+        k=\frac{n}{t}.
+    \]
+\end{theorem}
+
+Suppose $|a|=6$, then
+\[
+    |a^4|=3.
+\]
+
+More generally, for $t\in\mathbb{Z}$ with $t>0$, we have
+\[
+    |a^t|=\frac{n}{\gcd(t,n)}.
+\]
+
+\begin{proposition}{
+    If $|a|=n$ and $d=\gcd(t,n)$, then
+    \[
+        |a^t|=\frac{n}{d}.
+    \]
+}
+    Let $|a^t|=k$.
+    We know $a^n=1$.
+    Then
+    \[
+        (a^t)^{n/d}=a^{tn/d}=\left(a^n\right)^{t/d}=1,
+    \]
+    since $t/d\in\mathbb{Z}$.
+    So
+    \[
+        k\mid \frac{n}{d}.
+    \]
+
+    Also, since $(a^t)^k=1$, we have
+    \[
+        a^{tk}=1,
+    \]
+    so
+    \[
+        n\mid tk.
+    \]
+    Dividing by $d$ gives
+    \[
+        \frac{n}{d}\mid k\cdot \frac{t}{d}.
+    \]
+    Because $\gcd(n/d,t/d)=1$, it follows that
+    \[
+        \frac{n}{d}\mid k.
+    \]
+    Thus
+    \[
+        k=\frac{n}{d}.
+    \]
+\end{proposition}

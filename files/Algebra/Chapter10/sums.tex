@@ -1,0 +1,481 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Direct Sums and Finite Abelian Groups}
+
+\begin{definition}[External Direct Product]
+Let $H,K$ be groups.
+Define
+\[
+G=H\times K=\{(h,k):h\in H,\ k\in K\}.
+\]
+Then $G$ is a group under componentwise operation.
+Also,
+\[
+\overline{H}=\{(h,1):h\in H\}\trianglelefteq G
+\]
+and
+\[
+\overline{K}=\{(1,k):k\in K\}\trianglelefteq G.
+\]
+In fact,
+\[
+\overline{H}\cap \overline{K}=\{(1,1)\}.
+\]
+\end{definition}
+
+\begin{theorem}{
+Suppose $G$ is a group and $H,K\leq G$.
+When is $G$ isomorphic to the direct product of $H$ and $K$.
+}
+This happens when $H$ and $K$ are normal in $G$, when
+\[
+H\cap K=\{1\},
+\]
+and when
+\[
+G=HK.
+\]
+\end{theorem}
+
+\begin{remark}
+Define
+\[
+HK\coloneqq \{hk:h\in H,\ k\in K\}.
+\]
+If $H,K\normal G$, then $HK$ is a subgroup of $G$.
+\end{remark}
+
+\begin{theorem}{
+If $H,K\normal G$, $G=HK$, and
+\[
+H\cap K=\{1\},
+\]
+then
+\[
+G\cong H\times K.
+\]
+This is called an internal direct product.
+}
+Define
+\[
+\phi:H\times K\to G
+\]
+by
+\[
+\phi(h,k)=hk.
+\]
+Since $G=HK$, $\phi$ is surjective.
+To show $\phi$ is a homomorphism, let $(h_1,k_1),(h_2,k_2)\in H\times K$.
+Because $H$ and $K$ are normal and $H\cap K=\{1\}$, elements of $H$ commute with elements of $K$.
+Indeed, for $h\in H$ and $k\in K$,
+\[
+hkh^{-1}k^{-1}\in H\cap K=\{1\},
+\]
+so $hk=kh$.
+Thus
+\begin{align*}
+\phi((h_1,k_1)(h_2,k_2))
+&=
+\phi(h_1h_2,k_1k_2)\\
+&=
+(h_1h_2)(k_1k_2)\\
+&=
+h_1k_1h_2k_2\\
+&=
+\phi(h_1,k_1)\phi(h_2,k_2).
+\end{align*}
+
+Now compute the kernel.
+If
+\[
+\phi(h,k)=1,
+\]
+then
+\[
+hk=1,
+\]
+so
+\[
+h=k^{-1}.
+\]
+Hence $h\in H\cap K$ and $k\in H\cap K$.
+Since
+\[
+H\cap K=\{1\},
+\]
+we get
+\[
+h=k=1.
+\]
+Thus
+\[
+\ker\phi=\{(1,1)\}.
+\]
+So $\phi$ is injective.
+Therefore $\phi$ is an isomorphism.
+\end{theorem}
+
+\begin{definition}[Disjoint Group]
+If
+\[
+H\cap K=\{1\},
+\]
+we say the intersection is trivial.
+\end{definition}
+
+\begin{example}[Example 1]
+Let
+\[
+G=\gen{x},
+\qquad
+\ord(x)=n.
+\]
+\end{example}
+
+\begin{proof}
+Suppose
+\[
+n=ab,
+\qquad
+\gcd(a,b)=1.
+\]
+Let
+\[
+H=\gen{x^a},
+\qquad
+K=\gen{x^b}.
+\]
+Then
+\[
+H\cong C_b,
+\qquad
+K\cong C_a.
+\]
+If $x^r\in H\cap K$, then $a\mid r$ and $b\mid r$.
+Since $\gcd(a,b)=1$, this implies
+\[
+ab=n\mid r.
+\]
+Hence
+\[
+x^r=1.
+\]
+So
+\[
+H\cap K=\{1\}.
+\]
+Now let $r\in \mathbb{Z}$.
+Since $\gcd(a,b)=1$, there exist $s,t\in \mathbb{Z}$ such that
+\[
+r=sa+tb.
+\]
+Then
+\begin{align*}
+x^r
+&=
+x^{sa+tb}\\
+&=
+x^{sa}x^{tb}\\
+&=
+(x^a)^s(x^b)^t.
+\end{align*}
+So $x^r\in HK$ for all $r$.
+Hence
+\[
+G=HK.
+\]
+Therefore
+\[
+G\cong H\times K.
+\]
+\end{proof}
+
+\begin{definition}[Direct Sum]
+When $G$ is an additive abelian group, the direct product is called a direct sum.
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem]{
+If $G$ is a finite abelian group, then $G$ can be written in the following equivalent ways:
+\begin{enumerate}
+    \item
+    \[
+    G\cong \mathbb{Z}_{n_1}\oplus \mathbb{Z}_{n_2}\oplus\dots\oplus \mathbb{Z}_{n_k}.
+    \]
+    \item
+    \[
+    G\cong \mathbb{Z}_{p_1^{k_1}}\oplus \mathbb{Z}_{p_1^{k_2}}\oplus \mathbb{Z}_{p_2^{\ell_1}}\oplus\dots.
+    \]
+    \item
+    \[
+    G\cong \mathbb{Z}_{d_1}\oplus \mathbb{Z}_{d_2}\oplus\dots\oplus \mathbb{Z}_{d_k},
+    \]
+    where the $p_i^{k_j}$ are the elementary divisors and the $d_i$ are the invariant factors.
+\end{enumerate}
+}
+\end{theorem}
+
+\begin{remark}
+The implication from elementary divisors to invariant factors uses the fact that if
+\[
+\gcd(m,n)=1,
+\]
+then
+\[
+\mathbb{Z}_{mn}\cong \mathbb{Z}_m\oplus \mathbb{Z}_n.
+\]
+\end{remark}
+
+\begin{example}
+Let
+\[
+G=\mathbb{Z}_2\oplus \mathbb{Z}_4\oplus \mathbb{Z}_4\oplus \mathbb{Z}_3\oplus \mathbb{Z}_3\oplus \mathbb{Z}_5.
+\]
+The primes involved are $2,3,5$.
+Taking one highest available power of each prime gives
+\[
+2^2\cdot 3\cdot 5=60=d_3.
+\]
+Removing those factors leaves
+\[
+2^2\cdot 3\cdot 1=12=d_2.
+\]
+Removing again leaves
+\[
+2\cdot 1\cdot 1=2=d_1.
+\]
+So
+\[
+G\cong \mathbb{Z}_2\oplus \mathbb{Z}_{12}\oplus \mathbb{Z}_{60}.
+\]
+\end{example}
+
+\begin{remark}
+One way to begin proving the theorem is as follows.
+Suppose $x_1,\dots,x_n$ generate $G$.
+Define a surjective homomorphism
+\[
+\phi:\mathbb{Z}^n\to G
+\]
+by sending
+\[
+e_i\mapsto x_i,
+\]
+where
+\[
+e_1=(1,0,\dots,0),\quad e_2=(0,1,0,\dots,0),\quad \dots,\quad e_n=(0,0,\dots,1).
+\]
+Then every
+\[
+y=y_1e_1+\dots+y_ne_n\in \mathbb{Z}^n
+\]
+maps to
+\[
+\sum_{i=1}^n y_ix_i.
+\]
+If
+\[
+K=\ker\phi,
+\]
+then by the first isomorphism theorem,
+\[
+\mathbb{Z}^n/K\cong G.
+\]
+So the problem reduces to understanding subgroups of $\mathbb{Z}^n$.
+\end{remark}
+
+\begin{definition}[Free Abelian Group]
+A group $G$ is a free abelian group if it has a basis.
+\end{definition}
+
+\begin{remark}
+Recall from Linear Algebra.
+A basis for $\mathbb{Z}^n$ is
+\[
+e_1,\dots,e_n,
+\]
+which generates $\mathbb{Z}^n$ and is linearly independent over $\mathbb{Z}$.
+\end{remark}
+
+\begin{lemma}{
+Every subgroup of $\mathbb{Z}^n$ has a basis.
+}
+\end{lemma}
+
+A direct product and direct sum are similar in spirit to bases, but now for groups.
+
+\begin{theorem}{
+A set
+\[
+\{f_1,\ldots,f_m\}
+\]
+is a basis for a subgroup $K\leq \mathbb{Z}^n$ if every $k\in K$ can be written as
+\[
+k=\sum a_if_i
+\]
+with $a_i\in \mathbb{Z}$, and if
+\[
+\sum a_if_i=0
+\]
+implies $a_i=0$ for all $i$.
+}
+\end{theorem}
+
+We want to show that every element $k$ can be written as such a linear combination.
+
+\begin{theorem}{
+Every subgroup of $\mathbb{Z}^n$ is free abelian.
+}
+We prove this by induction on $n$.
+Base case:
+$n=1$.
+Every subgroup of $\mathbb{Z}$ is cyclic.
+If
+\[
+K\neq \{0\}
+\]
+is a subgroup of $\mathbb{Z}$, then
+\[
+K=d\mathbb{Z}
+\]
+for some $d\neq 0$.
+So
+\[
+\{d\}
+\]
+is a basis for $K$.
+Thus every subgroup of $\mathbb{Z}$ has a basis.
+Now consider $n=2$.
+Let
+\[
+K\leq \mathbb{Z}^2=\mathbb{Z}e_1+\mathbb{Z}e_2.
+\]
+If
+\[
+K\leq \mathbb{Z}e_1,
+\]
+then we are done by the $n=1$ case.
+Assume not.
+Let
+\[
+H\coloneqq \{b\in \mathbb{Z}:\exists y\in \mathbb{Z}\text{ such that }(y,b)=ye_1+be_2\in K\}.
+\]
+Then $H$ is a subgroup of $\mathbb{Z}$.
+Since
+\[
+K\nleq \mathbb{Z}e_1,
+\]
+we have
+\[
+H\neq \{0\}.
+\]
+So
+\[
+H=d\mathbb{Z}
+\]
+for some $d\neq 0$.
+Thus there exists $y_1\in \mathbb{Z}$ such that
+\[
+(y_1,d)=y_1e_1+de_2\in K.
+\]
+Let
+\[
+f_2=(y_1,d).
+\]
+Also,
+\[
+K\cap \mathbb{Z}e_1
+\]
+is a subgroup of $\mathbb{Z}e_1\cong \mathbb{Z}$.
+If
+\[
+K\cap \mathbb{Z}e_1=\{(0,0)\},
+\]
+then one basis vector may suffice.
+Otherwise,
+\[
+K\cap \mathbb{Z}e_1=\mathbb{Z}(a,0)
+\]
+for some $a\neq 0$.
+Let
+\[
+f_1=(a,0).
+\]
+Then the claim is that either $\{f_2\}$ or $\{f_1,f_2\}$ is a basis for $K$.
+\end{theorem}
+
+\begin{lemma}{
+If
+\[
+K\cap \mathbb{Z}e_1=\{(0,0)\},
+\]
+then $\{f_2\}$ is a basis for $K$.
+If
+\[
+K\cap \mathbb{Z}e_1=\mathbb{Z}(a,0),
+\]
+then $\{f_1,f_2\}$ is a basis for $K$.
+}
+Let
+\[
+k=(z_1,z_2)\in K.
+\]
+Since $z_2\in H=d\mathbb{Z}$, there exists $k_2\in \mathbb{Z}$ such that
+\[
+z_2=dk_2.
+\]
+Then
+\begin{align*}
+k-k_2f_2
+&=
+(z_1,z_2)-k_2(y_1,d)\\
+&=
+(z_1-k_2y_1,z_2-k_2d)\\
+&=
+(z_1-k_2y_1,0).
+\end{align*}
+Thus
+\[
+k-k_2f_2\in K\cap \mathbb{Z}e_1.
+\]
+So either
+\[
+k=k_2f_2
+\]
+or
+\[
+k=k_1f_1+k_2f_2
+\]
+for some $k_1\in \mathbb{Z}$.
+Hence these vectors span $K$.
+Now check linear independence.
+In the one-vector case, it is immediate.
+In the two-vector case, let
+\[
+f_1=(a,0),
+\qquad
+f_2=(y_1,d).
+\]
+Suppose
+\[
+a_1f_1+a_2f_2=(0,0).
+\]
+Then
+\[
+(a_1a+a_2y_1,\ a_2d)=(0,0).
+\]
+Since $d\neq 0$, we get
+\[
+a_2=0.
+\]
+Then
+\[
+a_1a=0,
+\]
+and since $a\neq 0$, we get
+\[
+a_1=0.
+\]
+So the vectors are linearly independent.
+Therefore they form a basis.
+\end{lemma}

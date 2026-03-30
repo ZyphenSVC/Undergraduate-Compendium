@@ -1,0 +1,231 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Constructible Shapes}
+
+Which regular $n$-gons can be constructed?
+
+\begin{definition}[Constructible]
+    $a$ is constructible if you can construct a line segment of length $a$.
+\end{definition}
+
+\begin{definition}[Constructible Point]
+    A point in $\r^2$ is constructible if its coordinates are constructible.
+\end{definition}
+
+\begin{definition}[Constructible Line]
+    A constructible line is a line determined by constructible points.
+\end{definition}
+
+\begin{theorem}{
+    Constructible numbers lie in field extensions of $\q$.
+}
+    Suppose $a,b$ are constructible.
+    Then they are closed under addition, subtraction, multiplication, and division by nonzero elements.
+    Hence constructible numbers lie in a field extension of $\q$.
+\end{theorem}
+
+\begin{theorem}{
+    If $a$ is constructible and $a\geq 0$, then $\sqrt{a}$ is constructible.
+}
+    Suppose a triangle is enclosed in a semicircle with triangle side length $1$ and diameter $\frac{a+1}{2}$.
+    The relevant distance $x$ satisfies
+    \[
+        x^2=\left(\frac{a+1}{2}\right)^2-\left(\frac{a-1}{2}\right)^2.
+    \]
+    Thus
+    \[
+        x^2=a.
+    \]
+    So the distance $x=\sqrt{a}$ is constructible.
+\end{theorem}
+
+Suppose we have constructible points.
+How do we get new points by intersecting lines, circles, and lines with circles?
+
+\begin{definition}[New Constructible Points]
+    If $\alpha$ is obtained from a constructible configuration, then adjoining $\alpha$ gives a quadratic extension.
+    That is, any constructible point lies in a tower of fields
+    \[
+        \Q\subseteq\Q[a_1]\subseteq\Q[a_1,a_2]\subseteq\hdots\subseteq\f,
+    \]
+    where
+    \[
+        \f_k=\f_{k-1}[a_k]
+    \]
+    and
+    \[
+        [\f_k:\f_{k-1}]=2.
+    \]
+\end{definition}
+
+Let $\alpha$ be the root of a quadratic polynomial.
+So every constructible number lies in a field $\f$ where
+\[
+    [\f:\Q]=2^n
+\]
+for some $n$.
+Therefore $\sqrt[3]{2}$ is not constructible.
+
+\begin{lemma}[Constructible Points]{
+    Let $r\in\mathbb{R}$.
+    Then $r$ is constructible with straightedge and compass if and only if $r$ lies in a field extension $\mathbb{E}$ with
+    \[
+        [\mathbb{E}:\mathbb{Q}]=2^n
+    \]
+    for some $n$.
+}
+\end{lemma}
+
+$\pi$ is not constructible, and neither is it algebraic.
+Therefore constructible points are only possible if
+\[
+    [\mathbb{Q}(r):\mathbb{Q}]=2^k
+\]
+for some $k$.
+We will show that we cannot trisect $60^\circ$, since we can construct $60^\circ$, implying that not every angle can be trisected.
+Because $20^\circ=\theta=\frac{\pi}{9}$ would need to be constructible, the number $\cos\theta$ would need to be constructible.
+\begin{align*}
+    \cos 2\theta &= \cos^2\theta-\sin^2\theta\\
+    &= 2\cos^2\theta-1,
+\end{align*}
+and
+\[
+    \cos 3\theta=4\cos^3\theta-3\cos\theta.
+\]
+If $\theta=\frac{\pi}{9}$, then
+\[
+    \cos 3\theta=\cos\frac{\pi}{3}=\frac{1}{2}.
+\]
+Let $x=\cos 20^\circ$.
+Then
+\begin{align*}
+    \frac{1}{2} &= 4x^3-3x,\\
+    0 &= 8x^3-6x-1.
+\end{align*}
+We claim that $8x^3-6x-1$ is irreducible over $\mathbb{Q}$.
+By the rational root test, the only possible rational roots are
+\[
+    \pm 1,\ \pm \frac{1}{2},\ \pm \frac{1}{4},\ \pm \frac{1}{8},
+\]
+and none of these are roots.
+So the polynomial is irreducible over $\Q$.
+Hence
+\[
+    [\Q(x):\Q]=3,
+\]
+which is not a power of $2$.
+Therefore $x=\cos 20^\circ$ is not constructible, so $60^\circ$ cannot be trisected.
+
+Question:
+Which regular $n$-gons can be constructed?
+That is, for which $n$ can the angle
+\[
+    \frac{2\pi}{n}
+\]
+be constructed.
+Such an angle can be constructed if and only if
+\[
+    \cos \frac{2\pi}{n}
+    \quad\text{and}\quad
+    \sin \frac{2\pi}{n}
+\]
+can be constructed.
+\[
+    \definecolor{zzttqq}{rgb}{0.6,0.2,0}
+    \definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\clip(-3.1902986457244733,-2.936287863782368) rectangle (3.569554280433086,2.160548852751021);
+\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (-1,-1) -- (1,1) -- (1,-1) -- cycle;
+\draw [line width=2pt,color=zzttqq] (-1,-1)-- (1,1);
+\draw [line width=2pt,color=zzttqq] (1,1)-- (1,-1);
+\draw [line width=2pt,color=zzttqq] (1,-1)-- (-1,-1);
+\draw (-0.2723211297635221,-0.8883141982266557) node[anchor=north west] {$\cos\frac{2\pi}{n}$};
+\draw (1.0596316677595505,0.06638029248352595) node[anchor=north west] {$\sin\frac{2\pi}{n}$};
+\draw (-0.2954185771194135,0.30505391516107133) node[anchor=north west] {1};
+\draw (-0.626481989220524,-0.5033567422951308) node[anchor=north west] {$\frac{2\pi}{n}$};
+\draw (0.6,-0.4033567422951308) node[anchor=north west] {$\frac{\pi}{2}$};
+\begin{scriptsize}
+    \draw [fill=ududff] (-1,-1) circle (2.5pt);
+    \draw[color=ududff] (-0.9421471030843737,-0.8382697289555574) node {$A$};
+    \draw [fill=ududff] (1,1) circle (2.5pt);
+    \draw[color=ududff] (1.0596316677595505,1.1635090418883718) node {$B$};
+    \draw[color=zzttqq] (0.11263632616800179,0.008636674093797217) node {$c$};
+    \draw[color=zzttqq] (0.905648685386941,0.09332731439873268) node {$a$};
+    \draw[color=zzttqq] (0.02794568586306654,-0.784375685125144) node {$b$};
+\end{scriptsize}
+    \end{tikzpicture}
+\]
+Thus a regular $n$-gon is constructible if and only if
+\[
+    \left(\cos \frac{2\pi}{n},\sin \frac{2\pi}{n}\right)
+\]
+is a constructible point.
+If we let
+\[
+    \rho=\cos \frac{2\pi}{n}+i\sin \frac{2\pi}{n},
+\]
+then
+\[
+    \rho^n=1.
+\]
+So $\rho$ is an $n$th root of unity satisfying
+\[
+    x^n-1=0.
+\]
+Suppose
+\[
+    n=2^{a_1}p_2^{a_2}\cdots p_k^{a_k}
+\]
+is a prime factorization, where $p_1=2$ and $p_j$ is odd for $j\geq 2$.
+Then the regular $n$-gon is constructible if and only if each odd prime factor occurs to the first power and each such odd prime is a Fermat prime.
+
+\begin{definition}[Fermat Prime]
+    If
+    \[
+        2^{2^k}+1=p
+    \]
+    is prime, then $p$ is a Fermat prime.
+\end{definition}
+
+\begin{corollary}{
+    The constructible regular $n$-gons are exactly those for which
+    \[
+        n=2^m p_{1}p_2\cdots p_r,
+    \]
+    where the $p_i$ are distinct Fermat primes.
+}
+\end{corollary}
+
+\begin{proposition}{
+    Let $\phi:\mathbb{Q}[x]\to \mathbb{Q}[\alpha]$ be defined by
+    \[
+        \phi(p(x))=p(\alpha).
+    \]
+    Then $\phi$ is surjective.
+}
+    Suppose $\beta\in\mathbb{Q}[\alpha]$.
+    Then by definition of $\mathbb{Q}[\alpha]$, there exists $f(x)\in\mathbb{Q}[x]$ such that
+    \[
+        \beta=f(\alpha).
+    \]
+    Thus
+    \[
+        \phi(f(x))=f(\alpha)=\beta.
+    \]
+    So $\phi$ is surjective.
+\end{proposition}
+
+$\phi$ is injective if and only if $\ker\phi=\{0\}$.
+This is a consequence of the first isomorphism theorem.
+
+\begin{proposition}{
+    \[
+        \ker\phi=\{0\}
+        \iff
+        (\forall f(x)\in\Q[x],\ f(\alpha)=0 \Rightarrow f(x)=0)
+        \iff
+        \alpha/\mathbb{Q}\text{ is transcendental.}
+    \]
+}
+\end{proposition}

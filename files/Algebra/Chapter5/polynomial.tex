@@ -1,0 +1,109 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Polynomials}
+
+\begin{definition}[Polynomial]
+    A polynomial with coefficients in $\ri$ is denoted by $\ri[x]$.
+    It consists of expressions of the form
+    \[
+        a_0 + a_{1}x + a_{2}x^2 + \hdots + a_{n}x^n,
+    \]
+    where $a_i\nri$.
+    We can think of the $a_i$ as coefficients.
+\end{definition}
+
+\begin{proposition}{
+    Addition and multiplication in $\ri[x]$ are defined component-wise.
+}
+    Let
+    \begin{align*}
+        f(x) &= a_0 + \hdots + a_{n}x^n,\\
+        g(x) &= b_0 + \hdots + b_{m}x^m,
+    \end{align*}
+    where $m\geq n$.
+    Then
+    \[
+        f(x)+g(x) = (a_0+b_0) + \hdots + (a_n+b_n)x^n + b_{n+1}x^{n+1} + \hdots + b_{m}x^m.
+    \]
+    Multiplication is defined by distributing and collecting like terms.
+\end{proposition}
+
+This informal definition raises several questions.
+What is $x$?
+Is it an element of $\ri$?
+If not, what does it mean to multiply $x$ by a ring element?
+To answer these questions, note that an expression of the form
+\[
+    a_0 + a_{1}x + a_{2}x^2 + \ldots + a_{n}x^n
+\]
+makes sense provided that the $a_i$ and $x$ are all elements of some larger ring.
+An analogy might be helpful here.
+The number $\pi$ is not in the ring of integers $\mathbb{Z}$, but expressions such as
+\[
+    3 - 4\pi + 12\pi^2 + \pi^3
+\]
+make sense in $\mathbb{R}$.
+Furthermore, it is not difficult to verify that the set of all numbers of the form
+\[
+    \sum_{i=0}^n a_i\pi^i,
+\]
+with $n\geq 0$ and $a_i\in\mathbb{Z}$, is a subring of $\mathbb{R}$ that contains both $\mathbb{Z}$ and $\pi$.
+For the present, we shall think of polynomials with coefficients in a ring $\ri$ in much the same way, as elements of a larger ring that contains both $\ri$ and a special element $x$ that is not in $\ri$.
+Feel free to check that $\ri[x]$ is a ring, but we will be concentrating on $\z[x],\Q[x],\r[x],\c[x],\zp[x]$, and have their elements denoted by $f(x)$ or $P(x)$.
+
+\begin{definition}[Degree of a Polynomial]
+    If $f(x)\in\ri[x]$, the degree of $f(x)$, denoted by $\deg f(x)$, is the largest $n$ for which the coefficient of $x^n$ is not $0$.
+    The coefficient $a_n$ is called the leading coefficient.
+\end{definition}
+
+\begin{definition}[Additive Identity of $\ri[x]$]
+    The additive identity in $\ri[x]$ is the zero polynomial, where all coefficients are $0$.
+\end{definition}
+
+If $\deg f(x)=0$, then $f(x)$ is a constant polynomial.
+
+\begin{proposition}[Degree Arithmetic]{
+    Suppose $\deg f(x)=m$ and $\deg g(x)=n$.
+}
+    \[
+        \deg(f(x)+g(x)) \leq \max\{m,n\}.
+    \]
+    If $m\neq n$, then
+    \[
+        \deg(f(x)+g(x)) = \max\{m,n\}.
+    \]
+    If $m=n$, then
+    \[
+        \deg(f(x)+g(x)) \leq m,
+    \]
+    with equality unless cancellation occurs.
+    Also,
+    \[
+        \deg(f(x)g(x)) \leq \deg f(x) + \deg g(x).
+    \]
+    If $\ri$ is an integral domain, then
+    \[
+        \deg(f(x)g(x)) = \deg f(x) + \deg g(x).
+    \]
+\end{proposition}
+
+Let $f(x),g(x)\in\z_4[x]$.
+Let $f(x)=2x$ and $g(x)=2x^2$.
+Then
+\[
+    f(x)g(x)=4x^3=0.
+\]
+
+    {\Huge{From now on $\ri$ is an Integral Domain.}}\\
+
+Given that $\ri$ is an integral domain, one may naturally ask what are the units of $\ri[x]$.
+
+\begin{lemma}{
+    Suppose $u(x)$ is a unit with multiplicative inverse $v(x)$.
+    Then
+    \[
+        u(x)v(x)=1=1+0x+0x^2+\hdots.
+    \]
+}
+\end{lemma}

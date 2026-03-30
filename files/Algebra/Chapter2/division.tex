@@ -1,0 +1,364 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Division}
+
+Now that we have learned the axioms of arithmetic, let us learn about the division algorithm.
+
+We have all, hopefully, learned how to divide in grade school.
+As a revision, you can divide a number evenly by some other number and whatever is left over will result as the remainder.
+This can be written more formally as
+\[
+    \text{dividend} = (\text{divisor})(\text{quotient}) + (\text{remainder}).
+\]
+Now there is an important understanding I wanted to show to the audience.
+Every basic arithmetic operation can be written in terms of addition and multiplication.
+We will later see with rings that we make our lives easier by doing subtraction, which shows both an inverse and additive property.
+But for now, that is all mumbo-jumbo.
+\begin{theorem}[Division Algorithm]{
+    Suppose $a,b\in\mathbb{Z}$ with $b>0$.
+    Then there exist $q,r\in\mathbb{Z}$ such that
+    \[
+        a = qb + r
+    \]
+    with
+    \[
+        0\leq r < b.
+    \]
+}
+    Let there be a set $S$ such that
+    \[
+        S \coloneqq \{a-xb : a-xb\geq 0,\ x\in\mathbb{Z}\}.
+    \]
+    We first check that $S\neq \varnothing$.
+    Given $a$ and $b$, find $x$ such that $a-xb\geq 0$.
+    If $a\geq 0$, let $x = 0$.
+    Then $a-xb = a\geq 0$.
+    If $a<0$, let $x = a$.
+    Then
+    \[
+        a - ab = a(1 - b),
+    \]
+    and since $b>0$, we have $b\geq 1$, therefore $1-b\leq 0$.
+    Since $a<0$ as well, it follows that $a(1-b)\geq 0$.
+    Since $S\neq \varnothing$, then $S$ is well-ordered.
+    Thus there exists $r\in S$ such that $r$ is the smallest element of $S$.
+    Claim:
+    $r\geq 0$ and $r < b$.
+    Since $r\in S$, there exists $q\in\mathbb{Z}$ such that $r = a-qb$ and $r\geq 0$.
+    It remains to prove that $r < b$.
+    Suppose $r\geq b$.
+    Then let
+    \begin{align*}
+        d &= a - (q + 1)b\\
+        &= a - qb - b\\
+        &= r - b.
+    \end{align*}
+    Since $r\geq b$, we have $r-b\geq 0$.
+    Thus $d\in S$.
+    But $d = r-b < r$, which contradicts the fact that $r$ is the smallest element of $S$.
+    Therefore $r < b$.
+    Hence
+    \[
+        a = qb + r
+    \]
+    with $0\leq r < b$.
+\end{theorem}
+
+There is a lot to dissect here.
+I want to dedicate special focus to this theorem.
+This will lay the foundation, so glance your eyes on this beauty and take it in its glory.
+But in all seriousness, this is a really important topic to take in, so let us explain it thoroughly.
+Similar to what we have in Figure 2.1 with the dividend equation, we just broke it down and generalized it using proof notation.
+So given that $a$ is some dividend, we have divisor $b$, and quotient $q$ that are multiplied, then added with remainder $r$.
+There is also a reason why the division algorithm requires that $r$ be less than $b$ but at minimum $0$.
+This may be trivial, but if $r$ is greater than $b$, we can subtract $b$ from $r$ and get a new remainder.
+It has the most optimized equation.
+Now that we understand what we are doing in more understandable terms, let us look at our proof itself and implement it as a core memory as how a child may remember their guardian.
+
+\begin{example}
+    Let $S$ be a set of remainders.
+    We can do this through example.
+    If
+    \begin{gather*}
+        a = 81,\\
+        b = 8,\\
+    \end{gather*}
+    and $x$ is a variable, then
+    \[
+        r = a-bx.
+    \]
+    If we let $x = 1$, then $r = 73$.
+
+    If we let $x = 4$, then $r = 49$.
+
+    If we let $x = 10$, then $r = 1$.
+
+    If we let $x = 11$, then $r = -7$.
+
+    However, $r$ can only be at minimum $0$, therefore $r$ cannot be $-7$.
+    Therefore our most optimized $r$ is when $x = 10$.
+    Of course, $x$ can go in the opposite direction, since we did not bound $\mathbb{Z}$ only to non-negative integers.
+\end{example}
+
+Thus we have shown an example of the division algorithm.
+Now that we understand the values that set $S$ can contain, even though we have provided proof, we must still prove this through math and generalize it.
+And that is exactly what we spend the rest of the proof doing.
+
+We answer questions in this proof such as, what if $a$ is greater than $0$ or less than $0$.
+And what happens if $r$ is greater than $b$, which we show cannot happen if $r$ is the smallest non-negative integer of that form.
+For example, we could technically have a solution
+\begin{gather*}
+    a = 200,\\
+    b = 2,\\
+    x = 10,\\
+    r = 180,\\
+\end{gather*}
+and this fits the equation $a = bx + r$, but it is not the division algorithm remainder because $r$ is not the smallest allowable one.
+
+\begin{proposition}[Uniqueness in the Division Algorithm]{
+    The integers $q,r\in\mathbb{Z}$ in the division algorithm are unique.
+}
+    Given $a\in\mathbb{Z}$ and $b\in\mathbb{Z}$ with $b>0$, suppose
+    \[
+        a = q_{1}b + r_1
+    \]
+    such that $q_1,r_1\in\mathbb{Z}$ and $0\leq r_1 < b$.
+    Also suppose that
+    \[
+        a = q_{2}b + r_2
+    \]
+    such that $q_2,r_2\in\mathbb{Z}$ and $0\leq r_2 < b$.
+    Claim:
+    $q_1 = q_2$ and $r_1 = r_2$.
+    We have
+    \begin{align*}
+        a &= q_{1}b + r_1\\
+        a &= q_{2}b + r_2.
+    \end{align*}
+    Subtracting gives
+    \begin{align*}
+        0 &= (q_1 - q_2)b + r_1 - r_2\\
+        r_2 - r_1 &= (q_1 - q_2)b.
+    \end{align*}
+    Since $0\leq r_1,r_2 < b$, we have
+    \[
+        -b < r_2 - r_1 < b.
+    \]
+    Therefore
+    \[
+        -b < (q_1 - q_2)b < b.
+    \]
+    Since $b>0$, dividing through by $b$ yields
+    \[
+        -1 < q_1 - q_2 < 1.
+    \]
+    Since $q_1-q_2\in\mathbb{Z}$, the only possibility is
+    \[
+        q_1 - q_2 = 0.
+    \]
+    Therefore $q_1 = q_2$.
+    Then
+    \begin{align*}
+        0 &= (q_1 - q_2)b + r_1 - r_2\\
+        0 &= (0)b + r_1 - r_2\\
+        0 &= r_1 - r_2.
+    \end{align*}
+    Thus $r_1 = r_2$.
+\end{proposition}
+
+This proposition demonstrates that $q$ and $r$ are unique, and this is really important to show in math when we are proving an algorithm.
+Regardless of what $q$ and $r$ are, if they exist, then they are unique, sounding trivial, but as we see the proof is rather less trivial.
+
+This one is a bit more straightforward, therefore there will not be a conceptualizing analysis on this proof.
+This is also just further building the proof techniques we have at our arsenal and allowing one to understand the algorithm through and through.
+
+\begin{definition}[Logical Divide]
+    Suppose $a,b\in\mathbb{Z}$.
+    Let us define the logical divide of $b$ divides $a$ as $b\mid a$.
+    If there exists $q\in\mathbb{Z}$ such that
+    \[
+        a = bq,
+    \]
+    then $b\mid a$.
+    If $b = 0$ and $a \neq 0$, then $b\nmid a$, because $0q = 0$, and $a\neq 0$.
+\end{definition}
+
+There is not a strict name for this definition as far as I know, therefore I created a name for it, Logical Divide.
+It is the logical notation for the phrase ``$x$ divides $y$'', and it is trivial to Abstract Algebra.
+
+It is slightly different from, say, previous computationally algebraic courses, where one just computes some division and may even end up with a completed or incomplete, rational or not, answer.
+Note that up to now we are only sticking with the integers, and this is a really important fact to keep in mind.
+Therefore when we say that $2\mid 4$, then we really mean that $4$ is evenly divisible by $2$, but $3$ does not divide $4$, even if we can write it in terms of a decimal.
+
+Another way we can explain this topic is through the division algorithm.
+If it does not look similar, we can write $b$ divides $a$ as
+\[
+    a = bq + r,
+\]
+where $r = 0$.
+Now does this mean that if $a = 0$, then does $0\mid 0$.
+Honestly, it is a debated topic in algebra and number theory.
+Some may state yes, others may state no.
+But what is important is that many people leave it undefined, for the same reason why your calculator cannot divide $0$ by $0$.
+Now if $a = 0$ and $b\mid a$, there is an integer $q$ in $\mathbb{Z}$ such that $a = bq$.
+This is a proof we will not get into for the sake of saving time and space, but it is a nice practice exercise.
+One proof we will be looking at is the following.
+
+\begin{lemma}{
+    Assume $b\mid a$ and $b\neq 0$, so $a=bq$ for some $q\in\mathbb{Z}$.
+    Then $-b\mid a$.
+}
+    We have
+    \[
+        a = (-b)(-q),
+    \]
+    so $-b\mid a$, since $-q\in\mathbb{Z}$.
+    Similarly, $b\mid -a$.
+\end{lemma}
+
+This is just a fun fact to rationalize that these four results are possible:
+$b\mid a$, $b\mid -a$, $-b\mid a$, and $-b\mid -a$.
+Now on a larger note, we must prove transitivity through logical divides.
+
+\begin{lemma}{
+    Suppose $a,b,c\in\mathbb{Z}$.
+    If $c\mid b$ and $b\mid a$, then $c\mid a$.
+}
+    There exist $q_1,q_2\in\mathbb{Z}$ such that
+    \[
+        a = bq_1
+    \]
+    and
+    \[
+        b = cq_2.
+    \]
+    So
+    \[
+        a = (cq_2)q_1 = c(q_{2}q_1).
+    \]
+    Since $q_{2}q_1\in\mathbb{Z}$, we have $c\mid a$.
+\end{lemma}
+
+One thing to note is that divisibility is not symmetric, which means that if $b\mid a$, it does not follow that $a\mid b$ unless we are in a special case such as $a = \pm b$.
+There is a statement that could be said about linear combinations of $a$ and $b$.
+If there is an integer $c$ that divides both $a$ and $b$, then for any integers $x$ and $y$, we have
+\[
+    c\mid xa+yb.
+\]
+Therefore, $c$ divides any linear combination of $a$ and $b$.
+The proof of this is similar to the previous proof before.
+The idea is that if you can write $a$ and $b$ in terms of $c$, then the linear combination can also be written in terms of $c$.
+Thus showing divisibility.
+Try to implement this on your own.
+If it has not been noticeable, there is nothing more to learning a course outside of learning the definitions and theorems.
+
+\begin{definition}[Greatest Common Divisor]
+    The GCD of $a$ and $b$, written as $\gcd(a,b) = d$, is the integer $d>0$ such that $d\mid a$ and $d\mid b$, and if $c\mid a$ and $c\mid b$, then $c\mid d$.
+\end{definition}
+
+The greatest common divisor is a concept that we have learned in grade school.
+If we recall, we can write $\gcd(4,6) = 2$, since $2\mid 4$ and $2\mid 6$.
+
+\begin{theorem}[Linear Combinations of GCD]{
+    Let $a,b\in\mathbb{Z}$, not both $0$.
+    Let there be a set $S$ such that
+    \[
+        S \coloneqq \{xa + yb : x,y\in\mathbb{Z},\ xa + yb > 0\}.
+    \]
+    Then $S\neq \varnothing$, and by the Well-Ordering Principle, $S$ has a smallest element called $d$.
+    Then $d = \gcd(a,b)$.
+    The key statement is that if $d = \gcd(a,b)$, then there exist $x,y\in\mathbb{Z}$ such that
+    \[
+        d = xa + yb.
+    \]
+}
+    Let $S\neq \varnothing$.
+    Then there exists $d\in S$ such that for all $t\in S$, we have $d \leq t$.
+    Since $d\in S$, there exist $x,y\in\mathbb{Z}$ such that
+    \[
+        d = xa + yb.
+    \]
+    Now our goal is to prove that $d\mid a$.
+    Since $d>0$, by the Division Algorithm there exist $q,r\in\mathbb{Z}$ such that
+    \[
+        a = qd + r
+    \]
+    with
+    \[
+        0\leq r < d.
+    \]
+    Suppose $r > 0$.
+    Then
+    \begin{align*}
+        r &= a - qd\\
+        &= a - q(xa + yb)\\
+        &= a - qxa - qyb\\
+        &= (1 - qx)a - (qy)b.
+    \end{align*}
+    So $r$ is a linear combination of $a$ and $b$.
+    Since $r > 0$ and $r < d$, then $r\in S$, contradicting the assumption that $d$ is the smallest element of $S$.
+    Therefore $r = 0$.
+    Hence $a = qd$, so $d\mid a$.
+    Similarly, we can show $d\mid b$.
+    Now suppose $c\mid a$ and $c\mid b$.
+    Then $c\mid xa+yb$, which is a linear combination of $a$ and $b$, and this equals $d$.
+    Therefore $c\mid d$.
+    Hence $d = \gcd(a,b)$.
+\end{theorem}
+
+If the gcd of any two integers ever equals $1$, then we say that $a$ and $b$ are relatively prime.
+If they are relatively prime, then by the previous theorem, the linear combination will also equal $1$.
+
+\begin{theorem}{
+    Suppose $\gcd(a,b) = 1$ and $c\in\mathbb{Z}$ such that $a\mid bc$.
+    Then $a\mid c$.
+}
+    Since $\gcd(a,b) = 1$, there exist $x,y\in\mathbb{Z}$ such that
+    \[
+        xa + yb = 1.
+    \]
+    Therefore,
+    \begin{align*}
+        xa + yb &= 1\\
+        cxa + cyb &= c\\
+        (cx)a + y(bc) &= c.
+    \end{align*}
+    Now $a\mid (cx)a$ and by assumption $a\mid bc$, so $a\mid y(bc)$ as well.
+    Therefore $a\mid c$.
+\end{theorem}
+
+The last thing we will be looking at in this section is the extended gcd algorithm.
+The idea behind this is to use the gcd algorithm and then reverse the process in order to find the factors of the linear combination.
+This is more of a computational math.
+
+The gcd algorithm can be written in terms of the Division Algorithm and continuing to find the terms that make up the two factors.
+An idea of this is using $\gcd(109,26)$.
+
+\[
+    109 = 26(4) + 5.
+\]
+
+Because $109$ can be split up by $26$ and have a remainder of $5$, this is no different from having a gcd of $(26,5)$.
+
+\[
+    26 = 5(5) + 1.
+\]
+
+Now because we are left with a remainder of one, and one can go into any number, then $1$ is our final answer for the gcd of $(109,26)$.
+This is a way to do the gcd algorithm through division.
+
+But what if we are to set this the other way around.
+
+\[
+    1 = 26 - 5(5).
+\]
+
+Similar to what we did before, we are shifting all elements in the equation to create the one above.
+
+\begin{gather*}
+    1 = 26 - 5(109 - 26(4)).\\
+    1 = (-5)(109) + (21)(26).\\
+\end{gather*}
+
+Thus we have found the linear combination factors of the equation.

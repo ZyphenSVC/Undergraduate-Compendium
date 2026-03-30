@@ -1,0 +1,309 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Congruences and Lagrange's}
+
+\begin{definition}[Left Congruence]
+    Let $H\leq G$.
+    Define a relation on $G$ by
+    \[
+        a\sim b,\qquad a\overset{\ell}{\sim} b\mod H
+    \]
+    if
+    \[
+        \vs{a}b\in H.
+    \]
+    Equivalently,
+    \[
+        \vs{b}a\in H.
+    \]
+    This is called left congruence modulo $H$.
+\end{definition}
+
+\begin{theorem}{
+    Left congruence is an equivalence relation.
+}
+    \textbf{1)}
+    It is reflexive.
+    If $a\in G$, then
+    \[
+        \vs{a}a=e\in H.
+    \]
+    \textbf{2)}
+    Let $a,b\in G$.
+    Then
+    \[
+        a\sim b \iff \vs{a}b\in H.
+    \]
+    Since $H$ is closed under inverses,
+    \[
+        \vs{a}b\in H \iff (\vs{a}b)^{-1}\in H \iff \vs{b}a\in H.
+    \]
+    Thus
+    \[
+        a\sim b \iff b\sim a.
+    \]
+    Hence $\sim$ is symmetric.
+
+    \textbf{3)}
+    Suppose $a,b,c\in G$ and $a\sim b$, $b\sim c$.
+    Then
+    \[
+        \vs{a}b\in H
+        \quad\text{and}\quad
+        \vs{b}c\in H.
+    \]
+    So
+    \[
+        (\vs{a}b)(\vs{b}c)=\vs{a}c\in H.
+    \]
+    Thus
+    \[
+        a\sim c.
+    \]
+    Hence $\sim$ is transitive.
+\end{theorem}
+
+What are the left equivalence classes?
+
+\begin{definition}[Left Congruence Classes]
+    The left congruence class of $a$ is
+    \[
+        \{b\in G:b\equiv a\mod H\}
+        =
+        \{b\in G:\exists h\in H,\ b=ah\}
+        =
+        aH
+        =
+        \{ah:h\in H\}.
+    \]
+    We call $aH$ the left coset containing $a$.
+    These partition $G$.
+    That is, $G$ is the union of its left cosets, and any two left cosets are either identical or disjoint.
+\end{definition}
+
+Suppose
+\[
+    G=S_3
+    \quad\text{and}\quad
+    H=\gen{(12)}=\{e,(12)\}.
+\]
+Then
+\begin{gather*}
+    (13)H=\{(13),(132)\},\\
+    (23)H=\{(23),(123)\}.\\
+\end{gather*}
+Thus
+\[
+    S_3=\{e,(12)\}\cup\{(13),(132)\}\cup\{(23),(123)\}.
+\]
+\begin{proposition}{
+    All left cosets of $H$ have $\#H$ elements.
+}
+    Let $a\in G$.
+    Then
+    \[
+        aH=\{ah:h\in H\}
+    \]
+    is a left coset of $H$ in $G$.
+    Define a map
+    \[
+        \phi:H\to aH
+    \]
+    by
+    \[
+        \phi(h)=ah.
+    \]
+    This map is injective, since
+    \[
+        ah_1=ah_2 \implies h_1=h_2
+    \]
+    by cancellation in $G$.
+    It is also surjective by definition of $aH$.
+    So $\phi$ is a bijection.
+    Hence
+    \[
+        \#H=\#aH.
+    \]
+    Note that $aH$ need not be a group.
+    This is only a set bijection.
+\end{proposition}
+
+\begin{definition}[Index of $H$ in $G$]
+    The number of distinct left cosets of $H$ in $G$ is called the index of $H$ in $G$, denoted by
+    \[
+        [G:H].
+    \]
+    If $G$ is finite, then
+    \[
+        [G:H]=\frac{\ord(G)}{\ord(H)}.
+    \]
+\end{definition}
+
+\begin{theorem}[Lagrange's Theorem]{
+    Suppose $G$ is a finite group.
+    If $H\leq G$, then
+    \[
+        \ord(H)\mid \ord(G).
+    \]
+}
+    Suppose
+    \[
+        G=a_{1}H\cup\dots\cup a_{k}H,
+    \]
+    where the $a_{i}H$ are the distinct left cosets of $H$ in $G$.
+    Then
+    \[
+        k=[G:H].
+    \]
+    Each coset has $\ord(H)$ elements.
+    So
+    \[
+        \ord(G)=k\ord(H).
+    \]
+    Therefore
+    \[
+        \ord(H)\mid \ord(G).
+    \]
+\end{theorem}
+
+\begin{corollary}[Corollary of Lagrange's Theorem]{
+    Suppose $G$ is a finite group of prime order.
+    If $H\leq G$, then
+    \[
+        H=\{e\}
+        \quad\text{or}\quad
+        H=G.
+    \]
+}
+    Since $\ord(H)\mid \ord(G)$ and $\ord(G)=p$ is prime, we must have
+    \[
+        \ord(H)=1
+        \quad\text{or}\quad
+        \ord(H)=p.
+    \]
+    Hence
+    \[
+        H=\{e\}
+        \quad\text{or}\quad
+        H=G.
+    \]
+\end{corollary}
+
+\begin{corollary}[Corollary of the Previous Corollary]{
+    Suppose $G$ is a finite group of prime order.
+    Then $G$ is cyclic.
+    In fact,
+    \[
+        G\cong (\zp,+).
+    \]
+}
+    Let $1\neq a\in G$.
+    Let
+    \[
+        H=\gen{a}.
+    \]
+    Then $H$ is a subgroup of $G$ and is not trivial.
+    By the previous corollary, we must have
+    \[
+        H=G.
+    \]
+    So $G$ is cyclic.
+    Since $\ord(G)=p$, we get
+    \[
+        G\cong (\zp,+).
+    \]
+\end{corollary}
+
+\begin{corollary}[Corollary of Fermat's Little Theorem]{
+    Let $p$ be prime, $a\in\z$, and $p\nmid a$.
+    Then
+    \[
+        a^{p-1}\equiv 1\mod p.
+    \]
+}
+    Let
+    \[
+        G=\zp^*.
+    \]
+    Then $[a]\in \zp^*$.
+    By Lagrange's Theorem,
+    \[
+        \ord(\gen{[a]})\mid (p-1).
+    \]
+    Hence
+    \[
+        [a]^{p-1}=[1]
+    \]
+    in $\zp^*$.
+    Therefore
+    \[
+        a^{p-1}\equiv 1\mod p.
+    \]
+\end{corollary}
+
+\begin{corollary}[Corollary 2 of Fermat's Little Theorem]{
+    For all $a\in\z$,
+    \[
+        a^p\equiv a\mod p.
+    \]
+    Thus
+    \[
+        \frac{a^p-a}{p}\in\z.
+    \]
+}
+    If $p\mid a$, then
+    \[
+        a\equiv 0\mod p,
+    \]
+    so
+    \[
+        a^p\equiv 0\equiv a\mod p.
+    \]
+    If $p\nmid a$, then by Fermat's Little Theorem,
+    \[
+        a^{p-1}\equiv 1\mod p.
+    \]
+    Multiplying by $a$ gives
+    \[
+        a^p\equiv a\mod p.
+    \]
+    Thus in all cases,
+    \[
+        p\mid (a^p-a),
+    \]
+    so
+    \[
+        \frac{a^p-a}{p}\in\z.
+    \]
+\end{corollary}
+
+\begin{example}
+    Suppose $\ord(G)=4$.
+    Let $1\neq a\in G$.
+    Since
+    \[
+        \ord(\gen{a})\mid 4,
+    \]
+    we have
+    \[
+        \ord(\gen{a})=2
+        \quad\text{or}\quad
+        \ord(\gen{a})=4.
+    \]
+    If $\ord(a)=4$, then $G$ is cyclic and
+    \[
+        G\cong \z_4.
+    \]
+    Suppose instead that every nonidentity element has order $2$.
+    Let $1\neq a,b\in G$ with $a\neq b$.
+    Then
+    \[
+        G=\{1,a,b,ab\}.
+    \]
+    In this case,
+    \[
+        G\cong C_2\times C_2,
+    \]
+    the Klein-$4$ group.
+\end{example}

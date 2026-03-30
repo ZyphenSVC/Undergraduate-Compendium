@@ -1,0 +1,140 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Congruences Revisited}
+
+\begin{definition}[Congruences]
+    Let $m(x)\in\f[x]$ with $m(x)\neq 0$.
+    If $a(x),b(x)\in\f[x]$, we define
+    \[
+        a(x)\equiv b(x)\mod m(x)
+    \]
+    if
+    \[
+        m(x)\mid a(x)-b(x).
+    \]
+    Equivalently, there exists $q(x)\in\f[x]$ such that
+    \[
+        a(x)-b(x)=q(x)m(x).
+    \]
+    Equivalently,
+    \[
+        a(x)=b(x)+q(x)m(x).
+    \]
+\end{definition}
+
+\begin{definition}[Congruence Class]
+    The congruence class of $a(x)\in\f[x]$ is denoted by $[a(x)]$.
+    It consists of
+    \[
+        [a(x)] \coloneqq \{b(x)\in\f[x] : b(x)\equiv a(x)\mod m(x)\}.
+    \]
+\end{definition}
+
+\begin{definition}[Polynomial Division Algorithm]
+    Suppose $g(x)\in\f[x]$.
+    Then
+    \[
+        g(x)=q(x)m(x)+r(x),
+    \]
+    where $\deg r(x)<\deg m(x)$ or $r(x)=0$.
+    Since
+    \[
+        g(x)-r(x)=q(x)m(x),
+    \]
+    we have
+    \[
+        r(x)\equiv g(x)\mod m(x).
+    \]
+    So $g(x)\in [r(x)]$.
+    Thus every $g(x)$ is in exactly one of these congruence classes.
+\end{definition}
+
+\begin{lemma}{
+    In $\z_p[x]$, if $\deg m(x)=n$, then there are exactly $p^n$ different congruence classes modulo $m(x)$.
+}
+    Every polynomial is congruent modulo $m(x)$ to exactly one polynomial of degree less than $n$ or to $0$.
+    Such a representative has the form
+    \[
+        a_0+a_{1}x+\cdots+a_{n-1}x^{n-1},
+    \]
+    where each coefficient is in $\z_p$.
+    There are $p$ choices for each coefficient, and there are $n$ coefficients.
+    So there are exactly
+    \[
+        p^n
+    \]
+    such polynomials.
+    Hence there are exactly $p^n$ distinct congruence classes.
+\end{lemma}
+
+Similar to congruence classes in the integers, we also have similar ideas for addition and multiplication for polynomial congruences.
+
+\begin{definition}[Modular Operations]
+    Addition is defined by
+    \[
+        [a(x)]+[b(x)]\coloneqq [a(x)+b(x)].
+    \]
+    Multiplication is defined by
+    \[
+        [a(x)][b(x)]\coloneqq [a(x)b(x)].
+    \]
+\end{definition}
+
+We can use this to check that these operations are well-defined.
+
+\begin{lemma}[Well-Defined]{
+    Suppose $[a(x)]=[c(x)]$ and $[b(x)]=[d(x)]$.
+    Then:
+    \begin{enumerate}
+        \item $[a(x)+b(x)]=[c(x)+d(x)]$;
+        \item $[a(x)b(x)]=[c(x)d(x)]$.
+    \end{enumerate}
+}
+    Since $[a(x)]=[c(x)]$, we have
+    \[
+        a(x)\equiv c(x)\mod m(x).
+    \]
+    Since $[b(x)]=[d(x)]$, we have
+    \[
+        b(x)\equiv d(x)\mod m(x).
+    \]
+    Thus
+    \[
+        m(x)\mid a(x)-c(x)
+    \]
+    and
+    \[
+        m(x)\mid b(x)-d(x).
+    \]
+    Therefore
+    \[
+        m(x)\mid (a(x)-c(x))+(b(x)-d(x))=(a(x)+b(x))-(c(x)+d(x)).
+    \]
+    So
+    \[
+        a(x)+b(x)\equiv c(x)+d(x)\mod m(x),
+    \]
+    which proves
+    \[
+        [a(x)+b(x)]=[c(x)+d(x)].
+    \]
+    Also,
+    \begin{align*}
+        a(x)b(x)-c(x)d(x)
+        &= a(x)b(x)-c(x)b(x)+c(x)b(x)-c(x)d(x)\\
+        &= (a(x)-c(x))b(x)+c(x)(b(x)-d(x)).
+    \end{align*}
+    Since $m(x)\mid a(x)-c(x)$ and $m(x)\mid b(x)-d(x)$, it follows that
+    \[
+        m(x)\mid a(x)b(x)-c(x)d(x).
+    \]
+    So
+    \[
+        a(x)b(x)\equiv c(x)d(x)\mod m(x),
+    \]
+    which proves
+    \[
+        [a(x)b(x)]=[c(x)d(x)].
+    \]
+\end{lemma}

@@ -1,0 +1,83 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Relations}
+
+\begin{definition}[Relations and Cartesian Products]
+    A \textbf{cartesian product} of sets $A$ and $B$ gives us
+    \[
+        A \times B \coloneqq \{(a,b) : a \in A,\ b \in B\}.
+    \]
+    Note that
+    \[
+        A \times \varnothing = \varnothing = \varnothing \times B.
+    \]
+    An equivalence relation, denoted by $\sim$, on a set $A$ is a relation satisfying the following properties:
+    \begin{itemize}
+        \item \textbf{reflexive:} $a \sim a$ for all $a \in A$;
+        \item \textbf{symmetric:} if $a \sim b$, then $b \sim a$ for all $a,b \in A$;
+        \item \textbf{transitive:} if $a \sim b$ and $b \sim c$, then $a \sim c$ for all $a,b,c \in A$.
+    \end{itemize}
+\end{definition}
+
+\section{Well Ordering and Induction}
+
+\begin{definition}[Well-Ordering]
+    Every nonempty subset of $\mathbb{Z}^{\geq 0}$ contains a smallest element.
+\end{definition}
+
+This takes into account that there is an order relation $(<)$ on all integers of $\mathbb{Z}$.
+The direct consequence of this definition is mathematical induction.
+Mathematical induction is a proof technique that uses recursive techniques to prove that a statement is true for all elements past its base case.
+
+\begin{theorem}{Assume that $n \in \mathbb{Z}^{\geq 0}$ and $P(n)$ is given.
+    \begin{enumerate}
+        \item $P(0)$ is a true statement.
+        \item When $P(k)$ is true, then $P(k+1)$ is also true.
+    \end{enumerate}
+    Then $P(n)$ is true for all $n \in \mathbb{Z}^{\geq 0}$.
+}
+A remark on this theorem is that $P(k)$ does not have to be true, but we assume so.
+This is called the induction hypothesis.
+
+In proof writing, if we are given an ``If\ldots Then\ldots'' statement, we generally assume that the statement before the ``Then'' is true, and attempt to prove the rest.
+This is the same thing we have proved through induction.
+It can be seen as a result of continued direct proofs compiled together and generalized to become the induction we know today.
+
+The following example is how we use induction in today's world, and it is important to note how we use it compared to how one may have done it for a proofs course.
+In other words, this is a practical application of how a researcher would use induction.
+\end{theorem}
+
+\begin{example}
+    A set of $n$ elements has $2^n$ subsets.
+
+    $P(0)$:
+    $2^0 = 1$ subset.
+
+    $P(1)$:
+    $2^1 = 2$ subsets.
+
+    $P(3)$:
+    $2^3 = 8$ subsets.
+
+    Assume $P(k)$, namely that a set with $k$ elements has $2^k$ subsets.
+    Now prove that $P(k+1)$ says a set with $k+1$ elements has $2^{k+1}$ subsets.
+    In a more standardized proof writing, we can define a set
+    \[
+        S \coloneqq \{n \in \mathbb{Z}^{\geq 0} : P(n) \text{ is true}\},
+    \]
+    and show that $S = \mathbb{Z}^{\geq 0}$.
+    Let our induction hypothesis be ``$P(k)$ is true.''
+    Since we have shown that our base case $P(0)$ is true, we assume $P(k)$ is true and attempt to prove $P(k+1)$.
+    Suppose a set has $k$ elements.
+    If we add one new element, then every old subset has exactly two choices:
+    either include the new element or do not include it.
+    Therefore the number of subsets doubles.
+    Hence the new set has
+    \[
+        2 \cdot 2^k = 2^{k+1}
+    \]
+    subsets.
+    Thus $P(k+1)$ is true.
+    Therefore, by induction, $P(n)$ is true for all $n \in \mathbb{Z}^{\geq 0}$.
+\end{example}

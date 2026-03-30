@@ -1,0 +1,129 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Symmetric and Alternating Groups}
+
+\begin{theorem}{
+    Every element in $S_n$ can be written as a product of disjoint cycles.
+}
+\end{theorem}
+
+\[
+    (123)(4567)
+\]
+is disjoint.
+\[
+    (123)(426)
+\]
+is not disjoint.
+
+\begin{theorem}{
+    Every $\omega\in S_n$ can be written as a product of transpositions.
+}
+    For example,
+    \begin{align*}
+        \sigma &= (12\dots n) \\
+        &= (1n)(1(n-1))\dots(13)(12).
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}{
+    Suppose $\sigma\in S_n$ with
+    \begin{align*}
+        \sigma &= \tau_{1}\dots \tau_{k}, \qquad \tau_{i}\text{ transpositions}, \\
+        &= \lambda_{1}\dots \lambda_{r}, \qquad \lambda_{i}\text{ transpositions}.
+    \end{align*}
+    Then
+    \[
+        k\equiv r\mod 2.
+    \]
+}
+    Suppose $\tau=(ab)$ is a transposition.
+    Then
+    \[
+        \tau^{-1}=\tau.
+    \]
+    Suppose
+    \[
+        \sigma=\tau_{1}\dots \tau_{k}
+    \]
+    is a product of transpositions.
+    Then
+    \[
+        \sigma^{-1}=\tau_{k}\dots \tau_{1}.
+    \]
+    First reduce to the case $\sigma=e$.
+    Suppose
+    \[
+        \sigma=\tau_{1}\dots \tau_{k}=\lambda_{1}\dots \lambda_{r}.
+    \]
+    Then
+    \[
+        1=\sigma\sigma^{-1}=\tau_{1}\dots \tau_{k}\lambda_{r}\dots \lambda_{1}.
+    \]
+    So the identity is written as a product of $k+r$ transpositions.
+    Thus it is enough to prove that whenever
+    \[
+        e=\tau_{1}\dots \tau_{m},
+    \]
+    the integer $m$ is even.
+    Assume for contradiction that
+    \[
+        e=\tau_{1}\dots \tau_{m}
+    \]
+    with $m$ odd.
+    Choose such an expression with the fewest number of transpositions possible.
+    Some $a\in\{1,\dots,n\}$ must appear in one of the transpositions.
+    Among all such expressions, choose one where the leftmost occurrence of $a$ is as far to the right as possible.
+    Now examine the transpositions immediately around that occurrence.
+    Using the relations among transpositions, we can commute disjoint transpositions and simplify adjacent ones.
+    If two equal transpositions appear, they cancel.
+    If a transposition involving $a$ is followed by another transposition sharing exactly one element, then their product can be rewritten in a way that moves the occurrence of $a$ farther to the right or reduces the total number of transpositions.
+    Either way, this contradicts the minimal choice of the expression.
+    Hence the identity cannot be written as a product of an odd number of transpositions.
+    Therefore $k+r$ is even, so
+    \[
+        k\equiv r\mod 2.
+    \]
+\end{theorem}
+
+\begin{definition}[Sign]
+    The sign of $\sigma$ is $1$ if $\sigma$ can be written as a product of an even number of transpositions, and $-1$ otherwise.
+    The sign of $\sigma$ is denoted by $\sgn(\sigma)$ or $\epsilon(\sigma)$.
+    The previous theorem says $\sgn(\sigma)$ is well-defined.
+\end{definition}
+
+\begin{definition}[Even Symmetric Group]
+    \[
+        A_n \coloneqq \{\sigma\in S_n : \sgn(\sigma)=1\}.
+    \]
+\end{definition}
+
+\begin{theorem}{
+    $A_n$ is a subgroup of $S_n$.
+}
+    First, $e\in A_n$ since
+    \[
+        \sgn(e)=1.
+    \]
+    Now let $\sigma,\tau\in A_n$.
+    Then both $\sigma$ and $\tau$ can be written as products of an even number of transpositions.
+    Therefore $\sigma\tau$ can also be written as a product of an even number of transpositions.
+    Hence
+    \[
+        \sgn(\sigma\tau)=1,
+    \]
+    so $\sigma\tau\in A_n$.
+    Also, if $\sigma\in A_n$, then $\sigma$ is a product of an even number of transpositions.
+    Since
+    \[
+        \sigma^{-1}
+    \]
+    is obtained by reversing that product, $\sigma^{-1}$ is also a product of an even number of transpositions.
+    Thus
+    \[
+        \sgn(\sigma^{-1})=1,
+    \]
+    so $\sigma^{-1}\in A_n$.
+    Therefore $A_n\leq S_n$.
+\end{theorem}

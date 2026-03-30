@@ -1,0 +1,60 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Sets and Classes}
+
+Set theory is very much its own field, so we will not be getting into the specifics and the nitty-gritty of each topic.
+It will just be a brief overview.
+
+\begin{definition}[Sets and Basic Set-Theoretic Language]
+    \textbf{Elements} are either a part of a set or not part of a set.
+    There are infinitely many elements, and they have a choice of being a member of a set.
+    When an element $x$ is a member of a set $A$, we denote this by
+    \[
+        x \in A.
+    \]
+    Otherwise, we say
+    \[
+        x \notin A.
+    \]
+    We can also write this out in words as ``$x$ is (not) an element of $A$.''
+    These are some of the few things most people use symbols for regardless of their preferences for symbolic language.
+    The following are predicates.
+
+    \textbf{1. ``For all''}
+    This is denoted by $\forall$.
+
+    \textbf{2. ``There exists''}
+    This is denoted by $\exists$.
+    The \textbf{axiom of extensionality} states that given sets $A$ and $B$, if for all elements $x$ we have
+    \[
+        x \in A \iff x \in B.
+    \]
+    Then $A = B$.
+    If for all elements $x$, whenever $x \in A$ we also have $x \in B$, then $A$ is a \textbf{subset} of $B$, denoted by $A \subseteq B$.
+
+    The \textbf{empty set} is a set with no elements, denoted by $\varnothing$.
+
+    A \textbf{class of sets} is a collection that contains sets and only sets.
+
+    The \textbf{power axiom} states that for every set $A$, the power class $P(A)$ contains all subsets of $A$ within a set.
+    This is often denoted by $2^A$ and has $2^{|A|}$ elements.
+
+    A \textbf{union of sets} considers all the elements in both sets, denoted by $A \cup B$.
+
+    An \textbf{intersection of sets} considers only the common elements in both sets, denoted by $A \cap B$.
+
+    A \textbf{disjoint set} situation occurs when $A \cap B = \varnothing$.
+
+    A \textbf{family of sets} is a class of sets where each element, mind you a set, is indexed.
+    This is generally denoted by
+    \[
+        \bigcup_{i \in I} A_i \coloneqq \{x : x \in A_i \text{ for some } i \in I\}.
+    \]
+    Similarly, we define
+    \[
+        \bigcap_{i \in I} A_i.
+    \]
+
+    The \textbf{complement} of $A$ is related to the negation of $A$, where we use DeMorgan's Laws.
+\end{definition}

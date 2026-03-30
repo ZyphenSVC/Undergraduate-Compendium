@@ -1,0 +1,682 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Galois Theory}
+
+Define a homomorphism
+\[
+    \phi:\mathbb{Z}\to \mathbb{F}
+\]
+by
+\[
+    1\mapsto 1
+\]
+and hence
+\[
+    n\mapsto n1.
+\]
+Then
+\[
+    \phi(n+m)=\phi(n)+\phi(m)
+\]
+and
+\[
+    \phi(nm)=\phi(n)\phi(m).
+\]
+Thus $\mathrm{Im}(\phi)$ is a subring of $\mathbb{F}$.
+Also,
+\[
+    \frac{\mathbb{Z}}{\ker\phi}\cong \mathrm{Im}(\phi).
+\]
+Since $\ker\phi$ is an ideal of $\mathbb{Z}$, it has the form
+\[
+    n\mathbb{Z}
+\]
+for some $n\geq 0$.
+If
+\[
+    \ker\phi=\{0\},
+\]
+then $\mathbb{F}$ contains a subring isomorphic to $\mathbb{Z}$, hence a subfield isomorphic to $\mathbb{Q}$.
+We say in this case that $\mathbb{F}$ has characteristic $0$.
+If
+\[
+    \ker\phi=p\mathbb{Z}
+\]
+for some prime $p$, then
+\[
+    \mathbb{F}
+\]
+contains a subfield isomorphic to
+\[
+    \mathbb{Z}_p\cong \frac{\mathbb{Z}}{p\mathbb{Z}}.
+\]
+We then say that $\mathbb{F}$ has characteristic $p$.
+
+\begin{definition}[Formal Derivative]
+    If
+    \[
+        f(x)\in \mathbb{F}[x],
+    \]
+    then the formal derivative of $f$ is denoted by
+    \[
+        f'(x)=Df(x).
+    \]
+    If
+    \[
+        f(x)=x^n,
+    \]
+    then
+    \[
+        Df(x)=nx^{n-1},
+    \]
+    and this extends to all of $\mathbb{F}[x]$ by linearity.
+\end{definition}
+
+Alternatively, in $\mathbb{F}[x,h]$, where $h$ is transcendental, define
+\[
+    g(x,h)=f(x+h)-f(x).
+\]
+Then
+\[
+    g(x,0)=0.
+\]
+By the factor theorem, $h$ divides $g(x,h)$.
+
+\begin{definition}
+    \[
+        Df(x)
+    \]
+    is the polynomial obtained from
+    \[
+        \frac{g(x,h)}{h}
+    \]
+    by evaluating at
+    \[
+        h=0.
+    \]
+\end{definition}
+
+\begin{definition}[Repeated Root]
+    Let
+    \[
+        f(x)\in \mathbb{F}[x],
+    \]
+    and let $\mathbb{E}$ be a splitting field for $f(x)$.
+    We say that $a$ is a repeated root of $f(x)$ if
+    \[
+        f(x)=(x-a)^{2}g(x)
+    \]
+    in $\mathbb{E}[x]$ for some $g(x)\in \mathbb{E}[x]$.
+\end{definition}
+
+If $a$ is a repeated root of $f(x)$, then
+\[
+    f(a)=0
+    \quad\text{and}\quad
+    Df(a)=0.
+\]
+So $a$ is a common root of $f(x)$ and $Df(x)$.
+Now assume $\mathbb{E}$ is a finite-dimensional extension of $\mathbb{Q}$.
+Then $\mathrm{char}(\mathbb{E})=0$.
+Let $\mathbb{F}$ be a subfield of $\mathbb{E}$.
+If
+\[
+    f(x)\in \mathbb{F}[x]
+\]
+is irreducible and $u\in \mathbb{E}$ is a root of $f(x)$, then $u$ is not a repeated root of $f(x)$.
+Indeed, if $u$ were a repeated root, then
+\[
+    Df(u)=0.
+\]
+Since
+\[
+    \deg(Df)<\deg(f),
+\]
+this would contradict the minimality of the irreducible polynomial $f(x)$.
+
+\begin{definition}[Normal Extension]
+    Suppose $\mathbb{E}/\mathbb{F}$ is a field extension.
+    We say $\mathbb{E}$ is normal over $\mathbb{F}$ if whenever
+    \[
+        u\in \mathbb{E}
+    \]
+    and $f(x)\in \mathbb{F}[x]$ is the minimal polynomial of $u$ over $\mathbb{F}$, then $f(x)$ splits completely in $\mathbb{E}[x]$.
+\end{definition}
+
+Equivalently, any polynomial in $\mathbb{F}[x]$ which has one root in $\mathbb{E}$ has all of its roots in $\mathbb{E}$.
+
+\begin{example}
+    If $\mathbb{E}$ is a splitting field for
+    \[
+        f(x)\in \mathbb{F}[x],
+    \]
+    then $\mathbb{E}$ is normal over $\mathbb{F}$.
+    For example, let
+    \[
+        \omega=e^{2\pi i/3}.
+    \]
+    Then
+    \[
+        \mathbb{Q}\left(2^{1/3},\,2^{1/3}\omega,\,2^{1/3}\omega^2\right)
+        =
+        \mathbb{Q}\left(2^{1/3},\omega\right)
+    \]
+    is the splitting field for
+    \[
+        x^3-2
+    \]
+    over $\mathbb{Q}$, so it is normal over $\mathbb{Q}$.
+    But
+    \[
+        \mathbb{Q}\left(2^{1/3}\right)
+    \]
+    is not normal over $\mathbb{Q}$.
+\end{example}
+
+\begin{definition}[Automorphism]
+    \[
+        \aut(\mathbb{E})
+    \]
+    is the group of field automorphisms of $\mathbb{E}$.
+\end{definition}
+
+\begin{definition}[Galois Group]
+    \[
+        \aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)
+        \coloneqq
+        \{\sigma\in \aut(\mathbb{E}):\sigma(a)=a\ \forall a\in \mathbb{F}\}
+        =
+        \gal\left(\frac{\mathbb{E}}{\mathbb{F}}\right).
+    \]
+\end{definition}
+
+\begin{definition}[Fixed Field]
+    Let
+    \[
+        G=\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right).
+    \]
+    The fixed field of $G$ is
+    \[
+        \{u\in \mathbb{E}:\sigma(u)=u\ \forall \sigma\in G\}
+        =
+        \inv(G).
+    \]
+\end{definition}
+
+Note that
+\[
+    \mathbb{F}\subseteq \inv(G),
+\]
+but it is not automatic that $\inv(G)=\mathbb{F}$.
+
+\begin{example}
+    Let
+    \[
+        \mathbb{F}=\mathbb{Q},
+        \qquad
+        \mathbb{E}=\mathbb{Q}(2^{1/3}).
+    \]
+    Then
+    \[
+        G=\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)=\{1\}.
+    \]
+    So
+    \[
+        \inv(G)=\mathbb{E},
+    \]
+    which is strictly larger than $\mathbb{F}$.
+\end{example}
+
+\begin{theorem}[Fundamental Theorem of Galois Theory]{
+    Assume
+    \[
+        [\mathbb{E}:\mathbb{F}]<\infty
+    \]
+    and
+    \[
+        \mathrm{char}(\mathbb{F})=0.
+    \]
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item
+        \[
+            \inv\left(\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)\right)=\mathbb{F};
+        \]
+        \item
+        \[
+            \mathbb{F}=\inv(G)
+        \]
+        for some finite subgroup
+        \[
+            G\leq \aut(\mathbb{E});
+        \]
+        \item $\mathbb{E}$ is normal over $\mathbb{F}$;
+        \item $\mathbb{E}$ is the splitting field of a separable polynomial in $\mathbb{F}[x]$;
+        \item
+        \[
+            \ord\left(\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)\right)
+            =
+            [\mathbb{E}:\mathbb{F}].
+        \]
+    \end{enumerate}
+}
+    We sketch the main implications.
+    \[
+        \mathbf{(4)}\implies \mathbf{(5)}
+    \]
+    has already been shown.
+    \[
+        \mathbf{(1)}\implies \mathbf{(2)}
+    \]
+    is immediate by taking
+    \begin{gather*}
+        G=\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right).\\
+        \mathbf{(3)}\implies \mathbf{(4)}.\\
+    \end{gather*}
+    Since
+    \[
+        [\mathbb{E}:\mathbb{F}]<\infty,
+    \]
+    we can write
+    \[
+        \mathbb{E}=\mathbb{F}(u_1,\ldots,u_n).
+    \]
+    Let
+    \[
+        p_i(x)\in \mathbb{F}[x]
+    \]
+    be the minimal polynomial of $u_i$ over $\mathbb{F}$.
+    Because $\mathbb{E}/\mathbb{F}$ is normal, each $p_i(x)$ splits in $\mathbb{E}[x]$.
+    Let $f(x)$ be the product of the distinct $p_i(x)$.
+    Then $\mathbb{E}$ is the splitting field of $f(x)$ over $\mathbb{F}$.
+    Since $\mathrm{char}(\mathbb{F})=0$, the polynomial is separable.
+    \[
+        \mathbf{(2)}\implies \mathbf{(3)}.
+    \]
+    Assume
+    \[
+        \mathbb{F}=\inv(G)
+    \]
+    for some finite subgroup
+    \[
+        G\leq \aut(\mathbb{E}).
+    \]
+    Let $u\in \mathbb{E}$.
+    Consider its orbit under $G$:
+    \[
+        u_1=u,\ u_2,\ldots,u_m.
+    \]
+    Define
+    \[
+        g(x)=(x-u_1)\cdots(x-u_m)\in \mathbb{E}[x].
+    \]
+    We claim that
+    \[
+        g(x)\in \mathbb{F}[x].
+    \]
+    Indeed, each $\sigma\in G$ permutes the roots $u_i$, so it fixes the coefficients of $g(x)$.
+    Hence the coefficients lie in $\inv(G)=\mathbb{F}$.
+    Thus the minimal polynomial of $u$ over $\mathbb{F}$ divides $g(x)$ and therefore splits in $\mathbb{E}[x]$.
+    So $\mathbb{E}/\mathbb{F}$ is normal.
+    Since $\mathrm{char}(\mathbb{F})=0$, it is also separable.
+    \[
+        \mathbf{(5)}\implies \mathbf{(1)}.
+    \]
+    Let
+    \[
+        \mathbb{K}=\inv\left(\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)\right).
+    \]
+    Then by construction
+    \[
+        \mathbb{F}\subseteq \mathbb{K}\subseteq \mathbb{E}.
+    \]
+    Also,
+    \[
+        \aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right)
+        =
+        \aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right).
+    \]
+    By Artin's theorem and condition \(\mathbf{(5)}\),
+    \[
+        [\mathbb{E}:\mathbb{K}]
+        =
+        \ord\left(\aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right)\right)
+        =
+        \ord\left(\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)\right)
+        =
+        [\mathbb{E}:\mathbb{F}].
+    \]
+    Hence
+    \[
+        \mathbb{K}=\mathbb{F}.
+    \]
+    So condition \(\mathbf{(1)}\) holds.
+\end{theorem}
+
+\begin{lemma}{
+    Let $\mathbb{E}$ be an extension field of $\mathbb{F}$.
+    Let
+    \[
+        G=\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)
+    \]
+    and let
+    \[
+        \mathbb{K}=\inv(G).
+    \]
+    Then
+    \[
+        \aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right)
+        =
+        \aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)
+        =
+        G.
+    \]
+}
+    This is immediate from the definition of fixed field.
+    An automorphism fixes $\mathbb{F}$ if and only if it fixes every element fixed by all elements of $G$.
+\end{lemma}
+
+\begin{definition}[Galois]
+    We say
+    \[
+        \frac{\mathbb{E}}{\mathbb{F}}
+    \]
+    is Galois if any of the equivalent conditions above hold.
+\end{definition}
+
+\begin{theorem}{
+    If
+    \[
+        G\leq \aut(\mathbb{E})
+    \]
+    is finite and
+    \[
+        \mathbb{K}=\inv(G),
+    \]
+    then
+    \[
+        [\mathbb{E}:\mathbb{K}]\leq \ord(G).
+    \]
+}
+    This is Artin's Lemma.
+    Suppose, for contradiction, that there exist
+    \[
+        u_1,\ldots,u_m\in \mathbb{E}
+    \]
+    which are linearly independent over $\mathbb{K}$ with
+    \[
+        m>\ord(G)=n.
+    \]
+    Write
+    \[
+        G=\{\sigma_1,\ldots,\sigma_n\},
+    \]
+    where $\sigma_1=1$.
+    Form the matrix
+    \[
+        A=
+        \begin{bmatrix}
+            \sigma_1(u_1) & \sigma_1(u_2) & \cdots & \sigma_1(u_m)\\
+            \sigma_2(u_1) & \sigma_2(u_2) & \cdots & \sigma_2(u_m)\\
+            \vdots & \vdots & & \vdots\\
+            \sigma_n(u_1) & \sigma_n(u_2) & \cdots & \sigma_n(u_m)
+        \end{bmatrix}.
+    \]
+    This is an $n\times m$ matrix with $m>n$, so the system
+    \[
+        A\vec{x}=\vec{0}
+    \]
+    has a nontrivial solution.
+    Choose a nontrivial solution
+    \[
+        \vec{b}=
+        \begin{bmatrix}
+            b_1\\
+            \vdots\\
+            b_m
+        \end{bmatrix}
+    \]
+    with the fewest number of nonzero entries.
+    After scaling and reordering, we may assume
+    \[
+        b_1=1.
+    \]
+    We claim that each
+    \[
+        b_i\in \mathbb{K}.
+    \]
+    Suppose not.
+    Then there exists some $\sigma_\ell\in G$ such that
+    \[
+        \sigma_\ell(b_j)\neq b_j
+    \]
+    for some $j$.
+    Applying $\sigma_\ell$ to the equation
+    \[
+        A\vec{b}=\vec{0}
+    \]
+    shows that
+    \[
+        \sigma_\ell(\vec{b})
+    \]
+    is also a solution.
+    Hence
+    \[
+        \vec{b}-\sigma_\ell(\vec{b})
+    \]
+    is a nontrivial solution with fewer nonzero entries, contradicting minimality.
+    Thus
+    \[
+        \vec{b}\in \mathbb{K}^m.
+    \]
+    So we have found a nontrivial linear relation among
+    \[
+        u_1,\ldots,u_m
+    \]
+    with coefficients in $\mathbb{K}$, contradicting linear independence.
+    Therefore
+    \[
+        [\mathbb{E}:\mathbb{K}]\leq \ord(G).
+    \]
+\end{theorem}
+
+\begin{theorem}{
+    Suppose
+    \[
+        \mathbb{E}/\mathbb{F}
+    \]
+    is Galois, and let
+    \[
+        G=\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right).
+    \]
+    Then for every intermediate field
+    \[
+        \mathbb{F}\subseteq \mathbb{K}\subseteq \mathbb{E},
+    \]
+    the extension
+    \[
+        \mathbb{E}/\mathbb{K}
+    \]
+    is Galois.
+    Moreover, there is a bijection between intermediate fields $\mathbb{K}$ and subgroups
+    \[
+        H\leq G.
+    \]
+    The correspondence is given by
+    \[
+        \mathbb{K}\longmapsto \aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right)
+    \]
+    and
+    \[
+        H\longmapsto \inv(H).
+    \]
+    These maps are inclusion-reversing.
+}
+    Since $\mathbb{E}/\mathbb{F}$ is Galois, it is the splitting field of some separable polynomial
+    \[
+        f(x)\in \mathbb{F}[x].
+    \]
+    Because
+    \[
+        \mathbb{F}\subseteq \mathbb{K},
+    \]
+    the same polynomial lies in $\mathbb{K}[x]$, and $\mathbb{E}$ is still its splitting field.
+    Thus
+    \[
+        \mathbb{E}/\mathbb{K}
+    \]
+    is Galois.
+    Now let
+    \[
+        H\leq G
+    \]
+    and define
+    \[
+        \mathbb{K}=\inv(H).
+    \]
+    By Artin's Lemma,
+    \[
+        [\mathbb{E}:\mathbb{K}]\leq \ord(H).
+    \]
+    Also,
+    \[
+        H\leq \aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right).
+    \]
+    Since
+    \[
+        \mathbb{E}/\mathbb{K}
+    \]
+    is Galois, we have
+    \[
+        \ord\left(\aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right)\right)
+        =
+        [\mathbb{E}:\mathbb{K}].
+    \]
+    So
+    \[
+        [\mathbb{E}:\mathbb{K}]
+        \leq
+        \ord(H)
+        \leq
+        \ord\left(\aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right)\right)
+        =
+        [\mathbb{E}:\mathbb{K}].
+    \]
+    Hence
+    \[
+        H=\aut\left(\frac{\mathbb{E}}{\mathbb{K}}\right).
+    \]
+    Thus the two maps are inverses.
+\end{theorem}
+
+These maps are order-reversing under inclusion.
+That is,
+\[
+    \mathbb{K}_1\subseteq \mathbb{K}_2
+    \implies
+    \aut\left(\frac{\mathbb{E}}{\mathbb{K}_1}\right)\supseteq
+    \aut\left(\frac{\mathbb{E}}{\mathbb{K}_2}\right),
+\]
+and if
+\[
+    H_1\subseteq H_2,
+\]
+then
+\[
+    \inv(H_1)\supseteq \inv(H_2).
+\]
+
+\begin{example}[Galois Groups Fork]
+    Let
+    \[
+        \mathbb{F}=\mathbb{Q}
+    \]
+    and
+    \[
+        \mathbb{E}=\mathbb{Q}\left(2^{1/3},\omega\right),
+        \qquad
+        \omega=e^{2\pi i/3}.
+    \]
+    Then $\mathbb{E}$ is Galois over $\mathbb{Q}$ because it is the splitting field of
+    \[
+        f(x)=x^3-2
+    \]
+    over $\mathbb{Q}$.
+    Also,
+    \[
+        [\mathbb{Q}(\omega):\mathbb{Q}]=2.
+    \]
+    When $\mathbb{E}/\mathbb{F}$ is Galois, the intermediate fields and the subgroups of
+    \[
+        G=\aut\left(\frac{\mathbb{E}}{\mathbb{F}}\right)
+    \]
+    correspond exactly:
+    \begin{gather*}
+        \mathbb{E}
+        \stackrel{\aut(\mathbb{E}/\mathbb{E})}{\underset{\mathbb{E}=\inv(1)}{\lrarrow}}
+        1,\\
+        \mathbb{K}
+        \stackrel{\aut(\mathbb{E}/\mathbb{K})}{\underset{\mathbb{K}=\inv(H)}{\lrarrow}}
+        H,\\
+        \mathbb{F}
+        \stackrel{\aut(\mathbb{E}/\mathbb{F})}{\underset{\mathbb{F}=\inv(G)}{\lrarrow}}
+        G.\\
+    \end{gather*}
+    These maps are inverses.
+\end{example}
+
+What is the degree of
+\[
+    \mathbb{Q}\left(2^{1/3},\omega\right)?
+\]
+We get this field from the polynomial
+\[
+    x^3-2,
+\]
+which has $3$ roots.
+Automorphisms permute the roots, so the Galois group has size at most
+\[
+    \ord(S_3)=6.
+\]
+Let
+\[
+    \mathbb{E}=\mathbb{Q}\left(2^{1/3},\omega\right).
+\]
+What are the automorphisms in
+\[
+    G=\gal\left(\frac{\mathbb{E}}{\mathbb{Q}}\right)?
+\]
+One such automorphism is complex conjugation.
+Let
+\[
+    \sigma(z)=\overline{z}.
+\]
+Then
+\[
+    \overline{z+w}=\overline{z}+\overline{w}
+\]
+and
+\[
+    \overline{zw}=\overline{z}\,\overline{w}.
+\]
+Also,
+\[
+    \sigma\left(2^{1/3}\right)=2^{1/3}
+\]
+because
+\[
+    2^{1/3}\in \mathbb{R},
+\]
+and
+\[
+    \sigma(\omega)=\overline{\omega}=\omega^{-1}=\omega^2.
+\]
+Then
+\[
+    \sigma^2(\omega)=\sigma(\omega^2)=\omega,
+\]
+so
+\[
+    \sigma^2=1_G.
+\]

@@ -1,0 +1,441 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Chapter 6}
+\begin{problem}{
+    Let $\mathbb{F}$ be a field and $f(x), g(x), p(x)\in\mathbb{F}[x]$ with $p(x)$ nonzero.
+    Then $f(x)$ is congruent to $g(x)$ modulo $p(x)$, written
+    \[
+        f(x)\equiv g(x)\mod p(x),
+    \]
+    provided that $p(x)$ divides $f(x)-g(x)$.
+    Prove or disprove:
+    If $p(x)$ is relatively prime to $k(x)$ and
+    \[
+        f(x)k(x)\equiv g(x)k(x)\mod p(x),
+    \]
+    then
+    \[
+        f(x)\equiv g(x)\mod p(x).
+    \]
+}
+    This statement is true.
+    Suppose
+    \[
+        \gcd(p(x),k(x))=1_{\mathbb{F}}
+    \]
+    and
+    \[
+        f(x)k(x)\equiv g(x)k(x)\mod p(x).
+    \]
+    By the definition of polynomial congruence modulo $p(x)$, this means
+    \[
+        p(x)\mid f(x)k(x)-g(x)k(x).
+    \]
+    Thus
+    \begin{align*}
+        p(x) &\mid k(x)(f(x)-g(x)).
+    \end{align*}
+    Since $p(x)$ is relatively prime to $k(x)$, Euclid's Lemma for polynomials implies that
+    \[
+        p(x)\mid f(x)-g(x).
+    \]
+    Therefore
+    \[
+        f(x)\equiv g(x)\mod p(x).
+    \]
+    So the statement is proved.
+\end{problem}
+\begin{problem}{
+    Let $\mathbb{F}$ be a field and $f(x), g(x), p(x)\in\mathbb{F}[x]$ with $p(x)$ nonzero.
+    Then $f(x)$ is congruent to $g(x)$ modulo $p(x)$, written
+    \[
+        f(x)\equiv g(x)\mod p(x),
+    \]
+    provided that $p(x)$ divides $f(x)-g(x)$.
+    Prove or disprove:
+    If $p(x)$ is irreducible in $\mathbb{F}[x]$ and
+    \[
+        f(x)g(x)\equiv 0\mod p(x),
+    \]
+    then
+    \[
+        f(x)\equiv 0\mod p(x)
+        \quad\text{or}\quad
+        g(x)\equiv 0\mod p(x).
+    \]
+}
+    This statement is true.
+    Suppose $p(x)$ is irreducible in $\mathbb{F}[x]$ and
+    \[
+        f(x)g(x)\equiv 0\mod p(x).
+    \]
+    By the definition of polynomial congruence modulo $p(x)$, this means
+    \[
+        p(x)\mid f(x)g(x).
+    \]
+    Since $p(x)$ is irreducible, Euclid's Lemma for polynomials implies that
+    \[
+        p(x)\mid f(x)
+        \quad\text{or}\quad
+        p(x)\mid g(x).
+    \]
+    This is equivalent to
+    \[
+        p(x)\mid f(x)-0
+        \quad\text{or}\quad
+        p(x)\mid g(x)-0.
+    \]
+    Hence
+    \[
+        f(x)\equiv 0\mod p(x)
+        \quad\text{or}\quad
+        g(x)\equiv 0\mod p(x).
+    \]
+\end{problem}
+\begin{problem}{
+    Write out the addition and multiplication tables for the congruence class ring
+    \[
+        \mathbb{Z}_3[x]/(x^2+1).
+    \]
+    Is $\mathbb{Z}_3[x]/(x^2+1)$ a field?
+}
+    \[
+        x^2\equiv -1\equiv 2 \mod (x^2+1),
+    \]
+    so every congruence class has a representative of the form
+    \[
+        a+bx
+    \]
+    with $a,b\in\mathbb{Z}_3$.
+    Thus the elements are
+    \[
+        0,\ 1,\ 2,\ x,\ x+1,\ x+2,\ 2x,\ 2x+1,\ 2x+2.
+    \]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $+$ & $0$ & $1$ & $2$ & $x$ & $x+1$ & $x+2$ & $2x$ & $2x+1$ & $2x+2$ \\ \hline
+            $0$ & $0$ & $1$ & $2$ & $x$ & $x+1$ & $x+2$ & $2x$ & $2x+1$ & $2x+2$ \\ \hline
+            $1$ & $1$ & $2$ & $0$ & $x+1$ & $x+2$ & $x$ & $2x+1$ & $2x+2$ & $2x$ \\ \hline
+            $2$ & $2$ & $0$ & $1$ & $x+2$ & $x$ & $x+1$ & $2x+2$ & $2x$ & $2x+1$ \\ \hline
+            $x$ & $x$ & $x+1$ & $x+2$ & $2x$ & $2x+1$ & $2x+2$ & $0$ & $1$ & $2$ \\ \hline
+            $x+1$ & $x+1$ & $x+2$ & $x$ & $2x+1$ & $2x+2$ & $2x$ & $1$ & $2$ & $0$ \\ \hline
+            $x+2$ & $x+2$ & $x$ & $x+1$ & $2x+2$ & $2x$ & $2x+1$ & $2$ & $0$ & $1$ \\ \hline
+            $2x$ & $2x$ & $2x+1$ & $2x+2$ & $0$ & $1$ & $2$ & $x$ & $x+1$ & $x+2$ \\ \hline
+            $2x+1$ & $2x+1$ & $2x+2$ & $2x$ & $1$ & $2$ & $0$ & $x+1$ & $x+2$ & $x$ \\ \hline
+            $2x+2$ & $2x+2$ & $2x$ & $2x+1$ & $2$ & $0$ & $1$ & $x+2$ & $x$ & $x+1$ \\ \hline
+        \end{tabular}
+    \end{center}
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $\cdot$ & $0$ & $1$ & $2$ & $x$ & $x+1$ & $x+2$ & $2x$ & $2x+1$ & $2x+2$ \\ \hline
+            $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ \\ \hline
+            $1$ & $0$ & $1$ & $2$ & $x$ & $x+1$ & $x+2$ & $2x$ & $2x+1$ & $2x+2$ \\ \hline
+            $2$ & $0$ & $2$ & $1$ & $2x$ & $2x+2$ & $2x+1$ & $x$ & $x+2$ & $x+1$ \\ \hline
+            $x$ & $0$ & $x$ & $2x$ & $2$ & $x+2$ & $2x+2$ & $1$ & $x+1$ & $2x+1$ \\ \hline
+            $x+1$ & $0$ & $x+1$ & $2x+2$ & $x+2$ & $2x$ & $1$ & $2x+1$ & $2$ & $x$ \\ \hline
+            $x+2$ & $0$ & $x+2$ & $2x+1$ & $2x+2$ & $1$ & $x$ & $x+1$ & $2x$ & $2$ \\ \hline
+            $2x$ & $0$ & $2x$ & $x$ & $1$ & $2x+1$ & $x+1$ & $2$ & $2x+2$ & $x+2$ \\ \hline
+            $2x+1$ & $0$ & $2x+1$ & $x+2$ & $x+1$ & $2$ & $2x$ & $2x+2$ & $x$ & $1$ \\ \hline
+            $2x+2$ & $0$ & $2x+2$ & $x+1$ & $2x+1$ & $x$ & $2$ & $x+2$ & $1$ & $2x$ \\ \hline
+        \end{tabular}
+    \end{center}
+    Yes, $\mathbb{Z}_3[x]/(x^2+1)$ is a field.
+    The reason is that $x^2+1$ is irreducible in $\mathbb{Z}_3[x]$.
+    Indeed, the only elements of $\mathbb{Z}_3$ are $0,1,2$, and
+    \[
+        0^2+1=1,\qquad 1^2+1=2,\qquad 2^2+1=4+1\equiv 2 \mod 3,
+    \]
+    so $x^2+1$ has no root in $\mathbb{Z}_3$.
+    Hence it is irreducible, and the quotient is a field.
+\end{problem}
+\begin{problem}{
+    Let $F$ be a field.
+    A nonconstant polynomial $p(x)\in F[x]$ is said to be irreducible if its only divisors are its associates and the nonzero constant polynomials.
+    In each part, explain why $[f(x)]$ is a unit in $\mathbb{F}[x]/(p(x))$ and find its inverse.
+
+    (a) $[f(x)] = [2x-3]\in\mathbb{Q}[x]/(x^2-2)$.
+
+    (b) $[f(x)] = [x^2+x+1]\in\mathbb{Z}_3[x]/(x^2+1)$.
+}
+    \textbf{(a).}
+    Since $x^2-2$ is irreducible in $\mathbb{Q}[x]$, the quotient
+    \[
+        \mathbb{Q}[x]/(x^2-2)
+    \]
+    is a field.
+    Thus every nonzero class is a unit.
+    Now $[2x-3]\neq [0]$ in this quotient, since otherwise $x^2-2$ would divide the linear polynomial $2x-3$, which is impossible.
+    So $[2x-3]$ is a unit.
+    To find its inverse, we solve
+    \[
+        (2x-3)(ax+b)\equiv 1\mod (x^2-2).
+    \]
+    Using $x^2\equiv 2$, we compute
+    \begin{align*}
+        (2x-3)(ax+b)
+&=
+2ax^2+(2b-3a)x-3b\\
+&\equiv
+4a+(2b-3a)x-3b.
+    \end{align*}
+    So we want
+    \[
+        (2b-3a)x+(4a-3b)=1.
+    \]
+    Thus
+    \begin{align*}
+        2b-3a &= 0,\\
+        4a-3b &= 1.
+    \end{align*}
+    From the first equation, $2b=3a$.
+    Over $\mathbb{Q}$ this gives
+    \[
+        b=\frac{3a}{2}.
+    \]
+    Substitute into the second:
+    \[
+        4a-3\left(\frac{3a}{2}\right)=1,
+    \]
+    so
+    \[
+        \frac{8a-9a}{2}=1,
+    \]
+    hence
+    \[
+        -\frac{a}{2}=1,
+        \qquad
+        a=-2,
+        \qquad
+        b=-3.
+    \]
+    Therefore
+    \[
+        [2x-3]^{-1}=[-2x-3].
+    \]
+
+    \textbf{(b).}
+    In $\mathbb{Z}_3[x]/(x^2+1)$, we first reduce
+    \[
+        x^2+x+1 \equiv 2+x+1 = x
+    \]
+    since $x^2\equiv -1\equiv 2$ modulo $x^2+1$.
+    So
+    \[
+        [x^2+x+1]=[x].
+    \]
+    Since the quotient is a field, any nonzero element is a unit.
+    Also $[x]\neq [0]$, so $[x^2+x+1]$ is a unit.
+    To find its inverse, note that
+    \[
+        x^2\equiv 2 \mod (x^2+1),
+    \]
+    so
+    \[
+        x\cdot 2x = 2x^2 \equiv 2\cdot 2 = 4 \equiv 1 \mod 3.
+    \]
+    Therefore
+    \[
+        [x]^{-1}=[2x].
+    \]
+    Hence
+    \[
+        [x^2+x+1]^{-1}=[2x].
+    \]
+\end{problem}
+
+\begin{problem}{
+    Find a fourth-degree polynomial in $\mathbb{Z}_2[x]$ whose roots are the four elements of the field
+    \[
+        \mathbb{Z}_2[x]/(x^2+x+1).
+    \]
+}
+    The field
+    \[
+        \mathbb{Z}_2[x]/(x^2+x+1)
+    \]
+    has four elements:
+    \[
+        [0],\ [1],\ [x],\ [x+1].
+    \]
+    A polynomial whose roots are exactly these four elements is
+    \[
+        f(t)=t(t+1)(t+x)(t+x+1).
+    \]
+    Over a field with $4$ elements, every element $a$ satisfies
+    \[
+        a^4=a,
+    \]
+    so the polynomial
+    \[
+        t^4-t
+    \]
+    has all four field elements as roots.
+    Since we are in characteristic $2$, this is the same as
+    \[
+        t^4+t.
+    \]
+    Thus one such fourth-degree polynomial is
+    \[
+        f(t)=t^4+t.
+    \]
+    Indeed,
+    \[
+        f(0)=0,
+        \qquad
+        f(1)=1+1=0,
+        \qquad
+        f(x)=x^4+x=0,
+        \qquad
+        f(x+1)=(x+1)^4+(x+1)=0.
+    \]
+    So the four elements of the field are precisely the roots.
+\end{problem}
+
+\begin{problem}{
+    (a) Show that $\mathbb{Z}_2[x]/(x^3+x+1)$ is a field.
+
+    (b) Show that the field $\mathbb{Z}_2[x]/(x^3+x+1)$ contains all three roots of $x^3+x+1$.
+}
+    \textbf{(a).}
+    We show that
+    \[
+        x^3+x+1
+    \]
+    is irreducible in $\mathbb{Z}_2[x]$.
+    A cubic over a field is reducible if and only if it has a root.
+    So check the two elements of $\mathbb{Z}_2$:
+    \begin{align*}
+        f(0) &= 0^3+0+1 = 1 \neq 0,\\
+        f(1) &= 1^3+1+1 = 1 \neq 0
+    \end{align*}
+    in $\mathbb{Z}_2$.
+    Thus $x^3+x+1$ has no root in $\mathbb{Z}_2$, so it is irreducible.
+    Therefore
+    \[
+        \mathbb{Z}_2[x]/(x^3+x+1)
+    \]
+    is a field.
+
+    \textbf{(b).}
+    Let
+    \[
+        \alpha=[x]\in \mathbb{Z}_2[x]/(x^3+x+1).
+    \]
+    Then
+    \[
+        \alpha^3+\alpha+1=0
+    \]
+    in the quotient, since
+    \[
+        x^3+x+1\equiv 0 \mod (x^3+x+1).
+    \]
+    So $\alpha$ is one root.
+    Since we are in characteristic $2$, the nonzero elements of this field form a multiplicative group of order $7$.
+    Thus every nonzero element satisfies $u^7=1$.
+    Now from
+    \[
+        \alpha^3+\alpha+1=0
+    \]
+    we get
+    \[
+        \alpha^3=\alpha+1.
+    \]
+    Then
+    \begin{align*}
+        (\alpha^2)^3+\alpha^2+1
+    &=
+        \alpha^6+\alpha^2+1.
+    \end{align*}
+    Because $\alpha^7=1$, we have
+    \[
+        \alpha^6=\alpha^{-1}.
+    \]
+    Also, from $\alpha^3=\alpha+1$, multiplying by $\alpha^{-1}$ gives
+    \[
+        \alpha^2=1+\alpha^{-1},
+    \]
+    so
+    \[
+        \alpha^{-1}=\alpha^2+1.
+    \]
+    Hence
+    \[
+        \alpha^6+\alpha^2+1 = (\alpha^2+1)+\alpha^2+1=0.
+    \]
+    So $\alpha^2$ is also a root.
+    Similarly,
+    \begin{align*}
+        (\alpha^4)^3+\alpha^4+1
+    &=
+        \alpha^{12}+\alpha^4+1\\
+        &=
+        \alpha^5+\alpha^4+1
+    \end{align*}
+    since $\alpha^7=1$.
+    Now
+    \[
+        \alpha^4=\alpha(\alpha^3)=\alpha(\alpha+1)=\alpha^2+\alpha,
+    \]
+    and
+    \[
+        \alpha^5=\alpha(\alpha^4)=\alpha(\alpha^2+\alpha)=\alpha^3+\alpha^2=(\alpha+1)+\alpha^2.
+    \]
+    Thus
+    \[
+        \alpha^5+\alpha^4+1=(\alpha^2+\alpha+1)+(\alpha^2+\alpha)+1=0.
+    \]
+    So $\alpha^4$ is also a root.
+    Therefore the three roots of $x^3+x+1$ in this field are
+    \[
+        [x],\ [x^2],\ [x^4].
+    \]
+    Hence the field contains all three roots.
+\end{problem}
+\begin{problem}{
+    Show that every polynomial of degree $1$, $2$, or $4$ in $\mathbb{Z}_2[x]$ has a root in
+    \[
+        \mathbb{Z}_2[x]/(x^4+x+1).
+    \]
+}
+    Let
+    \[
+        E\coloneqq \mathbb{Z}_2[x]/(x^4+x+1).
+    \]
+    Since $x^4+x+1$ is irreducible over $\mathbb{Z}_2$, $E$ is a field with
+    \[
+        2^4=16
+    \]
+    elements.
+    A finite field of order $16$ has multiplicative group of order $15$, so every nonzero element $a\in E$ satisfies
+    \[
+        a^{15}=1.
+    \]
+    Thus every nonzero element is a root of
+    \[
+        t^{15}-1.
+    \]
+    Since we are in characteristic $2$, this is
+    \[
+        t^{15}+1.
+    \]
+    So all $16$ elements of $E$ are roots of
+    \[
+        t^{16}-t.
+    \]
+    Now let $f(t)\in\mathbb{Z}_2[t]$ be irreducible of degree $1$, $2$, or $4$.
+    Then the splitting field of $f$ over $\mathbb{Z}_2$ has size $2^d$, where $d=\deg f$.
+    Since $d$ is one of $1,2,4$, we have
+    \[
+        d\mid 4.
+    \]
+    Hence the field with $2^d$ elements embeds into the field with $2^4=16$ elements.
+    Therefore every irreducible polynomial of degree $1$, $2$, or $4$ over $\mathbb{Z}_2$ splits in $E$, and in particular has a root in $E$.
+    Since every polynomial of degree $1$, $2$, or $4$ factors into irreducibles whose degrees are among $1$, $2$, and $4$, it follows that every such polynomial has a root in $E$.
+    Thus every polynomial of degree $1$, $2$, or $4$ in $\mathbb{Z}_2[x]$ has a root in
+    \[
+        \mathbb{Z}_2[x]/(x^4+x+1).
+    \]
+\end{problem}

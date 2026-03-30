@@ -1,0 +1,79 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Axioms}
+
+Axioms are trivial definitions used in everyday life, or even mathematics, that we take for granted.
+They are definitions that are inarguable and are the core of mathematics today.
+
+I never quite understood the hierarchy of math statements, but this is a way to look at it.
+Axioms are a specific type of definition that is just taken as a fact or true.
+Definitions are similar to axioms in that they build the premise of future statements, and these may or may not include proofs to explain why they are true.
+Lemmas are true statements that are not important in the long run, but are useful for understanding future statements, and are generally associated with proofs.
+Propositions are important statements that must be associated with proofs and are vital building blocks in research.
+Theorems are big conclusions that wrap each concept mentioned in a paper into one central idea and are even more important than propositions, and these also require proofs to be stated alongside the statement.
+
+Now the following axioms or properties are what we accept without another thought, but they are important to mention to understand future content when they are brought up again.
+
+\begin{definition}[Additive Properties]
+    \begin{enumerate}
+        \item Addition is well-defined.
+        Given $a,b \in \mathbb{Z}$, $a + b$ is a uniquely defined integer.
+
+        \item Substitution Law.
+        Since addition is well-defined, if $a = b$ and $c = d$, then $a + c = b + d$.
+
+        \item Commutative Law.
+        For all $a,b \in \mathbb{Z}$, $a + b = b + a$.
+
+        \item Associative Law.
+        For all $a,b,c \in \mathbb{Z}$, $(a + b) + c = a + (b + c)$.
+
+        \item There exists a zero element $0 \in \mathbb{Z}$, called the additive identity, satisfying $0 + a = a$ for any $a \in \mathbb{Z}$.
+
+        \item For all $a \in \mathbb{Z}$, there exists a unique additive inverse $-a \in \mathbb{Z}$ satisfying $a + (-a) = 0$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Multiplicative Properties]
+    \begin{enumerate}
+        \item Multiplication is well-defined.
+        Given $a,b \in \mathbb{Z}$, $a \cdot b$ is a uniquely defined integer.
+
+        \item Substitution Law.
+        If $a = b$ and $c = d$, then $ac = bd$.
+
+        \item $\mathbb{Z}$ is closed under multiplication.
+        For all $a,b \in \mathbb{Z}$, $a \cdot b \in \mathbb{Z}$.
+
+        \item Commutative Law.
+        For all $a,b \in \mathbb{Z}$, $ab = ba$.
+
+        \item Associative Law.
+        For all $a,b,c \in \mathbb{Z}$, $(ab)c = a(bc)$.
+
+        \item There exists a multiplicative identity $1 \in \mathbb{Z}$ satisfying $1 \cdot a = a$ for all $a \in \mathbb{Z}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Distributive Property]
+    For all $a,b,c \in \mathbb{Z}$,
+    \[
+        a(b + c) = ab + ac.
+    \]
+\end{definition}
+
+\begin{definition}[Trichotomy Principle]
+    $\mathbb{Z}$ can be split into three distinct sets:
+    \[
+        \mathbb{Z} = -\mathbb{N} \cup \{0\} \cup \mathbb{N}.
+    \]
+\end{definition}
+
+\begin{definition}[Positivity Axiom]
+    The sum or product of positive integers is positive.
+\end{definition}
+
+\begin{definition}[Discrete Property]
+    We have learned these already, namely the Well-Ordering Principle of $\mathbb{N}$ and the Principle of Induction.
+\end{definition}

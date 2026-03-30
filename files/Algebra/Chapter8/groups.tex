@@ -1,0 +1,138 @@
+%! Author = sriadityavedantam
+%! Date = 3/30/26
+
+\section{Definition of Groups}
+
+A group is a one-operation analogue of a ring.
+Groups are often thought of as bijections from a set to itself, or permutations.
+Most of the course we will be looking at finite groups.
+
+Let $X$ be a set.
+Assume $X\neq \varnothing$.
+Let $S_X$, called the symmetric group on $X$, be the set of permutations of $X$, equivalently the bijections $X\to X$.
+
+Composition has the following properties.
+There is an identity permutation, denoted by $e$, $i$, or $1$.
+Composition is associative:
+\[
+    (a\circ b)\circ c = a\circ (b\circ c).
+\]
+Every element has a unique inverse, since each permutation is a bijection.
+If $f$ is a permutation of $X$, then its unique inverse is denoted by $f^{-1}$.
+
+An abstract group $G$ is a nonempty set with a binary operation, usually denoted by $\cdot$, $*$, or juxtaposition.
+There is an identity element, say $1$, such that
+\[
+    1*a = a*1 = a
+\]
+for all $a\in G$.
+A group does not need to be commutative, though the identity commutes with every element.
+The operation is associative, so for all $a,b,c\in G$,
+\[
+    (a*b)*c = a*(b*c) = a*b*c.
+\]
+Every element $a\in G$ has an inverse $a^{-1}$.
+
+\begin{definition}[Abelian Groups]
+    A group $G$ does not need to be commutative, but if it is, we call it a commutative group, or \textbf{abelian}.
+\end{definition}
+
+$S_X$ is the group of permutations on $X$ under composition.
+If $G$ is a subset of $S_X$ which is closed under composition and inverses, then $G$ is a group.
+Cayley's Theorem says that every group is isomorphic to a subgroup of some symmetric group.
+We will prove this later.
+
+Suppose
+\[
+    X\coloneqq \{1,2,\dots,n\}.
+\]
+Then $S_X$ is denoted by $S_n$, the symmetric group on $n$ letters.
+For example, $S_3$ is the set of permutations of $\{1,2,3\}$.
+The notation for permutations is as follows.
+Suppose $\sigma\in S_3$.
+Then we denote it by
+\[
+    \begin{pmatrix}
+        1&2&3\\
+        \sigma(1)&\sigma(2)&\sigma(3)
+    \end{pmatrix}.
+\]
+The elements of $S_3$ are
+\begin{gather*}
+    e=
+    \begin{pmatrix}
+        1&2&3\\
+        1&2&3
+    \end{pmatrix},
+    \quad
+    \sigma_1=
+    \begin{pmatrix}
+        1&2&3\\
+        1&3&2
+    \end{pmatrix},
+    \quad
+    \sigma_2=
+    \begin{pmatrix}
+        1&2&3\\
+        2&1&3
+    \end{pmatrix},\\
+    \sigma_3=
+    \begin{pmatrix}
+        1&2&3\\
+        2&3&1
+    \end{pmatrix},
+    \quad
+    \sigma_4=
+    \begin{pmatrix}
+        1&2&3\\
+        3&2&1
+    \end{pmatrix},
+    \quad
+    \sigma_5=
+    \begin{pmatrix}
+        1&2&3\\
+        3&1&2
+    \end{pmatrix}.\\
+\end{gather*}
+Suppose $\sigma_2\circ \sigma_4$.
+Then we follow elements through $\sigma_4$ first and then $\sigma_2$.
+Doing this gives
+\[
+    \begin{pmatrix}
+        1&2&3\\
+        3&1&2
+    \end{pmatrix}.
+\]
+\begin{example}
+    \[
+        \sigma_4\circ \sigma_2 =
+        \begin{pmatrix}
+            1&2&3\\
+            2&3&1
+        \end{pmatrix}.
+    \]
+\end{example}
+
+If $(\mathcal{R},+,\cdot)$ is a ring with operations addition and multiplication, then $(\mathcal{R},+)$ is a group.
+The identity in an additive group is $0$.
+It is associative, and every element $a$ has an additive inverse, denoted by $-a$.
+In fact, these groups are abelian.
+Let $\mathbb{F}$ be any field.
+Let
+\[
+    \mathbb{F}^* \coloneqq \{a\in \f : a\neq 0\} \coloneqq U(\mathbb{F}).
+\]
+Then $\mathbb{F}^*$ is a group under multiplication.
+This group has identity $1\in \mathbb{F}$, it is associative, and every element has an inverse.
+More generally, if $\mathcal{R}$ is a ring, then
+\[
+    \mathcal{R}^* \coloneqq \{a\in \mathcal{R} : \text{$a$ is a unit in }\mathcal{R}\} \coloneqq U(\mathcal{R})
+\]
+is a group.
+
+\begin{example}
+    \[
+        \mathbb{Z}_6^* = \{1,5\}.
+    \]
+\end{example}
+

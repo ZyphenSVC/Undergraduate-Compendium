@@ -1,0 +1,111 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Units and Divisors}
+
+\begin{definition}[Units in Congruence Classes]
+    $[a]$ is a unit if $[a]$ has a multiplicative inverse.
+    That is, there exists $[x]\in \zn$ such that
+    \[
+        [a][x] = [1].
+    \]
+\end{definition}
+
+\begin{theorem}{
+    $[a]$ is a unit if and only if $\gcd(a,n) = 1$.
+}
+\end{theorem}
+
+\begin{proposition}{
+    All nonzero classes in $\zp$ are units.
+}
+    Suppose $[a]\in\zp$ with $[a]\neq [0]$.
+    Then $p\nmid a$.
+    Since $p$ is prime, this implies
+    \[
+        \gcd(a,p) = 1.
+    \]
+    By Bézout's Identity, there exist integers $x,q$ such that
+    \[
+        ax + qp = 1.
+    \]
+    Thus
+    \[
+        ax \equiv 1 \mod p,
+    \]
+    so
+    \[
+        [a][x] = [1].
+    \]
+    Therefore $[a]$ is a unit.
+\end{proposition}
+
+Easy to show the converse by showing a multiplicative inverse in $\zp$.
+So $[a]$ has a multiplicative inverse.
+This proposition, using $n\neq p$, will show it is true for the previous theorem.
+To test whether $[a]$ is a unit in $\mathbb{Z}_{32}$ and find $[a]^{-1}$ in $\mathbb{Z}_{32}$, let $a=4$ and try to find an $x\in\z$ such that
+\[
+    4x + 32q = 1.
+\]
+But
+\[
+    \gcd(4,32) = 4 \neq 1,
+\]
+so no such integers $x,q$ exist.
+Therefore $[4]$ is not a unit in $\mathbb{Z}_{32}$.
+So there is no inverse to find.
+
+\begin{definition}[Zero-Divisors]
+    $[a]$ is a zero-divisor in $\zn$ if there exists $[x]\neq [0]$ such that
+    \[
+        [ax] = [0].
+    \]
+\end{definition}
+
+\begin{theorem}{
+    $[a]$ is a zero-divisor in $\zn$ if and only if $\gcd(a,n)\neq 1$.
+}
+Let us prove the contrapositive in one direction.
+Suppose $\gcd(a,n) = 1$.
+Then $[a]$ is a unit in $\zn$ by the previous theorem.
+We will show that $[a]$ is not a zero-divisor.
+Suppose $[ab] = [0]$ for some $b\in\z$.
+Since $[a]$ is a unit, there exists $[x]\in\zn$ such that
+\[
+    [xa] = [1].
+\]
+Then
+\[
+    [x]([ab]) = [x][0] = [0],
+\]
+so
+\[
+    [xa][b] = [1][b] = [b] = [0].
+\]
+Thus $[ab]=[0]$ implies $[b]=[0]$.
+Therefore $[a]$ is not a zero-divisor.
+Conversely, suppose $\gcd(a,n) = d > 1$.
+Write
+\[
+    a = da_1, \qquad n = dn_1.
+\]
+Then
+\[
+    a n_1 = da_1 n_1 = a_1 n,
+\]
+so
+\[
+    [a][n_1] = [0].
+\]
+Also, since $d>1$, we have $0<n_1<n$, hence
+\[
+    [n_1]\neq [0].
+\]
+Therefore $[a]$ is a zero-divisor in $\zn$.
+\end{theorem}
+
+For example, if we take $\mathbb{Z}_{12}$, then since
+\[
+    \gcd(4,12) = 4,
+\]
+$[4]$ is a zero-divisor.

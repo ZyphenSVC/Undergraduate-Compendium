@@ -1,0 +1,134 @@
+%! Author = sriadityavedantam
+%! Date = 3/29/26
+
+\section{Modular Arithmetic}
+
+\begin{definition}[Modular Arithmetic]
+    Fix $n\in\z^{\geq 2}$.
+    Define addition and multiplication on congruence classes mod $n$ by
+    \[
+        [a] + [b] \coloneqq [a + b]
+    \]
+    and
+    \[
+        [a]\cdot[b] \coloneqq [ab].
+    \]
+\end{definition}
+
+Given this definition, it seems a little ambiguous if you really sit down and analyze it, but we come to learn that this gives us properties that allow this arithmetic to be well-defined.
+This definition shows that it is closed under addition and multiplication, and I will leave that up to the reader to figure out how to find such values.
+
+\begin{theorem}{
+    If $a,b,c,d\in\z$ with $a\equiv c\mod n$ and $b\equiv d\mod n$, then
+    \[
+        a + b\equiv c+d\mod n
+    \]
+    and
+    \[
+        ab\equiv cd\mod n.
+    \]
+}
+    Given $n\mid c-a$ and $n\mid d-b$, we have
+    \[
+        (c+d)-(a+b) = (c-a)+(d-b).
+    \]
+    Thus $n\mid \bigl((c+d)-(a+b)\bigr)$, so
+    \[
+        a+b\equiv c+d\mod n.
+    \]
+    Also,
+    \begin{align*}
+        cd-ab &= d(c-a)+a(d-b).
+    \end{align*}
+    Since $n\mid c-a$ and $n\mid d-b$, it follows that
+    \[
+        n\mid d(c-a)+a(d-b) = cd-ab.
+    \]
+    Therefore
+    \[
+        ab\equiv cd\mod n.
+    \]
+\end{theorem}
+
+\begin{theorem}[Well-Defined Modular Arithmetic]{
+    Modular arithmetic is well-defined.
+}
+    Suppose $[a]=[c]$ and $[b]=[d]$.
+    Then $a\equiv c\mod n$ and $b\equiv d\mod n$.
+    By the previous theorem,
+    \[
+        a+b\equiv c+d\mod n
+    \]
+    and
+    \[
+        ab\equiv cd\mod n.
+    \]
+    Thus
+    \[
+        [a+b]=[c+d]
+    \]
+    and
+    \[
+        [ab]=[cd].
+    \]
+\end{theorem}
+
+\begin{definition}[$\zn$]
+    The set of congruence classes mod $n$ is
+    \[
+        \zn \coloneqq \{[a] : a\in\z\} = \{[0],[1],\hdots,[n-1]\}.
+    \]
+
+    For example, in $\mathbb{Z}_4$, addition is defined by:
+    \begin{center}
+        \renewcommand\arraystretch{1.3}
+        \setlength\doublerulesep{0pt}
+        \begin{tabular}{r||*{4}{2|}}
+            + & 0 & 1 & 2 & 3 \\
+            \hline\hline
+            0 & 0 & 1 & 2 & 3 \\
+            \hline
+            1 & 1 & 2 & 3 & 0 \\
+            \hline
+            2 & 2 & 3 & 0 & 1 \\
+            \hline
+            3 & 3 & 0 & 1 & 2 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Multiplication in $\mathbb{Z}_4$ is defined by:
+    \begin{center}
+        \renewcommand\arraystretch{1.3}
+        \setlength\doublerulesep{0pt}
+        \begin{tabular}{r||*{4}{2|}}
+            $\cdot$ & 0 & 1 & 2 & 3 \\
+            \hline\hline
+            0 & 0 & 0 & 0 & 0 \\
+            \hline
+            1 & 0 & 1 & 2 & 3 \\
+            \hline
+            2 & 0 & 2 & 0 & 2 \\
+            \hline
+            3 & 0 & 3 & 2 & 1 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Commutative, associative, and distributive hold for $\zn$.
+    The additive identity is
+    \[
+        [0] + [a] = [a].
+    \]
+    The multiplicative identity is
+    \[
+        [1][a] = [a].
+    \]
+\end{definition}
+
+\begin{axiom}[Additive inverses in $\zn$]
+    Every element in $\zn$ has an additive inverse.
+    \[
+        [a] + [-a] = [0].
+    \]
+\end{axiom}
