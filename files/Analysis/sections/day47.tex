@@ -1,0 +1,118 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{47}{Self-Study Three}{Day 47}
+
+\begin{proposition}{
+    If $f:X\to Y$ is continuous and $X$ is compact, then $f$ is uniformly continuous.
+}
+    Let $\eps > 0$.
+
+    For each $c\in X$, by continuity of $f$ at $c$, there exists $\delta_c > 0$ such that
+    \[
+        d_X(x,c) < \delta_c \implies d_Y(f(x),f(c)) < \frac{\eps}{2}.
+    \]
+
+    Then $\{B(c,\delta_c)\}_{c\in X}$ is an open cover of $X$.
+
+    By the Lebesgue Big Number Lemma, there exists $\delta > 0$ such that for all $x\in X$, there exists $c\in X$ with
+    \[
+        B(x,\delta)\subseteq B(c,\delta_c).
+    \]
+
+    Now suppose $d_X(x,y) < \delta$.
+
+    Then $y\in B(x,\delta)\subseteq B(c,\delta_c)$, and also $x\in B(c,\delta_c)$.
+
+    So
+    \[
+        d_Y(f(x),f(c)) < \frac{\eps}{2}
+        \qquad\text{and}\qquad
+        d_Y(f(y),f(c)) < \frac{\eps}{2}.
+    \]
+
+    Hence
+    \begin{align*}
+        d_Y(f(x),f(y))
+        &\leq d_Y(f(x),f(c)) + d_Y(f(c),f(y))\\
+        &< \frac{\eps}{2} + \frac{\eps}{2}\\
+        &= \eps.
+    \end{align*}
+
+    So $f$ is uniformly continuous.
+\end{proposition}
+
+\begin{definition}[Contraction]
+    A function $f:X\to X$ is a contraction if there exists $K$ with $0\leq K < 1$ such that for all $x,y\in X$,
+    \[
+        d(f(x),f(y)) \leq K\,d(x,y).
+    \]
+\end{definition}
+
+\begin{definition}[Fixed Point]
+    Given $f:X\to X$, a point $x\in X$ is a fixed point if
+    \[
+        f(x) = x.
+    \]
+\end{definition}
+
+\begin{theorem}[Banach Fixed Point Theorem]{
+    Let $(X,d)$ be a complete metric space.
+
+    If $f:X\to X$ is a contraction, then there exists a unique fixed point.
+}
+    Pick $x_0\in X$.
+
+    Define a sequence by
+    \[
+        x_{n+1} \coloneqq f(x_n).
+    \]
+
+    Then
+    \[
+        d(x_{n+1},x_n) \leq K^n d(x_1,x_0).
+    \]
+
+    For $m>n$, we have
+    \begin{align*}
+        d(x_m,x_n)
+        &\leq \sum_{i=n}^{m-1} d(x_{i+1},x_i)\\
+        &\leq \sum_{i=n}^{m-1} K^i d(x_1,x_0)\\
+        &= d(x_1,x_0)\sum_{i=n}^{m-1} K^i\\
+        &\leq \frac{K^n}{1-K} d(x_1,x_0).
+    \end{align*}
+
+    So $(x_n)$ is Cauchy.
+
+    Since $X$ is complete, there exists $x\in X$ such that $x_n\to x$.
+
+    Since $f$ is continuous, we have
+    \[
+        x = \lim_{n\to\infty} x_{n+1}
+        = \lim_{n\to\infty} f(x_n)
+        = f\left(\lim_{n\to\infty} x_n\right)
+        = f(x).
+    \]
+
+    So $x$ is a fixed point.
+
+    To prove uniqueness, suppose $y\in X$ is another fixed point.
+
+    Then
+    \begin{align*}
+        d(x,y)
+        &= d(f(x),f(y))\\
+        &\leq K\,d(x,y).
+    \end{align*}
+
+    Since $0\leq K<1$, this implies
+    \[
+        (1-K)d(x,y)\leq 0,
+    \]
+    so
+    \[
+        d(x,y)=0.
+    \]
+
+    Hence $x=y$.
+\end{theorem}

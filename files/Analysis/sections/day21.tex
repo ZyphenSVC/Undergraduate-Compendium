@@ -1,0 +1,123 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Open and Closed Sets}
+
+\lesson{21}{Monday 29 September 2025 9:10}{Day 21}
+
+\begin{definition}[$\eps$-Neighbourhood]
+    Let $\eps > 0$.
+    The neighborhood of $x\in\r$ is:
+    \[
+        \vee_{\eps}(x)\coloneqq \{y : \abs{x-y} < \eps\} = (x-\eps,x+\eps).
+    \]
+\end{definition}
+
+\begin{definition}[Open Set]
+    A set $U\subset\r$ is open if for every $x\in U$, there exists $\eps > 0$ such that $\vee_{\eps}(x)\subset U$.
+\end{definition}
+
+\begin{example}[Any open interval is open]
+    If $x\in(a,b)$, take $\eps \coloneqq\min\{b-x, x-a\} > 0$.
+    Then $\vee_{\eps}(x) \subset (a,b)$.
+\end{example}
+
+\begin{theorem}[Union of Open Sets]{
+    The union of any family of open sets is open.
+}
+                 Let $\{U_\alpha\}_{\alpha\in I}$ be open and suppose $x\in\bigcup_{\alpha\in I} U_\alpha$.
+                 Then $x\in U_{\alpha_0}$ for some $\alpha_0\in I$.
+                 Since $U_{\alpha_0}$ is open, there exists $\eps > 0$ such that $\vee_{\eps}(x)\subset U_{\alpha_0}\subset\bigcup_{\alpha\in I} U_\alpha$.
+\end{theorem}
+
+\begin{example}[Examples of Open Sets]
+    $\{0\}$ is not open.
+
+    $(0,1]$ is not open.
+
+    $\varnothing$ is open.
+\end{example}
+
+\begin{example}
+    Let $I = \n$, and $\{q_1,q_2,\ldots\}$ be an enumeration of $\q$.
+    For $n\in\n$, define
+    \[
+        U_n\coloneqq\vee_{1/2^n}(q_n).
+    \]
+    Then $U\coloneqq \bigcup_{n=1}^\infty U_n$ is open, and the total length satisfies
+    \[
+        \sum_{n=1}^\infty \frac{1}{2^{n-1}} = 4.
+    \]
+\end{example}
+
+\begin{theorem}[Intersection of Open Sets]{
+    The intersection of any finite collection of open sets is open.
+}
+                 Let $U_1,\ldots, U_N$ be open and $x\in\bigcap_{i=1}^N U_i$.
+                 Then for each $i$, there exists $\eps_i > 0$ such that $\vee_{\eps_i}(x)\subset U_i$.
+                 Let $\eps\coloneqq\min\{\eps_1,\ldots,\eps_N\} > 0$.
+                 Then $\vee_{\eps}(x)\subset U_i$ for all $i$, hence $\vee_{\eps}(x)\subset\bigcap_{i=1}^N U_i$.
+\end{theorem}
+
+\begin{definition}[Limit Point]
+    Let $E\subset\r$.
+    A point $x_0\in\r$ is a limit point of $E$ if for every $\eps > 0$,
+    \[
+        (\vee_{\eps}(x_0)\cap E)\setminus\{x_0\} \neq \varnothing.
+    \]
+\end{definition}
+
+\begin{example}
+    If $E = (0,1)$, then every $x_0\in[0,1]$ is a limit point.
+\end{example}
+
+\begin{example}
+    $\{c\}$ is a singleton set, which has no limit points.
+\end{example}
+
+\begin{definition}[Isolated Point]
+    Given $E\subset\r$, $x_0\in E$ is an isolated point if it is not a limit point.
+\end{definition}
+
+\begin{proposition}{
+    Given $E\subset\r$, $x_0\in\r$ is a limit point of $E$ if and only if there exists a sequence $(x_n)$ in $E\setminus\{x_0\}$ such that $x_n\to x_0$.
+}
+              Suppose $x_0$ is a limit point of $E$.
+              For each $n\in\n$, choose $x_n\in \vee_{1/n}(x_0)\cap (E\setminus\{x_0\})$.
+              Then $x_n\to x_0$.
+              Conversely, if $x_n\to x_0$ with $x_n\in E\setminus\{x_0\}$, then every neighborhood of $x_0$ contains some $x_n$, hence $x_0$ is a limit point.
+\end{proposition}
+
+\begin{definition}[Closed]
+    $E\subset\r$ is closed if it contains all its limit points.
+\end{definition}
+
+\begin{example}
+    $(0,1)$ is not closed.
+
+    $\{0\}$ is closed.
+
+    $\varnothing$ is closed.
+
+    $\z$ is closed.
+
+    $\left\{\dfrac{1}{n} : n\in\n\right\}$ is not closed since $0$ is a limit point not contained in the set.
+\end{example}
+
+\begin{definition}[Closure]
+    The closure of $E$, denoted $\overline{E}$ or $\cl(E)$, is the union of $E$ with all its limit points.
+\end{definition}
+
+\begin{example}
+    $\overline{(0,1)} = [0,1]$.
+
+    $\overline{\{0\}} = \{0\}$.
+\end{example}
+
+\begin{proposition}{
+    $E$ is closed if and only if $E = \cl(E)$.
+}
+              If $E$ is closed, it contains all its limit points, so $\cl(E)=E$.
+
+              Conversely, if $E=\cl(E)$, then $E$ contains all its limit points, hence is closed.
+\end{proposition}

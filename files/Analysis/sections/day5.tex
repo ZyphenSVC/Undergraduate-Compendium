@@ -1,0 +1,29 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Cantor's Theorem}
+
+\lesson{5}{Friday 22 August 2025 9:10}{Day 5}
+
+\begin{theorem}[Cantor's Diagonalization Argument]{
+    Interval $C\subset\r$ is uncountable.
+}
+	Suppose for the sake of contradiction, $C$ is countable, and let $c_1,c_2,\ldots$ enumerate $C$ such that each $c_i$ is written in decimal expansion:
+    \begin{align*}
+        c_1 &= (c_{11},c_{12},c_{13},\ldots)\\
+        c_2 &= (c_{21},c_{22},\ldots)\\
+        c_3 &= (c_{31},\ldots)\\
+        &\vdots
+    \end{align*}
+    Construct $\gamma\in\r$ such that $\gamma\neq c_i$ for all $i$
+    \[
+        \gamma_j \coloneqq
+        \begin{cases}
+            1 &, c_{jj} \neq 1\\
+            0 &, c_{jj} = 1
+        \end{cases}
+    \]
+    Then $\gamma$ differs from each $c_k$ in the $k$-th digit, so $\gamma\neq c_k$ for all $k$.
+    This contradicts that $\{c_i\}$ enumerates $C$.
+    Hence $C$ is uncountable.
+\end{theorem}

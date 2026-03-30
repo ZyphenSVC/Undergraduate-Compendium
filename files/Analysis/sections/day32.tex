@@ -1,0 +1,238 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{32}{Friday 24 October 2025 9:10}{Day 32}
+
+\begin{theorem}{
+    If $f:\r\to\r$ is monotone, then
+    \begin{enumerate}
+        \item every discontinuity of $f$ is a jump discontinuity,
+        \item the set of discontinuities of $f$ is countable.
+    \end{enumerate}
+}
+    \textbf{(1).}
+    Assume without loss of generality that $f$ is increasing.
+
+    We want to show that for every $x_0\in\r$, both $f(x_0^-)$ and $f(x_0^+)$ exist, and
+    \[
+        f(x_0^-)\leq f(x_0)\leq f(x_0^+).
+    \]
+
+    In fact, we claim that
+    \[
+        f(x_0^+) = \inf\{f(x) : x > x_0\}
+    \]
+    and
+    \[
+        f(x_0^-) = \sup\{f(x) : x < x_0\}.
+    \]
+
+    Since $f(x_0)\leq f(x)$ for all $x>x_0$, the set $\{f(x):x>x_0\}$ is bounded below.
+
+    So its infimum exists.
+
+    Let
+    \[
+        \iota \coloneqq \inf\{f(x):x>x_0\}.
+    \]
+
+    Let $\eps > 0$.
+
+    Then there exists $x^\star > x_0$ such that
+    \[
+        \iota \leq f(x^\star) < \iota + \eps.
+    \]
+
+    If $x_0 < x < x^\star$, then since $f$ is increasing,
+    \[
+        \iota \leq f(x)\leq f(x^\star) < \iota + \eps.
+    \]
+
+    So if we take
+    \[
+        \delta \coloneqq x^\star - x_0,
+    \]
+    then
+    \[
+        0 < x-x_0 < \delta \implies \abs{f(x)-\iota}<\eps.
+    \]
+
+    Hence
+    \[
+        \lim_{x\to x_0^+} f(x) = \iota.
+    \]
+
+    Similarly,
+    \[
+        f(x_0^-) = \sup\{f(x):x<x_0\}
+    \]
+    exists.
+
+    Therefore both one-sided limits exist at every point.
+
+    So every discontinuity is a jump discontinuity.
+
+    \textbf{(2).}
+    Let $J\subset\r$ be the set of discontinuities of $f$.
+
+    If $x_0,x_1\in J$ and $x_0<x_1$, then for every $x$ with $x_0<x<x_1$,
+    \[
+        f(x_0^+)\leq f(x)\leq f(x_1^-).
+    \]
+
+    Hence
+    \[
+        f(x_0^+) \leq f(x_1^-).
+    \]
+
+    Since $x_0$ and $x_1$ are jump discontinuities,
+    \[
+        f(x_0^-) < f(x_0^+)
+        \quad\text{and}\quad
+        f(x_1^-) < f(x_1^+).
+    \]
+
+    Therefore
+    \[
+        (f(x_0^-),f(x_0^+))\cap (f(x_1^-),f(x_1^+)) = \varnothing.
+    \]
+
+    For each $x\in J$, choose
+    \[
+        q(x)\in \q\cap (f(x^-),f(x^+)).
+    \]
+
+    This defines an injective map
+    \[
+        q:J\to\q.
+    \]
+
+    Since $\q$ is countable, $J$ is countable.
+\end{theorem}
+
+\begin{lemma}{
+    Let $S\subset\r$.
+    Then the set
+    \[
+        S\uptick \coloneqq \{x\in S : \text{$x$ is isolated in $S$}\}
+    \]
+    is countable.
+}
+    For each $x\in S\uptick$, since $x$ is isolated in $S$, there exists $\eps_x>0$ such that
+    \[
+        (x-\eps_x,x+\eps_x)\cap S = \{x\}.
+    \]
+
+    Choose rationals $p_x,q_x\in\q$ such that
+    \[
+        x\in (p_x,q_x)\subset (x-\eps_x,x+\eps_x).
+    \]
+
+    Define
+    \[
+        \phi(x)\coloneqq (p_x,q_x)\in \q\times\q.
+    \]
+
+    This map is injective.
+
+    Indeed, if $\phi(x)=\phi(y)$, then $x,y\in (p_x,q_x)\cap S$.
+
+    But
+    \[
+        (p_x,q_x)\cap S = \{x\},
+    \]
+    so $y=x$.
+
+    Since $\q\times\q$ is countable, $S\uptick$ is countable.
+\end{lemma}
+
+\begin{theorem}{
+    If $f:\r\to\r$ is any function, then the set of removable and jump discontinuities is countable.
+}
+    For $\alpha > 0$, define
+    \[
+        D_\alpha \coloneqq \left\{x\in\r :
+                               \begin{array}{l}
+                                   f(x^-),f(x^+) \text{ both exist, and either}\\[4pt]
+                                   \abs{f(x^+) - f(x^-)} > \alpha,\ \text{or}\\[4pt]
+                                   \abs{f(x^+) - f(x)} > \alpha,\ \text{or}\\[4pt]
+                                   \abs{f(x^-) - f(x)} > \alpha
+                               \end{array}
+        \right\}.
+    \]
+
+    Then
+    \[
+        \bigcup_{n=1}^\infty D_{1/n}
+    \]
+    is exactly the set of removable and jump discontinuities of $f$.
+
+    We claim that every point of $D_\alpha$ is isolated in $D_\alpha$.
+
+    Let $x_0\in D_\alpha$.
+
+    Since $f(x_0^-)$ and $f(x_0^+)$ both exist, there exists $\delta > 0$ such that
+    \begin{align*}
+        -\delta < x-x_0 < 0 &\implies \abs{f(x)-f(x_0^-)} < \frac{\alpha}{3},\\
+        0 < x-x_0 < \delta &\implies \abs{f(x)-f(x_0^+)} < \frac{\alpha}{3}.
+    \end{align*}
+
+    Now let $x$ satisfy
+    \[
+        0 < \abs{x-x_0} < \delta.
+    \]
+
+    Assume first that
+    \[
+        x_0 < x < x_0+\delta.
+    \]
+
+    Then if $y,z$ are sufficiently close to $x$ from either side, we still have $x_0<y,z<x_0+\delta$.
+
+    Hence
+    \[
+        \abs{f(y)-f(x_0^+)} < \frac{\alpha}{3}
+        \quad\text{and}\quad
+        \abs{f(z)-f(x_0^+)} < \frac{\alpha}{3}.
+    \]
+
+    Therefore
+    \[
+        \abs{f(y)-f(z)} < \frac{2\alpha}{3}.
+    \]
+
+    It follows that
+    \[
+        \abs{f(x^+) - f(x^-)} \leq \frac{2\alpha}{3},
+    \]
+    and similarly
+    \[
+        \abs{f(x^+) - f(x)} \leq \frac{2\alpha}{3},
+        \quad
+        \abs{f(x^-) - f(x)} \leq \frac{2\alpha}{3}.
+    \]
+
+    So $x\notin D_\alpha$.
+
+    The case
+    \[
+        x_0-\delta < x < x_0
+    \]
+    is analogous.
+
+    Hence no point of $D_\alpha\setminus\{x_0\}$ lies in $(x_0-\delta,x_0+\delta)$.
+
+    So $x_0$ is isolated in $D_\alpha$.
+
+    Thus every point of $D_\alpha$ is isolated in $D_\alpha$.
+
+    By the lemma, each $D_\alpha$ is countable.
+
+    Since
+    \[
+        \bigcup_{n=1}^\infty D_{1/n}
+    \]
+    is a countable union of countable sets, it is countable.
+
+    Hence the set of removable and jump discontinuities is countable.
+\end{theorem}

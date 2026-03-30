@@ -1,0 +1,72 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{25}{Wednesday 8 October 2025 9:10}{Day 25}
+
+\begin{proof}[Continuation of Heine-Borel Proof]
+	\textbf{((2)$\implies$(3)).}
+    Let $\{U_\alpha\}_{\alpha\in A}$ be an open cover of $C$.
+    By the lemma, we may assume $A = \n$.
+    We claim that there exists $N\in\n$ such that
+    \[
+        C\subset \bigcup_{i=1}^N U_i.
+    \]
+    Suppose not.
+    Then for each $n\in\n$, we have
+    \[
+        C\setminus\bigcup_{i=1}^n U_i \neq \varnothing.
+    \]
+    Choose $x_n\in C$ such that $x_n\notin\bigcup_{i=1}^n U_i$.
+    By (2), there exists a subsequence $(x_{n_k})$ such that $x_{n_k}\to x\in C$.
+    Since $C\subset \bigcup_{i=1}^\infty U_i$, there exists $M\in\n$ such that $x\in U_M$.
+    Since $U_M$ is open, there exists $\eps > 0$ such that $\vee_\eps(x)\subset U_M$.
+    Since $x_{n_k}\to x$, there exists $K\in\n$ such that $k\geq K$ implies $x_{n_k}\in \vee_\eps(x)\subset U_M$.
+    Choose $k$ large enough such that $n_k > M$.
+    Then $x_{n_k}\in U_M \subset \bigcup_{i=1}^{n_k} U_i$.
+    This contradicts the construction of $x_{n_k}$.
+    Hence a finite subcover exists.
+    \textbf{((3)$\implies$(1)).}
+    Suppose $C$ is unbounded.
+    Let $U_n \coloneqq (-n,n)$ for $n\in\n$.
+    Then $\{U_n\}$ is an open cover of $C$.
+    If there exists a finite subcover, then there exists $N\in\n$ such that
+    \[
+        C\subset (-N,N),
+    \]
+    which contradicts unboundedness.
+    Hence $C$ must be bounded.
+    Suppose $C$ is not closed.
+    Then there exists a limit point $x\notin C$.
+    Let
+    \[
+        U_n \coloneqq \r\setminus (x - \tfrac{1}{n}, x + \tfrac{1}{n}).
+    \]
+    Then each $U_n$ is open.
+    We claim $\{U_n\}$ covers $C$.
+    Let $y\in C$.
+    Since $y\neq x$, there exists $n\in\n$ such that $\tfrac{1}{n} < \abs{y-x}$.
+    Hence $y\in U_n$.
+    Thus $\{U_n\}$ is an open cover of $C$.
+    Since $x$ is a limit point of $C$, for every $N\in\n$, there exists $z\in C\cap \vee_{1/N}(x)$.
+    Hence $z\notin U_N$.
+    Therefore no finite subcollection $\{U_1,\ldots,U_N\}$ covers $C$.
+    This contradicts (3).
+    Hence $C$ is closed.
+\end{proof}
+
+\begin{theorem}[Nested Compact Sets Property]{
+    If $C_1\supset C_2\supset\cdots$ are non-empty compact sets, then
+    \[
+        \bigcap_{i=1}^\infty C_i \neq \varnothing.
+    \]
+}
+    Choose $x_n\in C_n$ for each $n\in\n$.
+    Since $C_1$ is compact, there exists a subsequence $(x_{n_k})$ such that $x_{n_k}\to x\in C_1$.
+    Fix $N\in\n$.
+    For all sufficiently large $k$, we have $n_k\geq N$, hence $x_{n_k}\in C_{n_k}\subset C_N$.
+    Since $C_N$ is closed and $x_{n_k}\to x$, we have $x\in C_N$.
+    Since $N$ was arbitrary, we conclude
+    \[
+        x\in \bigcap_{i=1}^\infty C_i.
+    \]
+\end{theorem}

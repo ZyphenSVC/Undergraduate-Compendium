@@ -1,0 +1,67 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{7}{Wednesday 27 August 2025 9:10}{Day 7}
+
+\begin{proposition}{
+    Any convergent sequence is bounded.\label{thm:2.3.2}
+}
+    Prove this as an exercise.
+\end{proposition}
+
+\begin{proposition}{
+    Convergence is a "tail phenomenon".
+    If $(x_n) = (z_n)$ for $n > C$, there exists $C\in\n$ such that $(x_n)\to L$ if and only if $(z_n)\to L$.
+}
+    Prove this as an exercise.
+\end{proposition}
+
+\begin{proposition}{
+    For $(x_n)\to L$ and $(y_n)\to M$, then $(x_{n}y_n)\to LM$.
+}
+    Let $\epsilon > 0$ be given.
+    Then:
+    \begin{align*}
+        x_{n}y_n - LM &= x_{n}y_n - x_{n}M + x_{n}M - LM\\
+        &= x_n(y_n - M) + M(x_n - L)
+    \end{align*}
+    Let $0 < C\in\r$ such that $\abs{x_n}\leq C$ for all $n\in\n$.
+    By the first proposition, take $N_1,N_2\in\n$ such that $n > N_1$, then $\abs{x_n - L} < \dfrac{\eps}{2(\abs{M} + 1)}$.
+    Since $M$ may be $0$, we add $1$.
+    For all $n > N_2$, then $\abs{y_n - M} < \dfrac{\eps}{2(\abs{C} + 1)}$.
+    For all $n > N \coloneqq \max(N_1,N_2)$:
+    \begin{align*}
+        \abs{x_{n}y_n - LM} &= \abs{x_n(y_n - M) + M(x_n - L)}\\
+        &\leq \abs{x_n}\abs{y_n - M} + \abs{M}\abs{x_n - L}\\
+        &< \abs{C}\dfrac{\eps}{2(\abs{C} + 1)} + \abs{M}\dfrac{\eps}{2(\abs{M} + 1)}\\
+        &= \eps\dfrac{\abs{C}}{2(\abs{C} + 1)} + \eps\dfrac{\abs{M}}{2(\abs{M} + 1)}\\
+        &< \eps\left(\dfrac{1}{2} + \dfrac{1}{2}\right)\\
+        &= \eps.
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}{
+    For $(x_n)\to L$, $(y_n)\to M$, if $M\neq 0$ and $y_n\neq 0$ for all $n\in\n$ then $\left(\dfrac{x_n}{y_n}\right)\to \dfrac{L}{M}$.
+}
+    Prove this as an exercise.
+    It suffices to show $\left(\dfrac{1}{y_n}\right)\to\dfrac{1}{M}$, then use the product property.
+\end{proposition}
+
+\begin{proposition}{
+    If $(y_n)\to M\neq 0$, then there exists $N\in\n$ such that for all $n > N$, $y_n\neq 0$.
+}
+    Prove this as an exercise.
+\end{proposition}
+
+\begin{proposition}{
+    If $(y_n)$ is a convergent sequence with $M\neq 0$, and $y_n > 0$ for all $n\in\n$, then there exists $\epsilon > 0$ such that $\abs{y_n} > \epsilon$.
+}
+    Let $N\in\n$ such that $n > N$, $\abs{y_n - M} < \dfrac{\abs{M}}{2} > 0$ since $M\neq 0$.
+    Then $\abs{y_n} > \dfrac{\abs{M}}{2}$.
+    Now let:
+    \[
+        \epsilon \coloneqq \dfrac{1}{2}\min\{\abs{y_1},\abs{y_2},\ldots,\abs{y_N},\dfrac{\abs{M}}{2}\},
+    \]
+    which is a finite list of positive numbers.
+    Hence the minimum is also positive.
+\end{proposition}

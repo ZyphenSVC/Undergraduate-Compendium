@@ -1,0 +1,103 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{24}{Monday 6 October 2025 9:10}{Day 24}
+
+Restatement of Heine-Borel.
+
+\begin{theorem}[Heine-Borel]{
+    Let $C\subset\r$. The following are equivalent:
+    \begin{enumerate}
+        \item $C$ is closed and bounded.
+        \item Every sequence in $C$ admits a convergent subsequence whose limit lies in $C$.
+        \item Every open cover of $C$ admits a finite subcover.
+        \item $C$ is compact.
+    \end{enumerate}
+}
+	\textbf{((1)$\implies$(2)).}
+    Given $(x_n)$ a sequence in $C$, it is bounded.
+    Hence by Bolzano-Weierstrass, there is a convergent subsequence $x_{n_k}\to x\upstar$.
+
+    \begin{remark}
+        Since $C$ is closed, every limit point of $C$ belongs to $C$.
+    \end{remark}
+
+    Either $x\upstar = x_{n_k}$ for some $k$, or $x\upstar$ is a limit point of $C$.
+    In either case, $x\upstar\in C$.
+
+    \textbf{((2)$\implies$(1)).}
+    If $C$ is unbounded, then for each $n\in\n$, there exists $x_n\in C$ such that $\abs{x_n} > n$.
+    Then no subsequence of $(x_n)$ can converge, a contradiction.
+    Hence $C$ is bounded.
+
+    If $z$ is a limit point of $C$, then there exists a sequence $(x_n)$ in $C$ such that $x_n\to z$.
+    By (2), there exists a subsequence $(x_{n_k})$ converging to some point of $C$.
+    Since every subsequence of a convergent sequence converges to the same limit, we have $x_{n_k}\to z$.
+    Hence $z\in C$.
+    Therefore $C$ is closed.
+
+    \begin{remark}
+        Here we take a break from connecting (3).
+    \end{remark}
+\end{theorem}
+
+\begin{example}
+    If $C = [0,1]$, for each $x\in C$, let $\eps > 0$, then put $U_x \coloneqq \vee_{\eps} (x)$.
+    Hence, $\{U_x\}$ is an open cover of $[0,1]$.
+\end{example}
+
+\begin{lemma}[How to find an open cover of $C$.]{
+    Let $\{U_\alpha\}_{\alpha\in A}$ be some family of open sets in $\r$.
+    Then there exists a countable set $\{\alpha_1,\alpha_2,\ldots\}\subset A$, such that
+    \[
+        \bigcup_{i=1}^\infty U_{\alpha_i} = \bigcup_{\alpha\in A} U_\alpha.
+    \]
+}
+    \begin{remark}
+        This lemma was confusing to the majority of the class, however, I will try my best to explain as I feel confident in my understanding.
+    \end{remark}
+
+    Let $\mathcal{Q} \coloneqq \{(p,q) : p,q\in\q, p < q\}$.
+    Then $\mathcal{Q}$ is countable.
+
+    Let
+    \[
+        \mathcal{Q}\uptick \coloneqq \{(p,q)\in\mathcal{Q} : \exists \alpha\in A,\ (p,q)\subset U_\alpha\}.
+    \]
+    Then $\mathcal{Q}\uptick$ is countable.
+
+    Given $(p,q)\in\mathcal{Q}\uptick$, select $\phi(p,q)\in A$ such that $(p,q)\subset U_{\phi(p,q)}$.
+    Thus $\{U_{\phi(p,q)}\}_{(p,q)\in\mathcal{Q}\uptick}$ is countable.
+
+    \begin{remark}
+        Given that $\mathcal{Q}$ is countable, we are trying to find an open cover that can be comprised of subcovers.
+        Since we have found a countable set of intervals, then we take a subset of $\mathcal{Q}$ with more restrictions.
+        Hence we now have countable subcovers.
+    \end{remark}
+
+    If $x\in\bigcup_{\alpha\in A} U_\alpha$, then $x\in U_{\alpha_0}$ for some $\alpha_0\in A$.
+    Since $U_{\alpha_0}$ is open, there exists $\eps > 0$ such that $\vee_{\eps} (x)\subset U_{\alpha_0}$.
+
+    Choose $p\in\q\cap (x-\eps, x)$ and $q\in\q\cap (x, x + \eps)$.
+    Then
+    \[
+        x\in (p,q)\subset \vee_{\eps} (x)\subset U_{\alpha_0}.
+    \]
+    Thus $(p,q)\in\mathcal{Q}\uptick$ and $x\in U_{\phi(p,q)}$.
+
+    Hence,
+    \[
+        x\in\bigcup_{(p,q)\in\mathcal{Q}\uptick} U_{\phi(p,q)}.
+    \]
+
+    Therefore
+    \[
+        \bigcup_{\alpha\in A} U_\alpha \subset \bigcup_{(p,q)\in\mathcal{Q}\uptick} U_{\phi(p,q)}.
+    \]
+
+    The reverse inclusion is immediate.
+    So
+    \[
+        \bigcup_{(p,q)\in\mathcal{Q}\uptick} U_{\phi(p,q)} = \bigcup_{\alpha\in A} U_\alpha.
+    \]
+\end{lemma}

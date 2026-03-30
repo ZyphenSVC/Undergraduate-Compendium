@@ -1,0 +1,90 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Some Preliminaries}
+
+\lesson{1}{Wednesday 13 August 2025 09:10}{Day 1}
+
+Though things arise naturally out of studies like Algebra, some claim that we need to go beyond
+such, and apply some intuition and \('\)analytical\('\) prowess to find ideas from what may seem
+abstract or uncorrelated.
+Real Analysis gave foundation and birth to many different fields we
+know today, including most of the applied math workforce, such as Chemists, Physicists,
+Biologists, Meteorologists, and so forth.
+But within math, also optimization, complex analysis,
+differential equations, differential geometry, and so forth.
+It is essentially a cornerstone of
+mathematics, regarded by many.
+
+\begin{definition}[Real Numbers]
+	\textbf{The complete ordered} field that contains $\q$.
+\end{definition}
+
+\begin{definition}[Rational Numbers]
+    \[\q = \{\dfrac{a}{b} : a,b\in\z, b\neq 0\}\]
+\end{definition}
+
+\begin{definition}[Integers]
+	\[\z = \{\pm n : n\in\n\}\cup\{0\}\]
+\end{definition}
+
+\begin{definition}[Naturals]
+	\[\n = \{1,2,\ldots\}\]
+\end{definition}
+
+\begin{example}[Another Defintion of Rationals]
+    It can be said that the rationals can be defined like the following.
+	\[\q = \z\times (\z\setminus\{0\})\]
+\end{example}
+
+\begin{remark}
+    Note that when were asserting $\q$, then we were unable to use the defining operator : $\coloneqq$.
+\end{remark}
+
+\begin{corollary}{
+    Suppose we have $(a,b), (\alpha,\beta)\in\z\times(\z\setminus\{0\})$. Then $(a,b)\sim(\alpha,\beta)$ if and only if $\alpha b = a\beta$.
+}
+\end{corollary}
+
+\begin{definition}[Equivalence Relation]
+    Equivalence relations have three properties.
+    Reflexivity, Symmetry, and Transitivity.
+	The reflexive property holds $(a,b)\sim(a,b)$ is true.
+	The symmetric property holds if $(a,b)\sim(\alpha,\beta)$, then $(\alpha,\beta)\sim(a,b)$.
+	The transitive property holds if $(a,b)\sim(\alpha, \beta)$ and $(\alpha,\beta)\sim(c,d)$, then $(a,b)\sim(c,d)$.
+	Prove this property for Exercise 1.
+\end{definition}
+
+\begin{remark}
+Hence, we can define the rationals as the following.
+	\[\q \coloneqq \dfrac{\z\times(\z\setminus\{0\})}{\sim}\]
+\end{remark}
+
+\begin{definition}[Equivalence Class]
+	\[[(a,b)] + [(\alpha,\beta)] = [(a\beta + \alpha b, b\beta)]\].
+\end{definition}
+
+\begin{proposition}[Addition is well-defined.]{
+	Given $(a,b)\sim(c,d)$ and $(\alpha,\beta)\sim(\gamma,\delta)$, then $(a \beta + \alpha b, b\beta)\sim(c \delta + \beta d, d\delta)$. Prove this for Exercise 2.
+}
+\end{proposition}
+
+\begin{lemma}[Irrationality Proof]{
+	There is no $q\in\q$ such that $q^2 = 2$. We call this, $\sqrt{2}$ irrational.
+}
+	Suppose for the sake of contradiction, if $q = \dfrac{a}{b}$ $a,b\in\z$ and $a,b$ coprime, then $q^2 = \dfrac{a^2}{b^2} = 2$.
+	Thus $a^2 = 2b^2$, then $a^2$ is even.
+	Furthermore, $a = 2k$ for some $k\in\z$, therefore $a^2 = 4k^2$.
+	Hence, $b^2$ is even, which contradicts our coprime assumption.
+\end{lemma}
+
+\begin{remark}
+	The direct statement of this lemma is:
+	\begin{displayquote}
+		If $q^2 = 2$, then $q\notin\q$.
+	\end{displayquote}
+	A contrapositive of this lemma is:
+	\begin{displayquote}
+		If $q\in\q$, then $q^2\neq 2$.
+	\end{displayquote}
+\end{remark}

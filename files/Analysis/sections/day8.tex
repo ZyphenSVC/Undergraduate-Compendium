@@ -1,0 +1,40 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{8}{Friday 29 August 2025 9:10}{Day 8}
+
+\begin{proposition}{
+    If $y_n\neq 0$ for all $n\in\n$ and $y_n\to M\neq 0$, then there exists $\epsilon > 0$ such that $\abs{y_n}\geq \epsilon$ for all $n\in\n$.
+}
+    Let $N\in\n$ such that for all $n > N$, $\abs{y_n - M} < \dfrac{\abs{M}}{2}$.
+    Then for all $n > N$, $\abs{y_n} > \dfrac{\abs{M}}{2}$.
+    Let
+    \[
+        \epsilon \coloneqq \min\{\abs{y_1},\abs{y_2},\ldots,\abs{y_N},\dfrac{\abs{M}}{2}\}.
+    \]
+    This is a finite list of positive numbers.
+    Hence $\epsilon > 0$.
+    Therefore $\abs{y_n} \geq \epsilon$ for all $n\in\n$.
+\end{proposition}
+
+\begin{remark}
+    An aside from Dr. Fu, not verbatim:
+    \begin{displayquote}
+        Something I have noticed upon teaching this class [$\ldots$] there seems to be a struggle with understanding negation in mathematics.
+        [$\ldots$] It is fine if you have never seen it or properly learned it, best to come to office hours to quickly fix this for the rest of this course. $\sim$ \textit{Joseph H.G Fu}
+    \end{displayquote}
+    The negation of the statement $(x_n)\to 4$:
+    \[
+        (x_n \to 4) \iff \forall \epsilon > 0,\ \exists N\in\n,\ \forall n > N,\ \abs{x_n - 4} < \epsilon.
+    \]
+    Its negation is:
+    \[
+        \exists \epsilon > 0,\ \forall N\in\n,\ \exists n > N \text{ such that } \abs{x_n - 4} \geq \epsilon.
+    \]
+\end{remark}
+
+\begin{theorem}[Bolzano-Weierstrass]{
+    Any bounded sequence in $\r$ has a convergent subsequence.
+}
+    The proof will be given next class.
+\end{theorem}

@@ -1,0 +1,237 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{50}{Self-Study Six}{Day 50}
+
+\begin{definition}[Connectedness]
+	A metric space $(X,d)$ is connected if it is impossible to write
+	\[
+		X = U_1\cup U_2
+	\]
+	as a disjoint union of nonempty open sets with
+	\[
+		U_1\cap U_2 = \varnothing.
+	\]
+\end{definition}
+
+\begin{example}[Examples of Connected Sets]
+	\[
+		\r,\quad \r^n,\quad [a,b].
+	\]
+\end{example}
+
+\begin{theorem}{
+	Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and let $f:X\to Y$ be continuous.
+
+	If $X$ is connected, then $f(X)$ is connected.
+}
+	Suppose, for the sake of contradiction, that $f(X)$ is disconnected.
+
+	Then
+	\[
+		f(X) = U_1\cup U_2
+	\]
+	where $U_1,U_2$ are nonempty disjoint open sets in $Y$.
+
+	Then
+	\[
+		X = f^{-1}(U_1)\cup f^{-1}(U_2).
+	\]
+
+	Since $f$ is continuous, $f^{-1}(U_1)$ and $f^{-1}(U_2)$ are open.
+
+	They are disjoint and nonempty.
+
+	This contradicts connectedness of $X$.
+
+	Hence $f(X)$ is connected.
+\end{theorem}
+
+\begin{theorem}[Intermediate Value Theorem]{
+	Let $X$ be connected and $f:X\to\r$ be continuous.
+
+	If $a,b\in f(X)$ and $a < r < b$, then $r\in f(X)$.
+}
+	Suppose, for the sake of contradiction, that $r\notin f(X)$.
+
+	Let
+	\[
+		A \coloneqq (-\infty,r)
+		\qquad\text{and}\qquad
+		B \coloneqq (r,\infty).
+	\]
+
+	Then
+	\[
+		f(X)\subseteq A\cup B.
+	\]
+
+	So
+	\[
+		X = f^{-1}(A)\cup f^{-1}(B).
+	\]
+
+	Both sets are open, disjoint, and nonempty.
+
+	This contradicts connectedness of $X$.
+
+	Hence $r\in f(X)$.
+\end{theorem}
+
+\begin{definition}[Directional Derivative]
+	Given $U\subset\r^n$ open, $f:U\to\r^m$, $a\in U$, and $u\in\r^n$, define
+	\[
+		D_u f(a) \coloneqq \lim_{t\to0}\frac{f(a + tu) - f(a)}{t}.
+	\]
+\end{definition}
+
+\begin{remark}
+	In single-variable calculus,
+	\[
+		f\uptick(a) = \lim_{t\to 0}\frac{f(a + t) - f(a)}{t}.
+	\]
+
+	Define $\lambda:\r\to\r$ by
+	\[
+		\lambda(t) \coloneqq f\uptick(a)t.
+	\]
+
+	Then
+	\begin{align*}
+		\lim_{t\to0}\frac{f(a+t) - f(a) - \lambda(t)}{t}
+		&= \lim_{t\to0}\left(\frac{f(a+t) - f(a)}{t} - f\uptick(a)\right)\\
+		&= 0.
+	\end{align*}
+
+	So for small $t$,
+	\[
+		f(a+t) - f(a) \approx f\uptick(a)t.
+	\]
+\end{remark}
+
+\begin{definition}[Differentiability]
+	Given $U\subset\r^n$ open and $a\in U$, a function $f:U\to\r^m$ is differentiable at $a$ if there exists a linear map $B:\r^n\to\r^m$ such that
+	\[
+		\frac{f(a+h) - f(a) - Bh}{\norm{h}}\to 0
+		\qquad\text{as } h\to 0.
+	\]
+
+	In this case, $Bh$ approximates $f(a+h)-f(a)$.
+\end{definition}
+
+\begin{theorem}{
+	If $f$ is differentiable at $a$, then for every $u\in\r^n$, the directional derivative $D_u f(a)$ exists and
+	\[
+		D_u f(a) = Bu.
+	\]
+}
+	Since $f$ is differentiable at $a$,
+	\[
+		\frac{f(a+tu) - f(a) - B(tu)}{\norm{tu}}\to 0
+		\qquad\text{as } t\to 0.
+	\]
+
+	Then
+	\begin{align*}
+		\frac{f(a+tu) - f(a)}{t}
+		&= \frac{B(tu)}{t} + \frac{f(a+tu) - f(a) - B(tu)}{t}\\
+		&= Bu + \frac{f(a+tu) - f(a) - B(tu)}{t}.
+	\end{align*}
+
+	The second term goes to $0$ as $t\to 0$.
+
+	Hence
+	\[
+		\frac{f(a+tu) - f(a)}{t}\to Bu.
+	\]
+\end{theorem}
+
+\begin{remark}
+	We use $Df(a)$ to denote the derivative.
+\end{remark}
+
+\section{Lebesgue's Criterion for Riemann Integrability}
+
+\begin{observation}
+	The following is Thomae's function.
+
+	It is continuous at every irrational point and discontinuous at every rational point.
+
+	Nevertheless, it is Riemann integrable on $[0,1]$ with
+	\begin{gather*}
+	    \int_0^1 t(x)\,dx = 0.\\
+	    t(x) =
+		\begin{cases}
+			1, & x=0,\\
+			1/n, & x=m/n\in\q\setminus\{0\}\text{ in lowest terms},\\
+			0, & x\notin\q.
+		\end{cases}\\
+	\end{gather*}
+\end{observation}
+
+\begin{definition}[Measure Zero]
+	A set $A$ has measure zero if for all $\eps > 0$, there exists a countable collection of open intervals $\{O_n\}$ such that
+	\[
+		A\subseteq\bigcup_{n=1}^\infty O_n
+		\qquad\text{and}\qquad
+		\sum_{n=1}^\infty\abs{O_n}\leq\eps.
+	\]
+\end{definition}
+
+\begin{theorem}[Lebesgue's Theorem]{
+	Let $f$ be bounded on $[a,b]$.
+
+	Then $f$ is Riemann integrable if and only if the set of discontinuities has measure zero.
+}
+	Let $M>0$ such that $\abs{f(x)}\leq M$ for all $x\in[a,b]$.
+
+	Define
+	\begin{gather*}
+	    D \coloneqq \{x\in[a,b] : \text{$f$ is not continuous at $x$}\}.\\
+	    D^\alpha \coloneqq \{x\in[a,b] : \text{$f$ is not $\alpha$-continuous at $x$}\}.\\
+	\end{gather*}
+
+	\textbf{($\impliedby$).}
+
+	Suppose $D$ has measure zero.
+
+	Let $\eps > 0$ and set
+	\[
+		\alpha \coloneqq \frac{\eps}{2(b-a)}.
+	\]
+
+	\begin{problem}
+		Show there exists a finite collection of disjoint open intervals $\{G_1,\ldots,G_N\}$ covering $D^\alpha$ such that
+		\[
+			\sum_{n=1}^N \abs{G_n} < \frac{\eps}{4M}.
+		\]
+	\end{problem}
+
+	\begin{problem}
+		Let $K \coloneqq [a,b]\setminus \bigcup_{n=1}^N G_n$.
+
+		Show $f$ is uniformly $\alpha$-continuous on $K$.
+	\end{problem}
+
+	\begin{problem}
+		Construct a partition $P_\eps$ such that
+		\[
+			U(f,P_\eps)-L(f,P_\eps)\leq \eps.
+		\]
+	\end{problem}
+
+	\textbf{($\implies$).}
+
+	Suppose $f$ is Riemann integrable.
+
+	Given $\eps > 0$ and $\alpha > 0$, choose a partition $P_\eps$ such that
+	\[
+		U(f,P_\eps)-L(f,P_\eps) < \alpha\eps.
+	\]
+
+	\begin{problem}
+		(a) Show $D^\alpha$ has measure zero.
+
+		(b) Deduce $D$ has measure zero.
+	\end{problem}
+\end{theorem}

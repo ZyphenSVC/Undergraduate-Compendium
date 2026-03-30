@@ -1,0 +1,122 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{27}{Monday 13 October 2025 9:10}{Day 27}
+
+\begin{theorem}{
+    Any non-empty perfect set is uncountable.
+}
+    Suppose $P\neq\varnothing$ is perfect and let $x_1,x_2,\ldots$ be any sequence of points in $P$.
+
+    We will show
+    \[
+        P\setminus\{x_1,x_2,\ldots\}\neq\varnothing.
+    \]
+
+    We construct closed intervals
+    \[
+        J_1 \supset J_2 \supset J_3 \supset \cdots
+    \]
+    such that:
+    \begin{enumerate}
+        \item $J_n\cap P\neq\varnothing$,
+        \item $x_n\notin J_n$,
+        \item $J_{n+1}\subset J_n$.
+    \end{enumerate}
+
+    Since $P$ is perfect, every point of $P$ is a limit point of $P$.
+
+    Choose $z_1\in P$ with $z_1\neq x_1$.
+
+    Let
+    \[
+        \eps_1 \coloneqq \frac{1}{2}\abs{z_1-x_1}.
+    \]
+
+    Set
+    \[
+        J_1 \coloneqq [z_1-\eps_1,z_1+\eps_1].
+    \]
+
+    Then $x_1\notin J_1$.
+
+    Also $J_1\cap P\neq\varnothing$ since $z_1\in J_1\cap P$.
+
+    Suppose $J_n$ has been chosen with $J_n\cap P\neq\varnothing$ and $x_n\notin J_n$.
+
+    Since $J_n\cap P$ is non-empty and every point of $P$ is a limit point of $P$, we may choose
+    \[
+        z_{n+1}\in (J_n\cap P)\setminus\{x_{n+1}\}.
+    \]
+
+    Because $J_n$ is a closed interval and $z_{n+1}\in J_n$, there exists $\delta_{n+1}>0$ such that
+    \[
+        [z_{n+1}-\delta_{n+1},z_{n+1}+\delta_{n+1}] \subset J_n.
+    \]
+
+    Let
+    \[
+        \eps_{n+1} \coloneqq \frac{1}{2}\min\{\abs{z_{n+1}-x_{n+1}},\delta_{n+1}\}.
+    \]
+
+    Define
+    \[
+        J_{n+1} \coloneqq [z_{n+1}-\eps_{n+1},z_{n+1}+\eps_{n+1}].
+    \]
+
+    Then $J_{n+1}\subset J_n$ and $x_{n+1}\notin J_{n+1}$.
+
+    Also $J_{n+1}\cap P\neq\varnothing$ since $z_{n+1}\in J_{n+1}\cap P$.
+
+    Thus the construction is complete.
+
+    Since each $J_n$ is closed and bounded, it is compact.
+
+    Since $P$ is closed, each $J_n\cap P$ is compact.
+
+    Also
+    \[
+        J_1\cap P \supset J_2\cap P \supset J_3\cap P \supset \cdots
+    \]
+    is a nested sequence of non-empty compact sets.
+
+    Hence
+    \[
+        \bigcap_{n=1}^\infty (J_n\cap P)\neq\varnothing.
+    \]
+
+    Let
+    \[
+        y\in \bigcap_{n=1}^\infty (J_n\cap P).
+    \]
+
+    Then $y\in P$.
+
+    Also, for each $n$, since $x_n\notin J_n$ and $y\in J_n$, we have $y\neq x_n$.
+
+    Therefore
+    \[
+        y\in P\setminus\{x_1,x_2,\ldots\}.
+    \]
+
+    Hence no sequence can exhaust $P$.
+
+    Therefore $P$ is uncountable.
+\end{theorem}
+
+\begin{definition}[Limit of a Function]
+    Let $A\subset\r$, $x_0$ be a limit point of $A$, and $f:A\to\r$.
+
+    We say
+    \[
+        \lim_{x\to x_0} f(x) = L
+    \]
+    if for every $\eps > 0$, there exists $\delta > 0$ such that
+    \[
+        0 < \abs{x-x_0} < \delta,\ x\in A
+    \]
+    implies
+    \[
+        \abs{f(x)-L} < \eps.
+    \]
+\end{definition}

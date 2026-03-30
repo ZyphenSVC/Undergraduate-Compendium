@@ -1,0 +1,591 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Homework 4}
+
+\begin{problem}{
+    Decide whether the following sets are open, closed, or neither.
+    If a set is not open, find a point in the set for which there is no $\eps$-neighborhood contained in the set.
+    If a set is not closed, find a limit point that is not contained in the set.
+    \begin{enumerate}[label={(\arabic*)}]
+	\item $\q$
+    \item $\n$
+    \item $\{x\in\r : x\neq 0\}$
+    \item $\left\{1+\frac14+\frac19+\cdots+\frac1{n^2} : n\in\n\right\}$
+    \item $\left\{1+\frac12+\frac13+\cdots+\frac1n : n\in\n\right\}$
+    \end{enumerate}
+}
+    \begin{enumerate}[label={(\arabic*)}]
+	\item $\q$ is neither open nor closed.
+
+    It is not open because if $q\in\q$ and $\eps>0$, then $(q-\eps,q+\eps)$ contains irrational numbers, so no $\eps$-neighborhood of $q$ lies in $\q$.
+
+    It is not closed because $\sqrt{2}$ is a limit point of $\q$ but $\sqrt{2}\notin\q$.
+
+    \item $\n$ is closed but not open.
+
+    It is not open because if $n\in\n$ and $\eps>0$, then $(n-\eps,n+\eps)$ contains non-natural numbers.
+
+    It is closed because every point of $\n$ is isolated, so $\n$ has no limit points in $\r$ outside itself.
+
+    \item $\{x\in\r : x\neq 0\}$ is open but not closed.
+
+    Indeed,
+    \[
+        \{x\in\r : x\neq 0\} = (-\infty,0)\cup(0,\infty),
+    \]
+    which is open.
+
+    It is not closed because $0$ is a limit point and $0$ is not in the set.
+
+    \item Let
+    \[
+        S_4 \coloneqq \left\{1+\frac14+\frac19+\cdots+\frac1{n^2} : n\in\n\right\}.
+    \]
+
+    This set is not open because each point is isolated.
+
+    It is not closed because the sequence of its elements converges to
+    \[
+        \sum_{n=1}^\infty \frac1{n^2} = \frac{\pi^2}{6},
+    \]
+    and $\frac{\pi^2}{6}\notin S_4$.
+
+    \item Let
+    \[
+        S_5 \coloneqq \left\{1+\frac12+\frac13+\cdots+\frac1n : n\in\n\right\}.
+    \]
+
+    This set is not open because each point is isolated.
+
+    It is closed because the harmonic partial sums diverge to $+\infty$, so $S_5$ has no finite limit points.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{
+    Let $A$ be nonempty and bounded above so that $s=\sup(A)$ exists.
+    \begin{enumerate}[label={(\alph*)}]
+	\item Show that $s\in\overline{A}$.
+    \item Can an open set contain its supremum?
+    \end{enumerate}
+}
+    \textbf{(a).}
+    Let $\eps>0$.
+
+    Because $s=\sup(A)$, the number $s-\eps$ is not an upper bound for $A$.
+
+    So there exists $a\in A$ such that
+    \[
+        s-\eps<a\leq s.
+    \]
+
+    Hence
+    \[
+        \abs{a-s}<\eps.
+    \]
+
+    Therefore every $\eps$-neighborhood of $s$ meets $A$, so
+    \[
+        s\in\overline{A}.
+    \]
+
+    \textbf{(b).}
+    Yes.
+
+    For example, let
+    \[
+        A=(0,1)
+    \]
+    and let
+    \[
+        U=(-1,2).
+    \]
+
+    Then $U$ is open and contains $\sup(A)=1$.
+\end{problem}
+
+\begin{problem}{
+    Decide whether the following statements are true or false.
+    Provide counterexamples for those that are false, and supply proofs for those that are true.
+    \begin{enumerate}[label={(\alph*)}]
+	\item An open set that contains every rational number must necessarily be all of $\r$.
+    \item The Nested Interval Property remains true if the term “closed interval” is replaced by “closed set.”
+    \item Every nonempty open set contains a rational number.
+    \item Every bounded infinite closed set contains a rational number.
+    \item The Cantor set is closed.
+    \end{enumerate}
+}
+    \textbf{(a).} False.
+
+    Take
+    \[
+        \r\setminus\{\sqrt{2}\}.
+    \]
+
+    This set is open, contains every rational number, but is not all of $\r$.
+
+    \textbf{(b).} False.
+
+    Take
+    \[
+        F_n \coloneqq \{n,n+1,n+2,\ldots\}.
+    \]
+
+    Each $F_n$ is closed, the family is nested, and each $F_n$ is nonempty.
+    But
+    \[
+        \bigcap_{n=1}^\infty F_n = \varnothing.
+    \]
+
+    \textbf{(c).} True.
+
+    Let $U$ be a nonempty open set and choose $x\in U$.
+    Then there exists $\eps>0$ such that
+    \[
+        (x-\eps,x+\eps)\subseteq U.
+    \]
+
+    Because $\q$ is dense in $\r$, there exists $q\in\q$ such that
+    \[
+        q\in(x-\eps,x+\eps).
+    \]
+
+    Hence $q\in U$.
+
+    \textbf{(d).} False.
+
+    Take
+    \[
+        S\coloneqq \left\{\sqrt{2}+\frac1n : n\in\n\right\}\cup\{\sqrt{2}\}.
+    \]
+
+    This set is bounded, infinite, and closed, but it contains no rational number.
+
+    \textbf{(e).} True.
+
+    The Cantor set is an intersection of closed sets, so it is closed.
+\end{problem}
+
+\begin{problem}{
+    Assume $A$ is an open set and $B$ is a closed set.
+    Determine if the following sets are definitely open, definitely closed, both, or neither.
+    \begin{enumerate}[label={(\alph*)}]
+	\item $\overline{A\cup B}$
+    \item $A\setminus B = \{x\in A : x\notin B\}$
+    \item $(A^c\cup B)^c$
+    \item (A \cap B)\cup(A^c \cap B)
+    \item $\overline{A}^{\,c}\cap \overline{A^c}$
+    \end{enumerate}
+}
+    \textbf{(a).}
+    \[
+        \overline{A\cup B}
+    \]
+    is definitely closed.
+
+    It need not be open.
+
+    \textbf{(b).}
+    Since $B$ is closed, $B^c$ is open.
+    Thus
+    \[
+        A\setminus B = A\cap B^c
+    \]
+    is an intersection of two open sets, hence is open.
+
+    \textbf{(c).}
+    By De Morgan's law,
+    \[
+        (A^c\cup B)^c = A\cap B^c.
+    \]
+
+    By part \textbf{(b)}, this is open.
+
+    \textbf{(d).}
+    Factor out $B$:
+    \[
+        (A\cap B)\cup(A^c\cap B) = (A\cup A^c)\cap B = \r\cap B = B.
+    \]
+
+    So this set is definitely closed.
+
+    \textbf{(e).}
+    Since $A$ is open, $A^c$ is closed, so
+    \[
+        \overline{A^c}=A^c.
+    \]
+
+    Also
+    \[
+        \overline{A}^{\,c}\subseteq A^c.
+    \]
+
+    Hence
+    \[
+        \overline{A}^{\,c}\cap\overline{A^c}
+        =
+        \overline{A}^{\,c}\cap A^c
+        =
+        \overline{A}^{\,c}.
+    \]
+
+    Because $\overline{A}$ is closed, $\overline{A}^{\,c}$ is open.
+
+    So the set is definitely open.
+\end{problem}
+
+\begin{problem}{
+    \begin{enumerate}[label={(\alph*)}]
+	\item Prove that
+    \[
+        \overline{A\cup B}=\overline{A}\cup\overline{B}.
+    \]
+    \item Does this result about closures extend to infinite unions of sets?
+    \end{enumerate}
+}
+    \textbf{(a).}
+    Because
+    \[
+        A\subseteq \overline{A}
+        \qquad\text{and}\qquad
+        B\subseteq \overline{B},
+    \]
+    we have
+    \[
+        A\cup B\subseteq \overline{A}\cup\overline{B}.
+    \]
+
+    Since $\overline{A}\cup\overline{B}$ is closed, it follows that
+    \[
+        \overline{A\cup B}\subseteq \overline{A}\cup\overline{B}.
+    \]
+
+    Conversely,
+    \[
+        A\subseteq A\cup B
+        \qquad\text{and}\qquad
+        B\subseteq A\cup B,
+    \]
+    so
+    \[
+        \overline{A}\subseteq \overline{A\cup B}
+        \qquad\text{and}\qquad
+        \overline{B}\subseteq \overline{A\cup B}.
+    \]
+
+    Hence
+    \[
+        \overline{A}\cup\overline{B}\subseteq \overline{A\cup B}.
+    \]
+
+    Therefore
+    \[
+        \overline{A\cup B}=\overline{A}\cup\overline{B}.
+    \]
+
+    \textbf{(b).}
+    No.
+
+    For example, let
+    \[
+        A_n \coloneqq \left\{\frac1n\right\}.
+    \]
+
+    Then each $A_n$ is closed, so
+    \[
+        \bigcup_{n=1}^\infty \overline{A_n}
+        =
+        \left\{\frac1n : n\in\n\right\}.
+    \]
+
+    But
+    \[
+        \overline{\bigcup_{n=1}^\infty A_n}
+        =
+        \left\{\frac1n : n\in\n\right\}\cup\{0\}.
+    \]
+
+    So the equality fails for infinite unions.
+\end{problem}
+
+\begin{definition}[Connectedness]
+    Given a metric space $(X,d)$, we say $X$ is connected if it is impossible to write
+    \[
+        X = U_1\cup U_2
+    \]
+    as a disjoint union of nonempty open sets such that
+    \[
+        U_1\cap U_2 = \varnothing.
+    \]
+\end{definition}
+
+\begin{example}[Examples of Connected Sets]
+    \[
+        \r,\qquad \r^n,\qquad [a,b].
+    \]
+\end{example}
+
+\begin{problem}{
+    Prove that the only sets that are both open and closed are $\r$ and $\varnothing$.
+}
+    Suppose $S\subseteq \r$ is both open and closed.
+
+    Then $S^c$ is also both open and closed.
+
+    If $S\neq \varnothing$ and $S\neq \r$, then
+    \[
+        \r = S\cup S^c
+    \]
+    is a disjoint union of two nonempty open sets.
+
+    This contradicts that $\r$ is connected.
+
+    Therefore the only clopen subsets of $\r$ are $\r$ and $\varnothing$.
+\end{problem}
+
+\begin{problem}{
+    Decide which of the following sets are compact.
+    For those that are not compact, show how the sequential definition breaks down by giving a sequence in the set that has no subsequence converging to a limit in the set.
+    \begin{enumerate}[label={(\alph*)}]
+	\item $\n$
+    \item $\q\cap[0,1]$
+    \item The Cantor set
+    \item $\left\{1+\frac1{2^2}+\frac1{3^2}+\cdots+\frac1{n^2}: n\in\n\right\}$
+    \item $\left\{1,\frac12,\frac23,\frac34,\frac45,\ldots\right\}$
+    \end{enumerate}
+}
+    \textbf{(a).}
+    $\n$ is not compact.
+
+    The sequence $x_n=n$ has no convergent subsequence in $\n$.
+
+    \textbf{(b).}
+    $\q\cap[0,1]$ is not compact.
+
+    Choose a sequence of rationals converging to an irrational number in $[0,1]$, for example a rational sequence converging to $\sqrt{2}/2$.
+    No subsequence can converge to a point in $\q\cap[0,1]$.
+
+    \textbf{(c).}
+    The Cantor set is compact because it is closed and bounded.
+
+    \textbf{(d).}
+    Let
+    \[
+        S\coloneqq \left\{1+\frac1{2^2}+\frac1{3^2}+\cdots+\frac1{n^2}: n\in\n\right\}.
+    \]
+
+    The sequence of its elements converges to
+    \[
+        \sum_{n=1}^\infty \frac1{n^2}=\frac{\pi^2}{6},
+    \]
+    which is not in $S$.
+
+    So $S$ is not compact.
+
+    \textbf{(e).}
+    The set
+    \[
+        \left\{1,\frac12,\frac23,\frac34,\frac45,\ldots\right\}
+    \]
+    is compact.
+
+    Indeed,
+    \[
+        \frac{n}{n+1}\to 1,
+    \]
+    and $1$ is already in the set.
+    Thus it is closed and bounded.
+\end{problem}
+
+\begin{problem}{
+    Consider each of the sets listed in the previous problem.
+    For each one that is not compact, find an open cover for which there is no finite subcover.
+}
+    \textbf{(a).}
+    For $\n$, take
+    \[
+        \left\{\left(n-\frac12,n+\frac12\right) : n\in\n\right\}.
+    \]
+
+    This is an open cover of $\n$ with no finite subcover.
+
+    \textbf{(b).}
+    For $\q\cap[0,1]$, let $\alpha=\sqrt{2}/2$ and define
+    \[
+        U_n \coloneqq \left(0,\alpha-\frac1n\right)\cup\left(\alpha+\frac1n,1\right).
+    \]
+
+    Then
+    \[
+        \q\cap[0,1]\subseteq \bigcup_{n=1}^\infty U_n
+    \]
+    because $\alpha$ is irrational.
+
+    But no finite subcollection covers all rationals in $[0,1]$, since finitely many of these still omit rational numbers arbitrarily close to $\alpha$.
+
+    \textbf{(d).}
+    Let
+    \[
+        s_n \coloneqq 1+\frac1{2^2}+\frac1{3^2}+\cdots+\frac1{n^2}.
+    \]
+
+    Then the family
+    \[
+        \left\{\left(s_n-\frac{1}{10n},\,s_n+\frac{1}{10n}\right) : n\in\n\right\}
+    \]
+    is an open cover of the set, and no finite subcollection covers all of it.
+\end{problem}
+
+\begin{problem}{
+    Assume $K$ is compact and $F$ is closed.
+    Decide if the following sets are definitely compact, definitely closed, both, or neither.
+    \begin{enumerate}[label={(\alph*)}]
+	\item $K\cap F$
+    \item $\overline{F^c \cup K^c}$
+    \item $K\setminus F = \{x\in K : x\notin F\}$
+    \item $\overline{K\cap F^c}$
+    \end{enumerate}
+}
+    \textbf{(a).}
+    $K\cap F$ is both closed and compact.
+
+    It is closed as the intersection of closed sets, and it is compact as a closed subset of a compact set.
+
+    \textbf{(b).}
+    \[
+        \overline{F^c\cup K^c}
+    \]
+    is definitely closed.
+
+    It need not be compact.
+
+    \textbf{(c).}
+    \[
+        K\setminus F = K\cap F^c.
+    \]
+
+    This is not definitely open or closed in the ambient space, so in general it is neither.
+
+    \textbf{(d).}
+    \[
+        \overline{K\cap F^c}
+    \]
+    is closed by definition.
+
+    Also
+    \[
+        K\cap F^c\subseteq K,
+    \]
+    so its closure is a closed subset of the compact set $K$.
+    Hence it is compact as well.
+
+    So it is both closed and compact.
+\end{problem}
+
+\begin{problem}{
+    Use the epsilon-delta definition to supply proper proofs for the following limit statements.
+    \begin{enumerate}[label={(\alph*)}]
+	\item $\lim_{x\to 2}(3x+4)=10$
+    \item $\lim_{x\to 0}x^3=0$
+    \item $\lim_{x\to 2}(x^2+x-1)=5$
+    \item $\lim_{x\to 3}1/x=1/3$
+    \end{enumerate}
+}
+    \textbf{(a).}
+    Let $\eps>0$.
+
+    Choose
+    \[
+        \delta \coloneqq \frac{\eps}{3}.
+    \]
+
+    If $\abs{x-2}<\delta$, then
+    \[
+        \abs{(3x+4)-10}
+        =
+        \abs{3x-6}
+        =
+        3\abs{x-2}
+        <
+        3\delta
+        =
+        \eps.
+    \]
+
+    \textbf{(b).}
+    Let $\eps>0$.
+
+    Choose
+    \[
+        \delta \coloneqq \sqrt[3]{\eps}.
+    \]
+
+    If $\abs{x}<\delta$, then
+    \[
+        \abs{x^3}
+        =
+        \abs{x}^3
+        <
+        \delta^3
+        =
+        \eps.
+    \]
+
+    \textbf{(c).}
+    Let $\eps>0$.
+
+    Choose
+    \[
+        \delta \coloneqq \min\left\{1,\frac{\eps}{6}\right\}.
+    \]
+
+    If $\abs{x-2}<\delta$, then $\abs{x-2}<1$, so
+    \[
+        1<x<3,
+    \]
+    and hence
+    \[
+        \abs{x+3}<6.
+    \]
+
+    Therefore
+    \begin{align*}
+        \abs{(x^2+x-1)-5}
+        &=
+        \abs{x^2+x-6}\\
+        &=
+        \abs{(x+3)(x-2)}\\
+        &=
+        \abs{x+3}\abs{x-2}\\
+        &<
+        6\delta\\
+        &\leq \eps.
+    \end{align*}
+
+    \textbf{(d).}
+    Let $\eps>0$.
+
+    Choose
+    \[
+        \delta \coloneqq \min\{1,6\eps\}.
+    \]
+
+    If $\abs{x-3}<\delta$, then $\abs{x-3}<1$, so
+    \[
+        2<x<4,
+    \]
+    and in particular $\abs{x}\geq 2$.
+
+    Thus
+    \begin{align*}
+        \abs{\frac1x-\frac13}
+        &=
+        \abs{\frac{3-x}{3x}}\\
+        &=
+        \frac{\abs{x-3}}{3\abs{x}}\\
+        &\leq \frac{\abs{x-3}}{6}\\
+        &<
+        \frac{\delta}{6}\\
+        &\leq \eps.
+    \end{align*}
+\end{problem}

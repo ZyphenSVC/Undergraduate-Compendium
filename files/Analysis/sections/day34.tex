@@ -1,0 +1,145 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{34}{Wednesday 29 October 2025 9:10}{Day 34}
+
+\begin{theorem}[Cauchy Mean Value Theorem]{
+    Suppose $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$.
+    Then there exists $c\in(a,b)$ such that
+    \[
+        f\uptick(c)(g(b) - g(a)) = g\uptick(c)(f(b) - f(a)).
+    \]
+}
+	Consider
+    \[
+        h(x) \coloneqq f(x)(g(b)-g(a)) - g(x)(f(b)-f(a)).
+    \]
+
+    Then $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$.
+
+    Also
+    \[
+        h\uptick(x) = f\uptick(x)(g(b)-g(a)) - g\uptick(x)(f(b)-f(a)).
+    \]
+
+    Now
+    \begin{align*}
+        h(a) &= f(a)(g(b)-g(a)) - g(a)(f(b)-f(a))\\
+        &= f(a)g(b) - g(a)f(b),\\
+        h(b) &= f(b)(g(b)-g(a)) - g(b)(f(b)-f(a))\\
+        &= f(a)g(b) - g(a)f(b).
+    \end{align*}
+
+    Thus $h(a)=h(b)$.
+
+    By Rolle's Theorem, there exists $c\in(a,b)$ such that
+    \[
+        h\uptick(c) = 0.
+    \]
+
+    Hence
+    \[
+        f\uptick(c)(g(b) - g(a)) = g\uptick(c)(f(b) - f(a)).
+    \]
+\end{theorem}
+
+\begin{theorem}[L'H\^opital's Rule]{
+    \begin{enumerate}
+        \item Suppose $f,g : [a,b]\to\r$ are continuous on $[a,b]$ and differentiable on $(a,b)$, with $g\uptick(x)\neq 0$ for all $x\in(a,b)$.
+
+        If $f(a) = g(a) = 0$ and
+        \[
+            \lim_{x\to a^+}\dfrac{f\uptick(x)}{g\uptick(x)} = L,
+        \]
+        then
+        \[
+            \lim_{x\to a^+}\dfrac{f(x)}{g(x)} = L.
+        \]
+
+        \item Suppose $f,g$ are as above and
+        \[
+            \lim_{x\to a^+} g(x) = \pm\infty.
+        \]
+
+        If
+        \[
+            \lim_{x\to a^+}\dfrac{f\uptick(x)}{g\uptick(x)} = L,
+        \]
+        then
+        \[
+            \lim_{x\to a^+}\dfrac{f(x)}{g(x)} = L.
+        \]
+    \end{enumerate}
+}
+	\textbf{(1).}
+
+    For $x\in(a,b)$, apply the Cauchy Mean Value Theorem to $f$ and $g$ on $[a,x]$.
+
+    Then there exists $c_x\in(a,x)$ such that
+    \[
+        f\uptick(c_x)(g(x)-g(a)) = g\uptick(c_x)(f(x)-f(a)).
+    \]
+
+    Since $f(a)=g(a)=0$, this becomes
+    \[
+        \dfrac{f(x)}{g(x)} = \dfrac{f\uptick(c_x)}{g\uptick(c_x)}.
+    \]
+
+    As $x\to a^+$, we have $c_x\to a^+$.
+
+    Hence
+    \[
+        \lim_{x\to a^+}\dfrac{f(x)}{g(x)}
+        =
+        \lim_{x\to a^+}\dfrac{f\uptick(c_x)}{g\uptick(c_x)}
+        =
+        L.
+    \]
+
+    \textbf{(2).}
+
+    For $x\in(a,b)$, apply the Cauchy Mean Value Theorem to $f$ and $g$ on $[x,b]$.
+
+    Then there exists $c_x\in(x,b)$ such that
+    \[
+        f\uptick(c_x)(g(b)-g(x)) = g\uptick(c_x)(f(b)-f(x)).
+    \]
+
+    Equivalently,
+    \[
+        \dfrac{f(x)-f(b)}{g(x)-g(b)} = \dfrac{f\uptick(c_x)}{g\uptick(c_x)}.
+    \]
+
+    As $x\to a^+$, we have $c_x\to a^+$.
+
+    So
+    \[
+        \lim_{x\to a^+}\dfrac{f(x)-f(b)}{g(x)-g(b)} = L.
+    \]
+
+    Now
+    \[
+        \dfrac{f(x)}{g(x)} - \dfrac{f(x)-f(b)}{g(x)-g(b)}
+        =
+        \dfrac{f(b)g(x) - f(x)g(b)}{g(x)(g(x)-g(b))}.
+    \]
+
+    Since $g(x)\to \pm\infty$ and
+    \[
+        \dfrac{f(x)-f(b)}{g(x)-g(b)} \to L,
+    \]
+    the quantity
+    \[
+        \dfrac{f(x)}{g(x)}
+    \]
+    differs from
+    \[
+        \dfrac{f(x)-f(b)}{g(x)-g(b)}
+    \]
+    by a term tending to $0$.
+
+    Hence
+    \[
+        \lim_{x\to a^+}\dfrac{f(x)}{g(x)} = L.
+    \]
+\end{theorem}

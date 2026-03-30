@@ -1,0 +1,96 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{More Preliminaries}
+
+\lesson{45}{Self-Study One}{Day 45}
+
+\begin{definition}[Euclidean Distance]
+    Given $x,y\in\r^n$, define
+    \[
+        \norm{x-y} \coloneqq \left(\sum_{i=1}^n \abs{x_i - y_i}^2\right)^{1/2}.
+    \]
+\end{definition}
+
+\begin{definition}[Metric Space]
+    A metric space is a set $X$ together with a function
+    \[
+        d:X\times X\to[0,\infty)
+    \]
+    such that for all $x,y,z\in X$:
+    \begin{enumerate}
+        \item $d(x,y)\geq 0$, and $d(x,y)=0$ if and only if $x=y$,
+        \item $d(x,y)=d(y,x)$,
+        \item $d(x,z)\leq d(x,y)+d(y,z)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}[$\ell^p$-metric]
+    For $x,y\in\r^n$ and $1\leq p<\infty$, define
+    \[
+        d_p(x,y) \coloneqq \left(\sum_{i=1}^n \abs{x_i - y_i}^p\right)^{1/p}.
+    \]
+\end{example}
+
+\begin{example}[$L^p$-metric]
+    For functions $f,g:[0,1]\to\r$ and $1\leq p<\infty$, define
+    \[
+        d_p(f,g) \coloneqq \left(\int_0^1 \abs{f(x) - g(x)}^p\,dx\right)^{1/p}.
+    \]
+\end{example}
+
+\begin{definition}[Sets of Continuous Functions]
+    \begin{gather*}
+        C^0([a,b]) \coloneqq \{\text{continuous functions } [a,b]\to\r\}.\\
+        C^k([a,b]) \coloneqq \{\text{$k$-times continuously differentiable functions } [a,b]\to\r\}.\\
+    \end{gather*}
+\end{definition}
+
+\begin{definition}[Smooth Functions]
+    \[
+        C^\infty([a,b]) \coloneqq \{\text{infinitely differentiable functions } [a,b]\to\r\}.
+    \]
+\end{definition}
+
+\begin{proposition}{
+    \[
+        \dfrac{d}{dx}: C^1([a,b])\to C^0([a,b])
+    \]
+    is continuous as a function between metric spaces, where
+    \[
+        d_{C^1}(f,g) \coloneqq \sup_{x\in[a,b]}\abs{f(x) - g(x)} + \sup_{x\in[a,b]}\abs{f\uptick(x) - g\uptick(x)}
+    \]
+    and
+    \[
+        d_{C^0}(f,g) \coloneqq \sup_{x\in[a,b]}\abs{f(x) - g(x)}.
+    \]
+}
+    Let $f,g\in C^1([a,b])$.
+
+    If
+    \[
+        d_{C^1}(f,g) < \delta,
+    \]
+    then in particular
+    \[
+        \sup_{x\in[a,b]}\abs{f\uptick(x) - g\uptick(x)} < \delta.
+    \]
+
+    Hence
+    \[
+        d_{C^0}(f\uptick,g\uptick) = \sup_{x\in[a,b]} \abs{f\uptick(x) - g\uptick(x)} < \delta.
+    \]
+
+    Given $\eps > 0$, choose $\delta \coloneqq \eps$.
+
+    Then
+    \[
+        d_{C^1}(f,g) < \delta
+    \]
+    implies
+    \[
+        d_{C^0}(f\uptick,g\uptick) < \eps.
+    \]
+
+    Therefore $\dfrac{d}{dx}$ is continuous.
+\end{proposition}

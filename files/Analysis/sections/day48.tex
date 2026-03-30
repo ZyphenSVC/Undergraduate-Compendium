@@ -1,0 +1,76 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{48}{Self-Study Four}{Day 48}
+
+\begin{definition}[Completion]
+    Let $(M,d)$ be a metric space.
+    Then there exists a metric space $(\overline{M},\overline{d})$ such that:
+    \begin{enumerate}
+        \item $M\subseteq\overline{M}$.
+        \item $\overline{d}|_{M\times M} = d$.
+        \item $\overline{M}$ is Cauchy complete.
+        \item $\overline{M}$ is the closure of $M$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[$C_\infty(M)$]
+    \[
+        C_\infty(M) \coloneqq \left\{f:M\to\r : \text{$f$ is continuous and } \sup_{m\in M}\abs{f(m)}<\infty\right\}.
+    \]
+
+    This is a metric space with
+    \[
+        d_\infty(f,g) \coloneqq \sup_{m\in M}\abs{f(m)-g(m)}.
+    \]
+\end{definition}
+
+\begin{definition}[Banach Space]
+    A Banach space is a normed vector space that is Cauchy complete with respect to the metric induced by the norm.
+
+    Examples include $\r^n$, $\c^n$, $C_\infty(M)$, and $C^0([a,b])$ with the sup norm.
+\end{definition}
+
+\begin{definition}[Functional]
+    A functional is a linear map $T:X\to\r$ or $T:X\to\c$.
+\end{definition}
+
+\begin{definition}[Operator Norm]
+    \[
+        \norm{T}_{op} \coloneqq \sup_{\substack{x\in X\\ \norm{x} = 1}}\abs{T(x)}.
+    \]
+\end{definition}
+
+\begin{remark}
+    The space of bounded linear functionals is a Banach space.
+\end{remark}
+
+\begin{definition}[Inner Product Space]
+    An inner product space is a vector space $X$ with a map
+    \[
+        \angled{\cdot,\cdot}:X\times X\to \r
+    \]
+    such that:
+    \begin{itemize}
+        \item $\angled{x,y} = \angled{y,x}$,
+        \item $\angled{ax + by,z} = a\angled{x,z} + b\angled{y,z}$,
+        \item if $x\neq 0$, then $\angled{x,x} > 0$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Hilbert Space]
+    A Hilbert space is an inner product space that is complete with respect to the norm induced by the inner product.
+\end{definition}
+
+\begin{remark}
+    An example where Riemann integration fails, and hence motivates measure theory, is the Dirichlet function:
+    \[
+        \mathbb{1}_{\q}(x) =
+        \begin{cases}
+            1, & x\in\q,\\
+            0, & \text{otherwise.}
+        \end{cases}
+    \]
+
+    This function is not Riemann integrable on any interval.
+\end{remark}

@@ -1,0 +1,202 @@
+%Personal
+\newcommand{\U}{\mathcal{U}}
+\renewcommand{\L}{\mathcal{L}}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\eps}{\epsilon}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}%
+\newcommand{\norm}[1]{\lVert #1 \rVert}%
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\uptick}{^{\prime}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+\renewcommand{\mat}{\mathbf{Mat}}
+\renewcommand{\r}{\mathbb{R}}
+\newcommand{\q}{\mathbb{Q}}
+\renewcommand{\c}{\mathbb{C}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\s}{\mathscr{S}}
+\newcommand{\f}{\mathbb{F}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\pr}{\p_{\mathbb{R}}}
+\newcommand{\pk}{\p_{\mathbb{K}}}
+\newcommand{\pkn}{\pk^n}
+\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\a}{\mathbb{A}}
+\renewcommand{\o}{\mathcal{O}}
+\newcommand{\e}{\mathcal{E}}
+\newcommand{\Ell}{\mathcal{L}}
+\newcommand{\ak}{\a_\k}
+\newcommand{\akn}{\ak^n}
+\newcommand{\upstar}{^{*}}
+\newcommand{\reptiln}[2]{#1_{1},\ldots,#1_{#2}}
+\newcommand{\ima}{\mathrm{Im}}
+\newcommand{\Frac}{\mathrm{Frac}}
+\newcommand{\tdeg}{\mathrm{t-deg}}
+\newcommand{\kdim}{\mathrm{height}}
+\newcommand{\codim}{\mathrm{height}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Mult}{\mathrm{Mult}}
+\newcommand{\spec}{\mathrm{Spec}}
+\newcommand{\bl}{\mathrm{Bl}}
+\newcommand{\Epsilon}{\mathcal{E}}
+\newcommand{\Diam}{\mathrm{diam}}
+\newcommand{\Div}{\mathrm{Div}}
+\renewcommand{\div}{\mathrm{div}}
+\newcommand{\proj}{\mathrm{Proj}}
+\newcommand{\Sing}{\mathrm{Sing}}
+\newcommand{\disc}{\mathrm{disc}}
+\newcommand{\Res}{\mathrm{Res}}
+\newcommand{\dne}{\mathrm{DNE}}
+\newcommand{\Int}{\mathrm{Int}}
+\newcommand{\intcirc}[1]{\overset{\circ}{#1}}
+\newcommand{\cl}{\mathrm{cl}}
+\newcommand{\fib}{\mathrm{Fib}}
+\newcommand{\huad}{\hspace{0.5em}}
+\renewcommand{\frac}[2]{\dfrac{#1}{#2}}
+\newcommand{\subsetop}{\underset{\raisebox{0.5ex}{\scriptscriptstyle\mathrm{op}}}{\subset}}
+\newcommand{\xmark}{\text{\ding{55}}}%
+\renewenvironment{figure*}[1]{
+\begin{figure}[H]
+    \centering
+
+    #1
+        }{
+\end{figure}
+}
+
+%From M275 "Topology" at SJSU
+\renewcommand{\sp}{\mathrm{sp}}
+
+%From M275 "Topology" at SJSU
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\taking}[1]{\xrightarrow{#1}}
+\newcommand{\inv}{^{-1}}
+
+%From M170 "Introduction to Graph Theory" at SJSU
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\defeq}{\overset{\mathrm{def}}{=}}
+
+%From the USAMO .tex files
+\newcommand{\ts}{\textsuperscript}
+\newcommand{\dg}{^\circ}
+\newcommand{\ii}{\item}
+
+% % From Math 55 and Math 145 at Harvard
+% \newenvironment{subproof}[1][Proof]{%
+% \begin{proof}[#1] \renewcommand{\qedsymbol}{$\blacksquare$}}%
+% {\end{proof}}
+
+\newcommand{\liff}{\leftrightarrow}
+\newcommand{\lthen}{\rightarrow}
+\newcommand{\opname}{\operatorname}
+\newcommand{\surjto}{\twoheadrightarrow}
+\newcommand{\injto}{\hookrightarrow}
+\newcommand{\On}{\mathrm{On}} % ordinals
+\renewcommand{\rank}{\mathrm{rank}}
+\newcommand{\Spec}{\mathrm{Spec}} % spectrum
+\newcommand{\Tr}{\mathrm{Tr}} % trace
+
+\renewcommand{\eps}{\epsilon}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\vocab}[1]{\textbf{\color{blue} #1}}
+\providecommand{\half}{\frac{1}{2}}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\newcommand{\ray}[1]{\overrightarrow{#1}}
+\newcommand{\seg}[1]{\overline{#1}}
+\newcommand{\arc}[1]{\wideparen{#1}}
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+\newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
+\newcommand{\parinn}{\setlength{\parindent}{1cm}}
+\newcommand{\parinf}{\setlength{\parindent}{0cm}}
+% \newcommand{\norm}{\|\cdot\|}
+\newcommand{\inorm}{\norm_{\infty}}
+\newcommand{\opensets}{\{V_{\alpha}\}_{\alpha\in I}}
+\newcommand{\oset}{V_{\alpha}}
+\newcommand{\opset}[1]{V_{\alpha_{#1}}}
+\newcommand{\lub}{\text{lub}}
+\newcommand{\del}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\Del}[3]{\frac{\partial^{#1} #2}{\partial^{#1} #3}}
+\newcommand{\deld}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\Deld}[3]{\dfrac{\partial^{#1} #2}{\partial^{#1} #3}}
+\newcommand{\lm}{\lambda}
+\newcommand{\uin}{\mathbin{\rotatebox[origin=c]{90}{$\in$}}}
+\newcommand{\usubset}{\mathbin{\rotatebox[origin=c]{90}{$\subset$}}}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\exs}{\exists}
+\newcommand{\st}{\strut}
+\newcommand{\dps}[1]{\displaystyle{#1}}
+
+\newcommand{\sol}{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm} }
+\newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Solution: }}\setlength{\parindent}{1cm}#1 \Qed}
+
+%Algebra
+
+\newcommand{\zn}{\mathbb{Z}_n}
+\newcommand{\zp}{\mathbb{Z}_p}
+\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\l}{\mathbb{L}}
+
+\newcommand{\set}[1]{\{ #1 \}}
+\newcommand\Mydiv[2]{%
+    $\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
+    \overline{\enspace\strut#2}$}
+\DeclareMathOperator{\ima}{Im}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\sgn}{sgn}
+\renewcommand{\char}{\textit{char}}
+\newcommand{\zsumz}{\mathbb{Z}\oplus\mathbb{Z}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\gen}[1]{\langle #1\rangle}
+\newcommand{\vs}[1]{#1^{-1}}
+\renewcommand{\aut}{\mathrm{Aut}}
+\renewcommand{\inv}{\mathrm{Inv}}
+\newcommand{\gal}{\mathrm{Gal}}
+\newcommand\isomto{\stackrel{\sim}{\smash{\to}\rule{0pt}{0.5ex}}}
+\newcommand{\lrarrow}{\mathrel{\ensurestackMath{\ThisStyle{%
+    \stackanchor[\dimexpr-2.5pt-4\LMpt]{\SavedStyle\,\,\rightarrow}%
+    {\SavedStyle\leftarrow\,\,}}}}}
+\newcommand{\nz}{n\in\mathbb{Z}}
+\newcommand{\nn}{n\in\mathbb{N}}
+\newcommand{\mat}[1]{\text{\textit{Mat}}_{#1}}
+\newcommand{\nf}{\in\f}
+\newcommand{\ri}{\mathcal{R}}
+\newcommand{\si}{\mathcal{S}}
+\newcommand{\nri}{\in\ri}
+\newcommand{\zxz}{\z\times\z}
+\newcommand{\zx}{\z[x]}
+\newcommand{\nzx}{\in\zx}
+\newcommand{\nq}{\in\q}
+\newcommand{\qx}{\q[x]}
+\newcommand{\nqx}{\in\qx}
+\newcommand{\zpx}{\zp[x]}
+\renewcommand{\c}{\mathbb{C}}
+\newcommand{\cx}{\c[x]}
+\newcommand{\ncx}{\in\cx}
+\newcommand{\nr}{\in\r}
+\newcommand{\rx}{\r[x]}
+\newcommand{\nrx}{\in\rx}
+\renewcommand{\nf}{\in\f}
+\newcommand{\fx}{\f[x]}
+\newcommand{\nfx}{\in\fx}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\fxmodfx}{\fx/(f(x))}
+\renewcommand{\nz}{\in\mathbb{Z}}
+\renewcommand{\nn}{\in\mathbb{N}}
+\renewcommand{\Q}{\mathbb{Q}}
+\renewcommand{\r}{\mathbb{R}}
+\renewcommand{\nfx}{\nf[x]}

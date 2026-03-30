@@ -1,0 +1,105 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Perfect Sets and Connected Sets}
+
+\lesson{26}{Friday 10 October 2025 9:10}{Day 26}
+
+\begin{theorem}[Nested Compact Sets Property]{
+    If $C_1\supset C_2\supset\cdots$ are all compact, non-empty, then
+    \[
+        \bigcap_{i=1}^\infty C_i\neq\varnothing.
+    \]
+}
+    Suppose
+    \[
+        \bigcap_{i=1}^\infty C_i = \varnothing.
+    \]
+
+    Then
+    \[
+        C_1\cap\left(\bigcap_{i=2}^\infty C_i\right)=\varnothing.
+    \]
+
+    Thus
+    \[
+        C_1\subset\left(\bigcap_{i=2}^\infty C_i\right)^c=\bigcup_{i=2}^\infty C_i^c.
+    \]
+
+    Hence $\{C_i^c\}_{i=2}^\infty$ is an open cover of $C_1$.
+
+    Since $C_1$ is compact, there is $N\in\n$ such that
+    \[
+        C_1\subset\bigcup_{i=2}^N C_i^c.
+    \]
+
+    Therefore
+    \[
+        C_1\cap\bigcap_{i=2}^N C_i=\varnothing.
+    \]
+
+    But since $C_1\supset C_2\supset\cdots\supset C_N$, we have
+    \[
+        \bigcap_{i=2}^N C_i = C_N.
+    \]
+
+    So
+    \[
+        C_N=\varnothing,
+    \]
+    a contradiction.
+\end{theorem}
+
+\begin{definition}[Cantor Set]
+    Take
+    \begin{gather*}
+        C_1 \coloneqq [0,1],\\
+        C_2 \coloneqq \left[0, \dfrac{1}{3}\right]\cup \left[\dfrac{2}{3}, 1\right],\\
+        C_3 \coloneqq \left[0,\dfrac{1}{9}\right]\cup\left[\dfrac{2}{9},\dfrac{1}{3}\right]\cup\left[\dfrac{2}{3},\dfrac{7}{9}\right]\cup\left[\dfrac{8}{9},1\right].\\
+    \end{gather*}
+
+    Hence,
+    \[
+        C_{n+1} \coloneqq \dfrac{1}{3}C_n\cup\left(\dfrac{2}{3} + \dfrac{1}{3}C_n\right).
+    \]
+
+    All $C_i$ are compact since they are closed and bounded.
+
+    Also $C_i\neq\varnothing$.
+
+    Then
+    \[
+        \C \coloneqq \bigcap_{i=1}^\infty C_i\neq\varnothing.
+    \]
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $\C = \dfrac{1}{3}\C\cup\left(\dfrac{2}{3} + \dfrac{1}{3}\C\right)$.
+        \item Length of $[0,1]\setminus \C$ is
+        \[
+            \dfrac{1}{3} + \dfrac{2}{9} + \dfrac{4}{27} + \ldots = \sum_{n=0}^\infty \dfrac{1}{3}\left(\dfrac{2}{3}\right)^n = 1.
+        \]
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[Perfect]
+    $S\subset\r$ is perfect if $S$ is closed and every point of $S$ is a limit point of $S$.
+\end{definition}
+
+\begin{remark}
+    Every point of $S$ is a limit point of $S$ if and only if $S$ contains no isolated points.
+\end{remark}
+
+\begin{proposition}{
+    The Cantor Set is perfect.
+}
+\end{proposition}
+
+\begin{example}[Non-example and Example of Perfect Sets]
+    \begin{enumerate}
+        \item $\left\{\dfrac{1}{n} : n\in\n\right\}\cup\{0\}$ is closed, but not perfect.
+        \item $[a,b]$ is perfect.
+        \item The Cantor Set is perfect.
+    \end{enumerate}
+\end{example}

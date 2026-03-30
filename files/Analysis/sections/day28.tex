@@ -1,0 +1,269 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Functional Limits}
+
+\lesson{28}{Wednesday 15 October 2025 9:10}{Day 28}
+
+\begin{problem}{
+    \[
+        \lim_{x\to 3} x^2 = 9.
+    \]
+}
+    Let $\eps > 0$ be given.
+
+    We want to show $\abs{x^2 - 9} = \abs{x - 3}\abs{x + 3} < \eps$.
+
+    Take $\delta \coloneqq \min\{1, \frac{\eps}{7}\}$.
+
+    If $\abs{x-3}<\delta$, then $2 < x < 4$.
+
+    Thus $\abs{x+3} < 7$.
+
+    Hence
+    \begin{align*}
+        \abs{x^2 - 9} &= \abs{x-3}\abs{x+3}\\
+        &< 7\abs{x-3}\\
+        &< 7\delta\\
+        &\leq \eps.
+    \end{align*}
+\end{problem}
+
+\begin{theorem}{
+    \[
+        \lim_{x\to x_0} f(x) = L
+    \]
+    if and only if for every sequence $x_n\in A$, $x_n\neq x_0$, with $x_n\to x_0$, we have
+    \[
+        \lim_{n\to\infty} f(x_n) = L.
+    \]
+}
+    \textbf{($\implies$).}
+
+    Let $x_n\to x_0$ with $x_n\neq x_0$.
+
+    Given $\eps > 0$, there exists $\delta > 0$ such that
+    \[
+        0 < \abs{x-x_0} < \delta \implies \abs{f(x)-L} < \eps.
+    \]
+
+    Since $x_n\to x_0$, there exists $N\in\n$ such that $n\geq N$ implies $\abs{x_n-x_0}<\delta$.
+
+    Hence $\abs{f(x_n)-L}<\eps$.
+
+    \textbf{($\impliedby$).}
+
+    We prove the contrapositive.
+
+    Suppose $\lim_{x\to x_0} f(x) \neq L$.
+
+    Then there exists $\eps > 0$ such that for every $\delta > 0$, there exists $x\in A$, $x\neq x_0$, with
+    \[
+        0 < \abs{x-x_0} < \delta
+    \]
+    and
+    \[
+        \abs{f(x)-L} \geq \eps.
+    \]
+
+    For each $n\in\n$, choose $x_n\in A$ such that
+    \[
+        0 < \abs{x_n-x_0} < \frac{1}{n}.
+    \]
+
+    Then $x_n\to x_0$ and $\abs{f(x_n)-L} \geq \eps$.
+
+    Hence $f(x_n)\not\to L$.
+\end{theorem}
+
+\begin{theorem}{
+    Suppose $f,g : A\to\r$ and $c\in\r$.
+    If
+    \[
+        \lim_{x\to c} f(x) = L,\quad \lim_{x\to c} g(x) = M,
+    \]
+    then:
+    \begin{enumerate}
+        \item $\lim_{x\to c} (f(x) + g(x)) = L + M$.
+        \item $\lim_{x\to c} f(x)g(x) = LM$.
+        \item $\lim_{x\to c} cf(x) = cL$.
+        \item If $M\neq 0$, then $\lim_{x\to c} \dfrac{f(x)}{g(x)} = \dfrac{L}{M}$.
+    \end{enumerate}
+}
+\end{theorem}
+
+\begin{definition}[One-Sided Limits]
+    Given $A\subset\r$, $c$ is a right limit point of $A$ if for all $\eps > 0$,
+    \[
+        (c, c+\eps)\cap A\neq\varnothing.
+    \]
+
+    Similarly, $c$ is a left limit point if for all $\eps > 0$,
+    \[
+        (c-\eps,c)\cap A\neq\varnothing.
+    \]
+\end{definition}
+
+\begin{definition}[Right-Hand Limit]
+    Suppose $c$ is a right limit point of $A$.
+
+    We write
+    \[
+        \lim_{x\to c^+}f(x) = L
+    \]
+    if for every $\eps > 0$, there exists $\delta > 0$ such that
+    \[
+        c < x < c + \delta,\ x\in A \implies \abs{f(x) - L} < \eps.
+    \]
+\end{definition}
+
+\begin{proposition}
+    \[
+        \lim_{x\to c^+}f(x) = L
+    \]
+    if and only if for every sequence $x_n\in A$ with $x_n > c$ and $x_n\to c$, we have
+    \[
+        \lim_{n\to\infty} f(x_n) = L.
+    \]
+\end{proposition}
+
+\begin{proposition}
+    Suppose $c$ is both a right and left limit point of $A$.
+
+    Then
+    \[
+        \lim_{x\to c}f(x) = L \iff \lim_{x\to c^+} f(x)= \lim_{x\to c^-}f(x) = L.
+    \]
+\end{proposition}
+
+\section{Continuous Functions}
+
+\begin{definition}[Continuous]
+    Suppose $A\subset\r$, $f:A\to \r$, and $c\in A$.
+
+    We say $f$ is continuous at $c$ if for every $\eps > 0$, there exists $\delta > 0$ such that
+    \[
+        \abs{x - c} < \delta \implies \abs{f(x) - f(c)} < \eps.
+    \]
+\end{definition}
+
+\begin{remark}
+    Any function is continuous at any isolated point of $A$.
+\end{remark}
+
+\begin{definition}[One-Sided Continuity]
+    $f$ is continuous from the right at $c$ if for every $\eps > 0$, there exists $\delta > 0$ such that
+    \[
+        0 < x-c < \delta \implies \abs{f(x) - f(c)}<\eps.
+    \]
+\end{definition}
+
+\begin{example}
+    \[
+        f(x) = \begin{cases}
+                   \dfrac{x}{\abs{x}}, &x\neq 0\\
+                   1, &x = 0.
+        \end{cases}
+    \]
+
+    Not left continuous at $0$, but right continuous at $0$.
+\end{example}
+
+\begin{example}
+    \[
+        S \coloneqq \left\{\dfrac{1}{n} : n\in\n\right\}.
+    \]
+
+    $0$ is a right limit point of $S$, but not a left limit point.
+\end{example}
+
+\begin{remark}
+    If $c$ is a limit point of $A$ and $c\in A$, then $f:A\to\r$ is continuous at $c$ if and only if
+    \[
+        \lim_{x\to c} f(x) = f(c).
+    \]
+\end{remark}
+
+\begin{example}
+    \[
+        f(x) = \lfloor x \rfloor.
+    \]
+
+    It is continuous at all $x\notin\z$.
+
+    It is right continuous everywhere.
+
+    It is not left continuous at integers.
+\end{example}
+
+\begin{example}
+    \[
+        f(x) = \begin{cases}
+                   x\sin(1/x), &x\neq 0\\
+                   0, &x = 0.
+        \end{cases}
+    \]
+
+    Continuous for all $c\in\r$.
+\end{example}
+
+\begin{proposition}{
+    This function is continuous at $0$.
+}
+    Let $\eps > 0$.
+
+    If $\abs{x}<\eps$, then
+    \[
+        \abs{x\sin(1/x)} \leq \abs{x} < \eps.
+    \]
+\end{proposition}
+
+\begin{theorem}{
+    Suppose $f:A\to \r$, $f(A)\subset B$, and $g:B\to\r$.
+
+    If $f$ is continuous at $c\in A$ and $g$ is continuous at $f(c)$, then $g\circ f$ is continuous at $c$.
+}
+    Let $\eps > 0$.
+
+    Since $g$ is continuous at $f(c)$, there exists $\delta_1 > 0$ such that
+    \[
+        \abs{y - f(c)} < \delta_1 \implies \abs{g(y) - g(f(c))} < \eps.
+    \]
+
+    Since $f$ is continuous at $c$, there exists $\delta > 0$ such that
+    \[
+        \abs{x-c} < \delta \implies \abs{f(x)-f(c)} < \delta_1.
+    \]
+
+    Hence
+    \[
+        \abs{g(f(x)) - g(f(c))} < \eps.
+    \]
+\end{theorem}
+
+\begin{definition}[Continuous]
+    A function $f:A\to\r$ is continuous if it is continuous at every $c\in A$.
+\end{definition}
+
+\section{Continuous Functions on Compact Sets}
+
+\begin{theorem}[Continuous Functions on Compact Sets]{
+    Suppose $C\subset\r$ is compact and $f:C\to \r$ is continuous.
+
+    Then $f(C)$ is compact.
+}
+    Let $y_n\in f(C)$ with $y_n = f(x_n)$ and $x_n\in C$.
+
+    Since $C$ is compact, there exists a subsequence $x_{n_k}\to x\in C$.
+
+    By continuity of $f$, we have
+    \[
+        f(x_{n_k}) \to f(x).
+    \]
+
+    Hence $y_{n_k}\to f(x)\in f(C)$.
+\end{theorem}
+
+\begin{corollary}
+    $f$ is continuous at $c$ if and only if whenever $x_n\to c$ with $x_n\in A$, we have $f(x_n)\to f(c)$.
+\end{corollary}

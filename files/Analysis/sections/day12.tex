@@ -1,0 +1,97 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{12}{Wednesday 10 September 2025 9:10}{Day 12}
+
+\begin{theorem}[Bolzano-Weierstrass]{
+    If $(x_n)$ is bounded, then there exists a subsequence converging to $\limsup x_n = L$.
+}
+    To construct a sequence $(m_k)$ in $\n$ such that $m_k\to\infty$ and $x_{m_k}\to L$, let
+    \[
+        y_k \coloneqq \sup\{x_m : m\geq k\}.
+    \]
+    Then $y_k\to L$, by definition.
+    For each $k$, choose $m_k\geq k$ such that
+    \[
+        y_k\geq x_{m_k}\geq y_k - \dfrac{1}{k}.
+    \]
+    Since $y_k\to L$, then
+    \begin{align*}
+        \lim\left(y_k - \dfrac{1}{k}\right) &= \lim y_k - \lim \dfrac{1}{k}\\
+        &= L - 0\\
+        &= L.
+    \end{align*}
+    Hence, by the Squeeze Theorem, $x_{m_k}\to L$.
+\end{theorem}
+
+\section{The Cauchy Criterion}
+
+\begin{definition}[Cauchy Sequences]
+    A sequence $(x_n)$ in $\r$ is Cauchy if for all $\eps > 0$, there exists $N\in\n$ such that if $m,n\geq N$, then $\abs{x_m - x_n} < \eps$.
+\end{definition}
+
+\begin{proposition}{
+    Any convergent sequence is Cauchy.
+}
+    Let $\eps > 0$ and choose $N\in\n$ such that:
+    \begin{align*}
+        n > N&\implies \abs{x_n - L} < \dfrac{\eps}{2}\\
+        m > N&\implies \abs{x_m - L} < \dfrac{\eps}{2}.
+    \end{align*}
+    Then $m,n > N$ implies:
+    \begin{align*}
+        \abs{x_m - x_n} &= \abs{x_m - L + L - x_n}\\
+        &\leq \abs{x_m - L} + \abs{x_n - L}\\
+        &< \dfrac{\eps}{2} + \dfrac{\eps}{2} = \eps.
+    \end{align*}
+\end{proposition}
+
+\begin{lemma}{
+    Any Cauchy sequence is bounded.
+}
+    Let $N\in\n$ such that if $m,n \geq N$, then $\abs{x_m - x_n}<1$.
+    Then for $m\geq N$,
+    \[
+        \abs{x_m} = \abs{x_m - x_N + x_N} \leq \abs{x_m - x_N} + \abs{x_N} < 1 + \abs{x_N}.
+    \]
+    Hence, for any $m\in\n$, we have
+    \[
+        \abs{x_m} \leq\max\{\abs{x_N} + 1, \abs{x_1},\abs{x_2}, \ldots, \abs{x_N}\}.
+    \]
+\end{lemma}
+
+\begin{theorem}{
+    Any Cauchy sequence converges.
+}
+    Define
+    \[
+        y_n \coloneqq \sup\{x_m : m\geq n\}
+        \quad\text{and}\quad
+        z_n \coloneqq \inf\{x_m : m\geq n\}.
+    \]
+    Let $\eps > 0$.
+    Choose $N\in\n$ such that if $m,n\geq N$, then $\abs{x_n - x_m} < \eps$.
+    Set $S_N \coloneqq \{x_n : n\geq N\}$.
+    Then for all $a,b\in S_N$, we have
+    \[
+        \abs{a-b}<\eps.
+    \]
+    Hence
+    \[
+        y_N - z_N = \sup(S_N) - \inf(S_N) \leq \eps.
+    \]
+    Therefore, for all $n\geq N$,
+    \[
+        0\leq y_n - z_n \leq y_N - z_N \leq \eps.
+    \]
+    So $\lim (y_n - z_n) = 0$.
+    Since $z_n \leq x_n \leq y_n$ for all $n$, and since $(y_n)$ is decreasing while $(z_n)$ is increasing, both are monotone and bounded, hence convergent.
+    Let
+    \[
+        \lim y_n = A
+        \quad\text{and}\quad
+        \lim z_n = B.
+    \]
+    Since $\lim (y_n-z_n)=0$, we have $A-B=0$, so $A=B$.
+    Hence, by the Squeeze Theorem, $(x_n)$ converges.
+\end{theorem}

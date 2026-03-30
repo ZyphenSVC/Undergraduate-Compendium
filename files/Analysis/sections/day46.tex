@@ -1,0 +1,216 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{46}{Self-Study Two}{Day 46}
+
+\begin{lemma}[Lebesgue Big Number Lemma]{
+	If $(X,d)$ is sequentially compact and $\{U_i\}$ is an open cover of $X$, then there exists $r > 0$ such that for all $x\in X$, there exists $i$ with
+	\[
+		B_r(x)\subseteq U_i.
+	\]
+}
+	Assume this is false.
+
+	Then for every $r > 0$, there exists $x\in X$ such that for every $i$,
+	\[
+		B_r(x)\nsubseteq U_i.
+	\]
+
+	In particular, for each $n\in\n$, choose $x_n\in X$ such that
+	\[
+		B_{1/n}(x_n)\nsubseteq U_i
+	\]
+	for every $i$.
+
+	Since $X$ is sequentially compact, there exists a subsequence $x_{n_k}\to x$.
+
+	Since $\{U_i\}$ is an open cover, there exists $i_0$ such that $x\in U_{i_0}$.
+
+	Because $U_{i_0}$ is open, there exists $r_0 > 0$ such that
+	\[
+		B_{r_0}(x)\subseteq U_{i_0}.
+	\]
+
+	Choose $K$ sufficiently large such that
+	\[
+		\frac{1}{n_K}<\frac{r_0}{2}
+		\qquad\text{and}\qquad
+		d(x,x_{n_K})<\frac{r_0}{2}.
+	\]
+
+	Now if $y\in B_{1/n_K}(x_{n_K})$, then
+	\begin{align*}
+		d(x,y)
+		&\leq d(x,x_{n_K}) + d(x_{n_K},y)\\
+		&< \frac{r_0}{2} + \frac{r_0}{2}\\
+		&= r_0.
+	\end{align*}
+
+	So
+	\[
+		B_{1/n_K}(x_{n_K})\subseteq B_{r_0}(x)\subseteq U_{i_0},
+	\]
+	a contradiction.
+\end{lemma}
+
+\begin{definition}[Totally Bounded]
+	A metric space $X$ is totally bounded if for all $\eps > 0$, there exist $y_1,\ldots,y_K\in X$ such that
+	\[
+		X\subseteq \bigcup_{i=1}^K B_\eps(y_i).
+	\]
+\end{definition}
+
+\begin{lemma}{
+	If a metric space is sequentially compact, then it is totally bounded.
+}
+	Assume $X$ is not totally bounded.
+
+	Then there exists $\eps > 0$ such that no finite collection of $\eps$-balls covers $X$.
+
+	Choose $x_1\in X$.
+
+	Since $B_\eps(x_1)$ does not cover $X$, choose
+	\[
+		x_2\in X\setminus B_\eps(x_1).
+	\]
+
+	Inductively, having chosen $x_1,\ldots,x_n$, since
+	\[
+		\bigcup_{i=1}^n B_\eps(x_i)
+	\]
+	does not cover $X$, choose
+	\[
+		x_{n+1}\in X\setminus \bigcup_{i=1}^n B_\eps(x_i).
+	\]
+
+	Then for all $m\neq n$,
+	\[
+		d(x_m,x_n)\geq \eps.
+	\]
+
+	So $(x_n)$ has no convergent subsequence, contradicting sequential compactness.
+
+	Hence $X$ is totally bounded.
+\end{lemma}
+
+\begin{definition}[Norm]
+	A norm is a function
+	\[
+		\norm{\cdot}:V\to[0,\infty)
+	\]
+	such that for all $u,v\in V$ and $\lambda\in\r$:
+	\begin{enumerate}
+		\item $\norm{v}\geq 0$, and $\norm{v}=0$ if and only if $v=0$,
+		\item $\norm{\lambda v} = \abs{\lambda}\norm{v}$,
+		\item $\norm{u+v}\leq \norm{u}+\norm{v}$.
+	\end{enumerate}
+
+\end{definition}
+
+\begin{definition}[Support of $f$]
+	The support of $f$ is
+	\[
+		\operatorname{supp}(f)\coloneqq \overline{\{x:f(x)\neq 0\}}.
+	\]
+\end{definition}
+
+\begin{theorem}{
+	A metric space is sequentially compact if and only if it is topologically compact.
+}
+	\textbf{($\implies$).}
+
+	Suppose $X$ is sequentially compact.
+
+	Let $\{U_i\}$ be an open cover of $X$.
+
+	By the Lebesgue Big Number Lemma, there exists $r>0$ such that for every $x\in X$, there exists $i$ with
+	\[
+		B_r(x)\subseteq U_i.
+	\]
+
+	By total boundedness, there exist $y_1,\ldots,y_K\in X$ such that
+	\[
+		X\subseteq \bigcup_{j=1}^K B_r(y_j).
+	\]
+
+	For each $j$, choose $i_j$ such that
+	\[
+		B_r(y_j)\subseteq U_{i_j}.
+	\]
+
+	Then
+	\[
+		X\subseteq \bigcup_{j=1}^K U_{i_j}.
+	\]
+
+	So $X$ is compact.
+
+	\textbf{($\impliedby$).}
+
+	Suppose $X$ is compact.
+
+	Let $(x_n)$ be a sequence in $X$.
+
+	If the set $\{x_n:n\in\n\}$ is finite, then some value occurs infinitely often, giving a constant subsequence.
+
+	So assume $\{x_n:n\in\n\}$ is infinite.
+
+	If no subsequence converges, then for each $x\in X$ there exists $\eps_x>0$ such that
+	\[
+		B_{\eps_x}(x)
+	\]
+	contains at most finitely many terms of the sequence.
+
+	Then
+	\[
+		\{B_{\eps_x}(x):x\in X\}
+	\]
+	is an open cover of $X$.
+
+	By compactness, there is a finite subcover
+	\[
+		X\subseteq \bigcup_{j=1}^K B_{\eps_{x_j}}(x_j).
+	\]
+
+	Each ball contains only finitely many terms of the sequence, so altogether the sequence has only finitely many terms, a contradiction.
+
+	Hence some subsequence converges.
+
+	So $X$ is sequentially compact.
+\end{theorem}
+
+\begin{definition}[Lipschitz]
+	A function $f:X\to Y$ is Lipschitz if there exists $K\geq 0$ such that for all $x,y\in X$,
+	\[
+		d_Y(f(x),f(y))\leq K\,d_X(x,y).
+	\]
+\end{definition}
+
+\begin{proposition}{
+	Lipschitz implies continuity.
+}
+	Let $\eps > 0$.
+
+	If $K=0$, then $f$ is constant, hence continuous.
+
+	If $K>0$, choose
+	\[
+		\delta \coloneqq \frac{\eps}{K}.
+	\]
+
+	Then
+	\[
+		d_X(x,y)<\delta \implies d_Y(f(x),f(y))\leq K\,d_X(x,y)<K\delta=\eps.
+	\]
+
+	So $f$ is continuous.
+
+	In fact, $f$ is uniformly continuous.
+\end{proposition}
+
+\begin{definition}[Uniform Continuity]
+	A function $f:X\to Y$ is uniformly continuous if for all $\eps > 0$, there exists $\delta>0$ such that
+	\[
+		d_X(x,y) < \delta\implies d_Y(f(x),f(y)) < \eps.
+	\]
+\end{definition}

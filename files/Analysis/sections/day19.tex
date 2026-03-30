@@ -1,0 +1,51 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Double Summations and Products of Infinite Series}
+
+\lesson{19}{Wednesday 24 September 2025 9:10}{Day 19}
+
+\begin{definition}[Cauchy Product]
+    The Cauchy product of two series $\sum a_n$ and $\sum b_n$ is the series
+    \[
+        \sum_{N=0}^\infty c_N, \quad \text{where } c_N \coloneqq \sum_{i+j = N} a_i b_j.
+    \]
+\end{definition}
+
+\begin{theorem}[Cauchy Product Convergence]{
+    If both series converge absolutely, then the Cauchy product converges absolutely and
+    \[
+        \sum_{N=0}^\infty c_N = \left(\sum_{n=0}^\infty a_n\right)\left(\sum_{m=0}^\infty b_m\right) = AB.
+    \]
+}
+    Consider
+    \begin{align}
+        \abs{\sum_{\substack{i+j > N\\0\leq i,j}} a_i b_j}
+        &\leq \sum \abs{a_i}\abs{b_j}\nonumber\\
+        &\leq \sum_{i > N/2} \abs{a_i}\sum_{j=0}^\infty \abs{b_j}
+        + \sum_{i=0}^\infty \abs{a_i}\sum_{j > N/2} \abs{b_j}.\label{eq:18.1}
+    \end{align}
+    Let
+    \[
+        A\uptick \coloneqq \sum \abs{a_i}, \quad B\uptick \coloneqq \sum \abs{b_j}.
+    \]
+    Let $\eps > 0$.
+    Since $\sum \abs{a_i}$ and $\sum \abs{b_j}$ converge, there exists $M\in\n$ such that
+    \[
+        \sum_{i > M} \abs{a_i} < \dfrac{\eps}{2B\uptick}
+        \quad\text{and}\quad
+        \sum_{j > M} \abs{b_j} < \dfrac{\eps}{2A\uptick}.
+    \]
+    If $A\uptick = 0$ or $B\uptick = 0$, then there is nothing to prove.
+    For $N > 2M$, we have
+    \[
+        \sum_{i > N/2} \abs{a_i} < \dfrac{\eps}{2B\uptick}
+        \quad\text{and}\quad
+        \sum_{j > N/2} \abs{b_j} < \dfrac{\eps}{2A\uptick}.
+    \]
+    Substituting into \eqref{eq:18.1}, we obtain
+    \[
+        \abs{\sum_{\substack{i+j > N}} a_i b_j} < \eps.
+    \]
+    Hence the Cauchy product converges absolutely.
+\end{theorem}

@@ -1,0 +1,121 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{The Limit of a Sequence}
+\lesson{6}{Monday 25 August 2025 9:10}{Day 6}
+
+\begin{definition}[Sequence]
+    A sequence on $\r$ is a function $\n\to\r$.
+\end{definition}
+
+\begin{definition}[Sequence Convergence]
+    A sequence $(x_n)$ converges to $L\in\r$ if for every $\epsilon >0$ there exists $N\in\n$ such that for all $n > N$,
+    \[
+        \abs{x_n - L} < \epsilon.
+    \]
+\end{definition}
+
+\begin{corollary}{
+    This is true if and only if for every $m\in\n$, there exists $N\in\n$ such that for all $n > N$,
+    \[
+        \abs{x_n- L} < \dfrac{1}{m}.
+    \]
+}
+    From the original definition of sequence convergence, one direction is immediate.
+    For the converse, let $\epsilon > 0$.
+    By the Archimedian property, there exists $m\in\n$ such that $\dfrac{1}{m} < \epsilon$.
+    Then for sufficiently large $n$, $\abs{x_n - L} < \dfrac{1}{m} < \epsilon$
+\end{corollary}
+
+\setcounter{section}{2}
+\section{The Monotone Convergence Theorem and a First Look at Infinite Series}
+
+\begin{definition}[Monotonically Increasing/Decreasing]
+    A sequence $(x_n)$ is monotonically increasing if:
+    \[
+        x_1\leq x_2\leq x_3\leq \ldots
+    \]
+    Or $x_n\leq x_{n+1}$ for all $n\in\n$.
+    Similarly, for monotonically decreasing if $x_n\geq x_{n+1}$.
+    A function is monotonic if any of these hold.
+\end{definition}
+
+\begin{definition}[Bounded]
+    $(x_n)$ is bounded if there exists $C\in\r$ such that $\abs{x_n}\leq C$ for all $n\in\n$.
+\end{definition}
+
+\begin{theorem}[Monotonic Convergence Theorem]{
+    A bounded monotonic sequence converges.
+}
+    Assume without loss of generality that $(x_n)$ is increasing.
+    Let $S\coloneqq\{x_n : n\in\n\}$.
+    Then $S$ is bounded above.
+    Let $L\coloneqq\sup(S)$.
+    We show $(x_n)\to L$.
+    Let $\epsilon > 0$.
+    Then there exists $x_N\in S$ such that $x_N > L - \epsilon$, otherwise $L-\epsilon$ is an upper bound for $S$.
+    For all $n > N$, since $(x_n)$ is increasing, $x_n\geq x_N > L - \epsilon$.
+    Also $x_n\leq L$ for all $n$, so
+    \[
+        \abs{L - x_n} = L - x_n < \epsilon.
+    \]
+\end{theorem}
+
+\begin{proposition}{
+    If $(x_n)\to L$, then $(-x_n)\to -L$.
+}
+    Given $\epsilon > 0$, there exists $N\in\n$ such that for all $n > N$, $\abs{x_n - L} < \epsilon$.
+    Then for all $n > N$,
+    \[
+        \abs{(-x_n) - (-L)} = \abs{x_n - L} < \epsilon.
+    \]
+\end{proposition}
+
+\begin{proposition}{
+    If $(x_n)\to L$, and $(x_n)\to M$, then $L = M$.
+}
+
+    Given $\epsilon > 0$, there exist $N_1,N_2\in\n$ such that for all $n > N_1$, $\abs{x_n - L} < \dfrac{\eps}{2}$ and for all $n > N_2$, $\abs{x_n - M} < \dfrac{\eps}{2}$.
+    Set $N\coloneqq\max\{N_1,N_2\}$.
+    Then for $n >N$:
+    \begin{align*}
+        \abs{L - M} &= \abs{(L - x_n) + (x_n - M)}\\
+        &\leq \abs{L - x_n} + \abs{x_n - M}\\
+        &< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
+        &= \eps.
+    \end{align*}
+    Since $\eps$ is arbitrary, $L = M$.
+\end{proposition}
+
+\begin{proposition}{
+    If $(x_n)\to L$ and $(y_n)\to M$, then $(x_n + y_n)\to L + M$.
+}
+    Let $N_1,N_2\in\n$ such that for all $n > N_1$, $\abs{x_n - L} < \dfrac{\eps}{2}$ and for all $n > N_2$, $\abs{y_n - M} < \dfrac{\eps}{2}$.
+    Set $N\coloneqq\max\{N_1,N_2\}$.
+    Then for all $n>N$:
+    \begin{align*}
+        \abs{(x_n + y_n) - (L + M)} &= \abs{(x_n - L) + (y_n - M)}\\
+        &\leq \abs{x_n - L} + \abs{y_n - M}\\
+        &< \dfrac{\eps}{2} + \dfrac{\eps}{2}\\
+        &= \eps.
+    \end{align*}
+\end{proposition}
+
+\begin{definition}[Triangle Inequality]
+    \begin{align*}
+        \abs{a + b} &\leq \abs{a} + \abs{b}\\
+        \abs{\abs{a} - \abs{b}} &\leq \abs{a - b}.
+    \end{align*}
+\end{definition}
+
+\begin{proposition}{
+    If $x_n\to L$, then $(\abs{x_n})\to \abs{L}$.
+}
+    Let $\epsilon > 0$.
+    Then there exists $N\in\n$ such that for all $n > N$, $\abs{x_n - L} < \epsilon$.
+    For all $n > N$:
+    \begin{align*}
+        \abs{\abs{x_n} - \abs{L}} &\leq \abs{x_n - L}\\
+        &< \epsilon.
+    \end{align*}
+\end{proposition}

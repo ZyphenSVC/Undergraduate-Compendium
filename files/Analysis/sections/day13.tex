@@ -1,0 +1,142 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Properties of Infinite Series}
+
+\lesson{13}{Friday 12 September 2025 9:10}{Day 13}
+
+\begin{definition}[Infinite Series]
+    Given a sequence $(a_1,a_2,a_3,\ldots)$, consider:
+    \[
+        \sum_{n=1}^\infty a_n.
+    \]
+\end{definition}
+
+\begin{definition}[Convergence of Series]
+    The series $\sum_{n=1}^\infty a_n$ converges if the sequence of partial sums
+    \[
+        S_N \coloneqq \sum_{n=1}^N a_n
+    \]
+    converges.
+    If $S_N\to L$ as $N\to \infty$, then $\sum_{n=1}^\infty a_n = L$.
+\end{definition}
+
+\begin{definition}[Cauchy Criterion]
+    The series $\sum a_n$ converges if for all $\eps > 0$, there exists $N\in\n$ such that for all $m\geq n\geq N$,
+    \[
+        \abs{\sum_{k=n+1}^m a_k} < \eps.
+    \]
+\end{definition}
+
+\begin{theorem}{
+    If $\sum a_n$ converges, then $a_n\to 0$.
+}
+\end{theorem}
+
+\begin{definition}[Harmonic Series]
+    \[
+        \sum_{n=1}^\infty \dfrac{1}{n}
+    \]
+    diverges.
+\end{definition}
+
+\begin{theorem}{
+    If all $a_n\geq 0$, then $\sum a_n$ converges if and only if the sequence of partial sums $(S_N)$ is bounded.
+}
+\end{theorem}
+
+\begin{definition}[Geometric Series]
+    A series is geometric if for some $r\neq 0$ and $a_0\neq 0$,
+    \[
+        \dfrac{a_{n+1}}{a_n} = r.
+    \]
+\end{definition}
+
+\begin{remark}
+    That is
+    \[
+        a_0 + ra_0 + r^2 a_0 + \ldots = a_0(1 + r + r^2 + \ldots).
+    \]
+    Also take $r = \dfrac{1}{2}$:
+    \[
+        1 + \dfrac{1}{2} + \dfrac{1}{4} + \dfrac{1}{8} + \ldots = 2.
+    \]
+\end{remark}
+
+\begin{lemma}{
+    If $\abs{r} < 1$, then $r^n\to 0$.
+}
+    This is equivalent to $\abs{r}^n\to 0$.
+    For $0 < r < 1$, we have
+    \[
+        1 = r^0 > r > r^2 > r^3 > \ldots \geq 0.
+    \]
+    Thus $(r^n)$ is bounded and monotonic, so it converges.
+    Let $r^n \to L$.
+    Then $r^{n+1}\to L$ implies $rL = L$, so $(1-r)L = 0$.
+    Since $r\neq 1$, we have $L = 0$.
+\end{lemma}
+
+\begin{lemma}{
+    \[
+        \sum_{n=0}^N r^n = \dfrac{1 - r^{N+1}}{1-r}.
+    \]
+}
+    \begin{align*}
+        \left(\sum_{n=0}^N r^n\right) (1-r)
+        &= (1 + r + r^2 + \ldots + r^N)(1 - r)\\
+        &= (1 + r + r^2 + \ldots + r^N) - (r + r^2 + \ldots + r^N + r^{N+1})\\
+        &= 1 - r^{N+1}.
+    \end{align*}
+    Hence
+    \[
+        \sum_{n=0}^N r^n = \dfrac{1 - r^{N+1}}{1-r}.
+    \]
+\end{lemma}
+
+\begin{theorem}[Geometric Series Convergence]{
+    $\sum r^n$ converges if and only if $\abs{r} < 1$.
+}
+    If $\abs{r}\geq 1$, then $r^n \not\to 0$, so the series diverges.
+    If $\abs{r} < 1$, then
+    \begin{align*}
+        S_N = \dfrac{1 - r^{N+1}}{1-r}
+        &\to \dfrac{1}{1-r} - \dfrac{\lim\limits_{N\to\infty} r^{N+1}}{1 -r}\\
+        &= \dfrac{1}{1-r}.
+    \end{align*}
+    Hence the series converges.
+\end{theorem}
+
+\begin{definition}[Absolute Convergence]
+    If $\sum \abs{a_n}$ converges, then $\sum a_n$ converges absolutely.
+\end{definition}
+
+\begin{definition}
+    If $\sum a_n$ converges but $\sum \abs{a_n}$ diverges, then the series converges conditionally.
+\end{definition}
+
+\begin{theorem}{
+    If $\sum a_n$ converges absolutely, then it converges.
+}
+    Apply the Cauchy Criterion.
+    Let $\eps > 0$.
+    Then there exists $N\in\n$ such that for $m > n > N$,
+    \[
+        \sum_{k=n+1}^m \abs{a_k} < \eps.
+    \]
+    Thus
+    \[
+        \abs{\sum_{k=n+1}^m a_k}\leq \sum_{k=n+1}^m \abs{a_k} < \eps.
+    \]
+\end{theorem}
+
+\begin{example}
+    \begin{gather*}
+        \sum_{n=1}^\infty \dfrac{(-1)^n}{n} \quad\text{converges conditionally}\\
+        \sum_{n=1}^\infty \dfrac{(-1)^n}{n^2}\quad\text{converges absolutely}\\
+    \end{gather*}
+    Any convergent geometric series converges absolutely.
+    \[
+        \sum \abs{r^n} = \sum \abs{r}^n = \dfrac{1}{1 - \abs{r}}.
+    \]
+\end{example}

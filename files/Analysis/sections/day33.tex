@@ -1,0 +1,217 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Derivatives and the Intermediate Value Property}
+
+\lesson{33}{Monday 27 October 2025 9:10}{Day 33}
+
+\begin{definition}[Derivative]
+    Let $f: A\to\r$, $c\in A$.
+    Then
+    \[
+        f\uptick(c) = \lim_{x\to c} \dfrac{f(x) - f(c)}{x - c}.
+    \]
+    If this limit exists, then $f$ is differentiable at $c$.
+\end{definition}
+
+\begin{problem}{
+    $f(x) = \abs{x}$ is differentiable at all $c\neq 0$.
+}
+    \begin{align*}
+        \lim_{x\to c} \dfrac{\abs{x} - \abs{c}}{x-c}
+        &= \begin{cases}
+               \lim_{x\to c} \dfrac{x - c}{x-c} = 1,\quad c > 0\\
+               \lim_{x\to c}\dfrac{-x + c}{x-c} = -1,\quad c < 0.
+        \end{cases}
+    \end{align*}
+
+    At $c = 0$, the one-sided limits are not equal.
+\end{problem}
+
+\begin{proposition}{
+    If $f$ is differentiable at $c$, then $f$ is continuous at $c$.
+}
+    We have
+    \[
+        \dfrac{f(x) - f(c)}{x-c}\to f\uptick(c)
+    \]
+    as $x\to c$.
+
+    Also
+    \[
+        x-c\to 0.
+    \]
+
+    Hence
+    \[
+        f(x) - f(c) = \dfrac{f(x)-f(c)}{x-c}(x-c)\to f\uptick(c)\cdot 0 = 0.
+    \]
+
+    So
+    \[
+        f(x)\to f(c).
+    \]
+
+    Therefore $f$ is continuous at $c$.
+\end{proposition}
+
+\begin{theorem}{
+    Derivative arithmetic is well defined with the usual conventions.
+}
+\end{theorem}
+
+\begin{theorem}[Linear Approximation Formula]{
+    Suppose $f : A\to\r$ and $c\in A$.
+    Then $f$ is differentiable at $c$ with derivative $L$ if and only if
+    \[
+        f(x) = f(c) + L(x-c) + \e(x),
+    \]
+    where
+    \[
+        \lim_{x\to c} \dfrac{\e(x)}{x-c} = 0.
+    \]
+}
+    \[
+        f(x) = f(c) + L(x-c) + \e(x)
+    \]
+    if and only if
+    \[
+        \e(x) = f(x) - f(c) - L(x-c).
+    \]
+
+    Hence
+    \[
+        \dfrac{\e(x)}{x-c} = \dfrac{f(x) - f(c)}{x-c} - L.
+    \]
+
+    So
+    \[
+        \lim_{x\to c} \dfrac{\e(x)}{x-c} = 0
+    \]
+    if and only if
+    \[
+        \lim_{x\to c}\dfrac{f(x)-f(c)}{x-c} = L.
+    \]
+
+    Thus $f\uptick(c) = L$.
+\end{theorem}
+
+\begin{corollary}
+    $f$ is differentiable at $c$ with derivative $L$ if and only if
+    \[
+        f(x) = f(c) + d(x)(x-c),
+    \]
+    where
+    \[
+        \lim_{x\to c} d(x) = L.
+    \]
+\end{corollary}
+
+\begin{theorem}[Chain Rule]{
+    Suppose $g:A\to\r$ and $f:B\to \r$, where $g(A)\subset B$.
+    Suppose $g$ is differentiable at $c$ and $f$ is differentiable at $g(c)$.
+    Then $f\circ g$ is differentiable at $c$ and
+    \[
+        (f\circ g)\uptick(c) = f\uptick(g(c))g\uptick(c).
+    \]
+}
+    We will use the corollary.
+
+    Write
+    \[
+        g(x) = g(c) + d(x)(x-c),
+    \]
+    where
+    \[
+        d(x)\to g\uptick(c)
+    \]
+    as $x\to c$.
+
+    Also write
+    \[
+        f(y) = f(g(c)) + \delta(y)(y-g(c)),
+    \]
+    where
+    \[
+        \delta(y)\to f\uptick(g(c))
+    \]
+    as $y\to g(c)$.
+
+    Substituting $y=g(x)$ gives
+    \begin{align*}
+        f(g(x))
+        &= f(g(c)) + \delta(g(x))(g(x)-g(c))\\
+        &= f(g(c)) + \delta(g(x))d(x)(x-c).
+    \end{align*}
+
+    Since $g$ is continuous at $c$, we have $g(x)\to g(c)$.
+
+    Hence
+    \[
+        \delta(g(x))\to f\uptick(g(c)).
+    \]
+
+    Also
+    \[
+        d(x)\to g\uptick(c).
+    \]
+
+    Therefore
+    \[
+        \delta(g(x))d(x)\to f\uptick(g(c))g\uptick(c).
+    \]
+
+    So by the corollary,
+    \[
+        (f\circ g)\uptick(c) = f\uptick(g(c))g\uptick(c).
+    \]
+\end{theorem}
+
+\section{Mean Value Theorems}
+
+\begin{theorem}[Mean Value Theorem]
+    Suppose $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$.
+    Then there exists $c\in(a,b)$ such that
+    \[
+        f(b) - f(a) = f\uptick(c)(b-a).
+    \]
+\end{theorem}
+
+\begin{theorem}[Cauchy MVT]
+    Suppose $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$.
+    Then there exists $c\in(a,b)$ such that
+    \[
+        f\uptick(c)(g(b) - g(a)) = g\uptick(c)(f(b) - f(a)).
+    \]
+\end{theorem}
+
+\begin{theorem}[Rolle's Theorem]{
+    Suppose $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and $f(b) = f(a)$.
+    Then there exists $c\in (a,b)$ such that $f\uptick(c) = 0$.
+}
+    We claim there exists $c\in (a,b)$ where $f$ attains either its maximum or its minimum.
+
+    Since $f$ is continuous and $[a,b]$ is compact, the maximum and minimum are attained.
+
+    If both are attained only at the endpoints, then since $f(a)=f(b)$, the function is constant.
+
+    Otherwise, $f$ attains either a maximum or a minimum at some interior point $c\in(a,b)$.
+
+    Say $f$ achieves its maximum at $c$.
+
+    Then
+    \[
+        \lim_{x\to c^+}\dfrac{f(x) - f(c)}{x-c}\leq 0
+    \]
+    and
+    \[
+        \lim_{x\to c^-}\dfrac{f(x) - f(c)}{x-c}\geq 0.
+    \]
+
+    Since $f$ is differentiable at $c$, these one-sided limits are equal.
+
+    Hence
+    \[
+        f\uptick(c)=0.
+    \]
+\end{theorem}

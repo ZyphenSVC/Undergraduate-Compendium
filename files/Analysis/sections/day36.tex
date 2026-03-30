@@ -1,0 +1,170 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\lesson{36}{Wednesday 5 November 2025 9:10}{Day 36}
+
+\begin{theorem}{
+    If $f,g$ are continuous, then $\max\{f(x),g(x)\}$ is continuous.
+}
+	\[
+        \max(a,b) = \dfrac{a + b + \abs{a - b}}{2}.
+    \]
+
+    So
+    \[
+        \max\{f,g\}(x) = \dfrac{f(x) + g(x) + \abs{f(x) - g(x)}}{2}.
+    \]
+
+    Since sums, differences, and absolute values of continuous functions are continuous, $\max\{f,g\}$ is continuous.
+
+    A corollary is that if $f_1,\ldots,f_N$ are continuous, then $\max\{f_1,\ldots,f_N\}$ is continuous.
+\end{theorem}
+
+\begin{example}
+    If $f_1,f_2,\ldots$ is a sequence of continuous functions with $f_i(x)\leq C$ for all $x$, define
+    \[
+        (\sup f_i)(x) \coloneqq \sup_{i} f_i(x).
+    \]
+    This function need not be continuous.
+\end{example}
+
+\begin{example}
+    Let $f_m : [0,1]\to\r$ be given by $f_m(x) = x^m$.
+
+    Then
+    \[
+        \inf_{m\in\n} x^m =
+        \begin{cases}
+            0, & 0\leq x < 1,\\
+            1, & x = 1.
+        \end{cases}
+    \]
+\end{example}
+
+\begin{example}
+    What does
+    \[
+        \lim_{x\to\infty} f(x) = \infty
+    \]
+    mean?
+\end{example}
+
+\begin{problem}{
+    Suppose $\abs{r}<1$.
+    Prove that
+    \[
+        \sum_{n=0}^{\infty}(n+1)r^n
+    \]
+    converges absolutely and equals $\dfrac{1}{(1-r)^2}$.
+}
+    \begin{align*}
+        \lim_{n\to\infty}
+        \abs{\dfrac{(n+2)r^{n+1}}{(n+1)r^n}}
+        &=
+        \lim_{n\to\infty}
+        \dfrac{(n+2)\abs{r}}{n+1}
+        = \abs{r} < 1.
+    \end{align*}
+
+    So the series converges absolutely by the ratio test.
+
+    Also
+    \[
+        \sum_{n=0}^{\infty}(n+1)r^n
+        =
+        \sum_{n=0}^{\infty}r^n \cdot \sum_{n=0}^{\infty}r^n
+        =
+        \left(\dfrac{1}{1-r}\right)^2.
+    \]
+\end{problem}
+
+\begin{problem}{
+    Prove there exists $c\in(1,2)$ such that $c^3 - c^2 = 1$.
+}
+    Define $f(x) \coloneqq x^3 - x^2 - 1$.
+
+    Then $f$ is continuous.
+
+    \[
+        f(1) = -1, \qquad f(2) = 3.
+    \]
+
+    By the Intermediate Value Theorem, there exists $c\in(1,2)$ such that $f(c)=0$.
+\end{problem}
+
+\begin{problem}{
+    Prove that the irrational numbers are dense in $\r$.
+}
+    Given $a<b$, define
+    \[
+        s \coloneqq a + \dfrac{b-a}{\sqrt{2}}.
+    \]
+
+    Then $s\in(a,b)$ and $s\notin\q$.
+
+    Hence $(a,b)\setminus\q \neq \varnothing$.
+\end{problem}
+
+\begin{problem}{
+    Show that
+    \[
+        \r \setminus A^{\circ} = \overline{\r \setminus A}.
+    \]
+}
+    \textbf{($\subseteq$).}
+
+    If $x\notin A^{\circ}$, then for every $\eps>0$,
+    \[
+        \vee_\eps(x)\not\subset A.
+    \]
+
+    So there exists $y\in \vee_\eps(x)$ with $y\notin A$.
+
+    Hence every neighborhood of $x$ intersects $\r\setminus A$, so $x\in \overline{\r\setminus A}$.
+
+    \textbf{($\supseteq$).}
+
+    If $x\in \overline{\r\setminus A}$, then every neighborhood of $x$ intersects $\r\setminus A$.
+
+    So no neighborhood of $x$ is contained in $A$, hence $x\notin A^{\circ}$.
+\end{problem}
+
+\begin{problem}{
+    What does
+    \[
+        \lim_{x\to\infty} f(x) = \infty
+    \]
+    mean?
+}
+    It means:
+
+    For every $M > 0$, there exists $R > 0$ such that
+    \[
+        x > R \implies f(x) > M.
+    \]
+\end{problem}
+
+\begin{example}
+    Let $f$ be continuous on $\r$ such that
+    \[
+        \lim_{x\to\infty} f(x) = \infty
+        \quad\text{and}\quad
+        \lim_{x\to -\infty} f(x) = \infty.
+    \]
+    Show $f$ attains a global minimum.
+\end{example}
+
+\begin{example}
+    Suppose $f : [a,b]\to\r$ is differentiable and $f\uptick$ is continuous.
+    Show $f$ is uniformly differentiable.
+\end{example}
+
+\begin{example}
+    Suppose $f : (a,b)\to\r$ is differentiable with $f\uptick(c)=0$ and $f^{\prime\prime}(c)>0$.
+    Show $c$ is a local minimum.
+\end{example}
+
+\begin{example}
+    Suppose $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$.
+    If $c\in[a,b]$ is a global maximum, show $c=a$, $c=b$, or $f\uptick(c)=0$.
+\end{example}

@@ -1,0 +1,158 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Uniform Convergence of a Sequence of Functions}
+
+\lesson{38}{Monday 10 November 2025 9:10}{Day 38}
+
+\begin{definition}[Pointwise Convergence]
+    Given functions $f_n, f_0 : A\to\r$, we say $(f_n)$ converges pointwise to $f_0$ if for every $x\in A$,
+    \[
+        f_n(x)\to f_0(x).
+    \]
+\end{definition}
+
+\begin{problem}{
+    \[
+        f_n(x) = x^n, \quad A = [0,1].
+    \]
+}
+    \[
+        x^n \to f_0(x) \coloneqq
+        \begin{cases}
+            0, & 0 \leq x < 1,\\
+            1, & x = 1.
+        \end{cases}
+    \]
+    So convergence is pointwise on $[0,1]$.
+\end{problem}
+
+\begin{problem}{
+    \[
+        f_n(x) = x^{1/n}, \quad A = [0,\infty).
+    \]
+}
+    \[
+        x^{1/n} \to g_0(x) \coloneqq
+        \begin{cases}
+            0, & x = 0,\\
+            1, & x > 0.
+        \end{cases}
+    \]
+    So convergence is pointwise on $[0,\infty)$.
+\end{problem}
+
+\begin{problem}{
+    \[
+        f_n(x) = \dfrac{x^2 + nx}{n}, \quad A = \r.
+    \]
+}
+    \[
+        \dfrac{x^2 + nx}{n} = x + \dfrac{x^2}{n} \to x.
+    \]
+    So convergence is pointwise on $\r$.
+\end{problem}
+
+\begin{problem}[Can limits be interchanged?]{
+    \[
+        \lim_{x\to a}\lim_{n\to\infty} f_n(x)
+        \;\not=\;
+        \lim_{n\to\infty}\lim_{x\to a} f_n(x).
+    \]
+}
+    Define
+    \[
+        a_{m,n} =
+        \begin{cases}
+            1, & m \geq n,\\
+            0, & m < n.
+        \end{cases}
+    \]
+
+    Then
+    \begin{align*}
+        \lim_{m\to\infty}\lim_{n\to\infty} a_{m,n} &= \lim_{m\to\infty} 0 = 0,\\
+        \lim_{n\to\infty}\lim_{m\to\infty} a_{m,n} &= \lim_{n\to\infty} 1 = 1.
+    \end{align*}
+\end{problem}
+
+\begin{definition}[Pointwise Convergence (epsilon form)]
+    $f_n \to f_0$ pointwise if for every $x\in A$ and every $\eps > 0$, there exists $N\in\n$ such that $n > N$ implies
+    \[
+        \abs{f_n(x) - f_0(x)} < \eps.
+    \]
+\end{definition}
+
+\begin{definition}[Uniform Convergence]
+    $(f_n)$ converges uniformly to $f_0$ on $A$ if for every $\eps > 0$, there exists $N\in\n$ such that for all $x\in A$, $n > N$ implies
+    \[
+        \abs{f_n(x) - f_0(x)} < \eps.
+    \]
+\end{definition}
+
+\begin{corollary}
+    Uniform convergence implies pointwise convergence, but not conversely.
+\end{corollary}
+
+\begin{theorem}{
+    If $f_n \to f_0$ uniformly on $A$, and each $f_n$ is continuous, then $f_0$ is continuous.
+}
+    Omitted.
+\end{theorem}
+
+\begin{problem}{
+    \begin{align*}
+        f_n(x) &= x + \dfrac{x^2}{n},\\
+        f_0(x) &= x.
+    \end{align*}
+}
+    For $\abs{x} \leq C$,
+    \[
+        \abs{f_n(x) - f_0(x)} = \dfrac{x^2}{n} \leq \dfrac{C^2}{n}.
+    \]
+
+    Given $\eps > 0$, choose $N > \dfrac{C^2}{\eps}$, then for $n > N$,
+    \[
+        \abs{f_n(x) - f_0(x)} < \eps.
+    \]
+
+    So convergence is uniform on $[-C,C]$.
+
+    However, on $\r$, for $x=n$,
+    \[
+        \abs{f_n(n) - f_0(n)} = \dfrac{n^2}{n} = n \to \infty,
+    \]
+    so convergence is not uniform on $\r$.
+\end{problem}
+
+\begin{problem}{
+    $f_n(x) = x^n$ does not converge uniformly on $[0,1]$, where
+    \[
+        f_0(x) \coloneqq
+        \begin{cases}
+            0, & 0 \leq x < 1,\\
+            1, & x = 1.
+        \end{cases}
+    \]
+}
+    Take $\eps = \tfrac{1}{2}$.
+
+    For any $N\in\n$, choose $x = (1/2)^{1/N} \in (0,1)$.
+
+    Then
+    \[
+        x^N = \tfrac{1}{2},
+    \]
+    so
+    \[
+        \abs{f_N(x) - f_0(x)} = \tfrac{1}{2}.
+    \]
+
+    Hence convergence is not uniform.
+
+    However, on $[0,\gamma]$ with $\gamma < 1$, we have
+    \[
+        x^n \leq \gamma^n \to 0,
+    \]
+    so convergence is uniform on such intervals.
+\end{problem}

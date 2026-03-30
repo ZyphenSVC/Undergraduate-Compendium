@@ -1,0 +1,106 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{The Intermediate Value Theorem}
+
+\lesson{29}{Friday 17 October 2025 9:10}{Day 29}
+
+\begin{lemma}{
+    Suppose $S\subseteq\r$ is nonempty, closed, and bounded.
+    Then $S$ contains $\sup(S)$.
+}
+    Let $s\coloneqq \sup(S)$.
+
+    Then there exists a sequence $x_n\in S$ such that $x_n\to s$.
+
+    Since $S$ is closed and $x_n\to s$, we have $s\in S$.
+\end{lemma}
+
+\begin{theorem}{
+    Let $[a,b]\subset\r$ and suppose $f:[a,b]\to\r$ is continuous.
+    Then $f$ attains its maximum and minimum on $[a,b]$.
+}
+    Let $V\coloneqq f([a,b])$.
+
+    Since $[a,b]$ is compact and $f$ is continuous, $V$ is compact.
+
+    Hence $V$ is closed and bounded.
+
+    By the lemma, $V$ contains $\sup(V)$.
+
+    So there exists $x_1\in[a,b]$ such that
+    \[
+        f(x_1)=\sup(V).
+    \]
+
+    Then for all $x\in[a,b]$, we have $f(x)\leq f(x_1)$.
+
+    Similarly, $V$ contains $\inf(V)$.
+
+    So there exists $x_2\in[a,b]$ such that
+    \[
+        f(x_2)=\inf(V).
+    \]
+\end{theorem}
+
+\begin{theorem}[Intermediate Value Theorem]{
+    Let $X$ be connected and $f:X\to\r$ continuous.
+
+    If $y_1,y_2\in f(X)$ and $r$ lies between them, then $r\in f(X)$.
+}
+    Suppose $r\notin f(X)$.
+
+    Let
+    \[
+        A\coloneqq (-\infty,r), \quad B\coloneqq (r,\infty).
+    \]
+
+    Then
+    \[
+        X = f^{-1}(A)\cup f^{-1}(B).
+    \]
+
+    Since $f$ is continuous, $f^{-1}(A)$ and $f^{-1}(B)$ are open.
+
+    They are disjoint and nonempty.
+
+    This contradicts connectedness of $X$.
+
+    Hence $r\in f(X)$.
+\end{theorem}
+
+\begin{theorem}{
+    Let $C\subseteq\r$ be compact.
+
+    Suppose $f:C\to\r$ is continuous.
+
+    Then $f$ is uniformly continuous on $C$.
+}
+    Assume for contradiction that $f$ is not uniformly continuous.
+
+    Then there exists $\eps >0$ such that for all $n\in\n$, there exist $x_n,y_n\in C$ with
+    \[
+        \abs{x_n-y_n} < \frac{1}{n}, \quad \abs{f(x_n)-f(y_n)}\geq \eps.
+    \]
+
+    Since $C$ is compact, there exists a subsequence $x_{n_k}\to x\in C$.
+
+    Then
+    \[
+        y_{n_k} = x_{n_k} + (y_{n_k}-x_{n_k}) \to x.
+    \]
+
+    Since $f$ is continuous,
+    \[
+        f(x_{n_k})\to f(x), \quad f(y_{n_k})\to f(x).
+    \]
+
+    Hence
+    \[
+        \abs{f(x_{n_k})-f(y_{n_k})}\to 0,
+    \]
+
+    which contradicts $\abs{f(x_{n_k})-f(y_{n_k})}\geq \eps$.
+
+    Hence $f$ is uniformly continuous.
+\end{theorem}

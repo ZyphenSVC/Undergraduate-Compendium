@@ -1,0 +1,373 @@
+\usepackage{ifthen}
+\usepackage{xifthen}
+\usepackage{epigraph}
+\usepackage{stackengine}
+
+\def\testdateparts#1{\dateparts#1\relax}
+\def\dateparts#1 #2 #3 #4 #5\relax{
+    \marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
+}
+
+
+\makeatletter
+\def\@lesson{}%
+\newcommand{\lesson}[3]{
+    \ifthenelse{\isempty{#2}}{%
+        \ifthenelse{\isempty{#3}}{%%
+            \addcontentsline{toc}{subsubsection}{Lesson #1}
+            \def\@lesson{Lesson #1}%%
+        }{%%
+            \addcontentsline{toc}{subsubsection}{Lesson #1: #3}
+            \def\@lesson{Lesson #1: #3}%%
+        }%%
+    }{%
+        \ifthenelse{\isempty{#3}}{%%
+            \addcontentsline{toc}{subsubsection}{Lesson #1}
+            \def\@lesson{Lesson #1 \normalfont\small{\mbox{-- #2}}}%%
+        }{%%
+            \addcontentsline{toc}{subsubsection}{Lesson #1: #3}
+            \def\@lesson{Lesson #1: #3 \normalfont\small{\mbox{-- #2}}}%%
+        }%%
+    }%
+
+    \subsection*{\@lesson}\
+}
+\makeatletter
+
+\renewcommand\date[1]{\marginpar{#1}}
+
+\RequirePackage{subfiles}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[fixamsmath]{mathtools}
+\usepackage[nointegrals]{wasysym}
+\usepackage{physics}
+\usepackage{adjustbox}
+
+\usepackage{XCharter}
+\usepackage{fourier}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[cal=cm, bb=ams]{mathalpha}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage[dvipsnames, svgnames, table]{xcolor}
+\usepackage{quiver}
+
+\definecolor{PageBackground}{HTML}{1E1E1E}
+\definecolor{PageText}{HTML}{E0E0E0}
+
+\pagecolor{PageBackground}
+\color{PageText}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta, cd}
+\usepackage{pgffor}
+
+\tikzset{every picture/.style={text=PageText}}
+
+\usepackage{xparse}
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=0.1pt, topsep=0pt, partopsep=0pt, label=\textcolor{PageText}{$\bullet$}}
+\setlist[enumerate]{itemsep=0.1pt, topsep=0pt, partopsep=0pt, label=\textcolor{PageText}{\arabic*.}}
+\usepackage{cancel}
+\usepackage{hwemoji}
+
+\DeclareUnicodeCharacter{FE0E}{}
+\DeclareUnicodeCharacter{FE0F}{}
+
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{AxiomBar}{HTML}{2EC4B6}
+\definecolor{TheoremBar}{HTML}{FF6B6B}
+\definecolor{PropositionBar}{HTML}{FF9F43}
+\definecolor{LemmaBar}{HTML}{A66CFF}
+\definecolor{CorollaryBar}{HTML}{38BDF8}
+\definecolor{DefinitionBar}{HTML}{4ADE80}
+\definecolor{ProblemBar}{HTML}{60A5FA}
+
+\tcbset{
+    blockbase/.style={
+        enhanced,
+        breakable,
+        parbox=false,
+        boxrule=0pt,
+        left=10pt, right=10pt, top=10pt, bottom=10pt,
+        arc=2pt,
+    },
+    leftbar/.style={
+        borderline west={2.8pt}{0pt}{#1},
+    },
+    tinted/.style={
+        colback=#1!18!PageBackground,
+        colframe=#1!18!PageBackground,
+        coltext=PageText,
+        leftbar=#1,
+    },
+}
+
+\makeatletter
+\def\tagform@#1{\maketag@@@{[\ignorespaces#1\unskip\@@italiccorr]}}
+\renewcommand{\eqref}[1]{\textup{[\ref{#1}]}}
+\makeatother
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\def\mbb#1{\mathbb{#1}}
+\def\mfk#1{\mathfrak{#1}}
+\def\bN{\mbb{N}}
+\def\bC{\mbb{C}}
+\def\bR{\mbb{R}}
+\def\bQ{\mbb{Q}}
+\def\bZ{\mbb{Z}}
+\def\bF{\mbb{F}}
+\def\bP{\mbb{P}}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter{\angled}{\langle}{\rangle}
+\let\norm\relax
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\orth}{orth}
+\DeclareMathOperator{\diag}{diag}
+
+\newcommand{\rref}{\xrightarrow{\text{RREF}}}
+\newcommand{\basis}{\mathcal}
+\newcommand{\conj}{\overline}
+\newcommand{\const}{\mathrm{const}}
+\newcommand{\sym}{\mathrm{sym}}
+\newcommand{\alt}{\mathrm{alt}}
+\newcommand{\perm}{\mathrm{perm}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\lcm}{\mathrm{lcm}}
+
+\renewcommand{\div}{\divisionsymbol}
+\renewcommand{\qedsymbol}{\textcolor{PageText}{$\square$}}
+
+\newcommand{\innerli}{
+    \par\vspace{-\parskip}\vspace{4pt}\noindent
+    \makebox[\linewidth]{
+        \textcolor{PageText!30}{\rule{0.47\linewidth}{0.5pt}}
+        \hfill$\therefore$\hfill
+        \textcolor{PageText!30}{\rule{0.47\linewidth}{0.5pt}}
+    }
+    \par\vspace{-\parskip}\vspace{4pt}
+}
+
+\newcommand{\ProofBodySpacing}{%
+    \begingroup
+    \setlength{\parskip}{1em}%
+    \setlength{\parindent}{0pt}%
+}
+\newcommand{\EndProofBodySpacing}{\endgroup}
+
+\newcommand{\tcbname}[1]{%
+    \IfNoValueTF{#1}{}{%
+        \if\relax\detokenize{#1}\relax\else #1\fi
+    }%
+}
+
+\newcommand{\tcbheaderline}[2]{%
+    \refstepcounter{equation}%
+    {\color{#1}\textbf{[\theequation]}}\hspace{0.75em}%
+    {\textsc{#2}}%
+}
+
+\newcommand{\tcbheadername}[1]{%
+    \unskip
+    \if\relax\detokenize{#1}\relax
+    .\hspace{0.2em}%
+    \else
+        \hspace{0.4em}(\textit{#1}).\hspace{0.2em}%
+    \fi
+}
+
+\NewDocumentEnvironment{axiom}{O{}}{%
+    \begin{tcolorbox}[blockbase,tinted=AxiomBar]
+    \tcbheaderline{AxiomBar}{Axiom}\tcbheadername{#1}\ignorespaces
+}{%
+    \unskip
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{definition}{O{}}{%
+    \begin{tcolorbox}[blockbase,tinted=DefinitionBar]
+    \tcbheaderline{DefinitionBar}{Definition}\tcbheadername{#1}\ignorespaces
+}{%
+    \unskip
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{remark}{O{}}{%
+    \begin{tcolorbox}[blockbase,tinted=CorollaryBar]
+    \tcbheaderline{CorollaryBar}{Remark}\tcbheadername{#1}\ignorespaces
+}{%
+    \unskip
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{example}{O{}}{%
+    \begin{tcolorbox}[blockbase,tinted=CorollaryBar]
+    \tcbheaderline{CorollaryBar}{Example}\tcbheadername{#1}\ignorespaces
+}{%
+    \unskip
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{theorem}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=TheoremBar]
+    \tcbheaderline{TheoremBar}{Theorem}\tcbheadername{#1}{#2}
+    \innerli
+    \textbf{Proof.}\ \ignorespaces
+    \ProofBodySpacing
+}{%
+    \unskip
+    \EndProofBodySpacing
+    \ifhmode
+        \hfill\qedsymbol
+    \else
+        \vspace{-\baselineskip}\hfill\qedsymbol
+    \fi
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{proposition}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=PropositionBar]
+    \tcbheaderline{PropositionBar}{Proposition}\tcbheadername{#1}{#2}
+    \innerli
+    \textbf{Proof.}\ \ignorespaces
+    \ProofBodySpacing
+}{%
+    \unskip
+    \EndProofBodySpacing
+    \ifhmode
+        \hfill\qedsymbol
+    \else
+        \vspace{-\baselineskip}\hfill\qedsymbol
+    \fi
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{lemma}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=LemmaBar]
+    \tcbheaderline{LemmaBar}{Lemma}\tcbheadername{#1}{#2}
+    \innerli
+    \textbf{Proof.}\ \ignorespaces
+    \ProofBodySpacing
+}{%
+    \unskip
+    \EndProofBodySpacing
+    \ifhmode
+        \hfill\qedsymbol
+    \else
+        \vspace{-\baselineskip}\hfill\qedsymbol
+    \fi
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{corollary}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=CorollaryBar]
+    \tcbheaderline{CorollaryBar}{Corollary}\tcbheadername{#1}{#2}
+    \innerli
+    \textbf{Proof.}\ \ignorespaces
+    \ProofBodySpacing
+}{%
+    \unskip
+    \EndProofBodySpacing
+    \ifhmode
+        \hfill\qedsymbol
+    \else
+        \vspace{-\baselineskip}\hfill\qedsymbol
+    \fi
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{problem}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=ProblemBar]
+    \tcbheaderline{ProblemBar}{Problem}\tcbheadername{#1}{#2}
+    \innerli
+    \textbf{Solution.}\ \ignorespaces
+    \ProofBodySpacing
+}{%
+    \unskip
+    \EndProofBodySpacing
+    \ifhmode
+        \hfill\qedsymbol
+    \else
+        \vspace{-\baselineskip}\hfill\qedsymbol
+    \fi
+    \end{tcolorbox}
+}
+
+\newcommand{\pset}[1]{
+    \section*{\textbf{#1}}
+    \addcontentsline{toc}{section}{#1}
+}
+
+\usepackage{chngcntr}
+\numberwithin{equation}{subsection}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\colvec}{m}
+{
+    \begin{bmatrix}
+    \clist_use:nn { #1 } { \\ }
+    \end{bmatrix}
+}
+\NewDocumentCommand{\rowvec}{m}
+{
+    \begin{bmatrix}
+    \clist_use:nn { #1 } { & }
+    \end{bmatrix}
+}
+\NewDocumentCommand{\blockmat}{m m}
+{
+    \left[\begin{array}{#1}
+    #2
+    \end{array}\right]
+}
+\ExplSyntaxOff
+
+\newcommand{\splitlineh}[2]{%
+    \rule{#1}{0.4pt}\,#2\,\rule{#1}{0.4pt}%
+}
+
+\newcommand{\splitlinev}[2]{%
+    \begin{array}{c}
+    \rule{0.4pt}{#1} \\[-2pt]
+    #2 \\[-2pt]
+    \rule{0.4pt}{#1}
+    \end{array}
+}
+
+\AtBeginDocument{
+    \setlength{\abovedisplayskip}{6pt plus 1pt minus 1pt}
+    \setlength{\belowdisplayskip}{6pt plus 1pt minus 1pt}
+    \setlength{\abovedisplayshortskip}{0pt plus 1pt}
+    \setlength{\belowdisplayshortskip}{4pt plus 1pt}
+    \setlength{\jot}{4pt}
+    \allowdisplaybreaks
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1em}
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ProblemBar,
+    filecolor=ProblemBar,
+    urlcolor=ProblemBar,
+    citecolor=ProblemBar
+}

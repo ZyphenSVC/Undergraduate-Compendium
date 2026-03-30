@@ -1,0 +1,115 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Consequences of Completeness}
+
+\lesson{4}{Wednesday 20 August 2025 9:10}{Day 4}
+
+\begin{theorem}[Complete Exponential Theorem]{
+    Define $S\coloneqq\{x\in\r : x^n < c\}$, $S$ is bounded above, then set $\alpha \coloneqq \sup(S)$ and $\alpha^n = c$.
+}
+    Suppose $\alpha^n < c$.
+    Then there exists $\epsilon > 0$ such that $(\alpha + \epsilon)^n < c$.
+    Then $\alpha + \epsilon \in S$, contradicting that $\alpha$ is an upper bound.
+    Suppose $\alpha^n > c$.
+    Then there exists $\epsilon > 0$ such that $(\alpha - \epsilon)^n > c$.
+    Then $\alpha - \epsilon$ is still an upper bound of $S$ smaller than $\alpha$, contradicting minimality.
+    Hence $\alpha^n = c$.
+\end{theorem}
+
+\begin{definition}[Cardinality of Sets]
+    It is the number of elements in set $S$.
+\end{definition}
+
+\begin{definition}[Equal Cardinality]
+    Sets have the same cardinality if there is a bijective function $f: A\leftrightarrow B$.
+\end{definition}
+
+\begin{definition}[Countably Infinite]
+    A set is countably infinite if it has the same cardinality as $\n$.
+\end{definition}
+
+\begin{definition}[Countable]
+    A set is countable if it is either finite, or countably infinite.
+    Set $S$ is also countable if its elements can be listed as a sequence.
+\end{definition}
+
+\begin{theorem}{
+    $\z,\q$ are both countably infinite.
+}
+    $\z$ -- Define
+    \begin{align*}
+        f(2n) &= n\\
+        f(2n-1) &= -n.
+    \end{align*}
+    This defines a bijection $f:\n\to\z$.
+
+    $\q$ -- Enumerate $\q$ by arranging fractions $\frac{a}{b}$ in a grid and traversing diagonally, skipping duplicates.
+\end{theorem}
+
+\begin{theorem}[Nested Interval Theorem]{
+    Suppose $[a_1,b_1], [a_2,b_2],\ldots$ is a sequence of closed bounded intervals in $\r$, which is nested.
+    \[
+        [a_n,b_n]\supset [a_{n+1},b_{n+1}], \forall n\in\n
+    \]
+    Then:
+    \[
+        \bigcap\limits_{i=1}^{\infty} [a_i,b_i] \neq \varnothing
+    \]
+}
+    Let $A\coloneqq \{a_1,a_2,\ldots\},\ B\coloneqq \{b_1,b_2,\ldots\}$.
+    For any $b\in B$, $b$ is an upper bound of $A$.
+    Thus $\sup(A)\leq\inf(B)$.
+    Since $\sup(A)\geq a_i$ for all $i$ and $\sup(A)\leq b_i$ for all $i$, we have $\sup(A)\in[a_i,b_i]$ for all $i$.
+    Hence $\sup(A)\in \bigcap_{i=1}^\infty [a_i,b_i]$.
+\end{theorem}
+
+\begin{remark}
+    The direct statement of this corollary is:
+    \begin{displayquote}
+        If $[a_1,b_1], [a_2,b_2],\ldots$ is a sequence of closed bounded intervals in $\r$ is nested, then $\bigcap_{i=1}^{\infty} [a_i,b_i]\neq\varnothing$.
+    \end{displayquote}
+    A contrapositive of this lemma is:
+    \begin{displayquote}
+        If $\bigcap_{i=1}^{\infty} [a_i,b_i] = \varnothing$, then the intervals are not nested.
+    \end{displayquote}
+\end{remark}
+
+\section{Cardinality}
+
+\begin{theorem}{
+    $\r$ is uncountable.
+}
+    Suppose $\r$ is countable, so $\r=\{x_1,x_2,x_3,\ldots\}$.
+    Construct nested intervals $[a_n,b_n]$ such that $x_n\notin[a_n,b_n]$ for each $n$, and $[a_{n+1},b_{n+1}]\subset[a_n,b_n]$.
+    By the Nested Interval Theorem,
+    \[
+        \bigcap_{n=1}^\infty [a_n,b_n]\neq \varnothing.
+    \]
+    Let $x$ be in the intersection.
+    Then $x\neq x_n$ for all $n$, contradicting that the sequence lists all real numbers.
+    Hence, $\r$ is uncountable.
+\end{theorem}
+
+\begin{theorem}{
+    If $A\subseteq B$ and $B$ is countable, then $A$ is either countable or finite.
+}
+\end{theorem}
+
+\begin{remark}
+    A contrapositive of this lemma is:
+    \begin{displayquote}
+        If $A$ is uncountable, then $A\nsubseteq B$ or $B$ is uncountable.
+    \end{displayquote}
+\end{remark}
+
+\begin{theorem}
+    If $A_i$ are each countable sets for $i\in\n$, then $\bigcup_{i\in\n} A_i$ is countable.\label{thm:1.5.8}
+\end{theorem}
+
+\begin{remark}
+    A contrapositive of this lemma is:
+    \begin{displayquote}
+        If $\bigcup_{i\in\n} A_i$ is uncountable, there exists an $A_i$ that is uncountable.
+    \end{displayquote}
+\end{remark}

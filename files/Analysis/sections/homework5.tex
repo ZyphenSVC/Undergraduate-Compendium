@@ -1,0 +1,401 @@
+%! Author = sriadityavedantam
+%! Date = 3/25/26
+
+\section{Homework 5}
+
+\begin{problem}[Exercise 6.2.1]{
+    Let
+    \[
+        f_n(x)=\frac{nx}{1+nx^2}.
+    \]
+    \begin{enumerate}[label={(\alph*)}]
+	\item Find the pointwise limit of $(f_n)$ for all $x\in(0,\infty)$.
+    \item Is the convergence uniform on $(0,\infty)$?
+    \item Is the convergence uniform on $(0,1)$?
+    \item Is the convergence uniform on $(1,\infty)$?
+    \end{enumerate}
+}
+    \textbf{(a).}
+    For fixed $x>0$,
+    \[
+        f_n(x)=\frac{nx}{1+nx^2}
+        =
+        \frac{x}{\frac1n+x^2}
+        \to \frac{1}{x}.
+    \]
+
+    So the pointwise limit is
+    \[
+        f(x)=\frac1x.
+    \]
+
+    \textbf{(b).}
+    The convergence is not uniform on $(0,\infty)$.
+
+    Indeed,
+    \[
+        \abs{f_n(x)-\frac1x}
+        =
+        \abs{\frac{nx}{1+nx^2}-\frac1x}
+        =
+        \frac{1}{x(1+nx^2)}.
+    \]
+
+    Take $x=\frac1n$.
+    Then
+    \[
+        \abs{f_n(1/n)-n}
+        =
+        \frac{n^2}{n+1},
+    \]
+    which does not go to $0$.
+
+    \textbf{(c).}
+    The convergence is not uniform on $(0,1)$ for the same reason, since $\frac1n\in(0,1)$ for large $n$.
+
+    \textbf{(d).}
+    The convergence is uniform on $(1,\infty)$.
+
+    If $x>1$, then
+    \[
+        \abs{f_n(x)-\frac1x}
+        =
+        \frac{1}{x(1+nx^2)}
+        \leq
+        \frac{1}{1+n}.
+    \]
+
+    Since $\frac{1}{n+1}\to 0$, the convergence is uniform.
+\end{problem}
+
+\begin{definition}[Uniformly Differentiable]
+    A function $f$ is uniformly differentiable on $A$ if for every $\eps > 0$, there exists $\delta > 0$ such that
+    \[
+        0<\abs{x-y}<\delta
+        \implies
+        \abs{\frac{f(x)-f(y)}{x-y}-f\uptick(y)}<\eps.
+    \]
+\end{definition}
+
+\begin{problem}[Exercise 6.2.4]{
+    If a function is uniformly differentiable, then its derivative must be continuous.
+}
+    Let $\eps > 0$.
+
+    By uniform differentiability, there exists $\delta > 0$ such that whenever
+    \[
+        0<\abs{x-y}<\delta,
+    \]
+    we have
+    \[
+        \abs{\frac{f(x)-f(y)}{x-y}-f'(y)}<\frac{\eps}{2}.
+    \]
+
+    Also,
+    \[
+        \frac{f(x)-f(y)}{x-y}
+        =
+        \frac{f(y)-f(x)}{y-x},
+    \]
+    so
+    \[
+        \abs{\frac{f(y)-f(x)}{y-x}-f'(x)}<\frac{\eps}{2}.
+    \]
+
+    Hence
+    \begin{align*}
+        \abs{f'(x)-f'(y)}
+        &\leq
+        \abs{f'(x)-\frac{f(y)-f(x)}{y-x}}
+        +
+        \abs{\frac{f(x)-f(y)}{x-y}-f'(y)}\\
+        &<\frac{\eps}{2}+\frac{\eps}{2}\\
+        &=\eps.
+    \end{align*}
+
+    Therefore $f'$ is continuous.
+\end{problem}
+
+\begin{problem}[Exercise 6.2.6]{
+    Assume $f_n\to f$ pointwise on a set $A$.
+    Provide examples showing that all of the following propositions are false if the convergence is only pointwise.
+    Then decide which are true under the stronger hypothesis of uniform convergence.
+    \begin{enumerate}[label={(\alph*)}]
+	\item If each $f_n$ is uniformly continuous, then $f$ is uniformly continuous.
+    \item If each $f_n$ is bounded, then $f$ is bounded.
+    \item If each $f_n$ has a finite number of discontinuities, then $f$ has a finite number of discontinuities.
+    \item If each $f_n$ has fewer than $M$ discontinuities, where $M\in\n$ is fixed, then $f$ has fewer than $M$ discontinuities.
+    \item If each $f_n$ has at most a countable number of discontinuities, then $f$ has at most a countable number of discontinuities.
+    \end{enumerate}
+}
+    \textbf{(a).}
+    Take
+    \[
+        f_n(x)=x^n
+        \qquad\text{on }[0,1].
+    \]
+
+    Each $f_n$ is uniformly continuous.
+
+    The pointwise limit is
+    \[
+        f(x)=
+        \begin{cases}
+            0,&0\leq x<1,\\
+            1,&x=1,
+        \end{cases}
+    \]
+    which is not continuous, and therefore not uniformly continuous.
+
+    Under uniform convergence, the statement is true.
+
+    \textbf{(b).}
+    Take
+    \[
+        f_n(x)=
+        \begin{cases}
+            x,&x<n,\\
+            n,&x\geq n.
+        \end{cases}
+    \]
+
+    Each $f_n$ is bounded.
+
+    The pointwise limit is
+    \[
+        f(x)=x,
+    \]
+    which is unbounded.
+
+    Under uniform convergence, the statement is true.
+
+    \textbf{(c).}
+    Define
+    \[
+        f_n(x)=
+        \begin{cases}
+            \lfloor x\rfloor,&x\in[0,n],\\
+            x,&x\notin[0,n].
+        \end{cases}
+    \]
+
+    Each $f_n$ has finitely many discontinuities.
+
+    The pointwise limit is
+    \[
+        f(x)=
+        \begin{cases}
+            x,&x<0,\\
+            \lfloor x\rfloor,&x\geq 0,
+        \end{cases}
+    \]
+    which has infinitely many discontinuities.
+
+    Under uniform convergence, this statement is false in general.
+
+    \textbf{(d).}
+    Take
+    \[
+        f_n(x)=\frac{1}{1+nx^2}.
+    \]
+
+    Each $f_n$ is continuous, so with $M=1$ each has fewer than $1$ discontinuities.
+
+    But the pointwise limit is
+    \[
+        f(x)=
+        \begin{cases}
+            1,&x=0,\\
+            0,&x\neq 0,
+        \end{cases}
+    \]
+    which has one discontinuity.
+
+    Under uniform convergence, the statement is true.
+
+    \textbf{(e).}
+    A standard counterexample is a sequence of functions converging pointwise to the Dirichlet function
+    \[
+        \chi_{\q}(x)=
+        \begin{cases}
+            1,&x\in\q,\\
+            0,&x\notin\q.
+        \end{cases}
+    \]
+
+    The limit has discontinuities at every real number, so the set of discontinuities is uncountable.
+
+    Under uniform convergence, the statement is true.
+\end{problem}
+
+\begin{problem}[Exercise 6.2.8]{
+    Let $(g_n)$ be a sequence of continuous functions that converges uniformly to $g$ on a compact set $K$.
+    If $g(x)\neq 0$ on $K$, show that $(1/g_n)$ converges uniformly on $K$ to $1/g$.
+}
+    Since $g$ is continuous on compact $K$ and never vanishes, there exists $m>0$ such that
+    \[
+        \abs{g(x)}\geq m
+        \qquad\text{for all }x\in K.
+    \]
+
+    Because $g_n\to g$ uniformly, choose $N_1$ such that for all $n\geq N_1$,
+    \[
+        \abs{g_n(x)-g(x)}<\frac{m}{2}
+        \qquad\text{for all }x\in K.
+    \]
+
+    Then for $n\geq N_1$,
+    \[
+        \abs{g_n(x)}
+        \geq
+        \abs{g(x)}-\abs{g_n(x)-g(x)}
+        \geq
+        m-\frac{m}{2}
+        =
+        \frac{m}{2}.
+    \]
+
+    Now let $\eps>0$.
+
+    Choose $N_2$ such that for all $n\geq N_2$,
+    \[
+        \abs{g_n(x)-g(x)}<\frac{\eps m^2}{2}
+        \qquad\text{for all }x\in K.
+    \]
+
+    Then for $n\geq \max\{N_1,N_2\}$,
+    \begin{align*}
+        \abs{\frac1{g_n(x)}-\frac1{g(x)}}
+        &=
+        \abs{\frac{g(x)-g_n(x)}{g_n(x)g(x)}}\\
+        &\leq
+        \frac{\abs{g_n(x)-g(x)}}{(m/2)m}\\
+        &<
+        \frac{(\eps m^2)/2}{m^2/2}\\
+        &=
+        \eps.
+    \end{align*}
+
+    Hence
+    \[
+        \frac1{g_n}\to\frac1g
+    \]
+    uniformly on $K$.
+\end{problem}
+
+\begin{problem}{
+    Assume $(f_n)$ and $(g_n)$ are uniformly convergent sequences of functions.
+
+    \begin{enumerate}[label={(\alph*)}]
+	\item Show that $(f_n+g_n)$ is a uniformly convergent sequence of functions.
+    \item Give an example to show that the product $(f_ng_n)$ may not converge uniformly.
+    \item Prove that if there exists an $M>0$ such that $\abs{f_n}\leq M$ and $\abs{g_n}\leq M$ for all $n\in\n$, then $(f_ng_n)$ does converge uniformly.
+    \end{enumerate}
+}
+    \textbf{(a).}
+    Suppose
+    \[
+        f_n\to f
+        \qquad\text{and}\qquad
+        g_n\to g
+    \]
+    uniformly.
+
+    Let $\eps>0$.
+
+    Choose $N_1$ such that for all $n\geq N_1$,
+    \[
+        \abs{f_n(x)-f(x)}<\frac{\eps}{2}
+        \qquad\text{for all }x.
+    \]
+
+    Choose $N_2$ such that for all $n\geq N_2$,
+    \[
+        \abs{g_n(x)-g(x)}<\frac{\eps}{2}
+        \qquad\text{for all }x.
+    \]
+
+    Then for all $n\geq \max\{N_1,N_2\}$,
+    \begin{align*}
+        \abs{(f_n+g_n)(x)-(f+g)(x)}
+        &\leq
+        \abs{f_n(x)-f(x)}+\abs{g_n(x)-g(x)}\\
+        &<\eps.
+    \end{align*}
+
+    So $f_n+g_n\to f+g$ uniformly.
+
+    \textbf{(b).}
+    Take
+    \[
+        f_n(x)=x+\frac1n,
+        \qquad
+        g_n(x)=x+\frac1n
+        \qquad\text{on }\r.
+    \]
+
+    Then $f_n\to x$ and $g_n\to x$ uniformly on $\r$.
+
+    But
+    \[
+        f_n(x)g_n(x)-x^2
+        =
+        \frac{2x}{n}+\frac1{n^2},
+    \]
+    and the supremum of this difference over $\r$ is not finite.
+
+    So $(f_ng_n)$ does not converge uniformly on $\r$.
+
+    \textbf{(c).}
+    Assume
+    \[
+        f_n\to f,
+        \qquad
+        g_n\to g
+    \]
+    uniformly, and
+    \[
+        \abs{f_n(x)}\leq M,
+        \qquad
+        \abs{g_n(x)}\leq M
+    \]
+    for all $x$ and all $n$.
+
+    Then also
+    \[
+        \abs{f(x)}\leq M,
+        \qquad
+        \abs{g(x)}\leq M.
+    \]
+
+    Now
+    \begin{align*}
+        \abs{f_n(x)g_n(x)-f(x)g(x)}
+        &\leq
+        \abs{f_n(x)}\abs{g_n(x)-g(x)}
+        +
+        \abs{g(x)}\abs{f_n(x)-f(x)}\\
+        &\leq
+        M\abs{g_n(x)-g(x)}
+        +
+        M\abs{f_n(x)-f(x)}.
+    \end{align*}
+
+    Let $\eps>0$.
+
+    Choose $N$ such that for all $n\geq N$,
+    \[
+        \abs{f_n(x)-f(x)}<\frac{\eps}{2M}
+        \qquad\text{and}\qquad
+        \abs{g_n(x)-g(x)}<\frac{\eps}{2M}
+    \]
+    for all $x$.
+
+    Then for $n\geq N$,
+    \[
+        \abs{f_n(x)g_n(x)-f(x)g(x)}<\eps
+    \]
+    for all $x$.
+
+    Hence $(f_ng_n)$ converges uniformly to $fg$.
+\end{problem}
