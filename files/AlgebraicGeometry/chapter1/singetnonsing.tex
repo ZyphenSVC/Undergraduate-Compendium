@@ -1,0 +1,84 @@
+%! Author = sriadityavedantam
+%! Date = 4/7/26
+
+\section{Singular and Non-singular Points}
+
+Let $C : \{f(x,y) = 0\}\subseteq \a^2$, and let $P\in C$ such that $f(P) = 0$.
+
+\begin{definition}[Singular Point]
+    A point $P$ is singular if and only if
+    \[
+        \frac{\partial f}{\partial x}(P) = 0
+        \quad\text{and}\quad
+        \frac{\partial f}{\partial y}(P) = 0.
+    \]
+\end{definition}
+
+\begin{lemma}{}{
+    If $P = (0,0)\in C$, then $f(x,y)$ has no constant term.
+}
+\end{lemma}
+
+\begin{lemma}{}{
+    If $P$ is singular, then $f(x,y)$ has no linear term.
+}
+\end{lemma}
+
+\begin{definition}[Smooth Curve]
+    If for all $P\in C$, the point $P$ is non-singular, then $C$ is smooth.
+\end{definition}
+
+Smoothness is invariant under affine change of coordinates.
+It suffices to check that
+\[
+    x^2 - y^2 - 1 = 0
+    \quad\text{and}\quad
+    x^2 - y = 0
+\]
+are smooth.
+
+\begin{theorem}{}{
+    An irreducible curve $C$ has only finitely many singular points.
+}
+Let $P\in C$.
+Define
+\[
+    C' \coloneqq \left\{ \frac{\partial f}{\partial x} = 0 \right\}.
+\]
+If $P$ is singular, then $P\in C\cap C'$.
+From the lemma, either $C\cap C'$ is finite or $C$ divides $C'$, that is, $f \mid \frac{\partial f}{\partial x}$.
+However,
+\[
+    \deg\!\left(\frac{\partial f}{\partial x}\right) < \deg(f),
+\]
+so this is impossible unless $\frac{\partial f}{\partial x} = 0$.
+Similarly, $\frac{\partial f}{\partial y} = 0$.
+If both partial derivatives are zero, then $f$ is constant.
+Since we are working over $\c$ with $\char = 0$, this cannot define a curve.
+Hence there are only finitely many singular points.
+\end{theorem}
+
+\begin{definition}[Multiplicity]
+    Let $C$ be a curve and $P\in C$.
+    Assume $P=(0,0)$.
+    Then $\Mult(P)$ is the smallest degree of a nonzero monomial appearing in $f(x,y)$.
+\end{definition}
+
+\begin{align*}
+    f(x,y) &= x - y + x^2,\\
+    &\implies \Mult(0,0) = 1.
+\end{align*}
+
+Recall that $\Mult(P) = 1$ if and only if $f$ contains a linear term, which implies that $C$ is smooth at $P$.
+
+\begin{align*}
+    f(x,y) &= xy,\\
+    &\implies \Mult(0,0) = 2.
+\end{align*}
+
+\begin{align*}
+    f(x,y) &= y^2 - x^3,\\
+    &\implies \Mult(0,0) = 2.
+\end{align*}
+
+If $C$ is a curve of degree $n$, then any point on $C$ has multiplicity at most $n$.

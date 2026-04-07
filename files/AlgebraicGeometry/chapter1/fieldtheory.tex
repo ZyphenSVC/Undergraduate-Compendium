@@ -1,0 +1,88 @@
+\section{Function Fields}
+
+Let $X\coloneqq \{f(x,y) = 0\subseteq\a^2\text{ over } \c\}$.
+And assume that $X$ is irreducible.
+
+\begin{lemma*}[]{
+    Consider a rational function $u(x,y) = p(x,y)/q(x,y)$ and $(f\nmid q)(x,y)$. Let $u(x,y)\cong u_1(x,y) = \frac{p_1(x,y)}{q_1(x,y)}$ if and only if $pq_1-p_1q$ is divisible by $f$.
+}
+\end{lemma*}
+
+Note that $\{f = 0\}\cap \{q = 0\}$ is only finitely many points when $f\nmid q$. Thus we can simplify this lemma into a simple statement of:
+
+\begin{lemma*}{
+    \label{1.3.2}
+    $u(x,y)\cong v(x,y)$ if and only if $f|(pq_1 - p_1q)$ $f\mid(pq_1 - p_1q)$ $f\rvert (pq_1 - p_1q)$
+}
+\end{lemma*}
+
+\begin{definition}[Function Field]
+    Define $\c(X) : $ field of all such rational functions.
+\end{definition}
+
+But why do we want $f\nmid g$?
+It is because when $u = p/q$, it is a rational function on $\a^2\setminus\{q=0\}$.
+Thus we can consider the notation $\left.\frac{p}{q}\right|_X$, which is the notation for the restriction on $X$.
+Which is if and only if $f\nmid g$.
+Thus these forms of restrictions on rational functions can create the needs for regular functions as we are now restricting to point P or a set of finite points.
+
+\begin{definition}[Regular]
+    If $u\in\c(X)$ and point $P\in X$, then $u$ is regular at point $P$ if $u$ has an rational function such that $q(P)\neq 0$.
+\end{definition}
+
+\begin{definition}[Regular Function]
+    $u$ is regular at all points $X\setminus\{q=0\}\cap X$, with finitely many points.
+\end{definition}
+
+Consider $x:\{x^2 + y^2 = 1\}$ and $u = \frac{1 +y}{x}$. Is $u$ regular when $x = 0$?
+We in fact claim that at $P = (0,-1)$, $\lim\limits_{(x,y)\to(0,1)} u = \frac{1-y}{x} = \infty$, thus not regular.
+
+\begin{definition}[$\c[X]$]
+    Let $X$ be an affine algebraic set defined by a polynomial $f(x,y)\in \c[x,y]$.
+    The ring of regular functions on $X$ is
+    \[
+        \c[X] \coloneqq \c[x,y]/(f(x,y)).
+    \]
+\end{definition}
+
+\begin{definition}[Integral Domain]
+    A ring $\mathcal{R}$ is integral if it has no zero divisors.
+\end{definition}
+
+\begin{definition}[Field of Fractions]
+    Let $\mathcal{R}$ be an integral domain.
+    Then
+    \[
+        \Frac(\mathcal{R}) \coloneqq \left\{ \frac{a}{b} : a,b\in\mathcal{R},\ b\neq 0,\ \frac{a}{b} = \frac{c}{d} \iff ad = bc \right\}.
+    \]
+\end{definition}
+
+\begin{lemma}{}{
+    For any integral domain $\mathcal{R}$, there exists a corresponding field of fractions $\Frac(\mathcal{R})$.
+}
+\end{lemma}
+
+\begin{align*}
+    \mathcal{R} &= \z,\\
+    \Frac(\mathcal{R}) &= \q,\\
+    \mathcal{R}_1 &= \c[X],\\
+    \Frac(\mathcal{R}_1) &= \c(X).
+\end{align*}
+
+Recall that
+\[
+    \c(X) = \Frac(\c[X]) = \Frac\big(\c[x,y]/(f(x,y))\big).
+\]
+
+Equivalently,
+\[
+    \c(X) \cong \c(x)[y]/(f(x,y)).
+\]
+
+This means elements of $\c(X)$ can be viewed as rational functions in $x$, where $y$ is algebraic over $\c(x)$ via the relation $f(x,y)=0$.
+
+\begin{theorem}{}{
+    $X$ is rational if and only if $\c(X)\cong \c(t)$ for some transcendental element $t$.
+}
+\end{theorem}
+

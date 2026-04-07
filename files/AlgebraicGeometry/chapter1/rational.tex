@@ -1,0 +1,78 @@
+%! Author = sriadityavedantam
+%! Date = 3/31/26
+
+\section{Rational Curves}
+
+Let $C$ be an affine plane curve in $\a^2$.
+
+\begin{definition}[Rational]
+    $C$ is rational if it can be parametrized by rational functions such that there exists rational functions $\varphi,\psi$ such that
+    \begin{align*}
+        x &= \varphi(t)\\
+        y &= \psi(t),
+    \end{align*}
+    and $f(x,y) = 0$.
+\end{definition}
+
+\begin{definition}[Rational Function]
+    A quotient of rational polynomials.
+\end{definition}
+
+\[
+\frac{t^3 + 3t^2 + 5}{t - 1}
+\]
+is a rational function.
+The domain is $\c\setminus\{1\}$.
+In fact, any complex line is rational due to parametrization.
+
+\[
+f(x,y) = 2x + 3y - 5,
+\]
+We can parameterize
+\begin{align*}
+    x &= t\\
+    y &= \frac{-2x + 5}{3}
+\end{align*}
+
+\[
+f(x,y) = x - 2,
+\]
+\begin{align*}
+    x &= 2\\
+    y &= t
+\end{align*}
+
+We can even parametrize the conic $C: \{y - x^2 = 0\}$ as
+\begin{align*}
+    x &= t\\
+    y &= t^2
+\end{align*}
+
+But simply allowing one to keep parametrizing these conics through a process of implicit isolation, we cannot have a rational function at all times.
+For example:
+
+\[
+C: \{x^2 - y^2 = 1\}
+\]
+\begin{align*}
+    x &= t\\
+    y &= \sqrt{t^2 - 1},
+\end{align*}
+but the square root is not rational.
+Thus we must look at an isomorphism of this affine plane curve, by drawing a morphism between $C\cong C^{'} : \{x^2 + y^2 - 1 = 0\}$
+
+Note that any smooth conic is rational, due to being over any algebraically closed field.
+
+\begin{lemma}[]{
+    \label{1.2.1}
+    If $C$ is rational plane curve, and $C\cong C^{'}$, then $C^{'}$ is rational.
+}
+\end{lemma}
+\begin{lemma}[]{
+    Any affine smooth cubic that is also infinitely smooth is never rational. And any smooth projective cubic curve is never rational.
+}
+\end{lemma}
+
+A counter example of this is if we have genus $\mathfrak{g} = \frac{(d-1)(d-2)}{2}$.
+Any $d = 4$ with 3 nodes contains all rational curves without a line to connect all other points.
+
