@@ -58,24 +58,24 @@ Since $q_1(x)$ is irreducible, $p_1(x)$ and $q_1(x)$ are associates.
 Proceed by induction on $\min\{r,s\}$.
 \end{theorem}
 
-\begin{lemma}[Irreducible Degrees]{
+\begin{lemma*}[Irreducible Degrees]{
     Degree $1$ polynomials are irreducible.
     If a degree $2$ polynomial is reducible, then it is a product of linear polynomials.
 }
-\end{lemma}
+\end{lemma*}
 
-\begin{lemma}[Freshman's Dream]{
+\begin{lemma*}[Freshman's Dream]{
     In $\z_2$,
     \[
         (x+1)^2=x^2+1.
     \]
 }
-\end{lemma}
+\end{lemma*}
 
-\begin{proposition}{
+\begin{proposition*}{
     If $f(x)$ is irreducible in $\f[x]$, then so is every associate of $f(x)$.
 }
-\end{proposition}
+\end{proposition*}
 
 Take note that for the equation $x^2+ax+b$, there are $p$ choices for each of $a,b$ in $\zp$, which means $p^2$ total monic choices for this polynomial.
 More generally, the number of monic polynomials of degree $n$ in $\zp[x]$ is $p^n$.
@@ -103,7 +103,7 @@ Let $\f$ be a field.
 Take $f(x)\in\f[x]$.
 There is a corresponding polynomial function $\f\to\f$ also denoted by $f(x)$.
 
-\begin{theorem}[Factor Theorem]{
+\begin{theorem*}[Factor Theorem]{
     Let $f(x)\in\f[x]$ and $a\in\f$.
     If $f(a)=0$, then $(x-a)$ is a factor of $f(x)$.
     That is,
@@ -112,7 +112,7 @@ There is a corresponding polynomial function $\f\to\f$ also denoted by $f(x)$.
     \]
     for some $g(x)\in\f[x]$.
 }
-\end{theorem}
+\end{theorem*}
 
 \begin{example}{
     (a) Show that $x^2+2$ is irreducible in $\mathbb{Z}_5[x]$.
@@ -176,7 +176,7 @@ Thus
 \]
 is a factorization into irreducible in $\mathbb{Z}_5[x]$.
 
-\begin{theorem}[Remainder Theorem]{
+\begin{theorem*}[Remainder Theorem]{
     Let $f(x)\in\f[x]$ and $a\in\f$.
     Then
     \[
@@ -184,7 +184,7 @@ is a factorization into irreducible in $\mathbb{Z}_5[x]$.
     \]
     for some $g(x)\in\f[x]$, where $r(x)$ is a constant polynomial.
 }
-\end{theorem}
+\end{theorem*}
 
 \begin{proof}
     By the division algorithm,
@@ -288,11 +288,11 @@ Also, if $f(x)\in\qx$, then there is a $c\in\q$ such that $cf(x)\in\zx$.
 The rational root test tells us about linear factors, which suffices to show irreducibility for degrees $2$ and $3$, but not in higher degrees.
 This builds the foundation for the following theorem.
 
-\begin{theorem}[Gauss's Lemma of Irreducibility]{
+\begin{theorem*}[Gauss's Lemma of Irreducibility]{
     Suppose $f(x)\in\zx$.
     If $f(x)$ is irreducible in $\zx$, then $f(x)$ is irreducible in $\qx$.
 }
-\end{theorem}
+\end{theorem*}
 
 One may ask whether the converse is possible given these assumptions.
 I claim not always.
@@ -333,9 +333,6 @@ But we can also write this in the form of integer factors:
     Let $p$ be prime such that $p$ divides every coefficient of $f(x)$.
     Then either $p$ divides every coefficient of $g(x)$ or $p$ divides every coefficient of $h(x)$.
 }
-\end{lemma}
-
-\begin{proof}
     Suppose
     \[
         f(x)=g(x)h(x),
@@ -363,7 +360,7 @@ But we can also write this in the form of integer factors:
     Since $p\mid a_1$ and $p\mid b_{0}c_1$, it follows that $p\mid b_{1}c_0$.
     Because $p\nmid c_0$, we conclude $p\mid b_1$.
     Continuing this argument inductively shows that $p$ divides every coefficient of $g(x)$.
-\end{proof}
+\end{lemma}
 
 \begin{theorem}[Eisenstein's Theorem of Irreducibility]{
     Suppose
@@ -443,7 +440,7 @@ Then
 It has no roots in $\z_2$, so it has no linear factors.
 Hence it is irreducible in $\z_2[x]$, and therefore $f(x)$ is irreducible in $\Q[x]$.
 
-\begin{theorem}[Fundamental Theorem of Algebra]{
+\begin{theorem*}[Fundamental Theorem of Algebra]{
     If $f(x)\in\cx$, then the following are equivalent:
     \begin{enumerate}
         \item $f(x)$ is irreducible;
@@ -452,7 +449,7 @@ Hence it is irreducible in $\z_2[x]$, and therefore $f(x)$ is irreducible in $\Q
         \item every non-constant polynomial in $\cx$ has a root.
     \end{enumerate}
 }
-\end{theorem}
+\end{theorem*}
 
 For example,
 \[
@@ -516,8 +513,8 @@ Roots of $x^n-1$ are
     So by the factor theorem, $(x-c)$ is a factor of $f(x)\in\rx$.
 \end{example}
 
-\begin{lemma}{
+\begin{lemma*}{
     Now let $\phi(a+bi)=a-bi$.
     Then $\phi:\c\to\c$ is an isomorphism.
 }
-\end{lemma}
+\end{lemma*}

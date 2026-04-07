@@ -277,6 +277,12 @@
     \end{tcolorbox}
 }
 
+\NewDocumentEnvironment{lemma*}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=LemmaBar]
+    \tcbheaderline{LemmaBar}{Lemma}\tcbheadername{#1}{#2}
+    \end{tcolorbox}
+}
+
 \NewDocumentEnvironment{corollary}{O{} +m}{%
     \begin{tcolorbox}[blockbase,tinted=CorollaryBar]
     \tcbheaderline{CorollaryBar}{Corollary}\tcbheadername{#1}{#2}

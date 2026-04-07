@@ -121,27 +121,24 @@ We can use the first isomorphism theorem.
         &\iff \text{$\alpha$ is transcendental over $\Q$.}
     \end{align*}
 }
+    Using the first isomorphism theorem, let $\phi$ be the homomorphism defined by evaluation at $\alpha$.
+    Then
+    \[
+        \Ima\phi=\{f(\alpha):f(x)\in\Q[x]\}=\Q[\alpha].
+    \]
+    So $\phi$ is surjective.
+    Also,
+    \[
+        \ker\phi=\{f(x)\in\Q[x]:f(\alpha)=0\}.
+    \]
+    Thus $\phi$ is injective if and only if $\ker\phi=\{0\}$, which happens if and only if there is no nonzero polynomial in $\Q[x]$ with $\alpha$ as a root.
+    That is exactly the statement that $\alpha$ is transcendental over $\q$.
+    Therefore, if $\alpha$ is transcendental over $\q$, then
+    \[
+        \Q[\alpha]\cong\Q[x].
+    \]
+    So $\Q[\alpha]$ is a ring, not a field.
 \end{lemma}
-
-\begin{proof}
-Using the first isomorphism theorem, let $\phi$ be the homomorphism defined by evaluation at $\alpha$.
-Then
-\[
-\Ima\phi=\{f(\alpha):f(x)\in\Q[x]\}=\Q[\alpha].
-\]
-So $\phi$ is surjective.
-Also,
-\[
-\ker\phi=\{f(x)\in\Q[x]:f(\alpha)=0\}.
-\]
-Thus $\phi$ is injective if and only if $\ker\phi=\{0\}$, which happens if and only if there is no nonzero polynomial in $\Q[x]$ with $\alpha$ as a root.
-That is exactly the statement that $\alpha$ is transcendental over $\q$.
-Therefore, if $\alpha$ is transcendental over $\q$, then
-\[
-\Q[\alpha]\cong\Q[x].
-\]
-So $\Q[\alpha]$ is a ring, not a field.
-\end{proof}
 
 \begin{definition}[Minimal Polynomial]
 Suppose $p(x)$ is a monic polynomial of smallest degree such that
@@ -209,54 +206,55 @@ A basis is
 \]
 where $n=\deg f(x)$ and $f(x)$ is the minimal polynomial of $r/\q$.
 }
+    Since
+    \[
+        \Q[r]=\{g(r):g(x)\in\Q[x]\},
+    \]
+    every element of $\Q[r]$ is obtained by evaluating a polynomial at $r$.
+    Let $f(x)$ be the minimal polynomial of $r$, with $\deg f(x)=n$ and $f(r)=0$.
+    Take any $g(x)\in\Q[x]$.
+    By the division algorithm,
+    \[
+        g(x)=f(x)q(x)+s(x),
+    \]
+    where $\deg s(x)<\deg f(x)=n$.
+    Plug in $r$:
+    \[
+        g(r)=f(r)q(r)+s(r)=s(r),
+    \]
+    since $f(r)=0$.
+    Thus $g(r)$ is a linear combination of
+    \[
+        1,r,r^2,\hdots,r^{n-1}.
+    \]
+    So these elements span $\Q[r]$.
+    To see they are linearly independent, suppose
+    \[
+        c_0+c_1r+\cdots+c_{n-1}r^{n-1}=0
+    \]
+    with $c_i\in\Q$.
+    Then the polynomial
+    \[
+        c_0+c_1x+\cdots+c_{n-1}x^{n-1}
+    \]
+    has $r$ as a root, but its degree is less than $n$.
+    This contradicts the minimality of $f(x)$ unless all $c_i=0$.
+    Therefore
+    \[
+        1,r,r^2,\hdots,r^{n-1}
+    \]
+    is a basis.
 \end{lemma}
 
 \begin{proof}
-Since
-\[
-\Q[r]=\{g(r):g(x)\in\Q[x]\},
-\]
-every element of $\Q[r]$ is obtained by evaluating a polynomial at $r$.
-Let $f(x)$ be the minimal polynomial of $r$, with $\deg f(x)=n$ and $f(r)=0$.
-Take any $g(x)\in\Q[x]$.
-By the division algorithm,
-\[
-g(x)=f(x)q(x)+s(x),
-\]
-where $\deg s(x)<\deg f(x)=n$.
-Plug in $r$:
-\[
-g(r)=f(r)q(r)+s(r)=s(r),
-\]
-since $f(r)=0$.
-Thus $g(r)$ is a linear combination of
-\[
-1,r,r^2,\hdots,r^{n-1}.
-\]
-So these elements span $\Q[r]$.
-To see they are linearly independent, suppose
-\[
-c_0+c_1r+\cdots+c_{n-1}r^{n-1}=0
-\]
-with $c_i\in\Q$.
-Then the polynomial
-\[
-c_0+c_1x+\cdots+c_{n-1}x^{n-1}
-\]
-has $r$ as a root, but its degree is less than $n$.
-This contradicts the minimality of $f(x)$ unless all $c_i=0$.
-Therefore
-\[
-1,r,r^2,\hdots,r^{n-1}
-\]
-is a basis.
+
 \end{proof}
 
 \begin{definition}[Adjoin]
 We say that $\mathbb{F}(u)$ is a field made by adjoining $u$ to $\mathbb{F}$.
 \end{definition}
 
-\begin{theorem}{
+\begin{theorem*}{
 Let $\mathbb{K}/\mathbb{F}$ and let $u\in\mathbb{K}$ be an algebraic element over $\mathbb{F}$ with minimal polynomial $p(x)$ of degree $n$.
 Then
 \begin{enumerate}
@@ -265,7 +263,7 @@ Then
 \item $[\mathbb{F}(u):\mathbb{F}]=n$.
 \end{enumerate}
 }
-\end{theorem}
+\end{theorem*}
 
 \begin{corollary}{
 If $u$ and $v$ have the same minimal polynomial $p(x)$ in $\mathbb{F}[x]$, then
