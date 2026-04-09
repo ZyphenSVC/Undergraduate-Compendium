@@ -6,7 +6,7 @@
 \lesson{38}{Monday 10 November 2025 9:10}{Day 38}
 
 \begin{definition}[Pointwise Convergence]
-    Given functions $f_n, f_0 : A\to\r$, we say $(f_n)$ converges pointwise to $f_0$ if for every $x\in A$,
+    Given functions $f_n, f_0 : A\to\rr$, we say $(f_n)$ converges pointwise to $f_0$ if for every $x\in A$,
     \[
         f_n(x)\to f_0(x).
     \]
@@ -44,13 +44,13 @@
 
 \begin{problem}{
     \[
-        f_n(x) = \dfrac{x^2 + nx}{n}, \quad A = \r.
+        f_n(x) = \dfrac{x^2 + nx}{n}, \quad A = \rr.
     \]
 }
     \[
         \dfrac{x^2 + nx}{n} = x + \dfrac{x^2}{n} \to x.
     \]
-    So convergence is pointwise on $\r$.
+    So convergence is pointwise on $\rr$.
 \end{problem}
 
 \begin{problem}[Can limits be interchanged?]{
@@ -114,11 +114,11 @@
         \abs{f_n(x) - f_0(x)} < \eps.
     \]
     So convergence is uniform on $[-C,C]$.
-    However, on $\r$, for $x=n$,
+    However, on $\rr$, for $x=n$,
     \[
         \abs{f_n(n) - f_0(n)} = \dfrac{n^2}{n} = n \to \infty,
     \]
-    so convergence is not uniform on $\r$.
+    so convergence is not uniform on $\rr$.
 \end{problem}
 
 \begin{problem}{

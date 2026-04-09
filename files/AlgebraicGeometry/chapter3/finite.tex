@@ -1,0 +1,56 @@
+%! Author = sriadityavedantam
+%! Date = 4/7/26
+
+\section{Finite Maps}
+
+\begin{proposition}{
+    Let $X,Y$ be affine varieties, and let $f: X\to Y$ be regular such that $f(X)$ is dense in $Y$.
+    Then $f\upstar:\c[Y]\to\c[X]$ is injective.
+}
+    Given $f$ and $f\upstar$, assume $f\upstar(g_1) = f\upstar(g_2)$ for $g_1,g_2\in\c[Y]$.
+    Then $g_1\circ f = g_2\circ f$ on $X$.
+    Thus $g_1$ and $g_2$ agree on the dense subset $f(X)\subseteq Y$.
+    Hence $g_1 = g_2$ on $Y$.
+\end{proposition}
+
+\begin{definition}[Finite Map]
+    Let $f : X\to Y$ be a regular map such that $f(X)\subseteq Y$ is dense.
+    We call $f$ a finite map if $\c[X]$ is integral over $\c[Y]$.
+\end{definition}
+
+\begin{definition}[Integral over a ring]
+    We say $B$ is integral over $A$, where $A,B$ are rings and $A\subseteq B$, if for all $b\in B$, there exists an equation
+    \[
+    b^k + a_1 b^{k-1} + \ldots + a_k = 0
+    \]
+    for some $k\in\n$, with $a_i\in A$.
+\end{definition}
+
+Let $X \coloneqq \{y^2 = x\}\subseteq\aa^2$, and let $f: X\to \aa^1$ be the projection map onto the $x$-coordinate.
+We claim that $\c[x,y]/(y^2 - x) = \c[X]$ is integral over $\c[x] = \c[\aa^1]$.
+We want to show that each element of $\c[X]$ is integral over $\c[x]$, or at least check this on generators.
+
+\begin{proposition}{
+    For $X \coloneqq \{y^2 = x\}\subseteq \aa^2$, the coordinate ring $\c[X] = \c[x,y]/(y^2-x)$ is integral over $\c[x]$.
+}
+    If $b = x$, then $x$ satisfies the monic polynomial
+    \[
+    t - x = 0
+    \]
+    over $\c[x]$.
+    If $b = y$, then $y$ satisfies
+    \[
+    y^2 - x = 0.
+    \]
+    Thus the generators $x$ and $y$ are integral over $\c[x]$.
+    Hence $\c[X]$ is integral over $\c[x]$.
+\end{proposition}
+
+\begin{definition}[Properties of finite maps]
+    \begin{enumerate}
+        \item If $f : X\to Y$ is finite, then any $y\in f(X)$ has finitely many preimages.
+        If $Y$ is irreducible, the degree is the generic number of preimages.
+        \item If $f$ is finite, then $f$ is surjective onto its image, and in the affine irreducible setting one usually studies it as a surjective map onto $Y$.
+        \item If $f$ is finite and $C\subseteq X$ is closed, then $f(C)$ is closed.
+    \end{enumerate}
+\end{definition}

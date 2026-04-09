@@ -1,0 +1,52 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Divisor Class Group}
+
+\begin{definition}[Divisor Class Group]
+    \begin{align*}
+        \Cl(X) &\coloneqq \Div(X) / \{\text{principal divisors}\} \\
+        &= \Div(X)/\sim,
+    \end{align*}
+    where $\sim$ denotes linear equivalence.
+\end{definition}
+
+If $D, D'\in \Div(X)$ and $D - D'$ is principal, then we say $D$ and $D'$ are linearly equivalent, written $D \sim D'$.
+For example, $\Cl(\aa^n) = 0$, since every divisor is principal.
+Indeed, if $D = \sum k_i C_i \subset \aa^n$, where $C_i = \{H_i = 0\}$ and $H_i$ is a polynomial, then
+\[
+    f = \prod_i H_i^{k_i}
+\]
+satisfies $D = \div(f)$.
+However, $\Cl(\pp^n) \cong \z$.
+If $D = \sum k_i H_i$, then any $f\in \c(\pp^n)$ must have degree $0$, hence
+\[
+    \deg(D) = 0 \quad \text{for principal divisors}.
+\]
+
+\begin{proposition*}{
+    There is a natural degree map for $X$ quasi-projective:
+    \begin{align*}
+        \deg : \Div(X) &\longrightarrow \z \\
+        D = \sum k_i H_i &\longmapsto \sum k_i \deg(H_i).
+    \end{align*}
+    If $\deg(D) \neq 0$, then $D$ is not principal.
+}
+\end{proposition*}
+
+The class group of a quasi-projective variety need not be finitely generated.
+Let $X$ be a smooth projective curve of genus $g > 0$.
+If $X \not\cong \pp^1$, then there exist points $P,Q\in X$ such that $P \nsim Q$.
+Suppose for contradiction that $P \sim Q$.
+Then there exists $f\in \c(X)$ such that
+\[
+    \div(f) = P - Q.
+\]
+This defines a rational map
+\[
+    f : X \dashrightarrow \pp^1.
+\]
+Since $\div(f)$ has a simple zero at $P$ and a simple pole at $Q$, we have $\deg(f) = 1$.
+Thus $f$ is birational, implying $X \cong \pp^1$, a contradiction.
+Therefore, distinct points need not be linearly equivalent.
+Since there are uncountably many points on $X$, it follows that $\Cl(X)$ is not finitely generated.

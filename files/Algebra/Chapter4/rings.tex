@@ -40,11 +40,11 @@ However, if we wanted to look outside of these number systems, let us look at ma
 Note that this is a subring of $\mat{2}(\mathbb{R})$.
 
 \begin{definition}[Field]
-    A field $\f$ is a commutative ring with $1\neq 0$ such that if $a\in\f$ and $a\neq 0$, then $a$ is a unit.
+    A field $\ff$ is a commutative ring with $1\neq 0$ such that if $a\in\ff$ and $a\neq 0$, then $a$ is a unit.
 \end{definition}
 
 \begin{definition}[Subfield]
-    If $S$ is a subring of a field $\f$, and is also closed under multiplicative inverses of nonzero elements, then it is also a subfield.
+    If $S$ is a subring of a field $\ff$, and is also closed under multiplicative inverses of nonzero elements, then it is also a subfield.
 \end{definition}
 
 We have previously learned that
@@ -121,7 +121,7 @@ But I also claim it is a field itself.
     Thus $\zn$ is not a field.
 \end{lemma}
 
-    {\Huge{From now on $\ri,\si$ is a ring and $\f$ is a field.}}\\
+    {\Huge{From now on $\ri,\si$ is a ring and $\ff$ is a field.}}\\
 
 \begin{definition}[Integral Domain]
     Suppose $\ri$ is a commutative ring with $1\neq 0$.
@@ -133,9 +133,9 @@ The only zero-divisor is $0_\ri$.
 Remember that if there is a nonzero zero-divisor in $\ri$, then there is no way it can be a field, since all nonzero elements of a field must have an inverse, a.k.a.\ be a unit.
 
 \begin{corollary}{
-    $\f$ is an integral domain.
+    $\ff$ is an integral domain.
 }
-    Suppose $a,b\in\f$ with $ab=0$.
+    Suppose $a,b\in\ff$ with $ab=0$.
     Suppose $a\neq 0$.
     Then $a$ is a unit with inverse $a^{-1}$.
     Then
@@ -146,13 +146,13 @@ Remember that if there is a nonzero zero-divisor in $\ri$, then there is no way 
         b &= 0.
     \end{align*}
     Thus if $ab=0$, then $a=0$ or $b=0$.
-    So $\f$ is an integral domain.
+    So $\ff$ is an integral domain.
 \end{corollary}
 
 Let us look into something called extensions.
 
 \begin{definition}[Field Adjoins]
-    We call something an adjoin given that suppose we have $\f=\mathbb{Q}$.
+    We call something an adjoin given that suppose we have $\ff=\mathbb{Q}$.
     Note this field is a subfield of $\mathbb{R}$.
     Then an extension of $\mathbb{Q}$ is taking an element of $\mathbb{R}\setminus\mathbb{Q}$ and adding it to $\mathbb{Q}$.
     An example of this is

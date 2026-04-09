@@ -1,0 +1,69 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Rational Differential 1-Forms}
+
+Let $X$ be a quasi-projective variety.
+A function $f \in \c(X)$ is rational if it is regular on some open dense subset $U \subseteq X$, i.e.\ $f \in \c[U]$.
+Analogously, define $\Omega(X)$ to be the space of all rational differential $1$-forms on $X$.
+The choice of $U$ does not matter:
+if $\omega \in \Omega(U)$ and $\omega' \in \Omega(U')$ agree on $U \cap U'$, then they define the same rational $1$-form on $X$.
+The space $\Omega(X)$ is a $\c(X)$-vector space.
+Indeed, for $\omega, \omega' \in \Omega(X)$ and $f \in \c(X)$,
+\[
+    \omega + \omega' \in \Omega(X),
+    \quad
+    f\omega \in \Omega(X).
+\]
+
+\subsection*{Dimension}
+
+We claim
+\[
+    \dim_{\c(X)} \Omega(X) = \dim(X).
+\]
+
+\subsection*{Affine Case}
+
+Let $X = \aa^n$ with coordinates $t_1,\ldots,t_n$.
+A rational $1$-form has the form
+\[
+    \sum_i f_i \, d g_i,
+    \quad
+    f_i, g_i \in \c(X).
+\]
+
+Then
+\[
+    \{dt_1,\ldots,dt_n\}
+\]
+forms a basis for $\Omega(X)$ over $\c(X)$.
+Hence
+\[
+    \dim_{\c(X)} \Omega(X) = n = \dim(X).
+\]
+
+\subsection*{Projective Case}
+
+If $X = \pp^n$, then
+\[
+    \Omega[\pp^n] = 0,
+\]
+since all regular functions are constant.
+However,
+\[
+    \Omega(\pp^n)
+\]
+is an $n$-dimensional vector space over $\c(\pp^n)$.
+Moreover,
+\[
+    \Omega(\pp^n) \cong \Omega(\aa^n)
+\]
+on affine charts.
+
+\subsection*{Birational Invariance}
+
+In general, if $X$ and $X'$ are birational varieties, then there is a natural identification
+\[
+    \Omega(X) \cong \Omega(X').
+\]

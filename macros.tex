@@ -3,32 +3,31 @@
 \renewcommand{\L}{\mathcal{L}}
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\eps}{\epsilon}
-\newcommand{\abs}[1]{\left\lvert#1\right\rvert}%
-\newcommand{\norm}[1]{\lVert #1 \rVert}%
+\renewcommand{\abs}[1]{\left\lvert#1\right\rvert}%
+\renewcommand{\norm}[1]{\lVert #1 \rVert}%
 \renewcommand{\qed}{\hfill\blacksquare}
 \newcommand{\uptick}{^{\prime}}
 \newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
-\renewcommand{\mat}{\mathbf{Mat}}
-\renewcommand{\r}{\mathbb{R}}
+\newcommand{\rr}{\mathbb{R}}
 \newcommand{\q}{\mathbb{Q}}
 \renewcommand{\c}{\mathbb{C}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\s}{\mathscr{S}}
-\newcommand{\f}{\mathbb{F}}
+\newcommand{\ff}{\mathbb{F}}
 \newcommand{\T}{\mathbb{T}}
 \newcommand{\z}{\mathbb{Z}}
-\newcommand{\p}{\mathbb{P}}
+\newcommand{\pp}{\mathbb{P}}
 \newcommand{\n}{\mathbb{N}}
-\newcommand{\pr}{\p_{\mathbb{R}}}
-\newcommand{\pk}{\p_{\mathbb{K}}}
+\newcommand{\pr}{\pp_{\mathbb{R}}}
+\newcommand{\pk}{\pp_{\mathbb{K}}}
 \newcommand{\pkn}{\pk^n}
-\renewcommand{\k}{\mathbb{K}}
-\renewcommand{\a}{\mathbb{A}}
+\newcommand{\kk}{\mathbb{K}}
+\renewcommand{\aa}{\mathbb{A}}
 \renewcommand{\o}{\mathcal{O}}
 \newcommand{\e}{\mathcal{E}}
 \newcommand{\Ell}{\mathcal{L}}
-\newcommand{\ak}{\a_\k}
+\newcommand{\ak}{aa_\kk}
 \newcommand{\akn}{\ak^n}
 \newcommand{\upstar}{^{*}}
 \newcommand{\reptiln}[2]{#1_{1},\ldots,#1_{#2}}
@@ -37,7 +36,7 @@
 \newcommand{\tdeg}{\mathrm{t-deg}}
 \newcommand{\kdim}{\mathrm{height}}
 \newcommand{\codim}{\mathrm{height}}
-\newcommand{\rank}{\mathrm{rank}}
+\renewcommand{\rank}{\mathrm{rank}}
 \newcommand{\Id}{\mathrm{Id}}
 \newcommand{\Mult}{\mathrm{Mult}}
 \newcommand{\spec}{\mathrm{Spec}}
@@ -46,10 +45,10 @@
 \newcommand{\Diam}{\mathrm{diam}}
 \newcommand{\Div}{\mathrm{Div}}
 \renewcommand{\div}{\mathrm{div}}
-\newcommand{\proj}{\mathrm{Proj}}
+\renewcommand{\proj}{\mathrm{Proj}}
 \newcommand{\Sing}{\mathrm{Sing}}
 \newcommand{\disc}{\mathrm{disc}}
-\newcommand{\Res}{\mathrm{Res}}
+\renewcommand{\Res}{\mathrm{Res}}
 \newcommand{\dne}{\mathrm{DNE}}
 \newcommand{\Int}{\mathrm{Int}}
 \newcommand{\intcirc}[1]{\overset{\circ}{#1}}
@@ -98,7 +97,7 @@
 \newcommand{\On}{\mathrm{On}} % ordinals
 \renewcommand{\rank}{\mathrm{rank}}
 \newcommand{\Spec}{\mathrm{Spec}} % spectrum
-\newcommand{\Tr}{\mathrm{Tr}} % trace
+\renewcommand{\Tr}{\mathrm{Tr}} % trace
 
 \renewcommand{\eps}{\epsilon}
 \newcommand{\veps}{\varepsilon}
@@ -146,18 +145,15 @@
 
 \newcommand{\zn}{\mathbb{Z}_n}
 \newcommand{\zp}{\mathbb{Z}_p}
-\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\kk}{\mathbb{K}}
 \renewcommand{\l}{\mathbb{L}}
 
 \newcommand{\set}[1]{\{ #1 \}}
 \newcommand\Mydiv[2]{%
     $\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
     \overline{\enspace\strut#2}$}
-\DeclareMathOperator{\ima}{Im}
 \DeclareMathOperator{\aut}{Aut}
 \DeclareMathOperator{\inn}{Inn}
-\DeclareMathOperator{\sym}{sym}
-\DeclareMathOperator{\sgn}{sgn}
 \renewcommand{\char}{\textit{char}}
 \newcommand{\zsumz}{\mathbb{Z}\oplus\mathbb{Z}}
 \newcommand{\normal}{\trianglelefteq}
@@ -172,8 +168,8 @@
     {\SavedStyle\leftarrow\,\,}}}}}
 \newcommand{\nz}{n\in\mathbb{Z}}
 \newcommand{\nn}{n\in\mathbb{N}}
-\newcommand{\mat}[1]{\text{\textit{Mat}}_{#1}}
-\newcommand{\nf}{\in\f}
+\newcommand{\mat}[1]{\mathrm{Mat_{#1}}}
+\newcommand{\nf}{\in\ff}
 \newcommand{\ri}{\mathcal{R}}
 \newcommand{\si}{\mathcal{S}}
 \newcommand{\nri}{\in\ri}
@@ -187,19 +183,20 @@
 \renewcommand{\c}{\mathbb{C}}
 \newcommand{\cx}{\c[x]}
 \newcommand{\ncx}{\in\cx}
-\newcommand{\nr}{\in\r}
-\newcommand{\rx}{\r[x]}
+\newcommand{\nr}{\in\rr}
+\newcommand{\rx}{\rr[x]}
 \newcommand{\nrx}{\in\rx}
-\renewcommand{\nf}{\in\f}
-\newcommand{\fx}{\f[x]}
+\renewcommand{\nf}{\in\ff}
+\newcommand{\fx}{\ff[x]}
 \newcommand{\nfx}{\in\fx}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\fxmodfx}{\fx/(f(x))}
 \renewcommand{\nz}{\in\mathbb{Z}}
 \renewcommand{\nn}{\in\mathbb{N}}
-\renewcommand{\Q}{\mathbb{Q}}
-\renewcommand{\r}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
 \renewcommand{\nfx}{\nf[x]}
-
 \newcommand{\cdim}{\c-\dim}
-\newcommand{\rdim}{\r-\dim}
+\newcommand{\rdim}{\rr-\dim}
+\newcommand{\m}{\mathfrak{m}}
+
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}

@@ -6,7 +6,7 @@
 \lesson{4}{Wednesday 20 August 2025 9:10}{Day 4}
 
 \begin{theorem}[Complete Exponential Theorem]{
-    Define $S\coloneqq\{x\in\r : x^n < c\}$, $S$ is bounded above, then set $\alpha \coloneqq \sup(S)$ and $\alpha^n = c$.
+    Define $S\coloneqq\{x\in\rr : x^n < c\}$, $S$ is bounded above, then set $\alpha \coloneqq \sup(S)$ and $\alpha^n = c$.
 }
     Suppose $\alpha^n < c$.
     Then there exists $\epsilon > 0$ such that $(\alpha + \epsilon)^n < c$.
@@ -48,7 +48,7 @@
 \end{theorem}
 
 \begin{theorem}[Nested Interval Theorem]{
-    Suppose $[a_1,b_1], [a_2,b_2],\ldots$ is a sequence of closed bounded intervals in $\r$, which is nested.
+    Suppose $[a_1,b_1], [a_2,b_2],\ldots$ is a sequence of closed bounded intervals in $\rr$, which is nested.
     \[
         [a_n,b_n]\supset [a_{n+1},b_{n+1}], \forall n\in\n
     \]
@@ -67,7 +67,7 @@
 \begin{remark}
     The direct statement of this corollary is:
     \begin{displayquote}
-        If $[a_1,b_1], [a_2,b_2],\ldots$ is a sequence of closed bounded intervals in $\r$ is nested, then $\bigcap_{i=1}^{\infty} [a_i,b_i]\neq\varnothing$.
+        If $[a_1,b_1], [a_2,b_2],\ldots$ is a sequence of closed bounded intervals in $\rr$ is nested, then $\bigcap_{i=1}^{\infty} [a_i,b_i]\neq\varnothing$.
     \end{displayquote}
     A contrapositive of this lemma is:
     \begin{displayquote}
@@ -78,9 +78,9 @@
 \section{Cardinality}
 
 \begin{theorem}{
-    $\r$ is uncountable.
+    $\rr$ is uncountable.
 }
-    Suppose $\r$ is countable, so $\r=\{x_1,x_2,x_3,\ldots\}$.
+    Suppose $\rr$ is countable, so $\rr=\{x_1,x_2,x_3,\ldots\}$.
     Construct nested intervals $[a_n,b_n]$ such that $x_n\notin[a_n,b_n]$ for each $n$, and $[a_{n+1},b_{n+1}]\subset[a_n,b_n]$.
     By the Nested Interval Theorem,
     \[
@@ -88,7 +88,7 @@
     \]
     Let $x$ be in the intersection.
     Then $x\neq x_n$ for all $n$, contradicting that the sequence lists all real numbers.
-    Hence, $\r$ is uncountable.
+    Hence, $\rr$ is uncountable.
 \end{theorem}
 
 \begin{theorem*}{

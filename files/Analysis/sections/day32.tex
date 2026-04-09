@@ -4,7 +4,7 @@
 \lesson{32}{Friday 24 October 2025 9:10}{Day 32}
 
 \begin{theorem}{
-    If $f:\r\to\r$ is monotone, then
+    If $f:\rr\to\rr$ is monotone, then
     \begin{enumerate}
         \item every discontinuity of $f$ is a jump discontinuity,
         \item the set of discontinuities of $f$ is countable.
@@ -12,7 +12,7 @@
 }
     \textbf{(1).}
     Assume without loss of generality that $f$ is increasing.
-    We want to show that for every $x_0\in\r$, both $f(x_0^-)$ and $f(x_0^+)$ exist, and
+    We want to show that for every $x_0\in\rr$, both $f(x_0^-)$ and $f(x_0^+)$ exist, and
     \[
         f(x_0^-)\leq f(x_0)\leq f(x_0^+).
     \]
@@ -60,7 +60,7 @@
     So every discontinuity is a jump discontinuity.
 
     \textbf{(2).}
-    Let $J\subset\r$ be the set of discontinuities of $f$.
+    Let $J\subset\rr$ be the set of discontinuities of $f$.
     If $x_0,x_1\in J$ and $x_0<x_1$, then for every $x$ with $x_0<x<x_1$,
     \[
         f(x_0^+)\leq f(x)\leq f(x_1^-).
@@ -90,7 +90,7 @@
     Since $\q$ is countable, $J$ is countable.
 \end{theorem}
 \begin{lemma}{
-    Let $S\subset\r$.
+    Let $S\subset\rr$.
     Then the set
     \[
         S\uptick \coloneqq \{x\in S : \text{$x$ is isolated in $S$}\}
@@ -120,11 +120,11 @@
 \end{lemma}
 
 \begin{theorem}{
-    If $f:\r\to\r$ is any function, then the set of removable and jump discontinuities is countable.
+    If $f:\rr\to\rr$ is any function, then the set of removable and jump discontinuities is countable.
 }
     For $\alpha > 0$, define
     \[
-        D_\alpha \coloneqq \left\{x\in\r :
+        D_\alpha \coloneqq \left\{x\in\rr :
                                \begin{array}{l}
                                    f(x^-),f(x^+) \text{ both exist, and either}\\[4pt]
                                    \abs{f(x^+) - f(x^-)} > \alpha,\ \text{or}\\[4pt]

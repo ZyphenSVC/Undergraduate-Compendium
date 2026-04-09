@@ -6,7 +6,7 @@
 \lesson{2}{Friday 15 August 2025 9:10}{Day 2}
 
 \begin{definition}[Ordering Property]
-	Given $a,b\in\r$, either
+	Given $a,b\in\rr$, either
 	\begin{align*}
 		a &> b\\
 		a &= b\\
@@ -15,11 +15,11 @@
 \end{definition}
 
 \begin{remark}
-	Field $\r$ is complete, which means it has the least upper bound (l.u.b) property.
+	Field $\rr$ is complete, which means it has the least upper bound (l.u.b) property.
 \end{remark}
 
 \begin{definition}[l.u.b Property]
-	If $S\subset\r$ and $S$ is bounded above, i.e.\ there is a $C\in\r$ such that $C\geq x$ for all $x\in S$, then there is some $\alpha\in\r$ which is the least upper bound for $S$.
+	If $S\subset\rr$ and $S$ is bounded above, i.e.\ there is a $C\in\rr$ such that $C\geq x$ for all $x\in S$, then there is some $\alpha\in\rr$ which is the least upper bound for $S$.
 	This means $\alpha\leq C$ for all upper bounds $C$ of $S$.
 	\[
 	\alpha \coloneqq \sup(S)
@@ -41,9 +41,9 @@
 \end{remark}
 
 \begin{corollary}
-{The Archimedian Property of $\r$ states:
+{The Archimedian Property of $\rr$ states:
     \begin{displayquote}
-        For any $x\in\r$, there exists $n\in\n$ such that $n > x$.
+        For any $x\in\rr$, there exists $n\in\n$ such that $n > x$.
     \end{displayquote}}
 	Suppose for the sake of contradiction, there is no $n > x$.
 	Then $\n$ is bounded above.
@@ -55,11 +55,11 @@
 \begin{remark}
 	The direct statement of this corollary is:
 	\begin{displayquote}
-		If $x\in\r$, then there exists $n\in\n$ such that $n>x$.
+		If $x\in\rr$, then there exists $n\in\n$ such that $n>x$.
 	\end{displayquote}
 	A contrapositive of this lemma is:
 	\begin{displayquote}
-		If there is no $n\in\n$ such that $n>x$, then $x\notin\r$.
+		If there is no $n\in\n$ such that $n>x$, then $x\notin\rr$.
 	\end{displayquote}
 \end{remark}
 
@@ -81,7 +81,7 @@
 \end{remark}
 
 \begin{lemma}[Ordering of Squares]{
-	$a,b\in\r$, $a,b > 0$, $a < b$ if and only if $a^2 < b^2$.
+	$a,b\in\rr$, $a,b > 0$, $a < b$ if and only if $a^2 < b^2$.
 }
 	Prove this as an Exercise.
 \end{lemma}
@@ -89,7 +89,7 @@
 \begin{corollary}{
 	There is a real number $x > 0$ such that $x^2 = 2$.
 }
-	Define $S \coloneqq \{y\in\r : y^2 < 2\}$.
+	Define $S \coloneqq \{y\in\rr : y^2 < 2\}$.
 	By the previous lemma, $S$ is bounded above.
 	Suppose $\alpha\coloneqq\sup(S)$.
 	Suppose $\alpha^2 < 2$.

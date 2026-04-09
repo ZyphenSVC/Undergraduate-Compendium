@@ -16,7 +16,7 @@
 
 \begin{example}[Examples of Connected Sets]
 	\[
-		\r,\quad \r^n,\quad [a,b].
+		\rr,\quad \rr^n,\quad [a,b].
 	\]
 \end{example}
 
@@ -41,7 +41,7 @@
 \end{theorem}
 
 \begin{theorem}[Intermediate Value Theorem]{
-	Let $X$ be connected and $f:X\to\r$ be continuous.
+	Let $X$ be connected and $f:X\to\rr$ be continuous.
 	If $a,b\in f(X)$ and $a < r < b$, then $r\in f(X)$.
 }
 	Suppose, for the sake of contradiction, that $r\notin f(X)$.
@@ -65,7 +65,7 @@
 \end{theorem}
 
 \begin{definition}[Directional Derivative]
-	Given $U\subset\r^n$ open, $f:U\to\r^m$, $a\in U$, and $u\in\r^n$, define
+	Given $U\subset\rr^n$ open, $f:U\to\rr^m$, $a\in U$, and $u\in\rr^n$, define
 	\[
 		D_u f(a) \coloneqq \lim_{t\to0}\frac{f(a + tu) - f(a)}{t}.
 	\]
@@ -76,7 +76,7 @@
 	\[
 		f\uptick(a) = \lim_{t\to 0}\frac{f(a + t) - f(a)}{t}.
 	\]
-	Define $\lambda:\r\to\r$ by
+	Define $\lambda:\rr\to\rr$ by
 	\[
 		\lambda(t) \coloneqq f\uptick(a)t.
 	\]
@@ -93,7 +93,7 @@
 \end{remark}
 
 \begin{definition}[Differentiability]
-	Given $U\subset\r^n$ open and $a\in U$, a function $f:U\to\r^m$ is differentiable at $a$ if there exists a linear map $B:\r^n\to\r^m$ such that
+	Given $U\subset\rr^n$ open and $a\in U$, a function $f:U\to\rr^m$ is differentiable at $a$ if there exists a linear map $B:\rr^n\to\rr^m$ such that
 	\[
 		\frac{f(a+h) - f(a) - Bh}{\norm{h}}\to 0
 		\qquad\text{as } h\to 0.
@@ -102,7 +102,7 @@
 \end{definition}
 
 \begin{theorem}{
-	If $f$ is differentiable at $a$, then for every $u\in\r^n$, the directional derivative $D_u f(a)$ exists and
+	If $f$ is differentiable at $a$, then for every $u\in\rr^n$, the directional derivative $D_u f(a)$ exists and
 	\[
 		D_u f(a) = Bu.
 	\]

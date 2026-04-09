@@ -1,0 +1,91 @@
+%! Author = sriadityavedantam
+%! Date = 4/7/26
+
+\section{Jouanolou's Trick}
+
+\begin{theorem}[Jouanolou's Trick]{
+    There exists an affine variety $X$ together with a regular map
+    \[
+        X \to \pp^n
+    \]
+    such that all fibers are affine varieties.
+}
+    \begin{definition}[Fiber]
+        The fiber over a point $p$ is the preimage $f^{-1}(p)$.
+    \end{definition}
+    We construct the example for $\pp^1$.
+    Recall that $\pp^1$ parametrizes lines through the origin in $\aa^2$.
+    Fix the line $l \coloneqq \{y = 0\}\subset \aa^2$.
+    Consider linear maps $M:\aa^2\to\aa^2$ with image equal to a line.
+    Such maps are represented by $2\times 2$ matrices of rank $1$.
+    For example,
+    \[
+        M =
+        \begin{bmatrix}
+            1 & 0\\
+            0 & 0
+        \end{bmatrix}
+        \quad\text{gives}\quad
+        M\begin{bmatrix}x\\y\end{bmatrix}
+        =
+        \begin{bmatrix}x\\0\end{bmatrix}.
+    \]
+    \begin{definition}[Rank]
+        The rank is the dimension of the image, equivalently the number of linearly independent columns.
+    \end{definition}
+    Assume $M^2 = M$.
+    Then $M$ is a projection, and we obtain a decomposition
+    \[
+        \aa^2 \cong \ker(M)\oplus \ima(M).
+    \]
+    The eigenvalues of $M$ satisfy
+    \[
+        x^2 - x = 0,
+    \]
+    so they are $0$ and $1$.
+    The $0$-eigenspace is $\ker(M)$ and the $1$-eigenspace is $\ima(M)$.
+    Now define $X$ to be the set of $2\times 2$ matrices
+    \[
+        M =
+        \begin{bmatrix}
+            a & b\\
+            c & d
+        \end{bmatrix}
+    \]
+    such that
+    \[
+        M^2 = M \quad\text{and}\quad \rank(M) = 1.
+    \]
+    We view $X$ as a subset of $\aa^4$ with coordinates $(a,b,c,d)$.
+    The condition $M^2 = M$ gives the polynomial equations
+    \begin{align*}
+        a^2 + bc &= a,\\
+        ab + bd &= b,\\
+        ac + dc &= c,\\
+        bc + d^2 &= d.
+    \end{align*}
+    To ensure $\rank(M)=1$, we impose
+    \[
+        \det(M) = ad - bc = 0,
+    \]
+    and exclude the zero matrix $M=0$.
+    Thus $X$ is a quasi-affine variety (an open subset of an affine variety).
+    Now define a map
+    \[
+        \pi : X \to \pp^1
+    \]
+    by
+    \[
+        M \longmapsto \ima(M).
+    \]
+    Since $\ima(M)$ is a $1$-dimensional subspace of $\aa^2$, it determines a point in $\pp^1$.
+    This map is regular.
+    For a fixed line $L\subset \aa^2$, the fiber
+    \[
+        \pi^{-1}(L)
+    \]
+    consists of all rank $1$ idempotent matrices with image $L$.
+    Such matrices are determined by a choice of complementary kernel, and this parameter space is affine.
+    Hence all fibers are affine varieties.
+    This constructs an affine variety $X$ mapping to $\pp^1$ with affine fibers, which is the desired statement.
+\end{theorem}

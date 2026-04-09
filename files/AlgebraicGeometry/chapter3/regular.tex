@@ -1,0 +1,47 @@
+%! Author = sriadityavedantam
+%! Date = 4/7/26
+
+\section{Regular Maps}
+
+Let $X$ be a quasi-projective variety with coordinates $[x_0, \ldots, x_n]$.
+
+\begin{definition}[Regular Function]
+    A regular function on $X$ is a degree $0$ rational homogeneous function.
+\end{definition}
+
+Assume $\aa^1\subseteq \pp^1$ where $\aa^1 = \{x_0\neq 0\}$.
+We already know that $\aa^1$ has coordinate ring $\c[t]$.
+We claim that $\c[t]$ corresponds to degree $0$ rational homogeneous functions.
+Regular functions are regular maps to $\aa^1$.
+
+\begin{lemma*}{
+    A regular map between quasi-projective varieties $X,Y$ is a map $f$ such that for every point $x\in X$, there exists an open neighbourhood $U$ of $x$ in the Zariski topology, and an affine chart $\aa^m\subseteq\pp^m$ containing $f(x)$ with $f(U)\subseteq\aa^m$, such that $f|_U : U\to \aa^m$ is regular.
+}
+\end{lemma*}
+
+\begin{example}[The Veronese Embedding]
+    Fix $n,d\in\n$.
+    The degree $d$ Veronese embedding of $\pp^n$ is given by a map $f : \pp^n\to\pp^m$.
+    We claim that
+    \[
+    m + 1 = \binom{n+d}{d}.
+    \]
+\end{example}
+
+\begin{example}[The Cremona Map]
+    A map $\pp^2\to\pp^2$ is defined by
+    \[
+    [x_0:x_1:x_2]\mapsto[x_{1}x_2:x_{0}x_2:x_{0}x_1].
+    \]
+    This is a rational map.
+    It is regular on
+    \[
+    \pp^2\setminus\{[1:0:0], [0:1:0], [0:0:1]\}.
+    \]
+\end{example}
+
+\begin{lemma*}{
+    If $X$ and $Y$ are birational, then $\c(X)\cong\c(Y)$.
+    The converse is also true.
+}
+\end{lemma*}

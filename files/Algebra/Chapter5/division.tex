@@ -4,8 +4,8 @@
 \section{Division}
 
 \begin{theorem}[Division Algorithm in Polynomial Fields]{
-    Suppose $\f$ is a field and $a(x),b(x)\in\f[x]$ with $b(x)\neq 0$.
-    Then there exist unique $q(x),r(x)\in\f[x]$ such that
+    Suppose $\ff$ is a field and $a(x),b(x)\in\ff[x]$ with $b(x)\neq 0$.
+    Then there exist unique $q(x),r(x)\in\ff[x]$ such that
     \[
         a(x)=q(x)b(x)+r(x)
     \]
@@ -30,7 +30,7 @@
         b(x)=b_{m}x^m+\hdots
     \]
     with $a_n,b_m\neq 0$ and $n\geq m$.
-    Since $\f$ is a field, $b_m^{-1}$ exists.
+    Since $\ff$ is a field, $b_m^{-1}$ exists.
     Let
     \[
         h(x)\coloneqq a(x)-a_{n}b_m^{-1}x^{n-m}b(x).
@@ -39,7 +39,7 @@
     \[
         \deg(h(x))<\deg(a(x)).
     \]
-    By strong induction on $\deg(a(x))$, there exist $q_1(x),r(x)\in\f[x]$ such that
+    By strong induction on $\deg(a(x))$, there exist $q_1(x),r(x)\in\ff[x]$ such that
     \[
         h(x)=q_1(x)b(x)+r(x)
     \]
@@ -78,7 +78,7 @@
     \[
         \deg(r_2(x)-r_1(x))<\deg(b(x)).
     \]
-    If $(q_1(x)-q_2(x))b(x)\neq 0$, then since $\f[x]$ is an integral domain,
+    If $(q_1(x)-q_2(x))b(x)\neq 0$, then since $\ff[x]$ is an integral domain,
     \[
         \deg\bigl((q_1(x)-q_2(x))b(x)\bigr)=\deg(q_1(x)-q_2(x))+\deg(b(x))\geq \deg(b(x)).
     \]
@@ -99,16 +99,16 @@ The Division Algorithm for polynomial fields is a fundamental concept that allow
 This algorithm helps you express one polynomial as a quotient of another polynomial plus a remainder.
 
 \begin{definition}[Logical Divide of Polynomial Fields]
-    Let $a(x),b(x)\in\f[x]$ and $b(x)\neq 0$.
-    We say $b(x)\mid a(x)$ if there exists a $q(x)\in\f[x]$ such that
+    Let $a(x),b(x)\in\ff[x]$ and $b(x)\neq 0$.
+    We say $b(x)\mid a(x)$ if there exists a $q(x)\in\ff[x]$ such that
     \[
         a(x)=q(x)b(x).
     \]
 \end{definition}
 
 \begin{definition}[GCD of Polynomial Fields]
-    Suppose $a(x),b(x)\in\f[x]$ are not both $0$.
-    We say $d(x)=\gcd(a(x),b(x))$ if $d(x)\mid a(x)$, $d(x)\mid b(x)$, and whenever $c(x)\in\f[x]$ satisfies $c(x)\mid a(x)$ and $c(x)\mid b(x)$, then $c(x)\mid d(x)$.
+    Suppose $a(x),b(x)\in\ff[x]$ are not both $0$.
+    We say $d(x)=\gcd(a(x),b(x))$ if $d(x)\mid a(x)$, $d(x)\mid b(x)$, and whenever $c(x)\in\ff[x]$ satisfies $c(x)\mid a(x)$ and $c(x)\mid b(x)$, then $c(x)\mid d(x)$.
 \end{definition}
 
 Suppose we are in $\Q[x]$.
@@ -126,29 +126,29 @@ We have a problem on our hands.
 We have to figure out how to circumvent this solution, and before we can do that, let us go ahead and introduce a new term.
 
 \begin{definition}[Monic]
-    If $d(x)\in\f[x]$ has leading coefficient $1$, then $d(x)$ is monic.
+    If $d(x)\in\ff[x]$ has leading coefficient $1$, then $d(x)$ is monic.
 \end{definition}
 
 In algebra, monic polynomials are commonly used in the context of irreducible polynomials.
 Monic irreducible polynomials have leading coefficient $1$, and this condition simplifies discussions of unique factorization.
 
 \begin{definition}[Polynomial Associates]
-    If $c(x),d(x)\in\f[x]$ and
+    If $c(x),d(x)\in\ff[x]$ and
     \[
         c(x)=\beta d(x)
     \]
-    for some $\beta\in\f$ with $\beta\neq 0$, we say $c(x)$ and $d(x)$ are associates.
+    for some $\beta\in\ff$ with $\beta\neq 0$, we say $c(x)$ and $d(x)$ are associates.
 \end{definition}
 
 We can think of associates as polynomial constant multiples.
 
 \begin{theorem}[GCD Theorem]{
-    Suppose $a(x),b(x)\in\f[x]$ are not both $0$.
+    Suppose $a(x),b(x)\in\ff[x]$ are not both $0$.
     Let
     \[
-        S\coloneqq \{u(x)a(x)+v(x)b(x)\neq 0 : u(x),v(x)\in\f[x]\}.
+        S\coloneqq \{u(x)a(x)+v(x)b(x)\neq 0 : u(x),v(x)\in\ff[x]\}.
     \]
-    Then there exist $u(x),v(x)\in\f[x]$ such that
+    Then there exist $u(x),v(x)\in\ff[x]$ such that
     \[
         d(x)=u(x)a(x)+v(x)b(x)
     \]
@@ -163,7 +163,7 @@ We can think of associates as polynomial constant multiples.
         a(x)=q(x)d(x)+r(x),
     \]
     where $r(x)=0$ or $\deg(r(x))<\deg(d(x))$.
-    Now since $d(x)\in S$, there exist $u(x),v(x)\in\f[x]$ such that
+    Now since $d(x)\in S$, there exist $u(x),v(x)\in\ff[x]$ such that
     \[
         d(x)=u(x)a(x)+v(x)b(x).
     \]
@@ -198,7 +198,7 @@ The GCD Theorem for polynomial fields is a fundamental result in abstract algebr
 The theorem establishes a clear and precise method for finding the gcd of polynomials and its properties.
 
 \begin{definition}[Relatively Prime]
-    Suppose $a(x),b(x)\in\f[x]$ are not both $0$.
+    Suppose $a(x),b(x)\in\ff[x]$ are not both $0$.
     We say $a(x)$ and $b(x)$ are relatively prime if
     \[
         \gcd(a(x),b(x))=1.
@@ -206,14 +206,14 @@ The theorem establishes a clear and precise method for finding the gcd of polyno
 \end{definition}
 
 \begin{corollary}[Consequence of GCD Theorem]{
-    Suppose $a(x),b(x)\in\f[x]$ are relatively prime and $c(x)\in\f[x]$.
+    Suppose $a(x),b(x)\in\ff[x]$ are relatively prime and $c(x)\in\ff[x]$.
     If $a(x)\mid b(x)c(x)$, then $a(x)\mid c(x)$.
 }
     By the gcd theorem, we have
     \[
         1=u(x)a(x)+v(x)b(x)
     \]
-    for some $u(x),v(x)\in\f[x]$.
+    for some $u(x),v(x)\in\ff[x]$.
     Thus
     \[
         c(x)=c(x)u(x)a(x)+c(x)v(x)b(x).
@@ -224,14 +224,14 @@ The theorem establishes a clear and precise method for finding the gcd of polyno
     \]
 \end{corollary}
 
-If we let $\ri=\f[x]$, we notice that it has very similar properties to $\z$, such that it has the division and gcd algorithm.
+If we let $\ri=\ff[x]$, we notice that it has very similar properties to $\z$, such that it has the division and gcd algorithm.
 In fact, it also will have relatively prime and an equivalence to primes, but for polynomials.
 Let us look at this equivalence.
 
 \begin{definition}[Irreducible]
-    A polynomial $p(x)\in\f[x]$ is irreducible if whenever
+    A polynomial $p(x)\in\ff[x]$ is irreducible if whenever
     \[
         p(x)=a(x)b(x)
     \]
-    for $a(x),b(x)\in\f[x]$, then $a(x)$ is an associate of $p(x)$ or $a(x)$ is a unit.
+    for $a(x),b(x)\in\ff[x]$, then $a(x)$ is an associate of $p(x)$ or $a(x)$ is a unit.
 \end{definition}

@@ -52,10 +52,17 @@ Most files can be compiled with a standard LaTeX engine such as:
 
 ```bash
 pdflatex main.tex
+biber main
+pdflatex main.tex
+pdflatex main.tex
+
 ```
 
 I use
 
 ```bash
+pdflatex -interaction=nonstopmode -output-directory=./out main.tex
+biber --input-directory=./out --output-directory=./out main
+pdflatex -interaction=nonstopmode -output-directory=./out main.tex
 pdflatex -interaction=nonstopmode -output-directory=./out main.tex
 ```

@@ -1,0 +1,149 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Linear Systems of Divisors}
+
+Let $X$ be a nonsingular variety.
+All Weil divisors are Cartier on nonsingular varieties.
+If we have $D \subseteq X$ a divisor, there is an associated vector space $\Ell(D)$ defined by
+\[
+    \Ell(D) = \{0\} \cup \{f \in \c(X)\setminus\{0\} : \div(f) + D \geq 0\}.
+\]
+If
+\[
+    \div(f) + D = \sum a_i C_i,
+\]
+then $a_i \geq 0$ for all $i$.
+Thus $\div(f) + D$ is effective.
+If $D = \sum n_i C_i$, then $f \in \Ell(D)$ if and only if $\nu_{C_i}(f) \geq -n_i$ for each $i$, and $\nu_C(f) \geq 0$ for any $C \neq C_i$.
+Since $D$ is Cartier, there exists $\o(D)$, a line bundle, and
+\[
+    \Ell(D) = H^0(X,\o(D)),
+\]
+where $H^0$ denotes the space of sections of $\o(D)$.
+If $X = \pp^1$ and $D = nX_{\infty}$, where the point at infinity is $[1:0]$, then we ask: what is $\Ell(D)$?
+Let $f \in \c(\pp^1)\setminus\{0\}$.
+Then $f = p/q$, where $p,q$ are homogeneous polynomials of the same degree, say $d$.
+Let $\{p_1,\ldots,p_d\}$ denote the zeros of $p(x_0,x_1)$, and similarly for $q$.
+Then
+\[
+    \div(f) = \sum p_i - \sum q_i.
+\]
+We want $\div(f) + D \geq 0$, where $D = nX_{\infty}$.
+If there exists some zero $q_i \neq X_{\infty}$, then this is not true.
+Otherwise,
+\begin{align*}
+    \div(f) + D &= \sum p_i - dX_{\infty} + nX_{\infty} \\
+    &= \sum p_i + (n-d)X_{\infty}.
+\end{align*}
+This is effective if and only if $n-d \geq 0$.
+Then $q = cX_1^d$, and we have
+\[
+    f = \frac{\sum_{i=0}^d a_i X_0^i X_1^{d-i}}{cX_1^d}.
+\]
+If $a_i' = a_i/c$, then
+\[
+    f = \sum_{i=0}^d a_i' \left(\frac{x_0}{x_1}\right)^i.
+\]
+So $f \in \c[x_0/x_1]_{\leq n}$, meaning the highest degree is at most $n$.
+Hence $\Ell(D)$ is a $\c$-vector space of dimension $n+1$.
+If $n \leq -1$, then $\Ell(D) = \{0\}$.
+
+\subsection{Hypersurfaces}
+
+\begin{theorem*}{
+    If $X$ is a smooth projective variety, then $\Ell(D)$ is finite-dimensional.
+}
+\end{theorem*}
+
+We write $\dim_\c(\Ell(D)) = \ell(D)$.
+Why do we need projectivity?
+Let $D$ be the zero divisor.
+Then
+\[
+    \Ell(D) = \{0\} \cup \{f \in \c(X)\setminus\{0\} : \div(f) \geq 0\}.
+\]
+So $f$ has no poles, hence $f$ is regular.
+If $X = \pp^1$, then $\Ell(D) = \c[\pp^1] = \c$.
+If $X = \aa^1$, then $\Ell(D) = \c[\aa^1] = \c[t]$.
+Then $\ell(D) = \infty$.
+
+\begin{definition}[Linear System]
+    Let $X$ be projective.
+    Then the linear system of $D \in \Div(X)$ is the projectivization of $\Ell(D)$, denoted $\pp(\Ell(D))$.
+    This is isomorphic to
+    \[
+        \frac{\Ell(D)\setminus\{0\}}{\c^\upstar} = \pp^{\ell(D)-1}.
+    \]
+\end{definition}
+
+\begin{proposition}{
+    Suppose $X$ is projective.
+    If $D \sim D^\prime$, then $\Ell(D) \cong \Ell(D^\prime)$.
+}
+    If $D \sim D^\prime$, then $D - D^\prime = \div(g)$ for some $g \in \c(X)$.
+    Consider
+    \[
+        \varphi : \Ell(D) \to \Ell(D^\prime)
+    \]
+    defined by
+    \[
+        \varphi(f) = fg.
+    \]
+    If $f \in \Ell(D)$, then $\div(f) + D \geq 0$.
+    Now
+    \begin{align*}
+        \div(fg) + D^\prime &= \div(f) + \div(g) + D^\prime \\
+        &= \div(f) + (D - D^\prime) + D^\prime \\
+        &= \div(f) + D \geq 0.
+    \end{align*}
+    So $fg \in \Ell(D^\prime)$.
+    Conversely, the inverse map
+    \[
+        \varphi^{-1} : \Ell(D^\prime) \to \Ell(D)
+    \]
+    is defined by
+    \[
+        h \mapsto \frac{h}{g}.
+    \]
+    Thus $\Ell(D) \cong \Ell(D^\prime)$.
+\end{proposition}
+
+In particular, $\pp(\Ell(D)) \cong \pp(\Ell(D^\prime))$.
+One can check that $\pp(\Ell(D))$ is naturally identified with the set of effective divisors linearly equivalent to $D$.
+If $f \in \Ell(D)\setminus\{0\}$, then
+\[
+    \div(f) + D \geq 0
+\]
+is an effective divisor linearly equivalent to $D$.
+Moreover, if $c \in \c^\upstar$, then $\div(cf) = \div(f)$, so the associated effective divisor is unchanged.
+Let $X = \pp^n$ and let $D = \{f_d = 0\}$ be a hypersurface of degree $d$.
+Let $D^\prime$ be defined similarly.
+Then
+\[
+    D - D^\prime = \div\left(\frac{f_d}{f_d^\prime}\right),
+\]
+since $\deg(f_d) = \deg(f_d^\prime)$.
+Hence
+\[
+    \Ell(D) \cong \{\text{degree } d \text{ homogeneous polynomials in } x_0,\ldots,x_n\}.
+\]
+Also,
+\[
+    \frac{f_d}{f_d^\prime} \in \c(\pp^n).
+\]
+We already know how many degree $d$ homogeneous polynomials there are, by stars and bars.
+Therefore
+\[
+    \pp(\Ell(D)) = \pp^{\binom{n+d}{d}-1},
+\]
+which is the projective space of all hypersurfaces of degree $d$ in $\pp^n$.
+Let $D$ be a cubic curve in $\pp^2$.
+Then
+\[
+    \pp(\Ell(D)) \cong \pp^9.
+\]
+
+We will later show that for a genus $g$ curve, the divisor class group is not countable.
+With Riemann--Roch, we know $Cl(\pp^n) = \z$, while $Cl\!\left(\sum p\right)$ is not countable.
+This is not subtle.

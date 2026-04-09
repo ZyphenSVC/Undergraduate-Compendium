@@ -1,0 +1,110 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Singularities}
+
+Suppose $f : X\to Y$ is a regular map, where $X,Y$ are quasi-projective varieties.
+The question that arises is: if $X$ is irreducible, are the fibers of $f$ irreducible, and if $X$ is smooth, are the fibers smooth?
+Generally this is not true.
+For example,
+\begin{align*}
+    \aa^1 &\overset{f}{\longrightarrow} \aa^1 \\
+    x &\longmapsto x^2
+\end{align*}
+where $f^{-1}(y)$ is not irreducible for general $y$.
+
+\begin{theorem*}[First Bertini's Theorem]{
+    Assume $X,Y$ are irreducible and $f(X)$ is dense in $Y$, that is, $f$ is dominant.
+    Suppose $X$ remains irreducible over the algebraic closure $\overline{\c(Y)}$.
+    Then there exists an open dense subset $U\subseteq Y$ such that for all $y\in U$, the fiber $f^{-1}(y)$ is irreducible.
+}
+\end{theorem*}
+
+If we have the previous example $\aa^1\to \aa^1$, then $\c[Y] = \c[t]$, so $\c(Y) = \c(t)$, which is not algebraically closed.
+Since we do not have $t^{1/2}$, and even if we adjoin one root, we still will not have all $t^{1/n}$.
+
+\begin{theorem*}{
+    \[
+        \overline{\c(t)} = \bigcup_{n\geq 1}\c\bigl(t^{1/n}\bigr),
+    \]
+    provided $\char 0$.
+}
+\end{theorem*}
+
+How can we view $X$ as an irreducible variety over $\overline{\c(Y)}$?
+Assume $X,Y$ are affine.
+Then $f$ induces $\c[Y]\to \c[X]$ by $\varphi \mapsto \varphi\circ f$.
+Thus $\c[X]$ is a $\c[Y]$-algebra.
+Note that an algebra is a vector space equipped with a bilinear product.
+We have
+\[
+    \c[Y]\subseteq \c(Y)\subseteq \overline{\c(Y)}.
+\]
+Then consider
+\[
+    \c[X]\otimes_{\c[Y]}\overline{\c(Y)}.
+\]
+
+\begin{definition}[Tensor Product]
+    An element of $A\otimes_C B$ satisfies the relation
+    \[
+        ca\otimes b = a\otimes cb.
+    \]
+\end{definition}
+
+Thus if we let
+\[
+    \tilde{X} \coloneqq \spec\left(\c[X]\otimes_{\c[Y]}\overline{\c(Y)}\right),
+\]
+then $\tilde{X}$ is affine.
+In the statement of First Bertini's Theorem, we have that $\tilde{X}$ is irreducible if and only if $X$ is irreducible over $\overline{\c(Y)}$.
+Consider
+\[
+    \tilde{X} = \spec\left(\c[X]\otimes_{\c[t]}\overline{\c(t)}\right).
+\]
+We claim that $\tilde{X}$ is not irreducible.
+Since
+\[
+    \c[x]\cong \c[t][x]/(x^2-t)
+\]
+as a $\c[t]$-algebra, we get
+\[
+    \c[t][x]/(x^2-t)\otimes_{\c[t]}\overline{\c(t)}
+    \cong
+    \overline{\c(t)}[x]/(x^2-t).
+\]
+We can now factor over $\overline{\c(t)}$:
+\[
+    \overline{\c(t)}[x]/(x^2-t)
+    =
+    \overline{\c(t)}[x]/\left(x-\sqrt{t}\right)\left(x+\sqrt{t}\right).
+\]
+Thus
+\[
+    \tilde{X}
+    =
+    \spec\left(\overline{\c(t)}[x]/\left(x-\sqrt{t}\right)\left(x+\sqrt{t}\right)\right)
+\]
+has two points, hence is not irreducible.
+The First Bertini Theorem ensures irreducibility over points $U\subseteq Y$ open and dense, but not all of $Y$.
+
+\begin{theorem*}[Second Bertini's Theorem]{
+    Given $f : X\to Y$ with $X,Y$ quasi-projective, $f(X)$ dense in $Y$, and $X$ nonsingular, there exists an open dense subset $U\subseteq Y$ such that for all $y\in U$, the fiber $f^{-1}(y)$ is smooth.
+}
+\end{theorem*}
+
+We can think of this theorem as the algebro-geometric analog of Sard's Theorem from differential geometry.
+
+\begin{theorem*}[Sard's Theorem]{
+    Let $f : M\to N$ be a smooth map of manifolds.
+    Then the set of critical values of $f$ has measure zero in $N$.
+}
+\end{theorem*}
+
+\begin{definition}[Critical Points]
+    A point $x\in M$ is a critical point if and only if
+    \[
+        d_{x}f : T_{x}M\to T_{f(x)}N
+    \]
+    is not surjective.
+\end{definition}

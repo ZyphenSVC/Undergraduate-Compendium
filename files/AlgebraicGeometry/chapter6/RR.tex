@@ -1,0 +1,208 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Riemann-Roch Theorem}
+
+Let $X$ be a smooth projective curve.
+Let $K_X$ denote the canonical divisor class.
+For a divisor $D$, define
+\[
+    \Ell(D) = \{0\}\cup\{f\in\c(X) : \div(f) + D \geq 0\},
+\]
+and
+\[
+    \ell(D) = \dim(\Ell(D)).
+\]
+
+Recall that $\Ell(K_X) \cong \Omega[X]$.
+Thus
+\[
+    \ell(K_X) = \dim(\Omega[X]) = g.
+\]
+
+If $X \subset \pp^2$ is a smooth curve of degree $d$, then
+\[
+    g = \frac{(d-1)(d-2)}{2}.
+\]
+
+If $d = 3$, then $g = 1$.
+If $d = 4$, then $g = 3$.
+A smooth curve of genus $2$ cannot lie in $\pp^2$, but can lie in some $\pp^n$.
+
+\begin{theorem*}{
+    Any smooth projective curve can be embedded into $\pp^3$.
+}
+\end{theorem*}
+
+The projectivization satisfies
+\[
+    \pp(\Ell(D)) = \{D' \geq 0 : D' \sim D\}.
+\]
+
+\begin{theorem*}{
+    (Riemann--Roch)
+    Let $X$ be a smooth projective curve and $D$ a divisor on $X$.
+    Then
+    \[
+        \ell(D) - \ell(K_X - D) = 1 - g + \deg(D).
+    \]
+}
+\end{theorem*}
+
+The difference $\ell(D) - \ell(K_X - D)$ depends only on $g$ and $\deg(D)$.
+However, $\ell(D)$ itself depends on the divisor.
+Let $X$ be a curve with $g > 0$.
+Let $D_1 = 0$.
+Then $\deg(D_1) = 0$ and $\Ell(D_1) = \c[X] = \c$.
+Thus $\ell(D_1) = 1$.
+Let $D_2 = p - q$ for distinct points $p,q \in X$.
+Then $\deg(D_2) = 0$.
+
+\begin{proof}
+    If $\ell(D_2) > 0$, then there exists $f \in \c(X)$ with a simple zero at $p$ and a simple pole at $q$.
+    Thus $f : X \to \pp^1$ has degree $1$, hence is an isomorphism.
+    This contradicts $g > 0$.
+    Therefore $\ell(D_2) = 0$.
+\end{proof}
+
+Thus $\deg(D_1) = \deg(D_2)$ but $\ell(D_1) \neq \ell(D_2)$.
+Applying Riemann--Roch:
+\[
+    \ell(D_1) - \ell(K_X) = 1 - g
+\]
+implies
+\[
+    \ell(K_X) = g.
+\]
+
+\[
+    \ell(D_2) - \ell(K_X - D_2) = 1 - g
+\]
+implies
+\[
+    \ell(K_X - D_2) = g - 1.
+\]
+
+Taking $D = K_X$ in Riemann--Roch:
+\[
+    \ell(K_X) - \ell(0) = 1 - g + \deg(K_X).
+\]
+
+Since $\ell(K_X) = g$ and $\ell(0) = 1$, we obtain
+\[
+    g - 1 = 1 - g + \deg(K_X).
+\]
+
+Hence
+\[
+    \deg(K_X) = 2g - 2.
+\]
+
+For plane curves:
+\[
+    \deg(K_X) = d(d - 3).
+\]
+
+Thus
+\[
+    d(d - 3) = 2g - 2 \implies g = \frac{(d - 1)(d - 2)}{2}.
+\]
+
+If $\deg(D) > 2g - 2$, then $\deg(K_X - D) < 0$.
+Thus $\ell(K_X - D) = 0$ and
+\[
+    \ell(D) = 1 - g + \deg(D).
+\]
+
+\begin{theorem*}{
+    Let $X$ be a smooth projective curve and $f\in\c(X)$ with $\omega\in\Omega[X]$.
+    Then
+    \[
+        \sum_{x\in X} \operatorname{Res}_x(f\omega) = 0.
+    \]
+}
+\end{theorem*}
+
+Pick a local coordinate $t$ around $x$ such that
+\[
+    f\omega = \left(\frac{a_k}{t^k} + \cdots + \frac{a_1}{t} + a_0 + \cdots \right)dt.
+\]
+
+Then
+\[
+    \operatorname{Res}_x(f\omega) = a_1.
+\]
+
+\begin{proof}
+    By Cauchy's formula,
+    \[
+        \operatorname{Res}_x(f\omega) = \frac{1}{2\pi i}\int f\omega.
+    \]
+
+    Summing over poles $p_1,\ldots,p_n$:
+    \[
+        \sum_{i=1}^n \operatorname{Res}_{p_i}(f\omega)
+        = \frac{1}{2\pi i} \sum_{i=1}^n \int_{\gamma_i} f\omega.
+    \]
+
+    By Stokes' theorem,
+    \[
+        = \frac{1}{2\pi i} \int_{X \setminus \bigcup D_i} d(f\omega).
+    \]
+
+    Locally $f\omega = g(t)dt$, so
+    \[
+        d(g(t)dt) = g'(t)\,dt \wedge dt = 0.
+    \]
+
+    Thus the sum is $0$.
+\end{proof}
+
+\begin{theorem*}{
+    If $g = 0$, then $X \cong \pp^1$.
+}
+\end{theorem*}
+
+\begin{proof}
+    Let $D = p$.
+    Then $\deg(D) = 1 > 2g - 2 = -2$.
+    Thus
+    \[
+        \ell(D) = 1 - 0 + 1 = 2.
+    \]
+
+    So there exists a non-constant $f \in \c(X)$ with a pole of order at most $1$.
+    Thus $f$ defines an isomorphism $X \cong \pp^1$.
+\end{proof}
+
+\begin{theorem*}{
+    If $g = 1$, then $K_X \sim 0$.
+}
+\end{theorem*}
+
+\begin{proof}
+    We have $\deg(K_X) = 2g - 2 = 0$.
+    Since $\ell(K_X) = g = 1$, there exists an effective divisor linearly equivalent to $K_X$.
+    The only effective divisor of degree $0$ is $0$.
+    Thus $K_X \sim 0$.
+\end{proof}
+
+\begin{theorem*}{
+    If $g = 1$, then $X$ is isomorphic to a cubic curve in $\pp^2$.
+}
+\end{theorem*}
+
+\begin{proof}
+    Fix $p \in X$.
+    Then $\ell(p) = 1$, $\ell(2p) = 2$, and $\ell(3p) = 3$.
+
+    Thus there exist functions $x \in \Ell(2p)$ and $y \in \Ell(3p)$ with poles of order $2$ and $3$ at $p$.
+
+    The map $(x,y) : X \to \pp^2$ is an embedding.
+
+    Consider $\Ell(6p)$.
+    Its dimension is $6$.
+    The functions $1, x, x^2, x^3, y, y^2, xy$ lie in $\Ell(6p)$ and are linearly dependent.
+
+    This gives a cubic relation in $x,y$, so $X$ is a cubic curve.
+\end{proof}

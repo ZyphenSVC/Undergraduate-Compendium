@@ -4,50 +4,50 @@
 \section{Field Extensions}
 
 \begin{definition}[Vector Space]
-    A vector space over $\f$ is an additive abelian group $V$ equipped with scalar multiplication such that for $a,a_1,a_2\in\f$ and $v,v_1,v_2\in V$, the following hold:
+    A vector space over $\ff$ is an additive abelian group $V$ equipped with scalar multiplication such that for $a,a_1,a_2\in\ff$ and $v,v_1,v_2\in V$, the following hold:
     \begin{enumerate}
         \item $a(v_1+v_2)=av_1+av_2$.
         \item $(a_1+a_2)v=a_{1}v+a_{2}v$.
         \item $a_1(a_{2}v)=(a_{1}a_2)v$.
-        \item $1_\f v=v$.
+        \item $1_\ff v=v$.
     \end{enumerate}
 \end{definition}
 
 \begin{definition}[Span]
-    If every element of a vector space $V/\f$ can be written as a linear combination of elements of a set $\{v_1,v_2,\hdots,v_n\}$, then we say that $\{v_1,v_2,\hdots,v_n\}$ spans $V/\f$.
+    If every element of a vector space $V/\ff$ can be written as a linear combination of elements of a set $\{v_1,v_2,\hdots,v_n\}$, then we say that $\{v_1,v_2,\hdots,v_n\}$ spans $V/\ff$.
 \end{definition}
 
 \begin{definition}[Linearly Independent]
-    A subset of a vector space $V/\f$ is linearly independent over $\f$ if whenever
+    A subset of a vector space $V/\ff$ is linearly independent over $\ff$ if whenever
     \[
         c_{1}v_1+\cdots+c_{n}v_n=0
     \]
-    with $c_i\in\f$, then $c_i=0_\f$ for all $i$.
+    with $c_i\in\ff$, then $c_i=0_\ff$ for all $i$.
     Otherwise, it is dependent.
 \end{definition}
 
 \begin{definition}[Basis]
-    A subset is called a basis if it is linearly independent and spans $V/\f$.
+    A subset is called a basis if it is linearly independent and spans $V/\ff$.
 \end{definition}
 
 \begin{definition}[Dimension]
-    If $p(x)\in\f[x]$ is irreducible, then $\E$ is an extension field of $\f$.
-    In fact, this is a vector space over $\f$.
-    Its dimension is denoted by $[\E:\f]$.
+    If $p(x)\in\ff[x]$ is irreducible, then $\E$ is an extension field of $\ff$.
+    In fact, this is a vector space over $\ff$.
+    Its dimension is denoted by $[\E:\ff]$.
 \end{definition}
 
 \begin{theorem}{
-    Suppose $K$ is an extension field of $\E$ and $\E$ is an extension field of $\f$.
+    Suppose $K$ is an extension field of $\E$ and $\E$ is an extension field of $\ff$.
     Then
     \[
-        [K:\f]=[K:\E][\E:\f].
+        [K:\ff]=[K:\E][\E:\ff].
     \]
 }
 Suppose
 \[
-    [\E:\f]=n.
+    [\E:\ff]=n.
 \]
-Let $v_1,\hdots,v_n\in\E$ be a basis for $\E/\f$.
+Let $v_1,\hdots,v_n\in\E$ be a basis for $\E/\ff$.
 Suppose
 \[
     [K:\E]=m.
@@ -57,7 +57,7 @@ Our claim is that
 \[
     \{w_{i}v_j:1\leq i\leq m,\ 1\leq j\leq n\}
 \]
-is a basis for $K/\f$.
+is a basis for $K/\ff$.
 First, we show that $\{w_{i}v_j\}$ spans $K$.
 Let $u\in K$.
 Since $\{w_i\}$ spans $K/\E$, we can write
@@ -65,20 +65,20 @@ Since $\{w_i\}$ spans $K/\E$, we can write
     u=\sum_{i=1}^m \alpha_i w_i,
     \qquad \alpha_i\in\E.
 \]
-Since $\{v_j\}$ spans $\E/\f$, each $\alpha_i$ can be written as
+Since $\{v_j\}$ spans $\E/\ff$, each $\alpha_i$ can be written as
 \[
     \alpha_i=\sum_{j=1}^n \beta_{ij}v_j,
-    \qquad \beta_{ij}\in\f.
+    \qquad \beta_{ij}\in\ff.
 \]
 Therefore
 \[
     u=\sum_{i=1}^m\sum_{j=1}^n \beta_{ij}w_{i}v_j.
 \]
-So $\{w_{i}v_j\}$ spans $K/\f$.
+So $\{w_{i}v_j\}$ spans $K/\ff$.
 Now suppose
 \[
     \sum_{i=1}^m\sum_{j=1}^n \beta_{ij}w_{i}v_j=0,
-    \qquad \beta_{ij}\in\f.
+    \qquad \beta_{ij}\in\ff.
 \]
 Rewrite this as
 \[
@@ -89,24 +89,24 @@ Since the $w_i$ are linearly independent over $\E$, we have
     \sum_{j=1}^n \beta_{ij}v_j=0
 \]
 for each $i$.
-Since the $v_j$ are linearly independent over $\f$, it follows that
+Since the $v_j$ are linearly independent over $\ff$, it follows that
 \[
     \beta_{ij}=0
 \]
 for all $i,j$.
-Thus $\{w_{i}v_j\}$ is linearly independent over $\f$.
-Hence it is a basis of $K/\f$.
+Thus $\{w_{i}v_j\}$ is linearly independent over $\ff$.
+Hence it is a basis of $K/\ff$.
 Therefore
 \[
-    [K:\f]=mn=[K:\E][\E:\f].
+    [K:\ff]=mn=[K:\E][\E:\ff].
 \]
 \end{theorem}
 
 \begin{definition}[Algebraic and Transcendental Functions]
-    Let $\f=\q$, $\E=\r$, and $u=\pi$.
+    Let $\ff=\q$, $\E=\rr$, and $u=\pi$.
     There is no polynomial $p(u)=0$ with $p(x)\in\Q[x]$.
-    If there is no such polynomial, we say $u$ is transcendental over $\f$.
-    If there is such a polynomial, we say $u$ is algebraic over $\f$.
+    If there is no such polynomial, we say $u$ is transcendental over $\ff$.
+    If there is such a polynomial, we say $u$ is algebraic over $\ff$.
 \end{definition}
 
 To understand two versions of field extensions, let us look at when $\Q[\alpha]=\Q(\alpha)$.

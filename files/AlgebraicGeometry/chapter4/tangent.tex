@@ -1,0 +1,143 @@
+%! Author = sriadityavedantam
+%! Date = 4/7/26
+
+\section{Tangent Space}
+
+Let $X$ be an affine variety with $x \in X$.
+Our goal is to define the tangent space at $x$.
+We will give two definitions: the concrete and the intrinsic.
+
+\subsection{Concrete Definition}
+
+Assume $X \subseteq \aa^n$ and, without loss of generality, let $x = (0,\ldots,0) \in \aa^n$.
+Our idea is that the tangent space at $x$, denoted $T_x$, is the union of all lines tangent to $X$ at $x$.
+A tangent space exists at singular points, not just smooth points.
+Different notions of tangency may not agree.
+Thus calculus alone is insufficient, and we instead use intersection multiplicity.
+
+\begin{definition}
+    A line is tangent at a point $x$ if it has intersection multiplicity $\geq 2$ at $x$.
+\end{definition}
+
+\begin{proposition*}{
+    Let $\ell$ be a line in $\aa^n$ passing through $x = (0,\ldots,0)$.
+    Pick a point $a = (a_1,\ldots,a_n) \in \ell$.
+    Then all points on $\ell$ are of the form $ta$ for $t \in \c$.
+    Let $X = \{f_1 = \cdots = f_m = 0\} \subseteq \aa^n$.
+    For each $i$, the restriction $f_i|_\ell$ is a polynomial in $t$.
+    Since $f_i(0) = 0$, we may write
+    \[
+        f_i|_\ell = t^{k_i} g_i(t), \quad g_i(0) \neq 0.
+    \]
+}
+\end{proposition*}
+
+\begin{definition}[Multiplicity of $x$ as a root]
+    The integer $k_i \in \z_{\ge 0} \cup \{\infty\}$ is called the multiplicity (order of vanishing) of $f_i|_\ell$ at $0$.
+    If $f_i|_\ell \equiv 0$, then $k_i = \infty$.
+\end{definition}
+
+\begin{definition}[Intersection multiplicity]
+    \[
+        \mu \coloneqq \min_{1 \le i \le m} \{k_i\}.
+    \]
+\end{definition}
+
+\begin{definition}[Line of tangency]
+    A line $\ell$ is tangent at $x$ if $\mu \ge 2$.
+\end{definition}
+
+\begin{definition}[Tangent space]
+    \[
+        T_x \coloneqq \bigcup_{\ell \text{ tangent at } x} \ell.
+    \]
+\end{definition}
+
+\begin{example}
+    \[
+        X = \{y = x^2\} \subseteq \aa^2.
+    \]
+    Pick $\ell$ with parameterization $(a_1 t, a_2 t)$.
+    \begin{align*}
+        f(x,y) &= x^2 - y, \\
+        f|_\ell &= (a_1 t)^2 - a_2 t = a_1^2 t^2 - a_2 t.
+    \end{align*}
+    Then $\mu \ge 2 \iff a_2 = 0$.
+    Thus the tangent line is $\{y = 0\}$.
+\end{example}
+
+\begin{example}
+    \[
+        X = \{y(y - x^2) = 0\} \subseteq \aa^2.
+    \]
+    Let $\ell$ be parameterized by $(a_1 t, a_2 t)$.
+    \begin{align*}
+        f|_\ell &= a_2 t (a_2 t - (a_1 t)^2) \\
+        &= a_2^2 t^2 - a_1 a_2 t^3.
+    \end{align*}
+    In all cases, $\mu \ge 2$.
+    Hence every line through $(0,0)$ is tangent, and
+    \[
+        T_{(0,0)} = \aa^2.
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        X = \{y = a x\} \subseteq \aa^2.
+    \]
+    \begin{align*}
+        f(x,y) &= y - ax, \\
+        f(a_1 t, a_2 t) &= (a_2 - a a_1)t.
+    \end{align*}
+    We have $\mu = \infty$ only when $a_2 = a a_1$.
+    Thus the tangent line is $\{y = ax\}$.
+\end{example}
+
+\subsection{Intrinsic Definition}
+
+Let $\o_{X,x}$ be the local ring at $x$ with maximal ideal $\m_x$.
+Define
+\[
+    \m_x^2 \coloneqq \left\{ \sum a_i b_i : a_i, b_i \in \m_x \right\}.
+\]
+
+\begin{definition}[Cotangent space]
+    The cotangent space is
+    \[
+        \m_x / \m_x^2.
+    \]
+\end{definition}
+
+\begin{theorem*}{
+    \[
+        T_x \cong (\m_x / \m_x^2)^\vee.
+    \]
+}
+\end{theorem*}
+
+\begin{definition}[Lift]
+    Given morphisms $f : X \to Y$ and $g : Z \to Y$, we say $f$ lifts through $Z$ if there exists $h : X \to Z$ such that $f = g \circ h$.
+\end{definition}
+
+\begin{remark}
+    The cotangent space is a vector space over the residue field $\o_{X,x}/\m_x \cong \c$, and its dual is the tangent space.
+\end{remark}
+
+\begin{proposition*}{
+    Let $X \subseteq \aa^n$ be affine with defining equations $f_1,\ldots,f_m$.
+    Then
+    \[
+        T_x = \{ a \in \aa^n : d_x f_i(a) = 0,\ \forall i \}.
+    \]
+}
+\end{proposition*}
+
+\begin{example}
+    If $X = \aa^1$, then $\c[\aa^1] = \c[t]$, $\m_0 = (t)$, and $\m_0^2 = (t^2)$.
+    Thus
+    \[
+        \m_0 / \m_0^2 \cong \c,
+    \]
+    so $T_0 \aa^1 \cong \c$.
+\end{example}

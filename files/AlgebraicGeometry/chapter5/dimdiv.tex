@@ -1,0 +1,121 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Dimension of Divisors}
+
+Let $X$ be a smooth projective variety and let $D$ be a divisor on $X$.
+Define
+\[
+    \Ell(D) = \{0\} \cup \{f \in \c(X) : \div(f) + D \geq 0\}.
+\]
+Then $\Ell(D)$ is a $\c$-vector space of finite dimension.
+
+\begin{definition}[Dimension of a Divisor]
+    The dimension of a divisor $D$ is
+    \[
+        \ell(D) \coloneqq \dim_\c \Ell(D).
+    \]
+\end{definition}
+
+\subsection*{Basic Bound}
+
+\begin{theorem*}{
+    Let $X$ be a smooth projective curve and $D$ a divisor on $X$.
+    If $D$ is effective or a $0$-divisor, then
+    \[
+        \ell(D) \leq \deg(D) + 1.
+    \]
+}
+\end{theorem*}
+
+If $D = \sum a_i p_i$, then $\deg(D) = \sum a_i$.
+In particular, this theorem implies $\ell(D)$ is finite.
+If $D = 0$, then
+\[
+    \Ell(D) = \c[X] = \c,
+\]
+so $\ell(D) = 1$.
+Since $\deg(D) = 0$, we obtain equality:
+\[
+    \ell(D) = \deg(D) + 1.
+\]
+
+\subsection*{Case $X = \pp^1$}
+
+If $D \sim D'$, then $\Ell(D) \cong \Ell(D')$.
+Thus we may assume
+\[
+    D = \deg(D)\cdot p_\alpha.
+\]
+
+Then
+\[
+    \Ell(D)
+    = \{0\} \cup \{f \in \c(\pp^1) : \div(f) + D \geq 0\}.
+\]
+
+This means $f$ is regular on $\pp^1 \setminus \{p_\alpha\}$ and has a pole of order at most $\deg(D)$ at $p_\alpha$.
+Choose an affine chart
+\[
+    \pp^1 \setminus \{p_\alpha\} \cong \aa^1_t.
+\]
+Then $f \in \c[t]$.
+Using the coordinate $u = \frac{1}{t}$ near $p_\alpha$, the condition becomes
+\[
+    \deg(f) \leq \deg(D).
+\]
+
+Hence
+\[
+    \Ell(D)
+    \cong \{f \in \c[t] : \deg(f) \leq \deg(D)\}
+    \cong \c^{\deg(D)+1}.
+\]
+
+Therefore
+\[
+    \ell(D) = \deg(D) + 1.
+\]
+
+\subsection*{Nontrivial Case: $X \neq \pp^1$}
+
+Let $X$ be a smooth projective curve not isomorphic to $\pp^1$, and let
+\[
+    D = p \in X.
+\]
+
+Then
+\[
+    \Ell(D)
+    = \{0\} \cup \{f \in \c(X) : \div(f) + p \geq 0\}.
+\]
+
+Thus $f$ is regular on $X \setminus \{p\}$ and has at most a first-order pole at $p$.
+
+\begin{proof}
+    If $f$ has no poles, then $f \in \c[X]$, hence $f$ is constant.
+
+    Assume $f$ has a first-order pole at $p$.
+    Then $f$ defines a morphism
+    \[
+        f : X \to \pp^1.
+    \]
+
+    Since the pole has order $1$, we have $\deg(f) = 1$.
+    Thus $f$ is an isomorphism, implying $X \cong \pp^1$, a contradiction.
+
+    Therefore $f$ must be constant.
+    Hence
+    \[
+        \Ell(D) \cong \c,
+        \quad
+        \ell(D) = 1.
+    \]
+
+    Since $\deg(D) = 1$, we obtain
+    \[
+        \ell(D) = 1 < \deg(D) + 1 = 2.
+    \]
+\end{proof}
+
+This shows that equality $\ell(D) = \deg(D)+1$ does not hold in general.

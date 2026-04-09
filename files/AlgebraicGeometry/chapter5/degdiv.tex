@@ -1,0 +1,113 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Degree of a Divisor}
+
+Let $X$ be a smooth projective curve.
+Let
+\[
+    D = \sum a_i p_i \in \Div(X).
+\]
+
+\begin{definition}[Degree of a Divisor]
+    The degree of $D$ is
+    \[
+        \deg(D) \coloneqq \sum a_i.
+    \]
+\end{definition}
+
+Let $X = \pp^1$.
+A divisor $D$ is principal if and only if $\deg(D) = 0$.
+Moreover,
+\[
+    Cl(X) = \frac{\Div(X)}{\{\text{principal divisors}\}} \cong \z,
+\]
+via the map
+\[
+    [D] \mapsto \deg(D).
+\]
+
+\begin{theorem*}{
+    Let $X$ be a smooth projective curve.
+    If $D$ is principal, then $\deg(D) = 0$.
+}
+\end{theorem*}
+
+\begin{proof}
+    Suppose $D$ is principal.
+    Then
+    \[
+        D = \div(f) = \sum \nu_{p_i}(f)\, p_i
+    \]
+    for some $f \in \c(X)$.
+    Thus
+    \[
+        D = \sum Z(f) - \sum P(f),
+    \]
+    where $Z(f)$ and $P(f)$ denote the zeros and poles of $f$ respectively.
+
+    It suffices to show that
+    \[
+        \deg(Z(f)) = \deg(P(f)).
+    \]
+
+    If $f$ is nonconstant, then it defines a rational map
+    \[
+        f : X \dashrightarrow \c.
+    \]
+    This extends to a morphism
+    \[
+        f : X \to \pp^1.
+    \]
+    This map is finite, hence a ramified covering.
+    Define $\deg(f)$ as the number of preimages of a general point.
+
+    We claim that $\deg(f)$ equals the number of preimages of any point in $\pp^1$, counted with multiplicity.
+    Indeed, for any $p \in \pp^1$ and $y \in f^{-1}(p)$, there exists a neighborhood $U \subset X$ such that
+    \[
+        f|_U : U \to \c
+    \]
+    is locally of the form $z \mapsto z^k$ for some $k \in \n$.
+    Thus each point contributes with multiplicity.
+
+    Therefore, counting multiplicities,
+    \[
+        \deg(Z(f)) = \deg(P(f)),
+    \]
+    so $\deg(D) = 0$.
+\end{proof}
+
+The degree is invariant under linear equivalence.
+Hence there is a well-defined group homomorphism
+\[
+    \deg : Cl(X) \to \z.
+\]
+Define
+\[
+    Cl^0(X) \coloneqq \ker(\deg).
+\]
+Then we have a short exact sequence
+\[
+    0 \to Cl^0(X) \to Cl(X) \xrightarrow{\deg} \z \to 0,
+\]
+so
+\[
+    Cl(X) \cong \z \oplus Cl^0(X).
+\]
+
+\begin{theorem*}{
+    If $X \neq \pp^1$, then $Cl^0(X) \neq 0$.
+    Moreover, it is uncountable.
+}
+\end{theorem*}
+
+In fact,
+\[
+    Cl^0(X) \cong \mathscr{J}(X),
+\]
+the Jacobian of $X$.
+If $X$ has genus $g$, then $\mathscr{J}(X)$ is a $g$-dimensional abelian variety.
+As a complex manifold,
+\[
+    \mathscr{J}(X) \cong \frac{\c^g}{\z^{2g}}.
+\]

@@ -7,14 +7,14 @@
 
 \begin{definition}[$\eps$-Neighbourhood]
     Let $\eps > 0$.
-    The neighborhood of $x\in\r$ is:
+    The neighborhood of $x\in\rr$ is:
     \[
         \vee_{\eps}(x)\coloneqq \{y : \abs{x-y} < \eps\} = (x-\eps,x+\eps).
     \]
 \end{definition}
 
 \begin{definition}[Open Set]
-    A set $U\subset\r$ is open if for every $x\in U$, there exists $\eps > 0$ such that $\vee_{\eps}(x)\subset U$.
+    A set $U\subset\rr$ is open if for every $x\in U$, there exists $\eps > 0$ such that $\vee_{\eps}(x)\subset U$.
 \end{definition}
 
 \begin{example}[Any open interval is open]
@@ -60,8 +60,8 @@
 \end{theorem}
 
 \begin{definition}[Limit Point]
-    Let $E\subset\r$.
-    A point $x_0\in\r$ is a limit point of $E$ if for every $\eps > 0$,
+    Let $E\subset\rr$.
+    A point $x_0\in\rr$ is a limit point of $E$ if for every $\eps > 0$,
     \[
         (\vee_{\eps}(x_0)\cap E)\setminus\{x_0\} \neq \varnothing.
     \]
@@ -76,11 +76,11 @@
 \end{example}
 
 \begin{definition}[Isolated Point]
-    Given $E\subset\r$, $x_0\in E$ is an isolated point if it is not a limit point.
+    Given $E\subset\rr$, $x_0\in E$ is an isolated point if it is not a limit point.
 \end{definition}
 
 \begin{proposition}{
-    Given $E\subset\r$, $x_0\in\r$ is a limit point of $E$ if and only if there exists a sequence $(x_n)$ in $E\setminus\{x_0\}$ such that $x_n\to x_0$.
+    Given $E\subset\rr$, $x_0\in\rr$ is a limit point of $E$ if and only if there exists a sequence $(x_n)$ in $E\setminus\{x_0\}$ such that $x_n\to x_0$.
 }
               Suppose $x_0$ is a limit point of $E$.
               For each $n\in\n$, choose $x_n\in \vee_{1/n}(x_0)\cap (E\setminus\{x_0\})$.
@@ -89,7 +89,7 @@
 \end{proposition}
 
 \begin{definition}[Closed]
-    $E\subset\r$ is closed if it contains all its limit points.
+    $E\subset\rr$ is closed if it contains all its limit points.
 \end{definition}
 
 \begin{example}

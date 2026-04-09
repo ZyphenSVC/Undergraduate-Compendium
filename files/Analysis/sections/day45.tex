@@ -6,7 +6,7 @@
 \lesson{45}{Self-Study One}{Day 45}
 
 \begin{definition}[Euclidean Distance]
-    Given $x,y\in\r^n$, define
+    Given $x,y\in\rr^n$, define
     \[
         \norm{x-y} \coloneqq \left(\sum_{i=1}^n \abs{x_i - y_i}^2\right)^{1/2}.
     \]
@@ -26,14 +26,14 @@
 \end{definition}
 
 \begin{example}[$\ell^p$-metric]
-    For $x,y\in\r^n$ and $1\leq p<\infty$, define
+    For $x,y\in\rr^n$ and $1\leq p<\infty$, define
     \[
         d_p(x,y) \coloneqq \left(\sum_{i=1}^n \abs{x_i - y_i}^p\right)^{1/p}.
     \]
 \end{example}
 
 \begin{example}[$L^p$-metric]
-    For functions $f,g:[0,1]\to\r$ and $1\leq p<\infty$, define
+    For functions $f,g:[0,1]\to\rr$ and $1\leq p<\infty$, define
     \[
         d_p(f,g) \coloneqq \left(\int_0^1 \abs{f(x) - g(x)}^p\,dx\right)^{1/p}.
     \]
@@ -41,14 +41,14 @@
 
 \begin{definition}[Sets of Continuous Functions]
     \begin{gather*}
-        C^0([a,b]) \coloneqq \{\text{continuous functions } [a,b]\to\r\}.\\
-        C^k([a,b]) \coloneqq \{\text{$k$-times continuously differentiable functions } [a,b]\to\r\}.\\
+        C^0([a,b]) \coloneqq \{\text{continuous functions } [a,b]\to\rr\}.\\
+        C^k([a,b]) \coloneqq \{\text{$k$-times continuously differentiable functions } [a,b]\to\rr\}.\\
     \end{gather*}
 \end{definition}
 
 \begin{definition}[Smooth Functions]
     \[
-        C^\infty([a,b]) \coloneqq \{\text{infinitely differentiable functions } [a,b]\to\r\}.
+        C^\infty([a,b]) \coloneqq \{\text{infinitely differentiable functions } [a,b]\to\rr\}.
     \]
 \end{definition}
 

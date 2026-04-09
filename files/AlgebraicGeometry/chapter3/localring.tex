@@ -1,0 +1,94 @@
+%! Author = sriadityavedantam
+%! Date = 4/7/26
+
+\section{Local Ring of a Variety at a Point}
+
+Let $X$ be a quasi-projective variety, and let $x\in X$.
+What are the properties of $X$ near $x$?
+
+\begin{theorem*}{
+    In a quasi-projective variety, every point has a neighborhood isomorphic to an affine variety.
+}
+\end{theorem*}
+
+Note that affine subvarieties are Zariski closed in $\aa^n$, but when embedded in projective space, affine charts are Zariski open.
+
+\begin{definition}[Local Ring of $X$ at $x$]
+    Assume $X$ is affine.
+    Our goal is to define $\mathcal{O}_{X,x}$, the local ring of $X$ at $x$.
+    This is a special case of localization in commutative algebra.
+    Let $A$ be a commutative ring with $1$, and let $p\subset A$ be a prime ideal.
+    Define
+    \[
+        A_p \coloneqq \left\{\frac{f}{g} : f,g\in A,\; g\notin p\right\},
+    \]
+    with equivalence relation
+    \[
+        \frac{f}{g} = \frac{f'}{g'} \iff \exists\, h\notin p \text{ such that } h(fg' - f'g)=0.
+    \]
+    Now take $A = \c[X]$ and $p = m_x$, the maximal ideal of functions vanishing at $x$.
+    Then
+    \[
+        \mathcal{O}_{X,x} \coloneqq A_p = \c[X]_{m_x}.
+    \]
+\end{definition}
+
+There is a natural map
+\[
+    \phi: A \to A_p,\quad a \mapsto \frac{a}{1}.
+\]
+Thus we write $(a,b)$ as $\frac{a}{b}$.
+Moreover, there is a unique maximal ideal
+\[
+    m = \left\{\frac{f}{g}\in A_p : f\in p\right\}.
+\]
+
+\begin{definition}[Local Ring]
+    A ring with a unique maximal ideal is called a local ring.
+\end{definition}
+
+\begin{definition}[Alternative Description of $\mathcal{O}_{X,x}$]
+    The local ring can also be described as the stalk of the structure sheaf.
+    Let $\mathcal{O}_X$ be the structure sheaf, where $\mathcal{O}_X(U)$ is the ring of regular functions on $U$.
+    For example,
+    \[
+        \mathcal{O}_X(X) = \c[X].
+    \]
+    Then
+    \[
+        \mathcal{O}_{X,x} \coloneqq \varinjlim_{U\ni x} \mathcal{O}_X(U) \cong A_p.
+    \]
+\end{definition}
+
+\begin{remark}
+    If $p = m_x$, then $p$ is the maximal ideal in $A$, while
+    \[
+        m = \left\{\frac{f}{g}\in A_p : f\in p\right\}
+    \]
+    is the maximal ideal in $A_p$.
+\end{remark}
+
+\begin{example}
+    Let $X = \aa^1$.
+    Then
+    \[
+        \c[\aa^1] = \c[t] = A.
+    \]
+    Let $x = 0\in \aa^1$.
+    Then
+    \[
+        A_0 = \left\{\frac{f}{g} : g(0)\neq 0\right\}.
+    \]
+    For example,
+    \[
+        \frac{1}{1 - t}\in A_0,\quad \frac{1}{t}\notin A_0.
+    \]
+    The maximal ideal is
+    \[
+        m_x = \left\{\frac{f}{g}\in A_0 : f(0) = 0\right\}.
+    \]
+    Thus
+    \[
+        \frac{1}{1 - t}\notin m_x,\quad \frac{t^3}{1 - t}\in m_x.
+    \]
+\end{example}

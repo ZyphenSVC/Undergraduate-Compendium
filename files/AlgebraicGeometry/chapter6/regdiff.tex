@@ -1,0 +1,80 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Regular Differential 1-Forms}
+
+Let $X$ be a quasi-projective variety.
+We define regular differential $1$-forms on $X$.
+Let $f$ be a regular function on a neighbourhood $U$ of a point $x \in X$, so $f \in \c[U]$.
+The differential of $f$ at $x$ is denoted
+\[
+    d_x f \in T_x^\upstar,
+\]
+the cotangent space at $x$.
+If $X = \aa^n$ with coordinates $t_1,\ldots,t_n$, then $T_x \cong \c^n$.
+For $f = t_i$, we have
+\[
+    d_x t_i : \c^n \to \c,
+\]
+which is the projection onto the $i$-th coordinate.
+More generally, for $f \in \c[t_1,\ldots,t_n]$,
+\[
+    d_x f : \c^n \to \c,
+    \quad
+    (u_1,\ldots,u_n) \mapsto \sum_{i=1}^n \left.\frac{\partial f}{\partial t_i}\right|_x u_i.
+\]
+
+If $X$ is not affine, we work locally on affine neighbourhoods.
+Define
+\[
+    \Phi(X)
+    = \left\{\phi : X \to \coprod_{x \in X} T_x^\upstar \;\middle|\; \phi(x) \in T_x^\upstar \right\}.
+\]
+
+\begin{definition}[Regular Differential 1-Form]
+    A regular $1$-form on $X$ is a function $\phi \in \Phi(X)$ such that for every $x \in X$, there exists a neighbourhood $U$ of $x$ with
+    \[
+        \phi|_U = \sum_i f_i\, d g_i,
+    \]
+    where $f_i, g_i \in \c[U]$.
+\end{definition}
+
+Equivalently, using sheaf language, a regular $1$-form is a global section of the cotangent sheaf.
+Explicitly,
+\[
+    \sum_i f_i\, d g_i : U \to \coprod_{x \in U} T_x^\upstar,
+    \quad
+    x \mapsto \sum_i f_i(x)\, d_x g_i.
+\]
+
+\begin{remark}
+    Let $\Omega[X]$ denote the set of all regular $1$-forms on $X$.
+    Then $\Omega[X]$ is a $\c[X]$-module.
+\end{remark}
+
+We have the natural differential map
+\[
+    \begin{aligned}
+        d : \c[X] &\to \Omega[X]\\
+        f &\mapsto (x \mapsto d_x f),
+    \end{aligned}
+\]
+which satisfies
+\[
+    d(f+g) = df + dg,
+    \quad
+    d(fg) = f\,dg + g\,df.
+\]
+
+\begin{theorem*}{
+    If $X$ is projective, then $\Omega[X]$ is a finite-dimensional $\c$-vector space.
+}
+\end{theorem*}
+
+Since $X$ is projective, $\c[X] = \c$, so $\Omega[X]$ is naturally a $\c$-vector space.
+Define
+\[
+    \dim_\c \Omega[X] \coloneqq h^{1,0}.
+\]
+
+If $X$ is a smooth projective curve, then $h^{1,0}$ is the geometric genus of $X$.

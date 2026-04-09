@@ -61,7 +61,7 @@
 \end{theorem}
 
 \begin{theorem*}{
-    Suppose $f,g : A\to\r$ and $c\in\r$.
+    Suppose $f,g : A\to\rr$ and $c\in\rr$.
     If
     \[
         \lim_{x\to c} f(x) = L,\quad \lim_{x\to c} g(x) = M,
@@ -77,7 +77,7 @@
 \end{theorem*}
 
 \begin{definition}[One-Sided Limits]
-    Given $A\subset\r$, $c$ is a right limit point of $A$ if for all $\eps > 0$,
+    Given $A\subset\rr$, $c$ is a right limit point of $A$ if for all $\eps > 0$,
     \[
         (c, c+\eps)\cap A\neq\varnothing.
     \]
@@ -120,7 +120,7 @@
 \section{Continuous Functions}
 
 \begin{definition}[Continuous]
-    Suppose $A\subset\r$, $f:A\to \r$, and $c\in A$.
+    Suppose $A\subset\rr$, $f:A\to \rr$, and $c\in A$.
     We say $f$ is continuous at $c$ if for every $\eps > 0$, there exists $\delta > 0$ such that
     \[
         \abs{x - c} < \delta \implies \abs{f(x) - f(c)} < \eps.
@@ -156,7 +156,7 @@
 \end{example}
 
 \begin{remark}
-    If $c$ is a limit point of $A$ and $c\in A$, then $f:A\to\r$ is continuous at $c$ if and only if
+    If $c$ is a limit point of $A$ and $c\in A$, then $f:A\to\rr$ is continuous at $c$ if and only if
     \[
         \lim_{x\to c} f(x) = f(c).
     \]
@@ -178,7 +178,7 @@
                    0, &x = 0.
         \end{cases}
     \]
-    Continuous for all $c\in\r$.
+    Continuous for all $c\in\rr$.
 \end{example}
 
 \begin{proposition}{
@@ -192,7 +192,7 @@
 \end{proposition}
 
 \begin{theorem}{
-    Suppose $f:A\to \r$, $f(A)\subset B$, and $g:B\to\r$.
+    Suppose $f:A\to \rr$, $f(A)\subset B$, and $g:B\to\rr$.
     If $f$ is continuous at $c\in A$ and $g$ is continuous at $f(c)$, then $g\circ f$ is continuous at $c$.
 }
     Let $\eps > 0$.
@@ -211,13 +211,13 @@
 \end{theorem}
 
 \begin{definition}[Continuous]
-    A function $f:A\to\r$ is continuous if it is continuous at every $c\in A$.
+    A function $f:A\to\rr$ is continuous if it is continuous at every $c\in A$.
 \end{definition}
 
 \section{Continuous Functions on Compact Sets}
 
 \begin{theorem}[Continuous Functions on Compact Sets]{
-    Suppose $C\subset\r$ is compact and $f:C\to \r$ is continuous.
+    Suppose $C\subset\rr$ is compact and $f:C\to \rr$ is continuous.
     Then $f(C)$ is compact.
 }
     Let $y_n\in f(C)$ with $y_n = f(x_n)$ and $x_n\in C$.

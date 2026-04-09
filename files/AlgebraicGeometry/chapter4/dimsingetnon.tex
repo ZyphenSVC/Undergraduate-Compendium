@@ -1,0 +1,90 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Dimension and Singular/Nonsingular Points}
+
+Assume $X$ is irreducible.
+Consider $\c(X)$.
+
+\begin{definition}[Transcendence Degree]
+    The dimension of $X$ is the transcendence degree of the field extension $\c(X)$ over $\c$.
+    This can also be defined as the maximum number of algebraically independent elements of $\c(X)$ over $\c$.
+\end{definition}
+
+\begin{definition}[Algebraically Independent Elements]
+    Let $f_1,\ldots,f_k \in \c(X)$.
+    They are algebraically independent over $\c$ if there does not exist a nonzero polynomial $p(x_1,\ldots,x_k)$ such that $p(f_1,\ldots,f_k) = 0$.
+\end{definition}
+
+\begin{example}
+    Take $X = \aa^1$ and $\c(X) = \c(t)$.
+    We claim that $\tdeg(\c(t))$ over $\c$ is $1$.
+\end{example}
+
+\begin{proposition}{
+    $\tdeg(\c(t)/\c) = 1$.
+}
+    $t$ is algebraically independent over $\c$.
+    Thus $\tdeg(\c(t)) \geq 1$.
+
+    We show equality by proving that for any $f \in \c(t)$, the set $\{f,t\}$ is algebraically dependent.
+
+    Write $f = \frac{p_1(t)}{p_2(t)}$ with $p_1, p_2 \in \c[t]$ and $p_2 \neq 0$.
+
+    Define
+    \[
+        p(x_1,x_2) \coloneqq p_2(x_1)x_2 - p_1(x_1).
+    \]
+
+    Then
+    \[
+        p(t,f) = p_2(t)f - p_1(t) = 0.
+    \]
+
+    Hence $\{f,t\}$ is algebraically dependent, and $\tdeg(\c(t)) = 1$.
+\end{proposition}
+
+Similarly, $\tdeg(\c(\aa^n)) = n$.
+Recall that $X,Y$ are birational if and only if $\c(X) \cong \c(Y)$.
+Thus $\dim(\pp^n) = n$ since $\c(\pp^n) = \c(t_1,\ldots,t_n)$.
+
+\begin{theorem*}{
+    Let $f(x_1,\ldots,x_n)$ be a nonzero irreducible polynomial.
+    Then $\dim(X) = n - 1$, where $X = V(f) \subseteq \aa^n$.
+}
+\end{theorem*}
+
+\begin{lemma*}{
+    The dimension of a hypersurface in $\aa^n$ or $\pp^n$ is $n - 1$.
+}
+\end{lemma*}
+
+\begin{corollary*}{
+    If $X$ is not irreducible and $X = \bigcup X_i$ is the decomposition into irreducible components, then
+    \[
+        \dim(X) = \max_i \{\dim(X_i)\}.
+    \]
+}
+\end{corollary*}
+
+\begin{definition}[Local Dimension]
+    \[
+        \dim_x(X) \coloneqq \max \{ \dim(X_i) : x \in X_i \}.
+    \]
+\end{definition}
+
+\begin{theorem*}{
+    For all $x \in X$, we have
+    \[
+        \dim(T_x) \ge \dim_x(X).
+    \]
+}
+\end{theorem*}
+
+\begin{definition}[Nonsingular Points]{
+    A point $x \in X$ is nonsingular (smooth) if and only if
+    \[
+        \dim(T_x) = \dim_x(X).
+    \]
+}
+\end{definition}

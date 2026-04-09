@@ -2,6 +2,9 @@
 \usepackage{xifthen}
 \usepackage{epigraph}
 \usepackage{stackengine}
+\usepackage{caption}
+\usepackage{tocloft}
+\usepackage{float}
 
 \def\testdateparts#1{\dateparts#1\relax}
 \def\dateparts#1 #2 #3 #4 #5\relax{
@@ -226,6 +229,12 @@
     \end{tcolorbox}
 }
 
+\NewDocumentEnvironment{theorem*}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=TheoremBar]
+    \tcbheaderline{TheoremBar}{Theorem}\tcbheadername{#1}{#2}
+    \end{tcolorbox}
+}
+
 \NewDocumentEnvironment{theorem}{O{} +m}{%
     \begin{tcolorbox}[blockbase,tinted=TheoremBar]
     \tcbheaderline{TheoremBar}{Theorem}\tcbheadername{#1}{#2}
@@ -240,6 +249,12 @@
     \else
         \vspace{-\baselineskip}\hfill\qedsymbol
     \fi
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{proposition*}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=PropositionBar]
+    \tcbheaderline{PropositionBar}{Proposition}\tcbheadername{#1}{#2}
     \end{tcolorbox}
 }
 
@@ -280,6 +295,12 @@
 \NewDocumentEnvironment{lemma*}{O{} +m}{%
     \begin{tcolorbox}[blockbase,tinted=LemmaBar]
     \tcbheaderline{LemmaBar}{Lemma}\tcbheadername{#1}{#2}
+    \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{corollary*}{O{} +m}{%
+    \begin{tcolorbox}[blockbase,tinted=CorollaryBar]
+    \tcbheaderline{CorollaryBar}{Corollary}\tcbheadername{#1}{#2}
     \end{tcolorbox}
 }
 

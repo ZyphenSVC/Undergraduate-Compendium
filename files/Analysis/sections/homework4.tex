@@ -10,7 +10,7 @@
     \begin{enumerate}[label={(\arabic*)}]
 	\item $\q$
     \item $\n$
-    \item $\{x\in\r : x\neq 0\}$
+    \item $\{x\in\rr : x\neq 0\}$
     \item $\left\{1+\frac14+\frac19+\cdots+\frac1{n^2} : n\in\n\right\}$
     \item $\left\{1+\frac12+\frac13+\cdots+\frac1n : n\in\n\right\}$
     \end{enumerate}
@@ -22,12 +22,12 @@
 
     \item $\n$ is closed but not open.
     It is not open because if $n\in\n$ and $\eps>0$, then $(n-\eps,n+\eps)$ contains non-natural numbers.
-    It is closed because every point of $\n$ is isolated, so $\n$ has no limit points in $\r$ outside itself.
+    It is closed because every point of $\n$ is isolated, so $\n$ has no limit points in $\rr$ outside itself.
 
-    \item $\{x\in\r : x\neq 0\}$ is open but not closed.
+    \item $\{x\in\rr : x\neq 0\}$ is open but not closed.
     Indeed,
     \[
-        \{x\in\r : x\neq 0\} = (-\infty,0)\cup(0,\infty),
+        \{x\in\rr : x\neq 0\} = (-\infty,0)\cup(0,\infty),
     \]
     which is open.
     It is not closed because $0$ is a limit point and $0$ is not in the set.
@@ -92,7 +92,7 @@
     Decide whether the following statements are true or false.
     Provide counterexamples for those that are false, and supply proofs for those that are true.
     \begin{enumerate}[label={(\alph*)}]
-	\item An open set that contains every rational number must necessarily be all of $\r$.
+	\item An open set that contains every rational number must necessarily be all of $\rr$.
     \item The Nested Interval Property remains true if the term “closed interval” is replaced by “closed set.”
     \item Every nonempty open set contains a rational number.
     \item Every bounded infinite closed set contains a rational number.
@@ -102,9 +102,9 @@
     \textbf{(a).} False.
     Take
     \[
-        \r\setminus\{\sqrt{2}\}.
+        \rr\setminus\{\sqrt{2}\}.
     \]
-    This set is open, contains every rational number, but is not all of $\r$.
+    This set is open, contains every rational number, but is not all of $\rr$.
 
     \textbf{(b).} False.
     Take
@@ -123,7 +123,7 @@
     \[
         (x-\eps,x+\eps)\subseteq U.
     \]
-    Because $\q$ is dense in $\r$, there exists $q\in\q$ such that
+    Because $\q$ is dense in $\rr$, there exists $q\in\q$ such that
     \[
         q\in(x-\eps,x+\eps).
     \]
@@ -176,7 +176,7 @@
     \textbf{(d).}
     Factor out $B$:
     \[
-        (A\cap B)\cup(A^c\cap B) = (A\cup A^c)\cap B = \r\cap B = B.
+        (A\cap B)\cup(A^c\cap B) = (A\cup A^c)\cap B = \rr\cap B = B.
     \]
     So this set is definitely closed.
 
@@ -280,22 +280,22 @@
 
 \begin{example}[Examples of Connected Sets]
     \[
-        \r,\qquad \r^n,\qquad [a,b].
+        \rr,\qquad \rr^n,\qquad [a,b].
     \]
 \end{example}
 
 \begin{problem}{
-    Prove that the only sets that are both open and closed are $\r$ and $\varnothing$.
+    Prove that the only sets that are both open and closed are $\rr$ and $\varnothing$.
 }
-    Suppose $S\subseteq \r$ is both open and closed.
+    Suppose $S\subseteq \rr$ is both open and closed.
     Then $S^c$ is also both open and closed.
-    If $S\neq \varnothing$ and $S\neq \r$, then
+    If $S\neq \varnothing$ and $S\neq \rr$, then
     \[
-        \r = S\cup S^c
+        \rr = S\cup S^c
     \]
     is a disjoint union of two nonempty open sets.
-    This contradicts that $\r$ is connected.
-    Therefore the only clopen subsets of $\r$ are $\r$ and $\varnothing$.
+    This contradicts that $\rr$ is connected.
+    Therefore the only clopen subsets of $\rr$ are $\rr$ and $\varnothing$.
 \end{problem}
 
 \begin{problem}{

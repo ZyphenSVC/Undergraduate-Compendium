@@ -4,7 +4,7 @@
 \section{Irreducibility}
 
 \begin{proposition}[Polynomial Euclid's Lemma]{
-    Suppose $p(x)\in\f[x]$ is irreducible and $b(x)\in\f[x]$ such that $p(x)\nmid b(x)$.
+    Suppose $p(x)\in\ff[x]$ is irreducible and $b(x)\in\ff[x]$ such that $p(x)\nmid b(x)$.
     Then
     \[
         \gcd(p(x),b(x))=1.
@@ -17,7 +17,7 @@
     \]
     Since $p(x)$ is irreducible, every divisor of $p(x)$ is either a unit or an associate of $p(x)$.
     Because gcds are taken to be monic, $d(x)$ is monic.
-    Hence either $d(x)=1$, or $d(x)=cp(x)$ for some nonzero $c\in\f$.
+    Hence either $d(x)=1$, or $d(x)=cp(x)$ for some nonzero $c\in\ff$.
     If $d(x)=cp(x)$, then since $d(x)\mid b(x)$, it follows that $p(x)\mid b(x)$, which is a contradiction.
     Therefore
     \[
@@ -26,13 +26,13 @@
 \end{proposition}
 
 \begin{corollary}{
-    If $p(x)\mid a_1(x)\cdots a_n(x)$, where $a_i(x)\in\f[x]$ and $p(x)$ is irreducible, then $p(x)\mid a_i(x)$ for some $i$.
+    If $p(x)\mid a_1(x)\cdots a_n(x)$, where $a_i(x)\in\ff[x]$ and $p(x)$ is irreducible, then $p(x)\mid a_i(x)$ for some $i$.
 }
     Show this by induction on $n$.
 \end{corollary}
 
 \begin{theorem}{
-    Suppose $a(x)\in\f[x]$.
+    Suppose $a(x)\in\ff[x]$.
     Then $a(x)$ has a factorization into irreducible polynomials.
     This factorization is unique up to order and associates.
 }
@@ -73,7 +73,7 @@ Proceed by induction on $\min\{r,s\}$.
 \end{lemma*}
 
 \begin{proposition*}{
-    If $f(x)$ is irreducible in $\f[x]$, then so is every associate of $f(x)$.
+    If $f(x)$ is irreducible in $\ff[x]$, then so is every associate of $f(x)$.
 }
 \end{proposition*}
 
@@ -91,7 +91,7 @@ The total number of polynomials of degree $n$ is
 \begin{proof}
     We have
     \[
-        x^2-2=\left(x-\sqrt{2}\right)\left(x+\sqrt{2}\right)\in\r[x].
+        x^2-2=\left(x-\sqrt{2}\right)\left(x+\sqrt{2}\right)\in\rr[x].
     \]
     If $x^2-2$ factored in $\Q[x]$, then since it has degree $2$, it would factor into linear polynomials over $\Q$.
     That would force it to have a rational root.
@@ -99,18 +99,18 @@ The total number of polynomials of degree $n$ is
     Therefore $x^2-2$ is irreducible in $\Q[x]$.
 \end{proof}
 
-Let $\f$ be a field.
-Take $f(x)\in\f[x]$.
-There is a corresponding polynomial function $\f\to\f$ also denoted by $f(x)$.
+Let $\ff$ be a field.
+Take $f(x)\in\ff[x]$.
+There is a corresponding polynomial function $\ff\to\ff$ also denoted by $f(x)$.
 
 \begin{theorem*}[Factor Theorem]{
-    Let $f(x)\in\f[x]$ and $a\in\f$.
+    Let $f(x)\in\ff[x]$ and $a\in\ff$.
     If $f(a)=0$, then $(x-a)$ is a factor of $f(x)$.
     That is,
     \[
         f(x)=g(x)(x-a)
     \]
-    for some $g(x)\in\f[x]$.
+    for some $g(x)\in\ff[x]$.
 }
 \end{theorem*}
 
@@ -177,12 +177,12 @@ Thus
 is a factorization into irreducible in $\mathbb{Z}_5[x]$.
 
 \begin{theorem*}[Remainder Theorem]{
-    Let $f(x)\in\f[x]$ and $a\in\f$.
+    Let $f(x)\in\ff[x]$ and $a\in\ff$.
     Then
     \[
         f(x)=g(x)(x-a)+r(x)
     \]
-    for some $g(x)\in\f[x]$, where $r(x)$ is a constant polynomial.
+    for some $g(x)\in\ff[x]$, where $r(x)$ is a constant polynomial.
 }
 \end{theorem*}
 
@@ -224,7 +224,7 @@ is a factorization into irreducible in $\mathbb{Z}_5[x]$.
 \end{definition}
 
 \begin{corollary}[of Factor Theorem]{
-    Suppose $f(x)\in\f[x]$ has $\deg f(x)=n$.
+    Suppose $f(x)\in\ff[x]$ has $\deg f(x)=n$.
     Then $f(x)$ has at most $n$ different roots.
 }
     By induction on $\deg f(x)$.
@@ -501,7 +501,7 @@ Roots of $x^n-1$ are
     \]
     and
     \[
-        \omega+\overline{\omega}\in\r,\qquad \omega\overline{\omega}\in\r.
+        \omega+\overline{\omega}\in\rr,\qquad \omega\overline{\omega}\in\rr.
     \]
     So this quadratic factor lies in $\rx$.
     Hence every irreducible polynomial in $\rx$ has degree $1$ or $2$.
@@ -509,7 +509,7 @@ Roots of $x^n-1$ are
 
 \begin{example}
     Suppose $f(x)\in\rx$ and has degree $3$.
-    By the Intermediate Value Theorem, there exists $c\in\r$ such that $f(c)=0$.
+    By the Intermediate Value Theorem, there exists $c\in\rr$ such that $f(c)=0$.
     So by the factor theorem, $(x-c)$ is a factor of $f(x)\in\rx$.
 \end{example}
 

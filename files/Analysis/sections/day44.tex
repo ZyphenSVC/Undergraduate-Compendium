@@ -4,7 +4,7 @@
 \lesson{44}{Friday 21 November 2025 9:10}{Day 44}
 
 \begin{theorem}{
-    Suppose $f:[a,b]\to\r$ is Riemann integrable.
+    Suppose $f:[a,b]\to\rr$ is Riemann integrable.
     Then $\abs{f}$ is also Riemann integrable, and
     \[
         \abs{\int_a^b f(x)\,dx}\leq\int_a^b\abs{f(x)}\,dx.
@@ -61,7 +61,7 @@
 \section{The Fundamental Theorem of Calculus}
 
 \begin{theorem}[Fundamental Theorem of Calculus]{
-    Let $f:[a,b]\to\r$ be Riemann integrable.
+    Let $f:[a,b]\to\rr$ be Riemann integrable.
     Define
     \[
         F(x) \coloneqq \int_a^x f(t)\,dt.
@@ -70,7 +70,7 @@
     \begin{enumerate}
         \item $F$ is continuous on $[a,b]$.
         \item If $f$ is continuous at $c\in[a,b]$, then $F\uptick(c) = f(c)$.
-        \item If $G:[a,b]\to\r$ is differentiable and $G\uptick = f$, then
+        \item If $G:[a,b]\to\rr$ is differentiable and $G\uptick = f$, then
         \[
             \int_a^b f(x)\,dx = G(b) - G(a).
         \]

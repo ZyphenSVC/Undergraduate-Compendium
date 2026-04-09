@@ -1,5 +1,12 @@
 \documentclass[A4,12pt,twoside]{book}
 
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{sample.bib}
+
 \input{./preamble}
 
 \author{Sriaditya Vedantam}
@@ -30,7 +37,7 @@
 }
 
 \newcommand{\LittleTitle}{
-    Notes during my Algebra Geometry Course
+    Notes during my Algebraic Geometry Course
 }
 
 \begin{document}
@@ -52,4 +59,7 @@
 
     \input{files/ugCompendium}
 
+    \newpage
+    \nocite{*}
+    \printbibliography
 \end{document}

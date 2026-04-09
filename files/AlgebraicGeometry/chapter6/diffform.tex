@@ -1,0 +1,175 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Behavior Under Maps of Differential 1-Forms}
+
+Let $X,Y$ be quasi-projective varieties and let $\phi: X \to Y$ be a regular map.
+There exists a pullback map on $1$-forms
+\[
+    \phi^\upstar : \Omega[Y] \to \Omega[X].
+\]
+
+\subsection*{Example}
+
+Let $\phi : \aa^1_t \to \aa^1_u$ be defined by $t \mapsto u = t^k$.
+Then
+\[
+    \phi^\upstar : \Omega[\aa^1_u] \to \Omega[\aa^1_t]
+\]
+is given by
+\[
+    f(u)\,du \longmapsto f(t^k)\,d(t^k),
+    \quad
+    d(t^k) = k t^{k-1} dt.
+\]
+
+\begin{theorem*}{
+    If $X,Y$ are smooth projective varieties and birational, then
+    \[
+        \Omega[X] \cong \Omega[Y].
+    \]
+}
+\end{theorem*}
+
+If $X$ is birational to $Y$, there exists a rational map $\phi: X \dashrightarrow Y$.
+Then $\phi$ is regular on some open subset $U \subseteq X$.
+For $\omega \in \Omega[Y]$, the pullback
+\[
+    (\phi|_U)^\upstar \omega
+\]
+is a regular $1$-form on $U$, hence a rational $1$-form on $X$.
+
+\begin{theorem*}{
+    If $\phi$ is birational, then $(\phi|_U)^\upstar \omega$ extends to a regular $1$-form on $X$.
+}
+\end{theorem*}
+
+Thus $\phi^\upstar : \Omega[Y] \to \Omega[X]$ is well-defined even when $\phi$ is only rational, provided $X,Y$ are smooth projective varieties.
+Consequently,
+\[
+    \dim \Omega[X] = \dim \Omega[Y],
+\]
+so these dimensions (the Hodge numbers $h^{1,0}$) are birational invariants.
+
+\subsection*{Canonical Divisor}
+
+Let $\omega,\omega' \in \Omega(X)$ be nonzero rational $1$-forms.
+Since $\Omega(X)$ is a $1$-dimensional vector space over $\c(X)$ (when $X$ is a curve), we have
+\[
+    \omega' = g\omega
+\]
+for some $g \in \c(X)$.
+Thus
+\[
+    \div(\omega') = \div(g) + \div(\omega).
+\]
+Since $\div(g)$ is principal, we obtain
+\[
+    \div(\omega) \sim \div(\omega').
+\]
+Hence $\div(\omega)$ defines a well-defined class in $Cl(X)$, called the \textit{canonical class} $K_X$.
+
+\subsection*{Relation with $\Ell(K_X)$}
+
+For a divisor $D$, recall
+\[
+    \Ell(D) = \{0\} \cup \{f \in \c(X) : \div(f) + D \geq 0\}.
+\]
+
+Then
+\[
+    \Ell(K_X)
+    = \{0\} \cup \{f \in \c(X) : \div(f) + K_X \geq 0\}.
+\]
+
+Since $K_X = \div(\omega)$,
+\[
+    \div(f) + \div(\omega) \geq 0
+    \quad \Longleftrightarrow \quad
+    \div(f\omega) \geq 0.
+\]
+Thus $f\omega$ is a regular $1$-form, so
+\[
+    \Ell(K_X) \cong \Omega[X].
+\]
+
+\subsection*{Example: $X = \pp^1$}
+
+Let $\pp^1 = \aa^1_t \cup \aa^1_u$ with $t = \frac{1}{u}$.
+Take $\omega = dt$, which is a rational $1$-form on $\pp^1$.
+On $\aa^1_t$, we have
+\[
+    \div(\omega)|_{\aa^1_t} = 0.
+\]
+
+On $\aa^1_u$, since
+\[
+    t = \frac{1}{u},
+    \quad
+    dt = -\frac{1}{u^2} du,
+\]
+we obtain
+\[
+    \div(\omega)|_{\aa^1_u} = \div(-u^{-2}) = -2\{u=0\}.
+\]
+
+Hence
+\[
+    \deg(K_X) = -2.
+\]
+
+\subsection*{Problem}
+
+Show that the rational differential form $\frac{dx}{y}$ is regular on the affine curve
+\[
+    X = \{x^2 + y^2 = 1\}.
+\]
+
+If $y \neq 0$, then $\frac{dx}{y}$ is clearly regular.
+If $y = 0$, this occurs at two points $p_1,p_2$.
+At these points, tangent vectors are vertical, so $dx = 0$ on all tangent directions.
+Thus $\frac{dx}{y}$ appears indeterminate.
+Using the relation
+\[
+    x^2 + y^2 = 1,
+\]
+differentiate to obtain
+\[
+    2x\,dx + 2y\,dy = 0,
+    \quad
+    \Rightarrow \quad
+    \frac{dx}{y} = -\frac{dy}{x}.
+\]
+This expression is regular at $p_1,p_2$.
+Hence $\frac{dx}{y}$ is regular everywhere on $X$.
+
+\subsection*{Structure of $\Omega^1[X]$}
+
+We claim
+\[
+    \Omega^1[X] = \c[X]\frac{dx}{y}.
+\]
+
+First, $\frac{dx}{y}$ is regular, and $\Omega^1[X]$ is a $\c[X]$-module, so
+\[
+    \c[X]\frac{dx}{y} \subseteq \Omega^1[X].
+\]
+
+Conversely, let $\omega \in \Omega^1[X]$.
+Then $\omega \in \Omega(X)$, and since $\dim \Omega(X) = 1$, we can write
+\[
+    \omega = f \frac{dx}{y},
+    \quad
+    f \in \c(X).
+\]
+
+Since $\omega$ is regular and $\frac{dx}{y}$ has no poles, we must have $f \in \c[X]$.
+Thus
+\[
+    \Omega^1[X] \subseteq \c[X]\frac{dx}{y}.
+\]
+
+Therefore,
+\[
+    \Omega^1[X] = \c[X]\frac{dx}{y}.
+\]
