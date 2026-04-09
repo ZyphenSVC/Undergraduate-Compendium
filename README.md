@@ -16,13 +16,14 @@ I modified the preamble slightly for my use cases and specifics.
 
 This repository will include material from topics such as:
 
+- [Real Analysis](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/RealAnalysis.pdf)
+- [Abstract Algebra](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/AbstractAlgebra.pdf)
+- [Algebraic Geometry](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/AlgebraicGeometry.pdf)
+- Mongo (<b><i>#WIP</i></b>)
 - Calculus (<b><i>#TODO</i></b>)
 - Linear Algebra (<b><i>#TODO</i></b>)
 - Elementary Differential Equations (<b><i>#TODO</i></b>)
 - Introduction to Proofs (<b><i>#TODO</i></b>)
-- [Real Analysis](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/RealAnalysis.pdf)
-- [Abstract Algebra](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/AbstractAlgebra.pdf)
-- [Algebraic Geometry](https://github.com/ZyphenSVC/Undergraduate-Compendium/blob/master/out/AlgebraicGeometry.pdf)
 - Combinatorics (<b><i>#TODO</i></b>)
 - Point Set Topology (<b><i>#TODO</i></b>)
 - Algebraic Topology (<b><i>#TODO</i></b>)

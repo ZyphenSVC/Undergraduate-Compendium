@@ -1,0 +1,258 @@
+%! Author = sriadityavedantam
+%! Date = 4/8/26
+
+\section{Chapter 10}
+
+\begin{problem}[Exercise 1]{
+    Let $K \leq \zsumz$, and define
+    \[
+        H \coloneqq \{b \in \z : (a,b) \in K \text{ for some } a \in \z\}.
+    \]
+    Show that $H \leq \z$.
+}
+    Given $K \leq \zsumz$, then $(0,0) \in K$.
+    Thus by definition of $H$, $0 = e \in H$.
+    Given $(a,b) \in K$, then $(a,b)^{-1} = (-a,-b) \in K$.
+    Thus if $b \in H$, then $-b \in H$.
+    Since $K$ is closed under the operation $(a,b)(c,d) = (a+c,b+d)$, given $b,d \in H$, we have $b+d \in H$.
+    Thus $H$ is also closed under the group operation.
+    Hence $H \leq \z$.
+\end{problem}
+
+\begin{problem}[Exercise 2]{
+    Let $G$ be an abelian group, and let $T$ be its torsion subgroup.
+}
+    \textbf{(a).}
+    Show that $T \leq G$.
+
+    Given $G$ is an abelian group and $T$ is the torsion subgroup, then $e \in T$ since the identity has finite order $1$.
+    Given $a \in T$, then $a^{-1} \in T$ since the inverse has the same order as $a$.
+    Indeed,
+    \[
+        (a^{-1})^{\ord(a)} = (a^{\ord(a)})^{-1} = e^{-1} = e.
+    \]
+    Given $a,b \in T$,
+    \begin{align*}
+        (ab)^{\ord(a)\ord(b)} &= (a^{\ord(a)})^{\ord(b)}(b^{\ord(b)})^{\ord(a)}\\
+        &= e^{\ord(b)}e^{\ord(a)}\\
+        &= e.
+    \end{align*}
+    Thus $ab \in T$.
+    Hence $T \leq G$.
+
+    \textbf{(b).}
+    Show that every nonzero element of $G/T$ has infinite order.
+
+    Given $0 \neq Ta \in G/T$, suppose $a \notin T$ and $Ta$ has finite order $m$.
+    Then
+    \[
+        (Ta)^m = Ta^m = T.
+    \]
+    Thus $a^m \in T$.
+    Since $a^m$ has finite order, there exists $r \in \n$ such that $(a^m)^r = e$.
+    Hence $a^{mr} = e$, so $a$ has finite order, and therefore $a \in T$.
+    This is a contradiction.
+    Hence all nonzero elements of the quotient group $G/T$ have infinite order.
+\end{problem}
+
+\begin{problem}[Exercise 3]{
+    List the isomorphism types of abelian groups of order $32$.
+}
+    The isomorphism types of abelian groups are:
+    \begin{enumerate}
+        \item $2^5$
+        \item $2^4 \times 2$
+        \item $2^3 \times 2^2$
+        \item $2^3 \times 2 \times 2$
+        \item $2^2 \times 2^2 \times 2$
+        \item $2^2 \times 2 \times 2 \times 2$
+        \item $2 \times 2 \times 2 \times 2 \times 2$
+    \end{enumerate}
+    The representatives for each respectively are:
+    \begin{enumerate}
+        \item $\z_{32}$
+        \item $\z_{16} \times \z_{2}$
+        \item $\z_{8} \times \z_{4}$
+        \item $\z_{8} \times \z_{2} \times \z_{2}$
+        \item $\z_{4} \times \z_{4} \times \z_{2}$
+        \item $\z_{4} \times \z_{2} \times \z_{2} \times \z_{2}$
+        \item $\z_{2} \times \z_{2} \times \z_{2} \times \z_{2} \times \z_{2}$
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Exercise 4]{
+    Rewrite
+    \[
+        \z_{2} \oplus \z_{2} \oplus \z_{8} \oplus \z_{9} \oplus \z_{5} \oplus \z_{5}
+    \]
+    in invariant factor form.
+}
+    \begin{align*}
+        2,2,2,8,9,5,5 &\rightarrow 2,2,2,2^3,3^2,5,5\\
+        &\implies d_1 = 2^3 \cdot 3^2 \cdot 5 = 360\\
+        2,2,2,5 &\implies d_2 = 2 \cdot 5 = 10\\
+        2,2 &\implies d_3 = 2.
+    \end{align*}
+    Thus
+    \[
+        \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_8 \oplus \mathbb{Z}_9 \oplus \mathbb{Z}_5 \oplus \mathbb{Z}_5 \cong \z_{360} \oplus \z_{10} \oplus \z_{2}.
+    \]
+\end{problem}
+
+\begin{problem}[Exercise 5]{
+    Let $G = A_5$.
+}
+    \textbf{(a).}
+    The possible cycle types are
+    \begin{align*}
+        5 &\implies (12345),\\
+        5 &\implies (12354),\\
+        3 + 1 + 1 &\implies (123)(4)(5),\\
+        2 + 2 + 1 &\implies (12)(34)(5),\\
+        1 + 1 + 1 + 1 + 1 &\implies (1).
+    \end{align*}
+
+    \textbf{(b).}
+    The number of elements of each type is
+    \begin{align*}
+        5 &\implies 5!/10 = 12,\\
+        5 &\implies 5!/10 = 12,\\
+        3 + 1 + 1 &\implies 5 \cdot 4 = 20,\\
+        2 + 2 + 1 &\implies 5!/2^3 = 15,\\
+        1 + 1 + 1 + 1 + 1 &\implies 1.
+    \end{align*}
+    Note that we needed to split the $5$-cycles into two conjugacy classes.
+    In all summed up, these elements equal $60$, which is the total number of elements of $A_5$.
+
+    \textbf{(c).}
+    The size of the centralizer for each element in part \textbf{(a)} is associated with the number of elements above, except for the identity, whose centralizer is all of $G$.
+
+    \textbf{(d).}
+    Thus the class equation is
+    \[
+        \ord(G) = \ord(Z(G)) + [G : C_G(12345)] + [G : C_G(12354)] + [G : C_G(123)] + [G : C_G((12)(34))].
+    \]
+\end{problem}
+
+\begin{problem}[Exercise 6]{
+    Given $K$ is a Sylow $p$-subgroup of $G$ and $N$ is a normal subgroup of $G$, suppose $K \trianglelefteq N$.
+    Show that $K \trianglelefteq G$.
+}
+    Since $K$ is normal in $N$, then $K$ is the only Sylow $p$-subgroup of $N$ by the corollary of the Second Sylow Theorem.
+    Let $g \in G$.
+    Since $N$ is normal in $G$, we have $gNg^{-1} = N$.
+    Thus $gKg^{-1} \leq N$, and $gKg^{-1}$ is also a Sylow $p$-subgroup of $N$.
+    Since $K$ is the unique Sylow $p$-subgroup of $N$, it must be that $gKg^{-1} = K$.
+    Hence $K \trianglelefteq G$.
+\end{problem}
+
+\begin{problem}[Exercise 7]{
+    Let $N \trianglelefteq G$, and let $C$ be the conjugacy class of $a$ in $G$.
+}
+    \textbf{(a).}
+    Show that $a \in N$ if and only if $C \subseteq N$.
+
+    \textit{($\implies$).}
+    Suppose $a \in N$.
+    Since $N$ is normal, for every $x \in G$ we have $xax^{-1} \in N$.
+    Thus every conjugate of $a$ lies in $N$, so $C \subseteq N$.
+
+    \textit{($\impliedby$).}
+    Suppose $C \subseteq N$.
+    Since $a \in C$, it follows immediately that $a \in N$.
+
+    \textbf{(b).}
+    Suppose $C_i$ is the conjugacy class of $c \in G$.
+    By part \textbf{(a)}, if $c \in N$, then $C_i \subseteq N$.
+    By the contrapositive, if $C_i \nsubseteq N$, then $c \notin N$.
+    Thus $C_i$ and $N$ are disjoint sets.
+
+    \textbf{(c).}
+    The class equation of $G$ is
+    \[
+        |Z(G)| + \sum_{i=1}^j |C_i|.
+    \]
+    If we keep only those conjugacy classes contained in $N$, say $C_1,\ldots,C_k$, then by part \textbf{(b)} these classes are either contained in $N$ or disjoint from $N$.
+    Thus
+    \[
+        |N| = \sum_{i=1}^k |C_i|.
+    \]
+\end{problem}
+
+\begin{problem}[Exercise 8]{
+    Given $N \neq \gen{e}$ is a normal subgroup of $G$ and $\ord(G) = p^n$, show that $N \cap Z(G) \neq \gen{e}$.
+}
+    Since $N$ is a nontrivial $p$-group, its order is $p^k$ for some $k \leq n$.
+    By the class equation for $N$, the center $Z(N)$ is nontrivial.
+    Since $N$ is normal in $G$, elements of $Z(N)$ lie in $N$.
+    Also $Z(N) \subseteq N$, and in particular there exists $e \neq a \in N$ such that $ga g^{-1} = a$ for all $g \in G$.
+    Thus $a \in Z(G)$.
+    Hence $N \cap Z(G) \neq \gen{e}$.
+\end{problem}
+
+\begin{problem}[Exercise 9]{
+    Show that $N(N(K)) = N(K)$.
+}
+    Given $N(K)$ is the normalizer of $K$, we have
+    \[
+        N(K) = \{x \in G : xKx^{-1} = K\}.
+    \]
+    Then
+    \[
+        N(N(K)) = \{x \in G : xN(K)x^{-1} = N(K)\}.
+    \]
+    Since $N(K)$ is a subgroup, it normalizes itself.
+    Hence $N(N(K)) = N(K)$.
+\end{problem}
+
+\begin{problem}[Exercise 10]{
+    Given $\ord(G) = p^n$, show that $G$ has a normal subgroup of order $p^{n-1}$.
+}
+    Suppose $k=1$.
+    Then a subgroup of order $p^{k-1} = p^0 = 1$ is $\{e\}$.
+    Assume that for all $1 \leq i \leq k$ the claim holds, and let $i = k+1$.
+    By Theorem 9.27, either $\ord(Z(G)) = p^n$ or $\ord(Z(G)) < p^n$.
+    If $\ord(Z(G)) = p^n$, then $G$ is abelian, and the result follows.
+    Otherwise, $G/Z(G)$ is a $p$-group of smaller order.
+    By induction, $G/Z(G)$ has a normal subgroup of order $p^{n-1-|Z(G)|_p}$, whose inverse image in $G$ is a normal subgroup of order $p^{n-1}$.
+    Hence $G$ has a normal subgroup of order $p^{n-1}$.
+\end{problem}
+
+\begin{problem}[Exercise 11]{
+    Show that there is no simple group of order $30$.
+}
+    A group of order $30$ has prime divisors $2,3,5$.
+    If there is exactly one Sylow $2$-subgroup, then it is normal, and the group cannot be simple.
+    Thus there are at least three Sylow $2$-subgroups.
+
+    Similarly, the number of Sylow $3$-subgroups must divide $10$ and be congruent to $1 \mod 3$, so it is at least $10$.
+
+    The number of Sylow $5$-subgroups must divide $6$ and be congruent to $1 \mod 5$, so it is at least $6$.
+
+    Since distinct Sylow $p$-subgroups intersect trivially except at the identity, there are at least
+    \[
+        3(2-1) + 10(3-1) + 6(5-1) = 3 + 20 + 24 = 47
+    \]
+    elements of prime order.
+    But $47 > 30$, which is impossible.
+    Thus a simple group of order $30$ does not exist.
+\end{problem}
+
+\begin{problem}[Exercise 12]{
+    Given $K$ is a Sylow $p$-subgroup and $N$ is normal in $G$, show that $K \cap N$ is a Sylow $p$-subgroup of $N$.
+}
+    By Lagrange's Theorem and Exercise 15, we have
+    \[
+        [N : K \cap N] = [KN : K].
+    \]
+    Thus
+    \[
+        [G : K] = [G : KN][KN : K].
+    \]
+    Hence $[KN : K] \mid [G : K]$.
+    Since $[G : K]$ is not divisible by $p$ by the definition of a Sylow $p$-subgroup, it follows that
+    \[
+        p \nmid [N : K \cap N].
+    \]
+    Thus $K \cap N$ is a Sylow $p$-subgroup of $N$.
+\end{problem}

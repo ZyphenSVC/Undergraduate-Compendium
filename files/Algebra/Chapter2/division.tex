@@ -3,9 +3,7 @@
 
 \section{Division}
 
-Now that we have learned the axioms of arithmetic, let us learn about the division algorithm.
-
-We have all, hopefully, learned how to divide in grade school.
+Now that we have learned the axioms of arithmetic, let us learn about the division algorithm.We have all, hopefully, learned how to divide in grade school.
 As a revision, you can divide a number evenly by some other number and whatever is left over will result as the remainder.
 This can be written more formally as
 \[
@@ -103,9 +101,7 @@ Now that we understand what we are doing in more understandable terms, let us lo
 
 Thus we have shown an example of the division algorithm.
 Now that we understand the values that set $S$ can contain, even though we have provided proof, we must still prove this through math and generalize it.
-And that is exactly what we spend the rest of the proof doing.
-
-We answer questions in this proof such as, what if $a$ is greater than $0$ or less than $0$.
+And that is exactly what we spend the rest of the proof doing.We answer questions in this proof such as, what if $a$ is greater than $0$ or less than $0$.
 And what happens if $r$ is greater than $b$, which we show cannot happen if $r$ is the smallest non-negative integer of that form.
 For example, we could technically have a solution
 \begin{gather*}
@@ -168,9 +164,7 @@ and this fits the equation $a = bx + r$, but it is not the division algorithm re
 \end{proposition}
 
 This proposition demonstrates that $q$ and $r$ are unique, and this is really important to show in math when we are proving an algorithm.
-Regardless of what $q$ and $r$ are, if they exist, then they are unique, sounding trivial, but as we see the proof is rather less trivial.
-
-This one is a bit more straightforward, therefore there will not be a conceptualizing analysis on this proof.
+Regardless of what $q$ and $r$ are, if they exist, then they are unique, sounding trivial, but as we see the proof is rather less trivial.This one is a bit more straightforward, therefore there will not be a conceptualizing analysis on this proof.
 This is also just further building the proof techniques we have at our arsenal and allowing one to understand the algorithm through and through.
 
 \begin{definition}[Logical Divide]
@@ -185,13 +179,9 @@ This is also just further building the proof techniques we have at our arsenal a
 \end{definition}
 
 There is not a strict name for this definition as far as I know, therefore I created a name for it, Logical Divide.
-It is the logical notation for the phrase ``$x$ divides $y$'', and it is trivial to Abstract Algebra.
-
-It is slightly different from, say, previous computationally algebraic courses, where one just computes some division and may even end up with a completed or incomplete, rational or not, answer.
+It is the logical notation for the phrase ``$x$ divides $y$'', and it is trivial to Abstract Algebra.It is slightly different from, say, previous computationally algebraic courses, where one just computes some division and may even end up with a completed or incomplete, rational or not, answer.
 Note that up to now we are only sticking with the integers, and this is a really important fact to keep in mind.
-Therefore when we say that $2\mid 4$, then we really mean that $4$ is evenly divisible by $2$, but $3$ does not divide $4$, even if we can write it in terms of a decimal.
-
-Another way we can explain this topic is through the division algorithm.
+Therefore when we say that $2\mid 4$, then we really mean that $4$ is evenly divisible by $2$, but $3$ does not divide $4$, even if we can write it in terms of a decimal.Another way we can explain this topic is through the division algorithm.
 If it does not look similar, we can write $b$ divides $a$ as
 \[
     a = bq + r,
@@ -215,9 +205,7 @@ One proof we will be looking at is the following.
     \]
     so $-b\mid a$, since $-q\in\mathbb{Z}$.
     Similarly, $b\mid -a$.
-\end{lemma}
-
-This is just a fun fact to rationalize that these four results are possible:
+\end{lemma}This is just a fun fact to rationalize that these four results are possible:
 $b\mid a$, $b\mid -a$, $-b\mid a$, and $-b\mid -a$.
 Now on a larger note, we must prove transitivity through logical divides.
 
@@ -330,9 +318,7 @@ If they are relatively prime, then by the previous theorem, the linear combinati
 
 The last thing we will be looking at in this section is the extended gcd algorithm.
 The idea behind this is to use the gcd algorithm and then reverse the process in order to find the factors of the linear combination.
-This is more of a computational math.
-
-The gcd algorithm can be written in terms of the Division Algorithm and continuing to find the terms that make up the two factors.
+This is more of a computational math.The gcd algorithm can be written in terms of the Division Algorithm and continuing to find the terms that make up the two factors.
 An idea of this is using $\gcd(109,26)$.
 
 \[
@@ -346,9 +332,7 @@ Because $109$ can be split up by $26$ and have a remainder of $5$, this is no di
 \]
 
 Now because we are left with a remainder of one, and one can go into any number, then $1$ is our final answer for the gcd of $(109,26)$.
-This is a way to do the gcd algorithm through division.
-
-But what if we are to set this the other way around.
+This is a way to do the gcd algorithm through division.But what if we are to set this the other way around.
 
 \[
     1 = 26 - 5(5).
